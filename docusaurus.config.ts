@@ -118,7 +118,7 @@ const config: Config = {
       // Public API key: it is safe to commit it
       apiKey: 'a66efbe06c7b3a50d3c677308e22ca7f',
 
-      indexName: 'femtech_weekend_website_vercel_app_vnbiilhfak_pages',
+      indexName: 'femtech-weekend-website-crawler',
 
       // Optional: see doc section below
       contextualSearch: true,
