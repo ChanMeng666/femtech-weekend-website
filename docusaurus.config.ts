@@ -10,7 +10,7 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://femtech-weekend-website.vercel.app',
+  url: 'https://your-docusaurus-site.example.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -22,17 +22,6 @@ const config: Config = {
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-
-  // Add Algolia site verification meta tag
-  headTags: [
-    {
-      tagName: 'meta',
-      attributes: {
-        name: 'algolia-site-verification',
-        content: 'F8FB6AEB8D9BE0BB',
-      },
-    },
-  ],
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you

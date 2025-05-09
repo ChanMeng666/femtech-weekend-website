@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Algolia-Crawler-Verif: F8FB6AEB8D9BE0BB
+
+Sitemap: https://femtech-weekend-website.vercel.app/sitemap.xml 
