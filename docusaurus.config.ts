@@ -33,6 +33,11 @@ const config: Config = {
 
   markdown: {
     mermaid: true,
+    mdx1Compat: {
+      comments: false,
+      admonitions: false,
+      headingIds: false,
+    },
   },
   themes: ['@docusaurus/theme-mermaid'],
 
@@ -84,6 +89,7 @@ const config: Config = {
       },
     },
     navbar: {
+      hideOnScroll: true,
       title: 'My Site',
       logo: {
         alt: 'My Site Logo',
