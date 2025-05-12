@@ -94,6 +94,7 @@ const config: Config = {
       logo: {
         alt: 'Femtech Weekend Logo',
         src: 'img/logo/femtech-weekend-sub-logo-brown.svg',
+        srcDark: 'img/logo/femtech-weekend-sub-logo-beige.svg',
       },
       items: [
         {
