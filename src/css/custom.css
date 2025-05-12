@@ -9,25 +9,44 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  /* Primary color: Bright Blue */
+  --ifm-color-primary: #3A7CB5;
+  --ifm-color-primary-dark: #3470A3;
+  --ifm-color-primary-darker: #316A9A;
+  --ifm-color-primary-darkest: #29577F;
+  --ifm-color-primary-light: #4B88BE;
+  --ifm-color-primary-lighter: #5C94C7;
+  --ifm-color-primary-lightest: #7CAAD3;
+  
+  /* Additional brand colors */
+  --ifm-color-secondary: #D6AB93; /* Soft light brown - brand logo color */
+  --ifm-color-gray: #595959; /* Medium gray - brand logo color */
+  --ifm-color-success: #65B891; /* Fresh mint green */
+  --ifm-color-warning: #F2C661; /* Warm golden yellow */
+  
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  /* Primary color: Mint Green in dark mode */
+  --ifm-color-primary: #65B891;
+  --ifm-color-primary-dark: #58A682;
+  --ifm-color-primary-darker: #519C7A;
+  --ifm-color-primary-darkest: #438064;
+  --ifm-color-primary-light: #76C09D;
+  --ifm-color-primary-lighter: #87C9A9;
+  --ifm-color-primary-lightest: #A4D7BE;
+  
+  /* Additional brand colors for dark mode */
+  --ifm-color-secondary: #D6AB93; /* Maintain soft light brown */
+  --ifm-color-success: #3A7CB5; /* Use bright blue as success in dark mode */
+  --ifm-color-warning: #F2C661; /* Maintain warm golden yellow */
+  
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  
+  /* Ensure text has good contrast against dark backgrounds */
+  --ifm-font-color-base: #ffffff;
+  --ifm-background-color: #1e1e1e;
 }
