@@ -1,0 +1,34 @@
+---
+title: Zoomable Image Example
+description: Example of using zoomable images in Docusaurus
+---
+
+# Zoomable Images in Docusaurus
+
+You can make images zoomable to full screen by using the ZoomableImage component.
+
+## Using the ZoomableImage Component
+
+```mdx-code-block
+import ZoomableImage from '@site/src/components/ZoomableImage';
+```
+
+### Example 1: Using the component directly
+
+<ZoomableImage src="/img/docusaurus-social-card.jpg" alt="Docusaurus social card" />
+
+### Example 2: Using with regular Markdown
+
+You can also make regular markdown images zoomable by wrapping them in the Zoom component:
+
+```mdx-code-block
+import Zoom from 'react-medium-image-zoom';
+```
+
+<Zoom>
+
+![Docusaurus logo](/img/logo.svg)
+
+</Zoom>
+
+Click on either image to see it expand to full screen! 

@@ -1,10 +1,174 @@
 {
   "version.label": {
-    "message": "Next",
-    "description": "The label for version current"
+    "message": "下一版",
+    "description": "当前版本的标签"
   },
   "sidebar.tutorialSidebar.category.Tutorial": {
-    "message": "Tutorial",
-    "description": "The label for category Tutorial in sidebar tutorialSidebar"
+    "message": "教程",
+    "description": "侧边栏 tutorialSidebar 中 Tutorial 分类的标签"
+  },
+  "sidebar.docs.category.FemTech Roundtable": {
+    "message": "FemTech 圆桌论坛",
+    "description": "侧边栏 FemTech Roundtable 分类的标签"
+  },
+  "sidebar.docs.category.Women": {
+    "message": "女性",
+    "description": "侧边栏 Women 分类的标签"
+  },
+  "sidebar.docs.category.Workplace": {
+    "message": "职场",
+    "description": "侧边栏 Workplace 分类的标签"
+  },
+  "sidebar.docs.category.Health": {
+    "message": "健康",
+    "description": "侧边栏 Health 分类的标签"
+  },
+  "sidebar.docs.category.Technology": {
+    "message": "科技",
+    "description": "侧边栏 Technology 分类的标签"
+  },
+  "sidebar.docs.category.Equality": {
+    "message": "平等",
+    "description": "侧边栏 Equality 分类的标签"
+  },
+  "sidebar.docs.category.Diversity": {
+    "message": "多元",
+    "description": "侧边栏 Diversity 分类的标签"
+  },
+  "sidebar.docs.category.Inclusion": {
+    "message": "包容",
+    "description": "侧边栏 Inclusion 分类的标签"
+  },
+  "sidebar.docs.category.GenZ": {
+    "message": "Z世代",
+    "description": "侧边栏 GenZ 分类的标签"
+  },
+  "sidebar.docs.category.Mental Health": {
+    "message": "心理健康",
+    "description": "侧边栏 Mental Health 分类的标签"
+  },
+  "sidebar.docs.category.Leadership": {
+    "message": "领导力",
+    "description": "侧边栏 Leadership 分类的标签"
+  },
+  "sidebar.docs.category.Innovation": {
+    "message": "创新",
+    "description": "侧边栏 Innovation 分类的标签"
+  },
+  "sidebar.docs.category.Empowerment": {
+    "message": "赋能",
+    "description": "侧边栏 Empowerment 分类的标签"
+  },
+  "tag.docusaurus.label": {
+    "message": "Docusaurus",
+    "description": "Docusaurus 标签的标签"
+  },
+  "tag.docusaurus.description": {
+    "message": "与 Docusaurus 框架相关的文档",
+    "description": "Docusaurus 标签的描述"
+  },
+  "tag.femtech-roundtable.label": {
+    "message": "FemTech 圆桌论坛",
+    "description": "FemTech Roundtable 标签的标签"
+  },
+  "tag.femtech-roundtable.description": {
+    "message": "FTW x 世界500强企业高管 x 科技创始人圆桌论坛：科技赋能职场女性健康，重塑职场平等新未来。",
+    "description": "FemTech Roundtable 标签的描述"
+  },
+  "tag.women.label": {
+    "message": "女性",
+    "description": "Women 标签的标签"
+  },
+  "tag.women.description": {
+    "message": "与女性在职场和社会相关的内容。",
+    "description": "Women 标签的描述"
+  },
+  "tag.workplace.label": {
+    "message": "职场",
+    "description": "Workplace 标签的标签"
+  },
+  "tag.workplace.description": {
+    "message": "关于职场文化、平等与创新的话题。",
+    "description": "Workplace 标签的描述"
+  },
+  "tag.health.label": {
+    "message": "健康",
+    "description": "Health 标签的标签"
+  },
+  "tag.health.description": {
+    "message": "关于健康、福祉和心理健康的文章。",
+    "description": "Health 标签的描述"
+  },
+  "tag.technology.label": {
+    "message": "科技",
+    "description": "Technology 标签的标签"
+  },
+  "tag.technology.description": {
+    "message": "科技及其对社会和职场的影响。",
+    "description": "Technology 标签的描述"
+  },
+  "tag.equality.label": {
+    "message": "平等",
+    "description": "Equality 标签的标签"
+  },
+  "tag.equality.description": {
+    "message": "性别平等与机会均等相关话题。",
+    "description": "Equality 标签的描述"
+  },
+  "tag.diversity.label": {
+    "message": "多元",
+    "description": "Diversity 标签的标签"
+  },
+  "tag.diversity.description": {
+    "message": "职场及其他领域的多元与包容。",
+    "description": "Diversity 标签的描述"
+  },
+  "tag.inclusion.label": {
+    "message": "包容",
+    "description": "Inclusion 标签的标签"
+  },
+  "tag.inclusion.description": {
+    "message": "包容、归属感和支持性环境。",
+    "description": "Inclusion 标签的描述"
+  },
+  "tag.genz.label": {
+    "message": "Z世代",
+    "description": "GenZ 标签的标签"
+  },
+  "tag.genz.description": {
+    "message": "Z世代的观点与职场期待。",
+    "description": "GenZ 标签的描述"
+  },
+  "tag.mental-health.label": {
+    "message": "心理健康",
+    "description": "Mental Health 标签的标签"
+  },
+  "tag.mental-health.description": {
+    "message": "心理健康、福祉与支持。",
+    "description": "Mental Health 标签的描述"
+  },
+  "tag.leadership.label": {
+    "message": "领导力",
+    "description": "Leadership 标签的标签"
+  },
+  "tag.leadership.description": {
+    "message": "领导力、榜样与赋能。",
+    "description": "Leadership 标签的描述"
+  },
+  "tag.innovation.label": {
+    "message": "创新",
+    "description": "Innovation 标签的标签"
+  },
+  "tag.innovation.description": {
+    "message": "科技、职场和社会的创新。",
+    "description": "Innovation 标签的描述"
+  },
+  "tag.empowerment.label": {
+    "message": "赋能",
+    "description": "Empowerment 标签的标签"
+  },
+  "tag.empowerment.description": {
+    "message": "赋能女性及弱势群体。",
+    "description": "Empowerment 标签的描述"
   }
 }

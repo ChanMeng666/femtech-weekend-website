@@ -1,0 +1,52 @@
+femtech-roundtable:
+  label: 'FemTech 圆桌论坛'
+  permalink: '/femtech-roundtable-forum'
+  description: 'FTW x 世界500强企业高管 x 科技创始人圆桌论坛：科技赋能职场女性健康，重塑职场平等新未来。'
+women:
+  label: '女性'
+  permalink: '/tags/women'
+  description: '与女性在职场和社会相关的内容。'
+workplace:
+  label: '职场'
+  permalink: '/tags/workplace'
+  description: '关于职场文化、平等与创新的话题。'
+health:
+  label: '健康'
+  permalink: '/tags/health'
+  description: '关于健康、福祉和心理健康的文章。'
+technology:
+  label: '科技'
+  permalink: '/tags/technology'
+  description: '科技及其对社会和职场的影响。'
+equality:
+  label: '平等'
+  permalink: '/tags/equality'
+  description: '性别平等与机会均等相关话题。'
+diversity:
+  label: '多元'
+  permalink: '/tags/diversity'
+  description: '职场及其他领域的多元与包容。'
+inclusion:
+  label: '包容'
+  permalink: '/tags/inclusion'
+  description: '包容、归属感和支持性环境。'
+genz:
+  label: 'Z世代'
+  permalink: '/tags/genz'
+  description: 'Z世代的观点与职场期待。'
+mental-health:
+  label: '心理健康'
+  permalink: '/tags/mental-health'
+  description: '心理健康、福祉与支持。'
+leadership:
+  label: '领导力'
+  permalink: '/tags/leadership'
+  description: '领导力、榜样与赋能。'
+innovation:
+  label: '创新'
+  permalink: '/tags/innovation'
+  description: '科技、职场和社会的创新。'
+empowerment:
+  label: '赋能'
+  permalink: '/tags/empowerment'
+  description: '赋能女性及弱势群体。' 

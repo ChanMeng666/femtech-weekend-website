@@ -1,4 +1,52 @@
-docusaurus:
-  label: 'Docusaurus'
-  permalink: '/docusaurus'
-  description: 'Docs related to the Docusaurus framework'
+femtech-roundtable:
+  label: 'FemTech Roundtable'
+  permalink: '/femtech-roundtable-forum'
+  description: "FTW x Fortune 500 Executives x Tech Founders Roundtable Forum: Technology empowering women's health in the workplace, reshaping workplace equality."
+women:
+  label: 'Women'
+  permalink: '/tags/women'
+  description: 'Content related to women in the workplace and society.'
+workplace:
+  label: 'Workplace'
+  permalink: '/tags/workplace'
+  description: 'Topics about workplace culture, equality, and innovation.'
+health:
+  label: 'Health'
+  permalink: '/tags/health'
+  description: 'Articles about health, well-being, and mental health.'
+technology:
+  label: 'Technology'
+  permalink: '/tags/technology'
+  description: 'Technology and its impact on society and the workplace.'
+equality:
+  label: 'Equality'
+  permalink: '/tags/equality'
+  description: 'Gender equality and equal opportunity topics.'
+diversity:
+  label: 'Diversity'
+  permalink: '/tags/diversity'
+  description: 'Diversity and inclusion in the workplace and beyond.'
+inclusion:
+  label: 'Inclusion'
+  permalink: '/tags/inclusion'
+  description: 'Inclusion, belonging, and supportive environments.'
+genz:
+  label: 'Gen Z'
+  permalink: '/tags/genz'
+  description: 'Gen Z perspectives and workplace expectations.'
+mental-health:
+  label: 'Mental Health'
+  permalink: '/tags/mental-health'
+  description: 'Mental health, well-being, and support.'
+leadership:
+  label: 'Leadership'
+  permalink: '/tags/leadership'
+  description: 'Leadership, role models, and empowerment.'
+innovation:
+  label: 'Innovation'
+  permalink: '/tags/innovation'
+  description: 'Innovation in technology, workplace, and society.'
+empowerment:
+  label: 'Empowerment'
+  permalink: '/tags/empowerment'
+  description: 'Empowering women and underrepresented groups.'
