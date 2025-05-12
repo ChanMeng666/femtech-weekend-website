@@ -9,20 +9,21 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  /* Primary color: Bright Blue */
-  --ifm-color-primary: #3A7CB5;
-  --ifm-color-primary-dark: #3470A3;
-  --ifm-color-primary-darker: #316A9A;
-  --ifm-color-primary-darkest: #29577F;
-  --ifm-color-primary-light: #4B88BE;
-  --ifm-color-primary-lighter: #5C94C7;
-  --ifm-color-primary-lightest: #7CAAD3;
+  /* Primary color: Soft Brown (brand color) */
+  --ifm-color-primary: #D6AB93;
+  --ifm-color-primary-dark: #CD9C80;
+  --ifm-color-primary-darker: #C48D6E;
+  --ifm-color-primary-darkest: #B77D5B;
+  --ifm-color-primary-light: #DFBAA6;
+  --ifm-color-primary-lighter: #E7C9B9;
+  --ifm-color-primary-lightest: #F0D8CC;
   
   /* Additional brand colors */
-  --ifm-color-secondary: #D6AB93; /* Soft light brown - brand logo color */
-  --ifm-color-gray: #595959; /* Medium gray - brand logo color */
-  --ifm-color-success: #65B891; /* Fresh mint green */
-  --ifm-color-warning: #F2C661; /* Warm golden yellow */
+  --ifm-color-secondary: #595959; /* Medium gray - brand logo color */
+  --ifm-color-success: #6B9E78; /* Muted green */
+  --ifm-color-warning: #E6B55C; /* Warm gold */
+  --ifm-color-danger: #D47F7F; /* Soft red */
+  --ifm-color-info: #7BA7C2; /* Muted blue */
   
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
@@ -30,19 +31,21 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  /* Primary color: Mint Green in dark mode */
-  --ifm-color-primary: #65B891;
-  --ifm-color-primary-dark: #58A682;
-  --ifm-color-primary-darker: #519C7A;
-  --ifm-color-primary-darkest: #438064;
-  --ifm-color-primary-light: #76C09D;
-  --ifm-color-primary-lighter: #87C9A9;
-  --ifm-color-primary-lightest: #A4D7BE;
+  /* Primary color: Lighter version of brand brown in dark mode for better visibility */
+  --ifm-color-primary: #E7C9B9;
+  --ifm-color-primary-dark: #DFBAA6;
+  --ifm-color-primary-darker: #D6AB93;
+  --ifm-color-primary-darkest: #CD9C80;
+  --ifm-color-primary-light: #F0D8CC;
+  --ifm-color-primary-lighter: #F8E7DF;
+  --ifm-color-primary-lightest: #FFF6F2;
   
   /* Additional brand colors for dark mode */
-  --ifm-color-secondary: #D6AB93; /* Maintain soft light brown */
-  --ifm-color-success: #3A7CB5; /* Use bright blue as success in dark mode */
-  --ifm-color-warning: #F2C661; /* Maintain warm golden yellow */
+  --ifm-color-secondary: #7D7D7D; /* Lighter gray for dark mode */
+  --ifm-color-success: #8CB996; /* Lighter green for dark mode */
+  --ifm-color-warning: #ECC781; /* Lighter gold for dark mode */
+  --ifm-color-danger: #E09999; /* Lighter red for dark mode */
+  --ifm-color-info: #98BCD1; /* Lighter blue for dark mode */
   
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   
