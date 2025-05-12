@@ -1,19 +1,44 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+womens-health:
+  label: Women's Health
+  permalink: /tags/womens-health
+  description: Articles related to women's health technologies, research, and innovations
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+technology:
+  label: Technology
+  permalink: /tags/technology
+  description: Posts about technology developments and applications
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
+innovation:
+  label: Innovation
+  permalink: /tags/innovation
+  description: Content focused on innovative ideas and solutions
 
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+startup:
+  label: Startup
+  permalink: /tags/startup
+  description: Information for startups and entrepreneurial ventures
+
+competition:
+  label: Competition
+  permalink: /tags/competition
+  description: Events and challenges in the FemTech space
+
+hackathon:
+  label: Hackathon
+  permalink: /tags/hackathon
+  description: Coding and development events
+
+research:
+  label: Research
+  permalink: /tags/research
+  description: Scientific research and academic content
+
+coding:
+  label: Coding
+  permalink: /tags/coding
+  description: Content related to programming and software development
+
+releases:
+  label: Releases
+  permalink: /tags/releases
+  description: Product and feature release announcements
