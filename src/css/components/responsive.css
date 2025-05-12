@@ -1,0 +1,42 @@
+/**
+ * Responsive styles for different screen sizes
+ */
+
+/* Medium screens (tablets, small laptops) */
+@media screen and (max-width: 996px) {
+  .footer {
+    padding: 2rem 0 1.5rem;
+  }
+  
+  .footer__qrcode-container {
+    gap: 2rem;
+  }
+  
+  .footer__qrcode-item {
+    width: 100px;
+  }
+  
+  .footer__col {
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .footer__follow-us-col {
+    margin-top: 0.5rem;
+  }
+}
+
+/* Small mobile screens */
+@media screen and (max-width: 480px) {
+  .footer__qrcode-container {
+    gap: 1.5rem;
+  }
+  
+  .footer__qrcode-item {
+    width: 90px;
+  }
+  
+  .footer__col.footer__follow-us-col .footer__title {
+    margin-bottom: 1.2rem;
+  }
+} 

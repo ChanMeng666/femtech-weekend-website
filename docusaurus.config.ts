@@ -152,7 +152,7 @@ const config: Config = {
         alt: 'Femtech Weekend Logo',
         src: 'img/logo/femtech-weekend-logo-cn.svg',
         href: '/',
-        width: 160,
+        width: 300,
       },
       links: [
         {
@@ -218,7 +218,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} FemTech Weekend. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} FemTech Weekend.`,
     },
     prism: {
       theme: prismThemes.github,
