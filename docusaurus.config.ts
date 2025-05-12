@@ -17,7 +17,7 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'femtechweekend', // Usually your GitHub org/user name.
+  organizationName: 'ChanMeng666', // Usually your GitHub org/user name.
   projectName: 'femtech-weekend-website', // Usually your repo name.
 
   onBrokenLinks: 'throw',
@@ -50,7 +50,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/femtechweekend/femtech-weekend-website/tree/main/',
+            'https://github.com/ChanMeng666/femtech-weekend-website/blob/main/',
         },
         blog: {
           showReadingTime: true,
@@ -61,7 +61,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/femtechweekend/femtech-weekend-website/tree/main/',
+            'https://github.com/ChanMeng666/femtech-weekend-website/blob/main/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -189,7 +189,7 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/femtechweekend/femtech-weekend-website',
+              href: 'https://github.com/ChanMeng666/femtech-weekend-website',
             },
           ],
         },
