@@ -1,23 +1,22 @@
-yangshun:
-  name: Yangshun Tay
-  title: Front End Engineer @ Facebook
-  url: https://github.com/yangshun
-  image_url: https://github.com/yangshun.png
+chanmeng:
+  name: 梦婵
+  title: 全栈开发工程师@女性健康科技周末
+  url: https://github.com/ChanMeng666
+  image_url: /img/team/chan-meng.jpg
   page: true
   socials:
-    x: yangshunz
-    github: yangshun
+    github: ChanMeng666
+    linkedin: chanmeng666
+    medium: chanmeng666
+    website: https://chanmeng.live/
+    email: chanmeng.dev@gmail.com
 
-slorber:
-  name: Sébastien Lorber
-  title: Docusaurus maintainer
-  url: https://sebastienlorber.com
-  image_url: https://github.com/slorber.png
-  page:
-    # customize the url of the author page at /blog/authors/<permalink>
-    permalink: '/all-sebastien-lorber-articles'
+zhuyihan:
+  name: 朱依涵
+  title: 创始人@女性健康科技周末
+  url: https://www.linkedin.com/in/yihanzhu/
+  image_url: /img/team/femtech-weekend-founder.jpg
+  page: true
   socials:
-    x: sebastienlorber
-    linkedin: sebastienlorber
-    github: slorber
-    newsletter: https://thisweekinreact.com
+    linkedin: yihanzhu
+    email: zhuyihan1992@gmail.com

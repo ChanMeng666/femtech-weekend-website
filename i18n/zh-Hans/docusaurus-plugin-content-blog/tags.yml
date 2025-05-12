@@ -1,19 +1,44 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+womens-health:
+  label: 女性健康
+  permalink: /tags/womens-health
+  description: 与女性健康技术、研究和创新相关的文章
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+technology:
+  label: 技术
+  permalink: /tags/technology
+  description: 关于技术发展和应用的帖子
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
+innovation:
+  label: 创新
+  permalink: /tags/innovation
+  description: 专注于创新理念和解决方案的内容
 
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+startup:
+  label: 创业
+  permalink: /tags/startup
+  description: 为初创企业和创业项目提供的信息
+
+competition:
+  label: 竞赛
+  permalink: /tags/competition
+  description: FemTech领域的活动和挑战
+
+hackathon:
+  label: 黑客马拉松
+  permalink: /tags/hackathon
+  description: 编码和开发活动
+
+research:
+  label: 研究
+  permalink: /tags/research
+  description: 科学研究和学术内容
+
+coding:
+  label: 编程
+  permalink: /tags/coding
+  description: 与编程和软件开发相关的内容
+
+releases:
+  label: 发布
+  permalink: /tags/releases
+  description: 产品和功能发布公告

@@ -1,14 +1,46 @@
 {
   "title": {
-    "message": "Blog",
-    "description": "The title for the blog used in SEO"
+    "message": "博客",
+    "description": "用于SEO的博客标题"
   },
   "description": {
-    "message": "Blog",
-    "description": "The description for the blog used in SEO"
+    "message": "女性科技周的最新动态与资讯",
+    "description": "用于SEO的博客描述"
   },
   "sidebar.title": {
-    "message": "Recent posts",
-    "description": "The label for the left sidebar"
+    "message": "最近发布",
+    "description": "左侧边栏的标签"
+  },
+  "archive.title": {
+    "message": "历史文章",
+    "description": "博客归档页面的标题"
+  },
+  "readingTime.plurals": {
+    "message": "阅读时间约 {readingTime} 分钟",
+    "description": "阅读时间文本"
+  },
+  "readMore": {
+    "message": "阅读更多",
+    "description": "阅读更多的链接标签"
+  },
+  "post.paginator.navAriaLabel": {
+    "message": "博客文章导航",
+    "description": "博客文章分页导航的aria标签"
+  },
+  "post.paginator.newerPost": {
+    "message": "较新的文章",
+    "description": "较新文章链接的标签"
+  },
+  "post.paginator.olderPost": {
+    "message": "较早的文章",
+    "description": "较早文章链接的标签"
+  },
+  "authors.title": {
+    "message": "作者",
+    "description": "作者页面的标题"
+  },
+  "tags.title": {
+    "message": "标签",
+    "description": "所有标签页面的标题"
   }
 }
