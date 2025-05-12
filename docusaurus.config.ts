@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Femtech Weekend',
-  tagline: 'Female Health Innovation Ecosystem',
+  tagline: 'Rooted in China, Connecting globally',
   favicon: 'img/logo/femtech-weekend-sub-logo-brown.ico',
 
   // Set the production url of your site here
@@ -17,8 +17,8 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'femtechweekend', // Usually your GitHub org/user name.
+  projectName: 'femtech-weekend-website', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -50,7 +50,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/femtechweekend/femtech-weekend-website/tree/main/',
         },
         blog: {
           showReadingTime: true,
@@ -61,15 +61,15 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/femtechweekend/femtech-weekend-website/tree/main/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
-          blogTitle: 'Docusaurus blog!',
-          blogDescription: 'A Docusaurus powered blog!',
+          blogTitle: 'FemTech Weekend Competition',
+          blogDescription: 'FemTech Weekend Competition Platform',
           postsPerPage: 'ALL',
-          blogSidebarTitle: 'All posts',
+          blogSidebarTitle: 'All competitions',
           blogSidebarCount: 'ALL',
         },
         theme: {
@@ -100,22 +100,15 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Reports',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
-        {
-          href: 'https://github.com/facebook/docusaurus',
-          label: 'GitHub',
-          position: 'right',
-        },
+        {to: '/blog', label: 'Competition', position: 'left'},
         {
           type: 'localeDropdown',
           position: 'right',
         },
       ],
     },
-
-
     
     algolia: {
       // The application ID provided by Algolia
@@ -152,17 +145,29 @@ const config: Config = {
       //... other Algolia params
     },
 
-
-
     footer: {
-      style: 'dark',
+      style: 'light',
+      logo: {
+        alt: 'Femtech Weekend Logo',
+        src: 'img/logo/femtech-weekend-logo-cn.svg',
+        href: '/',
+        width: 160,
+      },
       links: [
         {
-          title: 'Docs',
+          title: 'Site Map',
           items: [
             {
-              label: 'Tutorial',
+              label: 'Home',
+              to: '/',
+            },
+            {
+              label: 'Reports',
               to: '/docs/intro',
+            },
+            {
+              label: 'Competition',
+              to: '/blog',
             },
           ],
         },
@@ -170,34 +175,49 @@ const config: Config = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'LinkedIn',
+              href: 'https://linkedin.com/company/femtech-weekend',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              label: 'WeChat',
+              href: '#',
             },
             {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
+              label: 'Xiaohongshu',
+              href: '#',
+            },
+            {
+              label: 'GitHub',
+              href: 'https://github.com/femtechweekend/femtech-weekend-website',
             },
           ],
         },
         {
-          title: 'More',
+          title: 'Follow Us',
+          className: 'footer__follow-us-col',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              html: `
+                <div class="footer__qrcode-container">
+                  <div class="footer__qrcode-item">
+                    <img src="/img/qrcode/femtech-weekend-xiaohongshu-qrcode.png" alt="Xiaohongshu QR Code" />
+                    <span>Xiaohongshu</span>
+                  </div>
+                  <div class="footer__qrcode-item">
+                    <img src="/img/qrcode/femtech-weekend-linkedin-qrcode.png" alt="LinkedIn QR Code" />
+                    <span>LinkedIn</span>
+                  </div>
+                  <div class="footer__qrcode-item">
+                    <img src="/img/qrcode/femtech-weekend-gongzhonghao-qrcode.jpg" alt="WeChat Official Account QR Code" />
+                    <span>WeChat</span>
+                  </div>
+                </div>
+              `,
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} FemTech Weekend. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

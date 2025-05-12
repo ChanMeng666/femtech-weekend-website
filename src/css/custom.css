@@ -53,3 +53,136 @@
   --ifm-font-color-base: #ffffff;
   --ifm-background-color: #1e1e1e;
 }
+
+/* Footer customization */
+.footer {
+  background-color: #F5EEE8; /* Beige background color */
+  padding: 3rem 0 2rem; /* Increased top padding for more breathing room */
+  color: #404040; /* Darker text for better contrast */
+}
+
+.footer__title {
+  color: #84624D; /* Brown color for section titles */
+  font-weight: 600;
+  margin-bottom: 1.2rem; /* More space below titles */
+  font-size: 1.1rem;
+}
+
+.footer__link-item {
+  color: #595959; /* Medium gray for links */
+  margin-bottom: 0.6rem; /* Space between footer links */
+  display: block;
+}
+
+.footer__link-item:hover {
+  color: var(--ifm-color-primary-darker);
+  text-decoration: none;
+}
+
+.footer__logo {
+  margin-bottom: 1.5rem;
+  max-width: 160px;
+  height: auto;
+}
+
+.footer__col {
+  margin-bottom: 2rem;
+  padding: 0 1.5rem; /* Add horizontal padding to columns */
+}
+
+/* Custom layout for footer columns */
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Make the Follow Us section take the full width */
+.footer__follow-us-col {
+  flex-basis: 100% !important;
+  margin-top: 1rem;
+}
+
+/* Footer QR code section container */
+.footer__col.footer__follow-us-col .footer__title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.footer__qrcode-container {
+  display: flex;
+  justify-content: center;
+  gap: 3rem; /* Increased spacing between QR codes */
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.footer__qrcode-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120px; /* Larger QR codes for desktop */
+}
+
+.footer__qrcode-item img {
+  border-radius: 8px;
+  width: 100%;
+  height: auto;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow for depth */
+}
+
+.footer__qrcode-item span {
+  margin-top: 8px;
+  font-size: 12px;
+  text-align: center;
+  color: #595959;
+  font-weight: 500;
+}
+
+.footer__copyright {
+  color: #84624D;
+  margin-top: 2rem; /* Add space above copyright */
+  font-size: 0.9rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(132, 98, 77, 0.2); /* Light divider line */
+}
+
+/* Mobile optimizations */
+@media screen and (max-width: 996px) {
+  .footer {
+    padding: 2rem 0 1.5rem;
+  }
+  
+  .footer__qrcode-container {
+    gap: 2rem;
+  }
+  
+  .footer__qrcode-item {
+    width: 100px;
+  }
+  
+  .footer__col {
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .footer__follow-us-col {
+    margin-top: 0.5rem;
+  }
+}
+
+/* Small mobile screens */
+@media screen and (max-width: 480px) {
+  .footer__qrcode-container {
+    gap: 1.5rem;
+  }
+  
+  .footer__qrcode-item {
+    width: 90px;
+  }
+  
+  .footer__col.footer__follow-us-col .footer__title {
+    margin-bottom: 1.2rem;
+  }
+}
