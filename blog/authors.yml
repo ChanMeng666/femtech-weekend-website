@@ -5,18 +5,18 @@ chanmeng:
   image_url: /img/team/chan-meng.jpg
   page: true
   socials:
-    github: ChanMeng666
-    linkedin: chanmeng666
-    medium: chanmeng666
+    github: https://github.com/ChanMeng666
+    linkedin: https://linkedin.com/in/chanmeng666
+    medium: https://medium.com/@chanmeng666
     website: https://chanmeng.live/
-    email: chanmeng.dev@gmail.com
+    email: mailto:chanmeng.dev@gmail.com
 
 zhuyihan:
   name: Zhu Yihan
   title: Founder @FemTech Weekend
   url: https://www.linkedin.com/in/yihanzhu/
   image_url: /img/team/femtech-weekend-founder.jpg
-  page: true
+  page: false
   socials:
-    linkedin: yihanzhu
-    email: zhuyihan1992@gmail.com
+    linkedin: https://linkedin.com/in/yihanzhu
+    email: mailto:zhuyihan1992@gmail.com
