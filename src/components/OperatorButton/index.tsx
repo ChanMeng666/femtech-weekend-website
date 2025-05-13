@@ -1,10 +1,13 @@
 import React from 'react';
-import Translate from '@docusaurus/Translate';
+import {translate} from '@docusaurus/Translate';
 import {useOperator} from '@site/src/utils/useFilteredCompanies';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './styles.module.css';
 
 export default function OperatorButton() {
   const [operator, toggleOperator] = useOperator();
+  const {i18n: {currentLocale}} = useDocusaurusContext();
+  
   return (
     <button
       type="button"
@@ -12,13 +15,15 @@ export default function OperatorButton() {
         operator === 'OR' ? 'secondary' : 'primary'
       }`}
       onClick={toggleOperator}>
-      <Translate
-        id="showcase.filters.operator"
-        values={{
+      {currentLocale === 'zh-Hans' ? `筛选条件: ${operator}` : translate(
+        {
+          id: 'theme.showcase.filters.operator',
+          message: 'Filter criteria: {operator}',
+        },
+        {
           operator,
-        }}>
-        {'Filter criteria: {operator}'}
-      </Translate>
+        }
+      )}
     </button>
   );
 } 

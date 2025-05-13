@@ -1,5 +1,7 @@
 import {sortBy} from '../utils/jsUtils';
 import {translate} from '@docusaurus/Translate';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import {useMemo} from 'react';
 
 export type TagType =
   | '女性疾病'
@@ -30,7 +32,7 @@ export type Company = {
 };
 
 // Default tag values (fallbacks when translation is unavailable)
-const TagDefaults: Record<TagType, {defaultLabel: string; defaultDescription: string; color: string}> = {
+export const TagDefaults: Record<TagType, {defaultLabel: string; defaultDescription: string; color: string}> = {
   '女性疾病': {
     defaultLabel: 'Women\'s Diseases',
     defaultDescription: 'Companies focusing on the diagnosis, treatment and management of women\'s diseases',
@@ -73,85 +75,132 @@ const TagDefaults: Record<TagType, {defaultLabel: string; defaultDescription: st
   }
 };
 
-// Initialize Tags with defaults - we'll add translations later
-export const Tags: Record<TagType, {label: string; description: string; color: string; defaultLabel: string; defaultDescription: string}> = {
-  '女性疾病': {
-    label: TagDefaults['女性疾病'].defaultLabel,
-    description: TagDefaults['女性疾病'].defaultDescription,
-    color: TagDefaults['女性疾病'].color,
-    defaultLabel: TagDefaults['女性疾病'].defaultLabel,
-    defaultDescription: TagDefaults['女性疾病'].defaultDescription
-  },
-  '大众女性健康': {
-    label: TagDefaults['大众女性健康'].defaultLabel,
-    description: TagDefaults['大众女性健康'].defaultDescription,
-    color: TagDefaults['大众女性健康'].color,
-    defaultLabel: TagDefaults['大众女性健康'].defaultLabel,
-    defaultDescription: TagDefaults['大众女性健康'].defaultDescription
-  },
-  '医美': {
-    label: TagDefaults['医美'].defaultLabel,
-    description: TagDefaults['医美'].defaultDescription,
-    color: TagDefaults['医美'].color,
-    defaultLabel: TagDefaults['医美'].defaultLabel,
-    defaultDescription: TagDefaults['医美'].defaultDescription
-  },
-  '盆底健康与产后修复': {
-    label: TagDefaults['盆底健康与产后修复'].defaultLabel,
-    description: TagDefaults['盆底健康与产后修复'].defaultDescription,
-    color: TagDefaults['盆底健康与产后修复'].color,
-    defaultLabel: TagDefaults['盆底健康与产后修复'].defaultLabel,
-    defaultDescription: TagDefaults['盆底健康与产后修复'].defaultDescription
-  },
-  '心理健康': {
-    label: TagDefaults['心理健康'].defaultLabel,
-    description: TagDefaults['心理健康'].defaultDescription,
-    color: TagDefaults['心理健康'].color,
-    defaultLabel: TagDefaults['心理健康'].defaultLabel,
-    defaultDescription: TagDefaults['心理健康'].defaultDescription
-  },
-  '更年期健康': {
-    label: TagDefaults['更年期健康'].defaultLabel,
-    description: TagDefaults['更年期健康'].defaultDescription,
-    color: TagDefaults['更年期健康'].color,
-    defaultLabel: TagDefaults['更年期健康'].defaultLabel,
-    defaultDescription: TagDefaults['更年期健康'].defaultDescription
-  },
-  '中医药与女性健康融合': {
-    label: TagDefaults['中医药与女性健康融合'].defaultLabel,
-    description: TagDefaults['中医药与女性健康融合'].defaultDescription,
-    color: TagDefaults['中医药与女性健康融合'].color,
-    defaultLabel: TagDefaults['中医药与女性健康融合'].defaultLabel,
-    defaultDescription: TagDefaults['中医药与女性健康融合'].defaultDescription
-  },
-  '孕产妇健康': {
-    label: TagDefaults['孕产妇健康'].defaultLabel,
-    description: TagDefaults['孕产妇健康'].defaultDescription,
-    color: TagDefaults['孕产妇健康'].color,
-    defaultLabel: TagDefaults['孕产妇健康'].defaultLabel,
-    defaultDescription: TagDefaults['孕产妇健康'].defaultDescription
-  }
-};
-
-// Now that Tags is defined, we can get translations
-function applyTranslations() {
-  // Apply translations for each tag
-  Object.keys(Tags).forEach((tag) => {
-    const tagKey = tag as TagType;
-    Tags[tagKey].label = translate({
-      id: `femtech-tags.${tagKey}.label`,
-      message: Tags[tagKey].defaultLabel,
-    });
+// Create a hook to get translated tags
+export function useTranslatedTags() {
+  const {i18n: {currentLocale}} = useDocusaurusContext();
+  
+  return useMemo(() => {
+    // Function to get translation for a tag
+    const getTranslatedTag = (tagKey: TagType) => {
+      // Direct translations for Chinese locale
+      if (currentLocale === 'zh-Hans') {
+        const zhTranslations: Record<TagType, {label: string; description: string}> = {
+          '女性疾病': {
+            label: '女性疾病',
+            description: '专注于女性疾病的诊断、治疗和管理的公司'
+          },
+          '大众女性健康': {
+            label: '大众女性健康',
+            description: '提供通用女性健康服务和产品的公司'
+          },
+          '医美': {
+            label: '医美',
+            description: '针对女性医疗美容服务和产品的公司'
+          },
+          '盆底健康与产后修复': {
+            label: '盆底健康与产后修复',
+            description: '专注于盆底健康和产后修复的公司'
+          },
+          '心理健康': {
+            label: '心理健康',
+            description: '提供心理健康服务和解决方案的公司'
+          },
+          '更年期健康': {
+            label: '更年期健康',
+            description: '关注更年期健康管理的公司'
+          },
+          '中医药与女性健康融合': {
+            label: '中医药与女性健康',
+            description: '将中医药与现代女性健康服务相结合的公司'
+          },
+          '孕产妇健康': {
+            label: '孕产妇健康',
+            description: '专注于孕期和产后健康服务的公司'
+          }
+        };
+        return zhTranslations[tagKey];
+      }
+      
+      // Default to Docusaurus translations for other locales
+      return {
+        label: translate({
+          id: `femtech-tags.${tagKey}.label`,
+          message: TagDefaults[tagKey].defaultLabel,
+        }),
+        description: translate({
+          id: `femtech-tags.${tagKey}.description`,
+          message: TagDefaults[tagKey].defaultDescription,
+        }),
+      };
+    };
     
-    Tags[tagKey].description = translate({
-      id: `femtech-tags.${tagKey}.description`,
-      message: Tags[tagKey].defaultDescription,
-    });
-  });
+    // Create Tags object with translations
+    const translatedTags: Record<TagType, {label: string; description: string; color: string; defaultLabel: string; defaultDescription: string}> = {
+      '女性疾病': {
+        ...getTranslatedTag('女性疾病'),
+        color: TagDefaults['女性疾病'].color,
+        defaultLabel: TagDefaults['女性疾病'].defaultLabel,
+        defaultDescription: TagDefaults['女性疾病'].defaultDescription
+      },
+      '大众女性健康': {
+        ...getTranslatedTag('大众女性健康'),
+        color: TagDefaults['大众女性健康'].color,
+        defaultLabel: TagDefaults['大众女性健康'].defaultLabel,
+        defaultDescription: TagDefaults['大众女性健康'].defaultDescription
+      },
+      '医美': {
+        ...getTranslatedTag('医美'),
+        color: TagDefaults['医美'].color,
+        defaultLabel: TagDefaults['医美'].defaultLabel,
+        defaultDescription: TagDefaults['医美'].defaultDescription
+      },
+      '盆底健康与产后修复': {
+        ...getTranslatedTag('盆底健康与产后修复'),
+        color: TagDefaults['盆底健康与产后修复'].color,
+        defaultLabel: TagDefaults['盆底健康与产后修复'].defaultLabel,
+        defaultDescription: TagDefaults['盆底健康与产后修复'].defaultDescription
+      },
+      '心理健康': {
+        ...getTranslatedTag('心理健康'),
+        color: TagDefaults['心理健康'].color,
+        defaultLabel: TagDefaults['心理健康'].defaultLabel,
+        defaultDescription: TagDefaults['心理健康'].defaultDescription
+      },
+      '更年期健康': {
+        ...getTranslatedTag('更年期健康'),
+        color: TagDefaults['更年期健康'].color,
+        defaultLabel: TagDefaults['更年期健康'].defaultLabel,
+        defaultDescription: TagDefaults['更年期健康'].defaultDescription
+      },
+      '中医药与女性健康融合': {
+        ...getTranslatedTag('中医药与女性健康融合'),
+        color: TagDefaults['中医药与女性健康融合'].color,
+        defaultLabel: TagDefaults['中医药与女性健康融合'].defaultLabel,
+        defaultDescription: TagDefaults['中医药与女性健康融合'].defaultDescription
+      },
+      '孕产妇健康': {
+        ...getTranslatedTag('孕产妇健康'),
+        color: TagDefaults['孕产妇健康'].color,
+        defaultLabel: TagDefaults['孕产妇健康'].defaultLabel,
+        defaultDescription: TagDefaults['孕产妇健康'].defaultDescription
+      }
+    };
+    
+    return translatedTags;
+  }, [currentLocale]);
 }
 
-// Apply translations
-applyTranslations();
+// Basic tags for non-React contexts (will use default labels)
+export const Tags: Record<TagType, {label: string; description: string; color: string; defaultLabel: string; defaultDescription: string}> = Object.entries(TagDefaults).reduce((acc, [tag, defaults]) => {
+  acc[tag as TagType] = {
+    label: defaults.defaultLabel,
+    description: defaults.defaultDescription,
+    color: defaults.color,
+    defaultLabel: defaults.defaultLabel,
+    defaultDescription: defaults.defaultDescription
+  };
+  return acc;
+}, {} as Record<TagType, {label: string; description: string; color: string; defaultLabel: string; defaultDescription: string}>);
 
 export const TagList: TagType[] = Object.keys(Tags) as TagType[];
 

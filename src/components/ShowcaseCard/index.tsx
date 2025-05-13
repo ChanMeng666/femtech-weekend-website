@@ -1,11 +1,4 @@
-import React from 'react';
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
-import Translate from '@docusaurus/Translate';
-import {Tags, TagList, type TagType, type Company} from '@site/src/data/femtech-companies';
-import {sortBy} from '@site/src/utils/jsUtils';
-import Heading from '@theme/Heading';
-import styles from './styles.module.css';
+import React from 'react';import clsx from 'clsx';import Link from '@docusaurus/Link';import {translate} from '@docusaurus/Translate';import {TagList, type TagType, type Company, useTranslatedTags} from '@site/src/data/femtech-companies';import {sortBy} from '@site/src/utils/jsUtils';import Heading from '@theme/Heading';import useDocusaurusContext from '@docusaurus/useDocusaurusContext';import styles from './styles.module.css';
 
 function TagItem({
   label,
@@ -25,7 +18,8 @@ function TagItem({
 }
 
 function ShowcaseCardTag({tags}: {tags: TagType[]}) {
-  const tagObjects = tags.map((tag) => ({tag, ...Tags[tag]}));
+  const translatedTags = useTranslatedTags();
+  const tagObjects = tags.map((tag) => ({tag, ...translatedTags[tag]}));
 
   // Keep same order for all tags
   const tagObjectsSorted = sortBy(tagObjects, (tagObject) =>
@@ -45,7 +39,8 @@ function ShowcaseCard({company}: {company: Company}) {
   const latestFunding = company.fundingInfo.length > 0 
     ? company.fundingInfo[0] 
     : null;
-    
+  const {i18n: {currentLocale}} = useDocusaurusContext();
+  
   return (
     <li key={company.title} className="card shadow--md">
       <div className="card__body">
@@ -66,7 +61,10 @@ function ShowcaseCard({company}: {company: Company}) {
         {company.founders && (
           <div className={styles.showcaseCardDetail}>
             <strong>
-              <Translate id="showcase.card.founder">Founder:</Translate>
+              {currentLocale === 'zh-Hans' ? '创始人:' : translate({
+                id: 'theme.showcase.card.founder',
+                message: 'Founder:',
+              })}
             </strong> {company.founders}
           </div>
         )}
@@ -74,7 +72,10 @@ function ShowcaseCard({company}: {company: Company}) {
         {latestFunding && (
           <div className={styles.showcaseCardDetail}>
             <strong>
-              <Translate id="showcase.card.funding">Funding:</Translate>
+              {currentLocale === 'zh-Hans' ? '融资:' : translate({
+                id: 'theme.showcase.card.funding',
+                message: 'Funding:',
+              })}
             </strong> {latestFunding.round} ({latestFunding.date}) {latestFunding.amount && `- ${latestFunding.amount}`}
           </div>
         )}

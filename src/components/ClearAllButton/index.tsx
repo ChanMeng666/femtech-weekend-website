@@ -1,12 +1,14 @@
 import React from 'react';
-import Translate from '@docusaurus/Translate';
+import {translate} from '@docusaurus/Translate';
 import {useQueryString, useQueryStringList} from '@docusaurus/theme-common';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './styles.module.css';
 
 export default function ClearAllButton() {
   const [, setTags] = useQueryStringList('tags');
   const [, setSearchName] = useQueryString('name');
   const [, setOperator] = useQueryString('operator');
+  const {i18n: {currentLocale}} = useDocusaurusContext();
 
   const clearAll = () => {
     setTags([]);
@@ -19,7 +21,10 @@ export default function ClearAllButton() {
       type="button"
       className="button button--sm button--outline button--danger"
       onClick={clearAll}>
-      <Translate id="showcase.filters.clearAll">Clear filters</Translate>
+      {currentLocale === 'zh-Hans' ? '清除筛选' : translate({
+        id: 'theme.showcase.filters.clearAll',
+        message: 'Clear filters',
+      })}
     </button>
   );
 } 

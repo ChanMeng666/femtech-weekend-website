@@ -1,6 +1,8 @@
-import {useMemo} from 'react';
+import {useMemo, useCallback} from 'react';
 import {sortedCompanies, type TagType, type Company} from '../data/femtech-companies';
-import {useQueryString, useQueryStringList} from '@docusaurus/theme-common';
+import {useQueryString, useQueryStringList, usePluralForm} from '@docusaurus/theme-common';
+import {translate} from '@docusaurus/Translate';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 export function useSearchName() {
   return useQueryString('name');
@@ -15,10 +17,10 @@ type Operator = 'OR' | 'AND';
 export function useOperator() {
   const [searchOperator, setSearchOperator] = useQueryString('operator');
   const operator: Operator = searchOperator === 'AND' ? 'AND' : 'OR';
-  const toggleOperator = () => {
+  const toggleOperator = useCallback(() => {
     const newOperator = operator === 'OR' ? 'AND' : null;
     setSearchOperator(newOperator);
-  };
+  }, [operator, setSearchOperator]);
   return [operator, toggleOperator] as const;
 }
 
@@ -33,20 +35,22 @@ function filterCompanies({
   operator: Operator;
   searchName: string | null;
 }) {
+  let filteredCompanies = [...companies]; // Create a copy to avoid modifying the original
+
   if (searchName) {
     // Filter by name
-    companies = companies.filter((company) =>
+    filteredCompanies = filteredCompanies.filter((company) =>
       company.title.toLowerCase().includes(searchName.toLowerCase()) ||
       (company.description && company.description.toLowerCase().includes(searchName.toLowerCase()))
     );
   }
   
   if (tags.length === 0) {
-    return companies;
+    return filteredCompanies;
   }
   
   // Filter by tags
-  return companies.filter((company) => {
+  return filteredCompanies.filter((company) => {
     if (company.tags.length === 0) {
       return false;
     }
@@ -72,4 +76,36 @@ export function useFilteredCompanies() {
       }),
     [tags, operator, searchName],
   );
+}
+
+export function useCompanyCountPlural() {
+  const {selectMessage} = usePluralForm();
+  const {i18n: {currentLocale}} = useDocusaurusContext();
+  
+  return useCallback((companyCount: number) => {
+    // For Chinese, always use the simple format without pluralization
+    if (currentLocale === 'zh-Hans') {
+      return translate(
+        {
+          id: 'showcase.filters.resultCount',
+          message: '{companyCount} 家公司',
+        },
+        {companyCount},
+      );
+    }
+    
+    // For English and other languages with plural forms
+    return selectMessage(
+      companyCount,
+      translate(
+        {
+          id: 'showcase.filters.resultCount',
+          description:
+            'Pluralized label for the number of companies found on the showcase. Use as much plural forms (separated by "|") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)',
+          message: '1 company|{companyCount} companies',
+        },
+        {companyCount},
+      ),
+    );
+  }, [currentLocale, selectMessage]);
 } 

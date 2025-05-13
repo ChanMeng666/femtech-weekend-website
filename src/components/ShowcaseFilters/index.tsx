@@ -1,12 +1,13 @@
 import React, {type CSSProperties} from 'react';
 import clsx from 'clsx';
-import Translate from '@docusaurus/Translate';
-import {Tags, TagList, type TagType} from '@site/src/data/femtech-companies';
+import Translate, {translate} from '@docusaurus/Translate';
+import {TagList, type TagType, useTranslatedTags} from '@site/src/data/femtech-companies';
 import Heading from '@theme/Heading';
 import ShowcaseTagSelect from '../ShowcaseTagSelect';
 import OperatorButton from '../OperatorButton';
 import ClearAllButton from '../ClearAllButton';
-import {useFilteredCompanies} from '@site/src/utils/useFilteredCompanies';
+import {useFilteredCompanies, useCompanyCountPlural} from '@site/src/utils/useFilteredCompanies';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 import styles from './styles.module.css';
 
@@ -25,7 +26,8 @@ function TagCircleIcon({color, style}: {color: string; style?: CSSProperties}) {
 }
 
 function ShowcaseTagListItem({tag}: {tag: TagType}) {
-  const {label, description, color} = Tags[tag];
+  const translatedTags = useTranslatedTags();
+  const {label, description, color} = translatedTags[tag];
   return (
     <li className={styles.tagListItem}>
       <ShowcaseTagSelect
@@ -58,26 +60,25 @@ function ShowcaseTagList() {
 
 function HeadingText() {
   const filteredCompanies = useFilteredCompanies();
+  const companyCountPlural = useCompanyCountPlural();
+  const {i18n: {currentLocale}} = useDocusaurusContext();
+  
   return (
     <div className={styles.headingText}>
       <Heading as="h2">
-        <Translate id="showcase.filters.title">Filters</Translate>
+        {currentLocale === 'zh-Hans' ? '筛选' : translate({
+          id: 'theme.showcase.filters.title',
+          message: 'Filters',
+        })}
       </Heading>
-      <span>
-        {filteredCompanies.length}{' '}
-        {filteredCompanies.length === 1 ? (
-          <Translate id="showcase.company">company</Translate>
-        ) : (
-          <Translate id="showcase.companies">companies</Translate>
-        )}
-      </span>
+      <span>{companyCountPlural(filteredCompanies.length)}</span>
     </div>
   );
 }
 
 function HeadingButtons() {
   return (
-    <div className={styles.headingButtons} style={{alignItems: 'center'}}>
+    <div className={styles.headingButtons}>
       <OperatorButton />
       <ClearAllButton />
     </div>

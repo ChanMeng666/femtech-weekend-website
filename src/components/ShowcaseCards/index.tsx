@@ -1,25 +1,34 @@
 import React from 'react';
 import clsx from 'clsx';
-import Translate from '@docusaurus/Translate';
+import {translate} from '@docusaurus/Translate';
 import {sortedCompanies, type Company} from '@site/src/data/femtech-companies';
 import Heading from '@theme/Heading';
 import ShowcaseCard from '@site/src/components/ShowcaseCard';
 import {useFilteredCompanies} from '@site/src/utils/useFilteredCompanies';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 import styles from './styles.module.css';
 
 function HeadingNoResult() {
+  const {i18n: {currentLocale}} = useDocusaurusContext();
   return (
     <Heading as="h2">
-      <Translate id="showcase.companyList.noResult">No results</Translate>
+      {currentLocale === 'zh-Hans' ? '无结果' : translate({
+        id: 'theme.showcase.companyList.noResult',
+        message: 'No results'
+      })}
     </Heading>
   );
 }
 
 function HeadingAllCompanies() {
+  const {i18n: {currentLocale}} = useDocusaurusContext();
   return (
     <Heading as="h2">
-      <Translate id="showcase.companyList.allCompanies">All Companies</Translate>
+      {currentLocale === 'zh-Hans' ? '所有公司' : translate({
+        id: 'theme.showcase.companyList.allCompanies',
+        message: 'All Companies'
+      })}
     </Heading>
   );
 }

@@ -7,37 +7,21 @@ import ShowcaseCards from '@site/src/components/ShowcaseCards';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 function ShowcaseHeader() {
-  const {i18n: {currentLocale}} = useDocusaurusContext();
-  
   return (
     <section className="margin-top--lg margin-bottom--lg text--center">
       <Heading as="h1">
-        {translate({
-          id: 'header.title',
-          message: 'FemTech Companies Showcase',
-        })}
+        中国女性健康公司展示
       </Heading>
       <p>
-        {translate({
-          id: 'header.description',
-          message: 'Directory of innovative companies in the women\'s health industry in China',
-        })}
+        中国女性健康领域的创新企业列表
       </p>
     </section>
   );
 }
 
 export default function Showcase(): React.ReactNode {
-  const {i18n: {currentLocale}} = useDocusaurusContext();
-  
-  const title = translate({
-    id: 'header.title',
-    message: 'FemTech Companies Showcase'
-  });
-  const description = translate({
-    id: 'header.description',
-    message: 'Directory of innovative companies in the women\'s health industry in China'
-  });
+  const title = "中国女性健康公司展示";
+  const description = "中国女性健康领域的创新企业列表";
 
   return (
     <Layout 
