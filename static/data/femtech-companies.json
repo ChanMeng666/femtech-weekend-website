@@ -1,0 +1,460 @@
+[
+  {
+    "title": "合凯维/Heranova Lifesciences",
+    "description": "旨在为女性健康问题提供综合创新解决方案的医疗科技公司。通过整合诊断、药物、器械和数据，一站式解决妇产科领域未满足的医疗需求。",
+    "website": "#",
+    "preview": null,
+    "founders": "Jonathan Zhao, Chun Zhang, Penny Wan, Steve Landau",
+    "location": "上海/Boston",
+    "investors": ["鼎丰生科", "创新工场", "ETP致和道康", "勤智资本"],
+    "fundingInfo": [
+      {
+        "round": "种子轮",
+        "date": "2023.03.08",
+        "amount": "1350万美元"
+      },
+      {
+        "round": "种子轮",
+        "date": "2024.03.28",
+        "amount": "未披露"
+      }
+    ],
+    "tags": ["女性疾病"]
+  },
+  {
+    "title": "优丽康生物",
+    "description": "致力于研究开发女性生殖健康、私护产品的技术型公司。拥有国内及国际领先的自主研发专利技术，生产改善女性生殖道微生态平衡，维护女性私处健康的产品。",
+    "website": "#",
+    "preview": null,
+    "founders": "",
+    "location": "深圳",
+    "investors": ["融昱资本"],
+    "fundingInfo": [
+      {
+        "round": "天使轮",
+        "date": "2020-06-03",
+        "amount": ""
+      }
+    ],
+    "tags": ["大众女性健康"]
+  },
+  {
+    "title": "Cyrcadia Asia",
+    "description": "致力于开发智能穿戴式文胸插入件，以提供准确的早期乳腺癌检测。与美国Cyrcadia Inc签署了战略许可和合作协议，实现乳腺癌检测产品的商业化。",
+    "website": "#",
+    "preview": null,
+    "founders": "",
+    "location": "香港",
+    "investors": ["科大讯飞"],
+    "fundingInfo": [
+      {
+        "round": "pre a",
+        "date": "2018/7/16",
+        "amount": "380万美元"
+      }
+    ],
+    "tags": ["女性疾病"]
+  },
+  {
+    "title": "微新医疗 Micro Inno",
+    "description": "女性健康创新医疗器械平台，致力于开发针对女性生殖健康的筛诊治、康复及医美全领域进行创新产品，提供女性健康完整解决方案。",
+    "website": "#",
+    "preview": null,
+    "founders": "张洋, 魏信鑫",
+    "location": "杭州",
+    "investors": ["高远瑞研", "金鼎资本", "泰煜投资", "创谷资本"],
+    "fundingInfo": [
+      {
+        "round": "prea",
+        "date": "2021-10-14",
+        "amount": ""
+      },
+      {
+        "round": "a",
+        "date": "2023-06-29",
+        "amount": ""
+      },
+      {
+        "round": "a+",
+        "date": "2025-02-08",
+        "amount": ""
+      }
+    ],
+    "tags": ["女性疾病"]
+  },
+  {
+    "title": "明兰世迦",
+    "description": "女性全生殖周期健康服务提供商，深耕妇产科数字疗法领域。基于宫颈癌筛查数据开发打造以患者为中心的宫颈癌筛查辅助诊断报告解读系统Mevixaga。",
+    "website": "#",
+    "preview": null,
+    "founders": "杜欣欣",
+    "location": "北京 昌平",
+    "investors": ["远毅资本"],
+    "fundingInfo": [
+      {
+        "round": "种子轮",
+        "date": "2023/7/25",
+        "amount": ""
+      }
+    ],
+    "tags": ["女性疾病"]
+  },
+  {
+    "title": "凯普生物科技股份有限公司",
+    "description": "HPV检测试剂盒龙头，覆盖21种高危型HPV分型检测。",
+    "website": "#",
+    "preview": null,
+    "founders": "管乔中",
+    "location": "广东广州",
+    "investors": [],
+    "fundingInfo": [
+      {
+        "round": "深交所创业板",
+        "date": "2017年IPO",
+        "amount": "-"
+      }
+    ],
+    "tags": ["女性疾病"]
+  },
+  {
+    "title": "友哲科技",
+    "description": "以国防科技大学人工智能和超算博士团队为骨干的高科技企业，将AI技术应用于医学显微检验，研制妇科分泌物综合检验仪、宫颈癌定量定性智能筛查。",
+    "website": "#",
+    "preview": null,
+    "founders": "梁光明",
+    "location": "长沙",
+    "investors": ["凯普生物", "泰达科投"],
+    "fundingInfo": [
+      {
+        "round": "a轮",
+        "date": "2021-01-13",
+        "amount": "2220万人民币"
+      },
+      {
+        "round": "b轮",
+        "date": "2023-05-06",
+        "amount": "未披露"
+      }
+    ],
+    "tags": ["女性疾病"]
+  },
+  {
+    "title": "国毅医疗 (闺巢生命)",
+    "description": "创新医疗服务供应商，以女性健康为切入点，构建试剂+仪器+服务的一体化平台。提供女性全生命周期健康管理及精准医疗健康一体化的管理平台。",
+    "website": "#",
+    "preview": null,
+    "founders": "任科, 唐莉",
+    "location": "成都",
+    "investors": ["北京洪泰海创投资管理有限公司"],
+    "fundingInfo": [
+      {
+        "round": "种子轮",
+        "date": "2020/12/22",
+        "amount": "数百万人民币"
+      },
+      {
+        "round": "天使轮",
+        "date": "2021/09/01",
+        "amount": ""
+      }
+    ],
+    "tags": ["大众女性健康"]
+  },
+  {
+    "title": "安美科",
+    "description": "妊娠纹修复产品研发商，产品包括孕纹修护乳、孕纹紧致精华、修护润肌腹膜以及孕纹紧致修护原液等修复系列。",
+    "website": "#",
+    "preview": null,
+    "founders": "james",
+    "location": "杭州",
+    "investors": ["分享投资", "世纪金源集团"],
+    "fundingInfo": [
+      {
+        "round": "a+轮",
+        "date": "2020/8/4",
+        "amount": "未披露"
+      },
+      {
+        "round": "a轮",
+        "date": "2019/12/30",
+        "amount": "2000万人民币"
+      }
+    ],
+    "tags": ["大众女性健康"]
+  },
+  {
+    "title": "安然菲 Anranfi",
+    "description": "建立了全球的技术平台，通过调节神经细胞的电信号到化学信号的转化效率，对目标神经递质分泌进行生理性调控进行针对各种疾病的治疗。",
+    "website": "#",
+    "preview": null,
+    "founders": "张燕峰",
+    "location": "苏州",
+    "investors": ["峰瑞资本"],
+    "fundingInfo": [
+      {
+        "round": "天使轮",
+        "date": "2025/4/17",
+        "amount": "数千万人民币"
+      }
+    ],
+    "tags": ["大众女性健康"]
+  },
+  {
+    "title": "华熙生物科技股份有限公司",
+    "description": "全球透明质酸原料生产龙头，覆盖原料、医疗终端、功能性护肤品。",
+    "website": "#",
+    "preview": null,
+    "founders": "赵燕",
+    "location": "山东济南",
+    "investors": ["上交所科创板"],
+    "fundingInfo": [
+      {
+        "round": "ipo",
+        "date": "2019年11月",
+        "amount": "23.69亿元"
+      }
+    ],
+    "tags": ["医美"]
+  },
+  {
+    "title": "南京麦澜德医疗科技股份有限公司",
+    "description": "专注女性盆底健康，产品包括盆底康复设备及健康管理信息系统。",
+    "website": "#",
+    "preview": null,
+    "founders": "杨瑞嘉",
+    "location": "江苏南京",
+    "investors": ["上交所科创板"],
+    "fundingInfo": [
+      {
+        "round": "ipo",
+        "date": "2022年8月",
+        "amount": "10.1亿元"
+      }
+    ],
+    "tags": ["盆底健康与产后修复"]
+  },
+  {
+    "title": "北京红棉小冰科技有限公司",
+    "description": "AI情感计算平台，开发虚拟陪伴机器人，支持情感对话及心理疏导。",
+    "website": "#",
+    "preview": null,
+    "founders": "李笛（原微软小冰负责人）",
+    "location": "北京",
+    "investors": ["高瓴资本", "IDG资本"],
+    "fundingInfo": [
+      {
+        "round": "A轮",
+        "date": "2021年",
+        "amount": "数亿元"
+      }
+    ],
+    "tags": ["心理健康"]
+  },
+  {
+    "title": "北京知我探索科技有限公司（KnowYourself）",
+    "description": "泛心理生活方式品牌，提供心理测评、冥想、线上聊愈等服务。",
+    "website": "#",
+    "preview": null,
+    "founders": "钱庄（哥伦比亚大学硕士）",
+    "location": "北京",
+    "investors": ["腾讯投资", "斯道资本", "SIG海纳亚洲"],
+    "fundingInfo": [
+      {
+        "round": "B轮",
+        "date": "2022年3月",
+        "amount": "数千万美元"
+      },
+      {
+        "round": "Pre-B轮",
+        "date": "2021年5月",
+        "amount": "千万级美元"
+      }
+    ],
+    "tags": ["心理健康"]
+  },
+  {
+    "title": "上海竹间智能科技有限公司",
+    "description": "专注情感AI技术，开发心理陪伴机器人小爱心理，提供情绪识别及CBT干预。",
+    "website": "#",
+    "preview": null,
+    "founders": "简仁贤（前微软高管）",
+    "location": "上海",
+    "investors": ["中银投", "交银国际"],
+    "fundingInfo": [
+      {
+        "round": "D轮",
+        "date": "2021年",
+        "amount": "2亿元"
+      }
+    ],
+    "tags": ["心理健康"]
+  },
+  {
+    "title": "杭州壹点灵心理咨询有限公司",
+    "description": "互联网心理咨询平台，提供婚姻情感、职场减压等定制化服务。",
+    "website": "#",
+    "preview": null,
+    "founders": "徐颖奇",
+    "location": "浙江杭州",
+    "investors": ["元生创投", "58同城"],
+    "fundingInfo": [
+      {
+        "round": "C轮",
+        "date": "2023年",
+        "amount": "未披露"
+      }
+    ],
+    "tags": ["心理健康"]
+  },
+  {
+    "title": "北京好心情健康产业集团有限公司",
+    "description": "精神心理健康数字化平台，覆盖线上诊疗、线下诊所及企业EAP服务。",
+    "website": "#",
+    "preview": null,
+    "founders": "陈冠伟",
+    "location": "北京",
+    "investors": ["复星医药", "字节跳动"],
+    "fundingInfo": [
+      {
+        "round": "D轮",
+        "date": "2022年",
+        "amount": "超1亿元"
+      }
+    ],
+    "tags": ["心理健康"]
+  },
+  {
+    "title": "浙江金科汤姆猫文化产业股份有限公司",
+    "description": "推出汤姆猫AI童伴语音情感陪伴机器人，搭载与西湖心辰联合开发的垂直模型，支持情绪识别、双语互动及主动聊天。",
+    "website": "#",
+    "preview": null,
+    "founders": "未明确提及",
+    "location": "浙江杭州",
+    "investors": ["西湖心辰"],
+    "fundingInfo": [
+      {
+        "round": "战略合作",
+        "date": "2024年12月",
+        "amount": "未披露"
+      }
+    ],
+    "tags": ["心理健康"]
+  },
+  {
+    "title": "维他动力科技有限公司",
+    "description": "由地平线、理想汽车前高管创立，专注AI陪伴机器人研发，定位家庭情感交互与娱乐场景。",
+    "website": "#",
+    "preview": null,
+    "founders": "余轶南、宋巍、赵哲伦",
+    "location": "北京",
+    "investors": ["高瓴资本", "元璟资本", "宁德时代副董事长李平旗下机构"],
+    "fundingInfo": [
+      {
+        "round": "天使轮",
+        "date": "2025年",
+        "amount": "近亿元"
+      }
+    ],
+    "tags": ["心理健康"]
+  },
+  {
+    "title": "株洲千金药业股份有限公司",
+    "description": "妇科中药龙头，核心产品妇科千金片覆盖更年期综合征辅助治疗。",
+    "website": "#",
+    "preview": null,
+    "founders": "未披露",
+    "location": "湖南株洲",
+    "investors": [],
+    "fundingInfo": [
+      {
+        "round": "上交所主板",
+        "date": "2004年IPO",
+        "amount": "-"
+      }
+    ],
+    "tags": ["更年期健康"]
+  },
+  {
+    "title": "珞博智能科技有限公司",
+    "description": "前小鹏汽车内饰设计负责人创立，开发AI潮玩机器人，定位年轻群体情感陪伴。",
+    "website": "#",
+    "preview": null,
+    "founders": "孙兆治",
+    "location": "广东深圳",
+    "investors": ["未披露"],
+    "fundingInfo": [
+      {
+        "round": "天使轮",
+        "date": "2025年",
+        "amount": "近千万元"
+      }
+    ],
+    "tags": ["心理健康"]
+  },
+  {
+    "title": "艾托金生物医药（苏州）有限公司",
+    "description": "聚焦女性健康医疗诊断市场，已有多项获批的产品，包括宫颈癌特异性蛋白标志物检测盒、人工智能全自动医疗检测设备及AI算法应用软件。",
+    "website": "#",
+    "preview": null,
+    "founders": "",
+    "location": "苏州",
+    "investors": [],
+    "fundingInfo": [],
+    "tags": ["女性疾病"]
+  },
+  {
+    "title": "上海葆正医药科技有限公司",
+    "description": "专注于中国女性健康，深耕妇科及生殖健康领域，已搭建药物、保健品、医疗器械研发的临床及商业化平台。",
+    "website": "#",
+    "preview": null,
+    "founders": "",
+    "location": "上海",
+    "investors": [],
+    "fundingInfo": [],
+    "tags": ["女性疾病"]
+  },
+  {
+    "title": "芽觅",
+    "description": "新一代私护潮趣品牌，专注于为女性私处提供科学健康、有幸福感的护理全场景解决方案。国内首家通过中检科检测认证的私护品牌。",
+    "website": "#",
+    "preview": null,
+    "founders": "",
+    "location": "天津",
+    "investors": [],
+    "fundingInfo": [],
+    "tags": ["大众女性健康"]
+  },
+  {
+    "title": "品珍草",
+    "description": "",
+    "website": "#",
+    "preview": null,
+    "founders": "",
+    "location": "",
+    "investors": [],
+    "fundingInfo": [],
+    "tags": ["中医药与女性健康融合"]
+  },
+  {
+    "title": "深圳聚禾生物",
+    "description": "以创新生物科技、关注女性健康为宗旨的高科技企业，致力成为妇科肿瘤早诊的领先企业，开发了宫颈癌、卵巢癌、子宫内膜癌等妇科肿瘤早诊产品。",
+    "website": "#",
+    "preview": null,
+    "founders": "",
+    "location": "深圳",
+    "investors": [],
+    "fundingInfo": [],
+    "tags": ["女性疾病"]
+  },
+  {
+    "title": "漂亮妈妈",
+    "description": "",
+    "website": "#",
+    "preview": null,
+    "founders": "",
+    "location": "南京",
+    "investors": [],
+    "fundingInfo": [],
+    "tags": ["孕产妇健康"]
+  }
+] 

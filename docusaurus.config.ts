@@ -104,6 +104,7 @@ const config: Config = {
           label: 'Reports',
         },
         {to: '/blog', label: 'Competition', position: 'left'},
+        {to: '/showcase', label: '企业展示', position: 'left'},
         {
           type: 'localeDropdown',
           position: 'right',
@@ -169,6 +170,10 @@ const config: Config = {
             {
               label: 'Competition',
               to: '/blog',
+            },
+            {
+              label: '企业展示',
+              to: '/showcase',
             },
           ],
         },
