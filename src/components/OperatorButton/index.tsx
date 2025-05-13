@@ -17,7 +17,7 @@ export default function OperatorButton() {
         values={{
           operator,
         }}>
-        {'筛选条件: {operator}'}
+        {'Filter criteria: {operator}'}
       </Translate>
     </button>
   );

@@ -14,5 +14,17 @@
   "item.label.Blog": {
     "message": "博客",
     "description": "Navbar item with label Blog"
+  },
+  "item.label.Company Showcase": {
+    "message": "企业展示",
+    "description": "Navbar item with label Company Showcase"
+  },
+  "item.label.Reports": {
+    "message": "报告",
+    "description": "Navbar item with label Reports"
+  },
+  "item.label.Competition": {
+    "message": "比赛",
+    "description": "Navbar item with label Competition"
   }
 }

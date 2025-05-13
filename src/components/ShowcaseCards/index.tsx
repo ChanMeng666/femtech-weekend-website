@@ -11,7 +11,7 @@ import styles from './styles.module.css';
 function HeadingNoResult() {
   return (
     <Heading as="h2">
-      <Translate id="showcase.companyList.noResult">无结果</Translate>
+      <Translate id="showcase.companyList.noResult">No results</Translate>
     </Heading>
   );
 }
@@ -19,7 +19,7 @@ function HeadingNoResult() {
 function HeadingAllCompanies() {
   return (
     <Heading as="h2">
-      <Translate id="showcase.companyList.allCompanies">所有公司</Translate>
+      <Translate id="showcase.companyList.allCompanies">All Companies</Translate>
     </Heading>
   );
 }

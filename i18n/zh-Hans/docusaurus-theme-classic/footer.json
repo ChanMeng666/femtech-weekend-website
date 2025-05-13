@@ -11,6 +11,14 @@
     "message": "更多",
     "description": "The title of the footer links column with title=More in the footer"
   },
+  "link.title.Site Map": {
+    "message": "网站地图",
+    "description": "The title of the footer links column with title=Site Map in the footer"
+  },
+  "link.title.Follow Us": {
+    "message": "关注我们",
+    "description": "The title of the footer links column with title=Follow Us in the footer"
+  },
   "link.item.label.Tutorial": {
     "message": "教程",
     "description": "The label of footer link with label=Tutorial linking to /docs/intro"
@@ -35,8 +43,36 @@
     "message": "GitHub",
     "description": "The label of footer link with label=GitHub linking to https://github.com/facebook/docusaurus"
   },
+  "link.item.label.Home": {
+    "message": "首页",
+    "description": "The label of footer link with label=Home linking to /"
+  },
+  "link.item.label.Reports": {
+    "message": "报告",
+    "description": "The label of footer link with label=Reports linking to /docs/intro"
+  },
+  "link.item.label.Competition": {
+    "message": "比赛",
+    "description": "The label of footer link with label=Competition linking to /blog"
+  },
+  "link.item.label.Company Showcase": {
+    "message": "企业展示",
+    "description": "The label of footer link with label=Company Showcase linking to /showcase"
+  },
+  "link.item.label.WeChat": {
+    "message": "微信",
+    "description": "The label of footer link with label=WeChat"
+  },
+  "link.item.label.Xiaohongshu": {
+    "message": "小红书",
+    "description": "The label of footer link with label=Xiaohongshu"
+  },
+  "link.item.label.LinkedIn": {
+    "message": "领英",
+    "description": "The label of footer link with label=LinkedIn"
+  },
   "copyright": {
-    "message": "版权所有 © 2025 我的项目, Inc. 使用 Docusaurus 构建。",
+    "message": "版权所有 © 2025 FemTech Weekend。",
     "description": "The footer copyright"
   }
 }

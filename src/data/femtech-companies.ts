@@ -1,4 +1,5 @@
 import {sortBy} from '../utils/jsUtils';
+import {translate} from '@docusaurus/Translate';
 
 export type TagType =
   | '女性疾病'
@@ -28,48 +29,129 @@ export type Company = {
   tags: TagType[];
 };
 
-export const Tags: Record<TagType, {label: string; description: string; color: string}> = {
+// Default tag values (fallbacks when translation is unavailable)
+const TagDefaults: Record<TagType, {defaultLabel: string; defaultDescription: string; color: string}> = {
   '女性疾病': {
-    label: '女性疾病',
-    description: '专注于女性疾病的诊断、治疗和管理的公司',
+    defaultLabel: 'Women\'s Diseases',
+    defaultDescription: 'Companies focusing on the diagnosis, treatment and management of women\'s diseases',
     color: '#e41a1c'
   },
   '大众女性健康': {
-    label: '大众女性健康',
-    description: '提供通用女性健康服务和产品的公司',
+    defaultLabel: 'General Women\'s Health',
+    defaultDescription: 'Companies providing general women\'s health services and products',
     color: '#377eb8'
   },
   '医美': {
-    label: '医美',
-    description: '针对女性医疗美容服务和产品的公司',
+    defaultLabel: 'Medical Aesthetics',
+    defaultDescription: 'Companies providing medical aesthetic services and products for women',
     color: '#4daf4a'
   },
   '盆底健康与产后修复': {
-    label: '盆底健康与产后修复',
-    description: '专注于盆底健康和产后修复的公司',
+    defaultLabel: 'Pelvic Health',
+    defaultDescription: 'Companies focusing on pelvic health and postpartum recovery',
     color: '#984ea3'
   },
   '心理健康': {
-    label: '心理健康',
-    description: '提供心理健康服务和解决方案的公司',
+    defaultLabel: 'Mental Health',
+    defaultDescription: 'Companies providing mental health services and solutions',
     color: '#ff7f00'
   },
   '更年期健康': {
-    label: '更年期健康',
-    description: '关注更年期健康管理的公司',
+    defaultLabel: 'Menopause Health',
+    defaultDescription: 'Companies focused on menopause health management',
     color: '#ffff33'
   },
   '中医药与女性健康融合': {
-    label: '中医药与女性健康',
-    description: '将中医药与现代女性健康服务相结合的公司',
+    defaultLabel: 'TCM & Women\'s Health',
+    defaultDescription: 'Companies combining Traditional Chinese Medicine with modern women\'s health services',
     color: '#a65628'
   },
   '孕产妇健康': {
-    label: '孕产妇健康',
-    description: '专注于孕期和产后健康服务的公司',
+    defaultLabel: 'Maternal Health',
+    defaultDescription: 'Companies focused on maternal health services',
     color: '#f781bf'
   }
 };
+
+// Initialize Tags with defaults - we'll add translations later
+export const Tags: Record<TagType, {label: string; description: string; color: string; defaultLabel: string; defaultDescription: string}> = {
+  '女性疾病': {
+    label: TagDefaults['女性疾病'].defaultLabel,
+    description: TagDefaults['女性疾病'].defaultDescription,
+    color: TagDefaults['女性疾病'].color,
+    defaultLabel: TagDefaults['女性疾病'].defaultLabel,
+    defaultDescription: TagDefaults['女性疾病'].defaultDescription
+  },
+  '大众女性健康': {
+    label: TagDefaults['大众女性健康'].defaultLabel,
+    description: TagDefaults['大众女性健康'].defaultDescription,
+    color: TagDefaults['大众女性健康'].color,
+    defaultLabel: TagDefaults['大众女性健康'].defaultLabel,
+    defaultDescription: TagDefaults['大众女性健康'].defaultDescription
+  },
+  '医美': {
+    label: TagDefaults['医美'].defaultLabel,
+    description: TagDefaults['医美'].defaultDescription,
+    color: TagDefaults['医美'].color,
+    defaultLabel: TagDefaults['医美'].defaultLabel,
+    defaultDescription: TagDefaults['医美'].defaultDescription
+  },
+  '盆底健康与产后修复': {
+    label: TagDefaults['盆底健康与产后修复'].defaultLabel,
+    description: TagDefaults['盆底健康与产后修复'].defaultDescription,
+    color: TagDefaults['盆底健康与产后修复'].color,
+    defaultLabel: TagDefaults['盆底健康与产后修复'].defaultLabel,
+    defaultDescription: TagDefaults['盆底健康与产后修复'].defaultDescription
+  },
+  '心理健康': {
+    label: TagDefaults['心理健康'].defaultLabel,
+    description: TagDefaults['心理健康'].defaultDescription,
+    color: TagDefaults['心理健康'].color,
+    defaultLabel: TagDefaults['心理健康'].defaultLabel,
+    defaultDescription: TagDefaults['心理健康'].defaultDescription
+  },
+  '更年期健康': {
+    label: TagDefaults['更年期健康'].defaultLabel,
+    description: TagDefaults['更年期健康'].defaultDescription,
+    color: TagDefaults['更年期健康'].color,
+    defaultLabel: TagDefaults['更年期健康'].defaultLabel,
+    defaultDescription: TagDefaults['更年期健康'].defaultDescription
+  },
+  '中医药与女性健康融合': {
+    label: TagDefaults['中医药与女性健康融合'].defaultLabel,
+    description: TagDefaults['中医药与女性健康融合'].defaultDescription,
+    color: TagDefaults['中医药与女性健康融合'].color,
+    defaultLabel: TagDefaults['中医药与女性健康融合'].defaultLabel,
+    defaultDescription: TagDefaults['中医药与女性健康融合'].defaultDescription
+  },
+  '孕产妇健康': {
+    label: TagDefaults['孕产妇健康'].defaultLabel,
+    description: TagDefaults['孕产妇健康'].defaultDescription,
+    color: TagDefaults['孕产妇健康'].color,
+    defaultLabel: TagDefaults['孕产妇健康'].defaultLabel,
+    defaultDescription: TagDefaults['孕产妇健康'].defaultDescription
+  }
+};
+
+// Now that Tags is defined, we can get translations
+function applyTranslations() {
+  // Apply translations for each tag
+  Object.keys(Tags).forEach((tag) => {
+    const tagKey = tag as TagType;
+    Tags[tagKey].label = translate({
+      id: `femtech-tags.${tagKey}.label`,
+      message: Tags[tagKey].defaultLabel,
+    });
+    
+    Tags[tagKey].description = translate({
+      id: `femtech-tags.${tagKey}.description`,
+      message: Tags[tagKey].defaultDescription,
+    });
+  });
+}
+
+// Apply translations
+applyTranslations();
 
 export const TagList: TagType[] = Object.keys(Tags) as TagType[];
 

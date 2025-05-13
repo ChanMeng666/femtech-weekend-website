@@ -19,7 +19,7 @@ export default function ClearAllButton() {
       type="button"
       className="button button--sm button--outline button--danger"
       onClick={clearAll}>
-      <Translate id="showcase.filters.clearAll">清除筛选</Translate>
+      <Translate id="showcase.filters.clearAll">Clear filters</Translate>
     </button>
   );
 } 

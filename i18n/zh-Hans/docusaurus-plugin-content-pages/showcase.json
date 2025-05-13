@@ -1,0 +1,15 @@
+{
+  "title": "中国女性健康公司展示",
+  "description": "中国女性健康领域的创新企业列表",
+  "header.title": "中国女性健康公司展示",
+  "header.description": "中国女性健康领域的创新企业列表",
+  "filters.title": "筛选",
+  "filters.clearAll": "清除筛选",
+  "filters.operator": "筛选条件: {operator}",
+  "companyList.noResult": "无结果",
+  "companyList.allCompanies": "所有公司",
+  "card.founder": "创始人:",
+  "card.funding": "融资:",
+  "company": "公司",
+  "companies": "公司"
+} 

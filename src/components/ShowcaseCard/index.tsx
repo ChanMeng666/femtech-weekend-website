@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
+import Translate from '@docusaurus/Translate';
 import {Tags, TagList, type TagType, type Company} from '@site/src/data/femtech-companies';
 import {sortBy} from '@site/src/utils/jsUtils';
 import Heading from '@theme/Heading';
@@ -64,13 +65,17 @@ function ShowcaseCard({company}: {company: Company}) {
         
         {company.founders && (
           <div className={styles.showcaseCardDetail}>
-            <strong>创始人:</strong> {company.founders}
+            <strong>
+              <Translate id="showcase.card.founder">Founder:</Translate>
+            </strong> {company.founders}
           </div>
         )}
         
         {latestFunding && (
           <div className={styles.showcaseCardDetail}>
-            <strong>融资:</strong> {latestFunding.round} ({latestFunding.date}) {latestFunding.amount && `- ${latestFunding.amount}`}
+            <strong>
+              <Translate id="showcase.card.funding">Funding:</Translate>
+            </strong> {latestFunding.round} ({latestFunding.date}) {latestFunding.amount && `- ${latestFunding.amount}`}
           </div>
         )}
       </div>

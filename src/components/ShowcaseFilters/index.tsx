@@ -61,11 +61,15 @@ function HeadingText() {
   return (
     <div className={styles.headingText}>
       <Heading as="h2">
-        <Translate id="showcase.filters.title">筛选</Translate>
+        <Translate id="showcase.filters.title">Filters</Translate>
       </Heading>
       <span>
         {filteredCompanies.length}{' '}
-        {filteredCompanies.length === 1 ? '家公司' : '家公司'}
+        {filteredCompanies.length === 1 ? (
+          <Translate id="showcase.company">company</Translate>
+        ) : (
+          <Translate id="showcase.companies">companies</Translate>
+        )}
       </span>
     </div>
   );

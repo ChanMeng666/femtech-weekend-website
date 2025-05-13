@@ -5,16 +5,20 @@ import Heading from '@theme/Heading';
 import ShowcaseFilters from '@site/src/components/ShowcaseFilters';
 import ShowcaseCards from '@site/src/components/ShowcaseCards';
 
-const TITLE = translate({message: '中国女性健康公司展示'});
-const DESCRIPTION = translate({
-  message: '中国女性健康领域的创新企业列表',
-});
+const TITLE = translate({id: 'showcase.title', message: 'FemTech Companies Showcase'});
+const DESCRIPTION = translate({id: 'showcase.description', message: 'Innovative companies in the women\'s health industry in China'});
 
 function ShowcaseHeader() {
   return (
     <section className="margin-top--lg margin-bottom--lg text--center">
-      <Heading as="h1">{TITLE}</Heading>
-      <p>{DESCRIPTION}</p>
+      <Heading as="h1">
+        <Translate id="showcase.header.title">FemTech Companies Showcase</Translate>
+      </Heading>
+      <p>
+        <Translate id="showcase.header.description">
+          Directory of innovative companies in the women's health industry in China
+        </Translate>
+      </p>
     </section>
   );
 }
