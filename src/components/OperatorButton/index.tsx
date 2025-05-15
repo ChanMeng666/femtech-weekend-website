@@ -2,7 +2,7 @@ import React from 'react';
 import {translate} from '@docusaurus/Translate';
 import {useOperator} from '@site/src/utils/useFilteredCompanies';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import styles from './styles.module.css';
+import { cn } from '../../lib/utils';
 
 export default function OperatorButton() {
   const [operator, toggleOperator] = useOperator();
@@ -11,9 +11,12 @@ export default function OperatorButton() {
   return (
     <button
       type="button"
-      className={`button button--sm button--${
-        operator === 'OR' ? 'secondary' : 'primary'
-      }`}
+      className={cn(
+        "rounded-md px-3 py-2 text-xs font-medium transition-colors",
+        operator === 'OR' 
+          ? "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+          : "bg-primary text-primary-foreground hover:bg-primary/90"
+      )}
       onClick={toggleOperator}>
       {currentLocale === 'zh-Hans' ? `筛选条件: ${operator}` : translate(
         {

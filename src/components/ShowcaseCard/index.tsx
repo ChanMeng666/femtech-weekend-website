@@ -1,4 +1,11 @@
-import React from 'react';import clsx from 'clsx';import Link from '@docusaurus/Link';import {translate} from '@docusaurus/Translate';import {TagList, type TagType, type Company, useTranslatedTags} from '@site/src/data/femtech-companies';import {sortBy} from '@site/src/utils/jsUtils';import Heading from '@theme/Heading';import useDocusaurusContext from '@docusaurus/useDocusaurusContext';import styles from './styles.module.css';
+import React from 'react';
+import {translate} from '@docusaurus/Translate';
+import Link from '@docusaurus/Link';
+import {TagList, type TagType, type Company, useTranslatedTags} from '@site/src/data/femtech-companies';
+import {sortBy} from '@site/src/utils/jsUtils';
+import Heading from '@theme/Heading';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { cn } from '../../lib/utils';
 
 function TagItem({
   label,
@@ -10,9 +17,9 @@ function TagItem({
   color: string;
 }) {
   return (
-    <li className={styles.tag} title={description}>
-      <span className={styles.textLabel}>{label}</span>
-      <span className={styles.colorLabel} style={{backgroundColor: color}} />
+    <li className="inline-flex items-center mr-2 mb-1" title={description}>
+      <span className="text-xs text-muted-foreground">{label}</span>
+      <span className="w-2 h-2 ml-1.5 rounded-full" style={{backgroundColor: color}} />
     </li>
   );
 }
@@ -42,47 +49,55 @@ function ShowcaseCard({company}: {company: Company}) {
   const {i18n: {currentLocale}} = useDocusaurusContext();
   
   return (
-    <li key={company.title} className="card shadow--md">
-      <div className="card__body">
-        <div className={clsx(styles.showcaseCardHeader)}>
-          <Heading as="h4" className={styles.showcaseCardTitle}>
-            <Link href={company.website} className={styles.showcaseCardLink}>
+    <li className="group relative rounded-xl border border-border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md overflow-hidden">
+      <div className="p-6">
+        <div className="flex flex-wrap items-center justify-between mb-4">
+          <Heading as="h4" className="text-lg font-semibold leading-tight mb-1">
+            <Link href={company.website} className="text-foreground hover:text-primary no-underline transition-colors">
               {company.title}
             </Link>
           </Heading>
           {company.location && (
-            <span className={styles.showcaseCardLocation}>
+            <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded-full">
               {company.location}
             </span>
           )}
         </div>
-        <p className={styles.showcaseCardBody}>{company.description}</p>
+        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{company.description}</p>
         
-        {company.founders && (
-          <div className={styles.showcaseCardDetail}>
-            <strong>
-              {currentLocale === 'zh-Hans' ? '创始人:' : translate({
-                id: 'theme.showcase.card.founder',
-                message: 'Founder:',
-              })}
-            </strong> {company.founders}
-          </div>
-        )}
-        
-        {latestFunding && (
-          <div className={styles.showcaseCardDetail}>
-            <strong>
-              {currentLocale === 'zh-Hans' ? '融资:' : translate({
-                id: 'theme.showcase.card.funding',
-                message: 'Funding:',
-              })}
-            </strong> {latestFunding.round} ({latestFunding.date}) {latestFunding.amount && `- ${latestFunding.amount}`}
-          </div>
-        )}
+        <div className="space-y-2">
+          {company.founders && (
+            <div className="text-xs">
+              <span className="font-medium text-foreground">
+                {currentLocale === 'zh-Hans' ? '创始人: ' : translate({
+                  id: 'theme.showcase.card.founder',
+                  message: 'Founder: ',
+                })}
+              </span>
+              <span className="text-muted-foreground">{company.founders}</span>
+            </div>
+          )}
+          
+          {latestFunding && (
+            <div className="text-xs">
+              <span className="font-medium text-foreground">
+                {currentLocale === 'zh-Hans' ? '融资: ' : translate({
+                  id: 'theme.showcase.card.funding',
+                  message: 'Funding: ',
+                })}
+              </span>
+              <span className="text-muted-foreground">
+                {latestFunding.round} ({latestFunding.date}) {latestFunding.amount && `- ${latestFunding.amount}`}
+              </span>
+            </div>
+          )}
+        </div>
       </div>
-      <ul className={clsx('card__footer', styles.cardFooter)}>
-        <ShowcaseCardTag tags={company.tags} />
-      </ul>
+      <div className="border-t border-border px-6 py-3 bg-accent/10">
+        <ul className="flex flex-wrap">
+          <ShowcaseCardTag tags={company.tags} />
+        </ul>
+      </div>
     </li>
   );
 }

@@ -1,8 +1,7 @@
 import React, {type ReactNode} from 'react';
-import clsx from 'clsx';
 import {useQueryStringList} from '@docusaurus/theme-common';
 import {TagType} from '@site/src/data/femtech-companies';
-import styles from './styles.module.css';
+import { cn } from '../../lib/utils';
 
 export default function ShowcaseTagSelect({
   tag,
@@ -26,14 +25,15 @@ export default function ShowcaseTagSelect({
   return (
     <button
       type="button"
-      className={clsx(
-        'button button--outline button--secondary',
-        styles.tagButton,
-        {[styles.tagButtonSelected]: selected},
+      className={cn(
+        "inline-flex items-center rounded-full px-3 py-1 text-sm transition-colors border",
+        selected
+          ? "bg-primary text-primary-foreground border-primary hover:bg-primary/90"
+          : "bg-background text-foreground border-border hover:bg-muted",
       )}
       onClick={toggleTag}
       aria-label={`${label} ${description}`}>
-      <span className={styles.tagLabel}>{label}</span>
+      <span className="mr-1">{label}</span>
       {icon}
     </button>
   );

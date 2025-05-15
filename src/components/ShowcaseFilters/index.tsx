@@ -1,5 +1,4 @@
 import React, {type CSSProperties} from 'react';
-import clsx from 'clsx';
 import Translate, {translate} from '@docusaurus/Translate';
 import {TagList, type TagType, useTranslatedTags} from '@site/src/data/femtech-companies';
 import Heading from '@theme/Heading';
@@ -8,8 +7,6 @@ import OperatorButton from '../OperatorButton';
 import ClearAllButton from '../ClearAllButton';
 import {useFilteredCompanies, useCompanyCountPlural} from '@site/src/utils/useFilteredCompanies';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-
-import styles from './styles.module.css';
 
 function TagCircleIcon({color, style}: {color: string; style?: CSSProperties}) {
   return (
@@ -29,7 +26,7 @@ function ShowcaseTagListItem({tag}: {tag: TagType}) {
   const translatedTags = useTranslatedTags();
   const {label, description, color} = translatedTags[tag];
   return (
-    <li className={styles.tagListItem}>
+    <li className="mr-4 mb-4">
       <ShowcaseTagSelect
         tag={tag}
         label={label}
@@ -50,7 +47,7 @@ function ShowcaseTagListItem({tag}: {tag: TagType}) {
 
 function ShowcaseTagList() {
   return (
-    <ul className={clsx('clean-list', styles.tagList)}>
+    <ul className="flex flex-wrap pt-2">
       {TagList.map((tag) => {
         return <ShowcaseTagListItem key={tag} tag={tag} />;
       })}
@@ -64,21 +61,21 @@ function HeadingText() {
   const {i18n: {currentLocale}} = useDocusaurusContext();
   
   return (
-    <div className={styles.headingText}>
-      <Heading as="h2">
+    <div className="flex items-center">
+      <Heading as="h2" className="text-2xl font-bold text-foreground mr-4 mb-0">
         {currentLocale === 'zh-Hans' ? '筛选' : translate({
           id: 'theme.showcase.filters.title',
           message: 'Filters',
         })}
       </Heading>
-      <span>{companyCountPlural(filteredCompanies.length)}</span>
+      <span className="text-sm text-muted-foreground">{companyCountPlural(filteredCompanies.length)}</span>
     </div>
   );
 }
 
 function HeadingButtons() {
   return (
-    <div className={styles.headingButtons}>
+    <div className="flex gap-2">
       <OperatorButton />
       <ClearAllButton />
     </div>
@@ -87,18 +84,22 @@ function HeadingButtons() {
 
 function HeadingRow() {
   return (
-    <div className={clsx('margin-bottom--sm', styles.headingRow)}>
+    <div className="flex justify-between items-center mb-6 md:flex-row flex-col md:items-center items-start">
       <HeadingText />
-      <HeadingButtons />
+      <div className="md:mt-0 mt-4">
+        <HeadingButtons />
+      </div>
     </div>
   );
 }
 
 export default function ShowcaseFilters() {
   return (
-    <section className="container margin-top--l margin-bottom--lg">
-      <HeadingRow />
-      <ShowcaseTagList />
+    <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="bg-card border border-border rounded-lg p-6">
+        <HeadingRow />
+        <ShowcaseTagList />
+      </div>
     </section>
   );
 } 
