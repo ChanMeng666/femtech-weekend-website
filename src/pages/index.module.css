@@ -21,3 +21,240 @@
   align-items: center;
   justify-content: center;
 }
+
+/**
+ * CSS for the FemTech Weekend homepage
+ */
+
+/* Global styles */
+.homeMain {
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, #FFE8D6 0%, #DDBEA9 100%);
+  padding: 7rem 0 8rem;
+  text-align: center;
+  background-position: 50% 50%;
+  overflow: hidden;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.heroTextContainer {
+  margin-bottom: 1rem;
+  max-width: 800px;
+}
+
+.heroTitle {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #6B705C;
+}
+
+.heroSubtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #6B705C;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.heroCta {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.heroButton {
+  min-width: 180px;
+}
+
+.heroWave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+}
+
+.heroWave svg {
+  width: 100%;
+  height: auto;
+}
+
+/* Section Common Styles */
+.sectionHeadingContainer {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionHeading {
+  font-size: 2.5rem;
+  color: #6B705C;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 1rem;
+}
+
+.sectionHeading:after {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 3px;
+  background: #CB997E;
+  bottom: 0;
+  left: 20%;
+}
+
+/* Mission Section */
+.mission {
+  padding: 6rem 0;
+  background-color: var(--ifm-background-color);
+}
+
+.missionContent {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.missionText {
+  line-height: 1.8;
+}
+
+.missionLead {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  color: #6B705C;
+}
+
+.missionList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.missionList li {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: rgba(219, 190, 169, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.missionList li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(107, 112, 92, 0.1);
+}
+
+.missionList li strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #6B705C;
+}
+
+.missionIcon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+/* Team Section */
+.team {
+  padding: 6rem 0;
+  background-color: #F7F7F7;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.teamCard {
+  background-color: white;
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.teamCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.teamImageContainer {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid #FFE8D6;
+}
+
+.teamImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.teamName {
+  color: #6B705C;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.teamRole {
+  color: #CB997E;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.teamDescription {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Responsive design */
+@media (max-width: 996px) {
+  .heroTitle {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 5rem 0 6rem;
+  }
+  
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+  
+  .heroSubtitle {
+    font-size: 1.2rem;
+  }
+  
+  .teamGrid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}

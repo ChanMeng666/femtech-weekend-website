@@ -59,33 +59,53 @@
 
 .footer__qrcode-container {
   display: flex;
-  justify-content: center;
-  gap: 3rem; /* Increased spacing between QR codes */
-  margin-top: 0.5rem;
   flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
 }
 
 .footer__qrcode-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 120px; /* Larger QR codes for desktop */
+  gap: 5px;
 }
 
 .footer__qrcode-item img {
+  width: 80px;
+  height: 80px;
   border-radius: 8px;
-  width: 100%;
-  height: auto;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow for depth */
 }
 
 .footer__qrcode-item span {
-  margin-top: 8px;
-  font-size: 12px;
-  text-align: center;
-  color: #595959;
-  font-weight: 500;
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.footer__join-description {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.footer__subscribe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer__subscribe-input {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+.footer__subscribe-button {
+  width: fit-content;
+  font-size: 0.9rem;
+  padding: 0.4rem 1rem;
 }
 
 .footer__copyright {
@@ -94,4 +114,26 @@
   font-size: 0.9rem;
   padding-top: 1.5rem;
   border-top: 1px solid rgba(132, 98, 77, 0.2); /* Light divider line */
+}
+
+@media (max-width: 996px) {
+  .footer__qrcode-container {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer__links {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer__link-item {
+    text-align: center;
+  }
+  
+  .footer__subscribe-form {
+    max-width: 300px;
+    margin: 0 auto;
+  }
 } 

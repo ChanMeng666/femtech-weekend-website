@@ -182,19 +182,31 @@ const config: Config = {
           ],
         },
         {
-          title: 'Community',
+          title: 'Join the Ecosystem',
           items: [
+            {
+              html: `
+                <p class="footer__join-description">
+                  Be part of the movement that's transforming women's health innovation across borders.
+                </p>
+                <form class="footer__subscribe-form">
+                  <input type="email" placeholder="Your Email Address" class="footer__subscribe-input" />
+                  <button class="button button--primary footer__subscribe-button">Subscribe</button>
+                </form>
+              `
+            }
+          ],
+        },
+        {
+          title: 'Contact Us',
+          items: [
+            {
+              label: 'Email: hello@femtechweekend.com',
+              href: 'mailto:hello@femtechweekend.com',
+            },
             {
               label: 'LinkedIn',
               href: 'https://linkedin.com/company/femtech-weekend',
-            },
-            {
-              label: 'WeChat',
-              href: '#',
-            },
-            {
-              label: 'Xiaohongshu',
-              href: '#',
             },
             {
               label: 'GitHub',
@@ -203,7 +215,7 @@ const config: Config = {
           ],
         },
         {
-          title: 'Follow Us',
+          title: 'Scan to Follow',
           className: 'footer__follow-us-col',
           items: [
             {
