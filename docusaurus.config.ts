@@ -116,6 +116,24 @@ const config: Config = {
           type: 'localeDropdown',
           position: 'right',
         },
+        {
+          href: 'mailto:hello@femtechweekend.com',
+          position: 'right',
+          className: 'header-email-link',
+          'aria-label': 'Email',
+        },
+        {
+          href: 'https://www.linkedin.com/company/femtech-weekend/posts/?feedView=all',
+          position: 'right',
+          className: 'header-linkedin-link',
+          'aria-label': 'LinkedIn',
+        },
+        {
+          href: 'https://github.com/ChanMeng666/femtech-weekend-website',
+          position: 'right',
+          className: 'header-github-link',
+          'aria-label': 'GitHub repository',
+        },
       ],
     },
     
@@ -201,23 +219,6 @@ const config: Config = {
           ],
         },
         {
-          title: 'Contact Us',
-          items: [
-            {
-              label: 'Email: hello@femtechweekend.com',
-              href: 'mailto:hello@femtechweekend.com',
-            },
-            {
-              label: 'LinkedIn',
-              href: 'https://linkedin.com/company/femtech-weekend',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/ChanMeng666/femtech-weekend-website',
-            },
-          ],
-        },
-        {
           title: 'Scan to Follow',
           className: 'footer__follow-us-col',
           items: [
@@ -227,10 +228,6 @@ const config: Config = {
                   <div class="footer__qrcode-item">
                     <img src="/img/qrcode/femtech-weekend-xiaohongshu-qrcode.png" alt="Xiaohongshu QR Code" />
                     <span>Xiaohongshu</span>
-                  </div>
-                  <div class="footer__qrcode-item">
-                    <img src="/img/qrcode/femtech-weekend-linkedin-qrcode.png" alt="LinkedIn QR Code" />
-                    <span>LinkedIn</span>
                   </div>
                   <div class="footer__qrcode-item">
                     <img src="/img/qrcode/femtech-weekend-gongzhonghao-qrcode.jpg" alt="WeChat Official Account QR Code" />
