@@ -203,24 +203,7 @@ const config: Config = {
           ],
         },
         {
-          title: 'Join the Ecosystem',
-          items: [
-            {
-              html: `
-                <p class="footer__join-description">
-                  Be part of the movement that's transforming women's health innovation across borders.
-                </p>
-                <form class="footer__subscribe-form">
-                  <input type="email" placeholder="Your Email Address" class="footer__subscribe-input" />
-                  <button class="button button--primary footer__subscribe-button">Subscribe</button>
-                </form>
-              `
-            }
-          ],
-        },
-        {
           title: 'Scan to Follow',
-          className: 'footer__follow-us-col',
           items: [
             {
               html: `
