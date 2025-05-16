@@ -1,10 +1,10 @@
 {
   "title": {
-    "message": "我的网站",
+    "message": "FemTech Weekend 女性健康科技周末",
     "description": "The title in the navbar"
   },
   "logo.alt": {
-    "message": "我的网站标志",
+    "message": "FemTech Weekend 女性健康科技周末 网站标志",
     "description": "The alt text of navbar logo"
   },
   "item.label.Tutorial": {
