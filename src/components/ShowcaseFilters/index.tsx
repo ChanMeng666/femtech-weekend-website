@@ -26,7 +26,7 @@ function ShowcaseTagListItem({tag}: {tag: TagType}) {
   const translatedTags = useTranslatedTags();
   const {label, description, color} = translatedTags[tag];
   return (
-    <li className="mr-4 mb-4">
+    <li className="mr-4 mb-4 list-none">
       <ShowcaseTagSelect
         tag={tag}
         label={label}
@@ -47,7 +47,7 @@ function ShowcaseTagListItem({tag}: {tag: TagType}) {
 
 function ShowcaseTagList() {
   return (
-    <ul className="flex flex-wrap pt-2">
+    <ul className="flex flex-wrap pt-2 list-none">
       {TagList.map((tag) => {
         return <ShowcaseTagListItem key={tag} tag={tag} />;
       })}
