@@ -21,9 +21,6 @@
     padding: 0 1rem;
   }
   
-  .footer__follow-us-col {
-    margin-top: 0.5rem;
-  }
 }
 
 /* Small mobile screens */
@@ -36,7 +33,4 @@
     width: 90px;
   }
   
-  .footer__col.footer__follow-us-col .footer__title {
-    margin-bottom: 1.2rem;
-  }
 } 
