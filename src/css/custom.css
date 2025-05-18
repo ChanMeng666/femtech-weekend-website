@@ -169,12 +169,40 @@ article h2 a {
   display: none !important;
 }
 
-/* Adjust content layout for better readability */
-.docMainContainer .container,
+/* Adjust blog content layout */
 .blog-wrapper .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+}
+
+/* Universal approach to increase docs content width */
+article,
+.markdown,
+.markdown > *,
+.theme-doc-markdown,
+.markdown > div,
+.theme-doc-markdown > div,
+.docusaurus-mt-lg {
+  max-width: 1100px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Target docs pages specifically */
+[class*="docPage"] .container,
+[class*="docsPage"] .container,
+[class*="docMainContainer"] .container,
+main .container {
+  max-width: 1400px !important;
+}
+
+/* Target the main content column */
+[class*="docItemCol"],
+[class*="docMainContainer"] .col,
+main .col {
+  max-width: 100% !important;
+  flex: 0 0 100% !important;
 }
 
 /* Fix content width to prevent horizontal scrolling */
@@ -186,6 +214,55 @@ main {
 .blog-wrapper article {
   max-width: 860px;
   margin: 0 auto;
+}
+
+/* DOCS SPECIFIC STYLES - WIDER CONTENT */
+/* 只针对文档页面的样式，不影响blog */
+.docs-wrapper .markdown,
+.docs-doc-page .markdown,
+div[class*="docPage"] .markdown,
+div[class*="docMainContainer"] .markdown {
+  max-width: 100% !important;
+}
+
+/* 针对文档页面的主容器 */
+.docs-wrapper .container,
+.docs-doc-page .container,
+div[class*="docPage"] .container,
+div[class*="docMainContainer"] .container {
+  max-width: 1400px !important;
+}
+
+/* 强制文档页面主内容列变宽 */
+.docs-wrapper .row .col,
+.docs-doc-page .row .col,
+div[class*="docPage"] .row .col,
+div[class*="docMainContainer"] .row .col,
+div[class*="docItemContainer"],
+div[class*="docItemCol"] {
+  --ifm-col-width: 100% !important;
+  flex-basis: 100% !important;
+  max-width: 100% !important;
+}
+
+/* 针对文档内容的直接容器 */
+.docs-wrapper .theme-doc-markdown,
+.docs-doc-page .theme-doc-markdown,
+div[class*="docPage"] .theme-doc-markdown,
+div[class*="docMainContainer"] .theme-doc-markdown {
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+  padding: 0 16px;
+}
+
+/* 针对文档内容本身 */
+.docs-wrapper .markdown > *,
+.docs-doc-page .markdown > *,
+div[class*="docPage"] .markdown > *,
+div[class*="docMainContainer"] .markdown > * {
+  max-width: 1100px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 
