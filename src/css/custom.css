@@ -182,6 +182,27 @@ article h2 a {
     flex: 0 0 100% !important;
     max-width: 100% !important;
   }
+  
+  /* Adjust docs content width when sidebar is hidden */
+  .theme-doc-sidebar-container + .main-wrapper .container {
+    padding: 0 2rem !important;
+  }
+  
+  /* Make docs page main content take full width and center properly */
+  .theme-doc-sidebar-container + .main-wrapper .col.col--7,
+  .main-wrapper main .col.col--7 {
+    --ifm-col-width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    float: none !important;
+  }
+  
+  /* Force centering the doc content */
+  .theme-doc-markdown {
+    display: block;
+    margin: 0 auto !important;
+  }
 }
 
 /* Show TOC dropdown on both mobile and desktop */
@@ -205,17 +226,328 @@ article h2 a {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Fix content width to prevent horizontal scrolling */
 main {
   overflow-x: hidden;
+  width: 100%;
 }
 
-/* Add proper spacing to blog content */
-.blog-wrapper article {
-  max-width: 860px;
+/* Center doc content - more specific selector */
+.docMainContainer .markdown,
+.theme-doc-markdown,
+article.theme-doc-markdown {
+  max-width: 860px !important;
+  margin: 0 auto !important;
+  padding: 0 1rem !important;
+  width: 100% !important;
+}
+
+/* Add proper spacing to blog content and fix alignment */
+.blog-wrapper article,
+.blog-list-page article,
+article.blog-article {
+  max-width: 860px !important;
+  margin: 0 auto !important;
+  padding: 0 1rem !important;
+  width: 100% !important;
+}
+
+/* Ensure blog post items are properly centered */
+.blog-list-page .row {
+  justify-content: center;
+}
+
+/* Fix blog post preview and restore "Read more" button */
+.blog-list-page .article {
+  text-align: left;
+  display: block;
+}
+
+/* Make sure "Read more" button is visible on all devices */
+.blog-list-page .article footer .col a,
+.blog-post-item-footer a,
+.blog-post-item .hash-link,
+.blog-post-item-header a,
+.blog-post-item-footer .col .button,
+.button.button--secondary {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Ensure blog post footer links are visible */
+.blog-list-page footer a.button,
+div[class*="blogPostPreview"] a.button {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Fix the container width for all pages */
+#__docusaurus {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Ensure all content doesn't overflow their containers */
+img, pre, code, table, iframe, video, .markdown > * {
+  max-width: 100%;
+  height: auto;
+  box-sizing: border-box;
+}
+
+/* Fix content overflow issues */
+.markdown {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Additional container width constraints */
+.container {
+  width: 100% !important;
+  max-width: 1200px !important;
+  overflow: hidden !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Force main content centering */
+.main-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Add specific styles for doc main content */
+.docPage {
+  width: 100% !important;
+}
+
+/* Force blog items to be centered and "Read more" to show */
+.blog-post-item .text--center,
+.blog-post-item-header,
+.blog-post-item-content,
+.blog-post-item-footer {
+  text-align: left !important;
+}
+
+.blog-post-item-footer a {
+  display: inline-block !important;
+  visibility: visible !important;
+}
+
+/* Hide blog post details page table of contents */
+.blog-post-page .table-of-contents,
+.blog-post-page div[class*="tableOfContents"],
+.blog-wrapper div[class*="tocCollapsible"],
+.blog-post-page nav.toc {
+  display: none !important;
+}
+
+/* Fix pagination for blog post details page */
+.blog-post-page .pagination-nav,
+.blog-wrapper .pagination-nav,
+nav.pagination-nav {
+  max-width: 860px !important;
+  margin: 2rem auto !important;
+  width: 100% !important;
+  padding: 0 1rem !important;
+  box-sizing: border-box !important;
+}
+
+/* Center the blog post content */
+.blog-post-page main article,
+.blog-post-details {
+  max-width: 860px !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+  padding: 0 1rem !important;
+}
+
+/* Fix blog post pagination buttons */
+.pagination-nav__link {
+  max-width: 45% !important;
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+}
+
+/* Additional selectors to ensure Read more buttons appear everywhere */
+a.button.button--primary,
+a.button.button--secondary,
+footer .read-more-button,
+[class*="blogPostPreviewItem"] .text--right a,
+[class*="blogPostPreview"] footer a,
+[class*="blogPostItem"] footer a,
+.blog-list-item a.button {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+}
+
+/* Force visibility for any hidden read more links */
+.blog-list-page {
+  position: relative;
+}
+
+.blog-list-page article footer a,
+.blog-list-page article footer button {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Direct targeting of blog list page read more button with !important */
+.blog-post-item-view-all-container,
+.blog-post-item footer,
+div[class^="blogPostItemContainer"] footer,
+main article footer .col.text--right,
+article footer .read-more.button {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  text-align: right !important;
+}
+
+/* Force read more button to be visible */
+main article footer .col.text--right a,
+article footer a.button,
+article footer .read-more {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: static !important;
+  bottom: auto !important;
+  right: auto !important;
+  z-index: 10 !important;
+  pointer-events: auto !important;
+}
+
+/* Ensure blog post pages have consistent layout with blog listing */
+.blog-post-page article,
+.blog-post-page main .container,
+.blog-post-page .row,
+.blog-post-page .col.col--9,
+.blog-post-page .col--offset-1 {
+  max-width: 860px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+  flex-basis: 100% !important;
+}
+
+/* Fix blog detail page specific layout */
+.blog-post-page main,
+.blog-post-page article,
+.blog-post-page .container {
+  display: block !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  box-sizing: border-box !important;
+}
+
+/* Override any hiding of the read more button */
+.blog-post-item-view-all-container a {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Directly force read more buttons to appear */
+.read-more-button,
+button.read-more-button,
+a.read-more-button,
+.button--secondary,
+a[href*="/blog/"],
+.read-more-link,
+[aria-label="Read more about"],
+.read-more,
+.blogPostPreview_YCr9 a,
+footer a,
+article.blog-post-item a[href^="/blog/"] {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  position: relative !important;
+  z-index: 999 !important;
+}
+
+/* Universal blog layout fixes */
+.blog-wrapper,
+.blog-post-page,
+.blog-list-page {
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Specific alignment for blog pages */
+.blog-wrapper .row,
+.blog-post-page .row {
+  justify-content: center !important;
+  margin: 0 auto !important;
+}
+
+/* Override any custom styles that might be hiding buttons */
+article footer {
+  position: relative !important;
+  overflow: visible !important;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  text-align: right !important;
+}
+
+/* Most specific selector possible for Read more buttons */
+html body main article .button[href^="/blog/"],
+html body main article footer .read-more,
+html body main article footer a.button,
+html body main article a[aria-label^="Read more"],
+html body .blog-post-item-read-more {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 9999 !important;
+  background-color: var(--ifm-color-primary) !important;
+  color: white !important;
+  border-color: var(--ifm-color-primary) !important;
+  margin-top: 1rem !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 4px !important;
+  text-decoration: none !important;
+  font-weight: bold !important;
+}
+
+/* Normalize blog layout across all pages */
+.blog-post-page .container .row .col,
+.blog-wrapper .container .row .col,
+.blog-list-page .container .row .col {
+  max-width: 860px !important;
+  margin: 0 auto !important;
+  float: none !important;
+}
+
+/* Reset any margins that might cause inconsistent layouts */
+.blog-post-page article,
+.blog-wrapper article,
+.blog-list-page article {
+  margin: 0 auto !important;
+  width: 100% !important;
+  max-width: 860px !important;
+}
+
+/* Clear any floating elements that might cause layout issues */
+article::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 
