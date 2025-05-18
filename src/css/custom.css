@@ -154,6 +154,70 @@ article h2 a {
   @apply block dark:hidden;
 }
 
+/* Hide sidebar and TOC columns on desktop for both docs and blog */
+@media (min-width: 997px) {
+  /* Hide left sidebar */
+  .theme-doc-sidebar-container {
+    display: none !important;
+  }
+  
+  /* Hide right TOC column for docs */
+  .col.col--3 div[class^="tableOfContents_"] {
+    display: none !important;
+  }
+  
+  /* Hide right sidebar column completely for docs */
+  .theme-doc-toc-desktop {
+    display: none !important;
+  }
+  
+  /* Hide right TOC column for blog */
+  .blog-wrapper .col.col--3 {
+    display: none !important;
+  }
+  
+  /* Adjust blog content width when sidebar is hidden */
+  .blog-wrapper .col.col--9 {
+    --ifm-col-width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* Show TOC dropdown on both mobile and desktop */
+.theme-doc-toc-mobile {
+  display: block !important;
+}
+
+/* Ensure TOC dropdown content is visible */
+.table-of-contents__left-border {
+  display: block !important;
+}
+
+/* Hide the blog sidebar */
+.blog-sidebar {
+  display: none !important;
+}
+
+/* Adjust content layout for better readability */
+.docMainContainer .container,
+.blog-wrapper .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Fix content width to prevent horizontal scrolling */
+main {
+  overflow-x: hidden;
+}
+
+/* Add proper spacing to blog content */
+.blog-wrapper article {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
 
 
 

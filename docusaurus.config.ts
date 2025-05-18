@@ -54,6 +54,8 @@ const config: Config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/ChanMeng666/femtech-weekend-website/blob/main/',
+          sidebarCollapsible: true,
+          sidebarCollapsed: true,
         },
         blog: {
           showReadingTime: true,
@@ -73,7 +75,9 @@ const config: Config = {
           blogDescription: 'FemTech Weekend Competition Platform',
           postsPerPage: 'ALL',
           blogSidebarTitle: 'All competitions',
-          blogSidebarCount: 'ALL',
+          blogSidebarCount: 0,
+          showLastUpdateAuthor: false,
+          showLastUpdateTime: false,
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -90,6 +94,10 @@ const config: Config = {
         hideable: true,
         autoCollapseCategories: true,
       },
+    },
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 6,
     },
     navbar: {
       hideOnScroll: true,
