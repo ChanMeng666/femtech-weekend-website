@@ -157,7 +157,10 @@ article h2 a {
 /* Hide table of contents and sidebar */
 .table-of-contents,
 .toc-wrapper,
-.theme-doc-sidebar-container {
+.theme-doc-sidebar-container,
+.table-of-contents-wrapper,
+.tocCollapsible,
+.theme-doc-toc-mobile {
   display: none !important;
 }
 
