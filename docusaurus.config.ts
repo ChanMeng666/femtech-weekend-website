@@ -109,6 +109,20 @@ const config: Config = {
       },
       items: [
         {
+          to: '/about-us',
+          label: 'About Us',
+          position: 'left'
+        },
+        {to: '/competition', 
+          label: 'Competition', 
+          position: 'left'
+        },
+        {
+          to: '/ecosystem',
+          label: 'Ecosystem',
+          position: 'left'
+        },
+        {
           type: 'dropdown',
           label: 'Insights',
           position: 'left',
@@ -122,12 +136,6 @@ const config: Config = {
               label: 'Database',
             },
           ],
-        },
-        {to: '/competition', label: 'Competition', position: 'left'},
-        {
-          to: '/about-us',
-          label: 'About Us',
-          position: 'left'
         },
         {
           type: 'localeDropdown',
