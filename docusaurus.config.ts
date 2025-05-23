@@ -121,6 +121,11 @@ const config: Config = {
           position: 'left'
         },
         {
+          to: '/about-us',
+          label: 'About Us',
+          position: 'left'
+        },
+        {
           type: 'localeDropdown',
           position: 'right',
         },
@@ -189,6 +194,10 @@ const config: Config = {
             {
               label: 'Company Showcase',
               to: '/showcase',
+            },
+            {
+              label: 'About Us',
+              to: '/about-us',
             },
           ],
         },
