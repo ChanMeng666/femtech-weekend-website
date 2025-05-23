@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { Hero } from '../components/Hero';
+import { CompetitionSection } from '../components/CompetitionSection';
 import { Features } from '../components/Features';
 import { Testimonial, TestimonialGrid } from '../components/Testimonial';
 
@@ -14,6 +15,7 @@ export default function Home(): React.ReactNode {
       description="FemTech Weekend - Rooted in China, Connecting globally">
       <main>
         <Hero />
+        <CompetitionSection />
         <Features />
         
         <div className="bg-background py-24 sm:py-32">
