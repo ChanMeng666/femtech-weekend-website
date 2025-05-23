@@ -1,8 +1,15 @@
 import React from 'react';
 import { Button } from './ui/button';
+import { WordRotate } from './ui/word-rotate';
 import Link from '@docusaurus/Link';
 
 export function Hero() {
+  const rotatingWords = [
+    "Drive Women\'s health innovation with Technology",
+    "Amplify women in Tech entrepreneurship", 
+    "Build a global collaborative ecosystem"
+  ];
+
   return (
     <div className="relative isolate overflow-hidden bg-background">
       <div className="absolute inset-x-0 top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
@@ -20,7 +27,14 @@ export function Hero() {
           <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
             FemTech Weekend
           </h1>
-          <p className="mt-6 text-lg leading-8 text-muted-foreground">
+          <div className="mt-4 mb-6">
+            <WordRotate
+              className="text-2xl font-semibold text-primary sm:text-3xl"
+              words={rotatingWords}
+              duration={3000}
+            />
+          </div>
+          <p className="text-lg leading-8 text-muted-foreground">
             Rooted in China, Connecting globally. A platform for women's health innovation and entrepreneurship.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
