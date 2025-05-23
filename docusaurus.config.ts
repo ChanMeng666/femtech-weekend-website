@@ -109,16 +109,21 @@ const config: Config = {
       },
       items: [
         {
-          to: '/reports',
-          label: 'Reports',
+          type: 'dropdown',
+          label: 'Insights',
           position: 'left',
+          items: [
+            {
+              to: '/reports',
+              label: 'Reports',
+            },
+            {
+              to: '/database',
+              label: 'Database',
+            },
+          ],
         },
         {to: '/competition', label: 'Competition', position: 'left'},
-        {
-          to: '/showcase',
-          label: 'Company Showcase',
-          position: 'left'
-        },
         {
           to: '/about-us',
           label: 'About Us',
@@ -191,8 +196,8 @@ const config: Config = {
               to: '/blog',
             },
             {
-              label: 'Company Showcase',
-              to: '/showcase',
+              label: 'Database',
+              to: '/database',
             },
             {
               label: 'About Us',
