@@ -124,24 +124,6 @@ const config: Config = {
           type: 'localeDropdown',
           position: 'right',
         },
-        {
-          href: 'mailto:hello@femtechweekend.com',
-          position: 'right',
-          className: 'header-email-link',
-          'aria-label': 'Email',
-        },
-        {
-          href: 'https://www.linkedin.com/company/femtech-weekend/posts/?feedView=all',
-          position: 'right',
-          className: 'header-linkedin-link',
-          'aria-label': 'LinkedIn',
-        },
-        {
-          href: 'https://github.com/ChanMeng666/femtech-weekend-website',
-          position: 'right',
-          className: 'header-github-link',
-          'aria-label': 'GitHub repository',
-        },
       ],
     },
     
@@ -207,6 +189,23 @@ const config: Config = {
             {
               label: 'Company Showcase',
               to: '/showcase',
+            },
+          ],
+        },
+        {
+          title: 'Connect With Us',
+          items: [
+            {
+              label: 'Email',
+              href: 'mailto:hello@femtechweekend.com',
+            },
+            {
+              label: 'LinkedIn',
+              href: 'https://www.linkedin.com/company/femtech-weekend/posts/?feedView=all',
+            },
+            {
+              label: 'GitHub',
+              href: 'https://github.com/ChanMeng666/femtech-weekend-website',
             },
           ],
         },

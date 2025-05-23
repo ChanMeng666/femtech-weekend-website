@@ -20,3 +20,4 @@ yarn-debug.log*
 yarn-error.log*
 /开发指导
 static/docs/ftw-ai-chatbot.md
+.cursorignore
