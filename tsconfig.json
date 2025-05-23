@@ -4,5 +4,5 @@
   "compilerOptions": {
     "baseUrl": "."
   },
-  "exclude": [".docusaurus", "build", "开发指导"]
+  "exclude": [".docusaurus", "build"]
 }
