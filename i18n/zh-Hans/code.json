@@ -309,5 +309,17 @@
   "theme.tags.tagsPageTitle": {
     "message": "标签",
     "description": "The title of the tag list page"
+  },
+  "database.searchBar.placeholder": {
+    "message": "搜索公司名称...",
+    "description": "Placeholder text for the company search bar in database page"
+  },
+  "header.title": {
+    "message": "女性健康科技公司展示",
+    "description": "Title for the FemTech companies showcase page"
+  },
+  "header.description": {
+    "message": "中国女性健康行业创新公司目录",
+    "description": "Description for the FemTech companies showcase page"
   }
 }
