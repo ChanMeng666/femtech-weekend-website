@@ -109,10 +109,9 @@ const config: Config = {
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
+          to: '/reports',
           label: 'Reports',
+          position: 'left',
         },
         {to: '/competition', label: 'Competition', position: 'left'},
         {

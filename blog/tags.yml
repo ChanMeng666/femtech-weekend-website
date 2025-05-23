@@ -42,3 +42,8 @@ releases:
   label: Releases
   permalink: /tags/releases
   description: Product and feature release announcements
+
+featured-report:
+  label: Featured Report
+  permalink: /tags/featured-report
+  description: Featured blog posts and highlighted content

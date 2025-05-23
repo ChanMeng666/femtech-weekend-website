@@ -265,6 +265,70 @@ div[class*="docMainContainer"] .markdown > * {
   margin-right: auto !important;
 }
 
+/* Reports page styles */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Medium-style blog layout enhancements */
+.reports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.report-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Category filter buttons */
+.category-filter {
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+
+.category-filter .filter-buttons {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+/* Featured report styles */
+.featured-report {
+  background: linear-gradient(135deg, var(--ifm-color-primary-lightest) 0%, var(--ifm-color-primary-light) 100%);
+  border-radius: 1rem;
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+/* Enhanced hover effects */
+.report-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.report-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Responsive design for reports */
+@media (max-width: 768px) {
+  .reports-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .category-filter .filter-buttons {
+    justify-content: flex-start;
+  }
+}
+
 
 
 
