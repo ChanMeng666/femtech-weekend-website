@@ -1,5 +1,146 @@
 # FemTech Weekend Website - 新功能实现总结
 
+## 项目概述
+这是一个基于 Docusaurus 的女性健康科技周末竞赛网站，提供了竞赛信息、公司数据库、报告和生态系统展示等功能。
+
+## 最新实现功能 (2024-12-01)
+
+### 1. 智能广告宣传位 (Announcement Bar)
+- **位置**: 导航栏上方，靠近浏览器顶部
+- **配置文件**: `docusaurus.config.ts`
+- **智能刷新逻辑**:
+  - 使用事件名称和日期组合作为ID: `${ANNOUNCEMENT_EVENT}-${ANNOUNCEMENT_DATE}`
+  - 当需要显示新的重要公告时，只需更新 `ANNOUNCEMENT_EVENT` 和 `ANNOUNCEMENT_DATE` 变量
+  - 即使用户之前关闭了旧的广告，新的重要事件公告仍会显示
+  - 用户可以点击关闭按钮隐藏当前广告
+- **样式**: 粉色背景 (#fdf2f8)，深粉色文字 (#be185d)
+- **内容**: 2024年竞赛注册开放的宣传信息
+
+### 2. 数据库页面搜索功能
+- **页面**: `/database`
+- **组件**: `src/components/ShowcaseSearchBar/`
+- **功能特性**:
+  - 实时搜索公司名称
+  - 支持模糊匹配
+  - 与现有的标签过滤系统集成
+  - 搜索状态保存在URL查询参数中
+  - 支持中英文双语界面
+
+### 3. 国际化支持
+- **搜索栏占位符文本**: 
+  - 英文: "Search for company name..."
+  - 中文: "搜索公司名称..."
+- **页面标题和描述**:
+  - 英文: "FemTech Companies Showcase" / "Directory of innovative companies in the women's health industry in China"
+  - 中文: "女性健康科技公司展示" / "中国女性健康行业创新公司目录"
+
+## 技术实现细节
+
+### 广告宣传位配置
+```typescript
+// docusaurus.config.ts
+const ANNOUNCEMENT_EVENT = 'competition-2024';
+const ANNOUNCEMENT_DATE = '2024-12-01';
+
+announcementBar: {
+  id: `${ANNOUNCEMENT_EVENT}-${ANNOUNCEMENT_DATE}`,
+  content: '🎉 <b><a target="_blank" href="/competition">FemTech Weekend 2024 Competition</a> is now open for registration!</b> 🚀',
+  backgroundColor: '#fdf2f8',
+  textColor: '#be185d',
+  isCloseable: true,
+}
+```
+
+### 搜索功能架构
+- **工具函数**: `src/utils/useFilteredCompanies.ts`
+  - `useSearchName()`: 管理搜索查询状态
+  - `useFilteredCompanies()`: 综合搜索和标签过滤
+- **搜索组件**: `src/components/ShowcaseSearchBar/`
+  - 响应式设计
+  - 实时搜索反馈
+  - 无障碍访问支持
+
+### 样式设计
+- 遵循现有的设计系统
+- 使用CSS变量确保主题一致性
+- 响应式布局适配移动设备
+- 焦点状态和交互反馈
+
+## 使用说明
+
+### 更新广告宣传位
+1. 编辑 `docusaurus.config.ts`
+2. 更新 `ANNOUNCEMENT_EVENT` (事件名称)
+3. 更新 `ANNOUNCEMENT_DATE` (日期，格式: YYYY-MM-DD)
+4. 修改 `content` 内容
+5. 重新构建和部署
+
+### 搜索功能使用
+- 用户在数据库页面可以直接输入公司名称进行搜索
+- 搜索结果会实时更新
+- 可以与标签过滤功能组合使用
+- 搜索状态会保存在URL中，支持分享和书签
+
+## 文件结构
+```
+src/
+├── components/
+│   └── ShowcaseSearchBar/
+│       ├── index.tsx
+│       └── styles.module.css
+├── utils/
+│   └── useFilteredCompanies.ts
+├── pages/
+│   └── database.tsx
+└── ...
+
+i18n/
+└── zh-Hans/
+    └── code.json (包含中文翻译)
+
+docusaurus.config.ts (广告宣传位配置)
+```
+
+## 已实现的核心功能
+
+### 1. 多语言支持 (i18n)
+- 支持中文 (zh-Hans) 和英文 (en)
+- 完整的界面翻译
+- 动态语言切换
+
+### 2. 响应式设计
+- 移动端优化
+- Tailwind CSS 样式系统
+- 现代化UI组件
+
+### 3. 内容管理
+- Markdown 文档支持
+- 博客系统
+- 静态资源管理
+
+### 4. 搜索和过滤
+- Algolia 全站搜索
+- 公司数据库过滤
+- 标签分类系统
+
+### 5. 性能优化
+- 静态站点生成 (SSG)
+- 代码分割
+- 图片优化
+
+## 部署信息
+- **平台**: Vercel
+- **域名**: https://femtech-weekend-website.vercel.app/
+- **构建命令**: `npm run build`
+- **输出目录**: `build/`
+
+## 开发环境
+- **Node.js**: 推荐 18.x 或更高版本
+- **包管理器**: npm
+- **开发服务器**: `npm start`
+- **构建**: `npm run build`
+- **本地预览**: `npm run serve`
+
 ## 实现的功能
 
 ### 1. Hero部分的文字切换动画 ✅ (已完善)

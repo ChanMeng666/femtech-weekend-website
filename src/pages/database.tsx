@@ -4,6 +4,7 @@ import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import ShowcaseFilters from '@site/src/components/ShowcaseFilters';
 import ShowcaseCards from '@site/src/components/ShowcaseCards';
+import ShowcaseSearchBar from '@site/src/components/ShowcaseSearchBar';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 function ShowcaseHeader() {
@@ -49,6 +50,11 @@ export default function Showcase(): React.ReactNode {
         <ShowcaseHeader />
         <div className="relative -mt-8 z-10">
           <ShowcaseFilters />
+        </div>
+        <div
+          style={{display: 'flex', marginLeft: 'auto'}}
+          className="container">
+          <ShowcaseSearchBar />
         </div>
         <ShowcaseCards />
       </main>

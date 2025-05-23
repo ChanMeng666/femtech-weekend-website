@@ -355,7 +355,7 @@ function RegistrationCTA() {
                 Register Your Team
               </Button>
             </Link>
-            <Link to="/showcase">
+            <Link to="/database">
               <Button variant="outline" size="lg">
                 View Previous Winners
               </Button>

@@ -4,6 +4,12 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
+// 广告宣传位配置
+// 当需要显示新的重要公告时，更新这个日期和事件名称
+// 这样即使用户之前关闭了广告，新的重要事件公告仍会显示
+const ANNOUNCEMENT_EVENT = 'competition-2024';
+const ANNOUNCEMENT_DATE = '2024-12-01'; // 格式: YYYY-MM-DD
+
 const config: Config = {
   title: 'Femtech Weekend',
   tagline: 'Rooted in China, Connecting globally',
@@ -144,6 +150,18 @@ const config: Config = {
       ],
     },
     
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
+    },
+    announcementBar: {
+      id: `${ANNOUNCEMENT_EVENT}-${ANNOUNCEMENT_DATE}`,
+      content: '🎉 <b><a target="_blank" href="/competition">FemTech Weekend 2024 Competition</a> is now open for registration!</b> 🚀',
+      backgroundColor: '#fdf2f8',
+      textColor: '#be185d',
+      isCloseable: true,
+    },
     algolia: {
       // The application ID provided by Algolia
       appId: 'VNBIILHFAK',

@@ -251,7 +251,7 @@ function CallToAction() {
             <Link to="/blog">
               <Button size="lg">Get Involved</Button>
             </Link>
-            <Link to="/showcase">
+            <Link to="/database">
               <Button variant="outline" size="lg">Explore Companies</Button>
             </Link>
           </div>
