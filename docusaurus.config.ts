@@ -114,7 +114,7 @@ const config: Config = {
           position: 'left',
           label: 'Reports',
         },
-        {to: '/blog', label: 'Competition', position: 'left'},
+        {to: '/competition', label: 'Competition', position: 'left'},
         {
           to: '/showcase',
           label: 'Company Showcase',
