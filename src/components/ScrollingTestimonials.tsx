@@ -68,10 +68,9 @@ export function ScrollingTestimonials({
   testimonials,
   className = ""
 }: ScrollingTestimonialsProps) {
-  // Split testimonials into three rows for better visual effect
-  const firstRow = testimonials.slice(0, Math.ceil(testimonials.length / 3));
-  const secondRow = testimonials.slice(Math.ceil(testimonials.length / 3), Math.ceil(testimonials.length * 2 / 3));
-  const thirdRow = testimonials.slice(Math.ceil(testimonials.length * 2 / 3));
+  // Split testimonials into two rows for better visual effect
+  const firstRow = testimonials.slice(0, Math.ceil(testimonials.length / 2));
+  const secondRow = testimonials.slice(Math.ceil(testimonials.length / 2));
 
   return (
     <div className={`bg-background py-24 sm:py-32 ${className}`}>
@@ -94,11 +93,6 @@ export function ScrollingTestimonials({
           <Marquee reverse pauseOnHover className="[--duration:20s]">
             {secondRow.map((testimonial, index) => (
               <TestimonialCard key={`second-${testimonial.author}-${index}`} {...testimonial} />
-            ))}
-          </Marquee>
-          <Marquee pauseOnHover className="[--duration:20s]">
-            {thirdRow.map((testimonial, index) => (
-              <TestimonialCard key={`third-${testimonial.author}-${index}`} {...testimonial} />
             ))}
           </Marquee>
           
