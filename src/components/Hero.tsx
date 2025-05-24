@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from './ui/button';
 import { WordRotate } from './ui/word-rotate';
 import Link from '@docusaurus/Link';
+import Waves from './Waves';
 
 export function Hero() {
   const rotatingWords = [
@@ -12,6 +13,22 @@ export function Hero() {
 
   return (
     <div className="relative isolate overflow-hidden bg-background">
+      {/* Waves background */}
+      <Waves 
+        lineColor="#D6AB93"
+        backgroundColor="rgba(214, 171, 147, 0.03)"
+        waveSpeedX={0.02}
+        waveSpeedY={0.01}
+        waveAmpX={40}
+        waveAmpY={20}
+        friction={0.9}
+        tension={0.01}
+        maxCursorMove={120}
+        xGap={12}
+        yGap={36}
+        className="z-[-15]"
+      />
+      
       <div className="absolute inset-x-0 top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
         <div
           className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[var(--ifm-color-primary)] to-[var(--ifm-color-primary-lightest)] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
