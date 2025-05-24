@@ -4,24 +4,34 @@ import { TeamMember, TeamMemberProps } from './TeamMember';
 export function Team() {
   const teamMembers: TeamMemberProps[] = [
     {
-      name: "Dr. Sarah Chen",
+      name: "Zhu Yihan",
       role: "Founder & CEO",
-      bio: "Healthcare entrepreneur with 15+ years of experience in women's health innovation and investment.",
+      bio: "Data, Balance Sheet Management and a global citizen with expertise in driving women's health innovation across borders.",
     },
     {
-      name: "Michael Zhang",
-      role: "Co-founder & CTO",
-      bio: "Tech veteran specializing in healthcare platforms and digital health solutions for emerging markets.",
+      name: "Michelle Li",
+      role: "Head of Partnerships",
+      bio: "Expert in Private Equity investment and Due Diligence, specializing in connecting FemTech startups with strategic investors.",
     },
     {
-      name: "Dr. Li Wei",
-      role: "Medical Director",
-      bio: "Renowned gynecologist and researcher focused on personalized women's healthcare technologies.",
+      name: "Leaf He",
+      role: "Chief Operating Officer",
+      bio: "Expert in Financial Advisory and community building, focused on creating sustainable ecosystem growth and operational excellence.",
     },
     {
-      name: "Emma Johnson",
-      role: "Global Partnerships Lead",
-      bio: "International business development expert connecting Asian and Western healthcare ecosystems.",
+      name: "Joji Lee",
+      role: "Chief Marketing Officer",
+      bio: "Specializes in PR, consumer marketing and events organisation, driving global awareness for women's health innovation.",
+    },
+    {
+      name: "Lingxi Zhang",
+      role: "Chief Design Officer",
+      bio: "Specializes in Animation, Video editing and story telling, creating compelling narratives for the FemTech community.",
+    },
+    {
+      name: "Chan Meng",
+      role: "Chief Technology Officer",
+      bio: "Senior AI/ML Infrastructure Engineer with expertise in architecting robust technical foundations that power AI-driven health insights. Passionate about increasing representation in STEM fields and creating inclusive AI systems for diverse populations in women's health.",
     }
   ];
 
@@ -36,7 +46,7 @@ export function Team() {
             Passionate leaders driving innovation in women's health across the globe.
           </p>
         </div>
-        <div className="mx-auto mt-16 grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto mt-16 grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">
           {teamMembers.map((member, index) => (
             <TeamMember key={index} {...member} />
           ))}

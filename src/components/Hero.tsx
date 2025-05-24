@@ -5,9 +5,9 @@ import Link from '@docusaurus/Link';
 
 export function Hero() {
   const rotatingWords = [
-    "Drive Women\'s health innovation with Technology",
-    "Amplify women in Tech entrepreneurship", 
-    "Build a global collaborative ecosystem"
+    "Drive Women's Health Innovation",
+    "Amplify Women in Tech Entrepreneurship", 
+    "Build a thriving homegrown innovation hub"
   ];
 
   return (
@@ -35,7 +35,7 @@ export function Hero() {
             />
           </div>
           <p className="text-lg leading-8 text-muted-foreground">
-            Rooted in China, Connecting globally. A platform for women's health innovation and entrepreneurship.
+            Rooted in China, Connecting globally. We pioneer Women's Health Innovation in China to drive worldwide impact.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Link to="/docs/intro">

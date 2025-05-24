@@ -19,7 +19,7 @@ export function AboutHero() {
             About FemTech Weekend
           </h1>
           <p className="mt-6 text-lg leading-8 text-muted-foreground">
-            We are passionate about advancing women's health through innovation, entrepreneurship, and global collaboration.
+            Rooted in China, Connecting globally. We pioneer Women's Health Innovation in China to drive worldwide impact through entrepreneurship, ecosystem building, and cross-border collaboration.
           </p>
         </div>
       </div>

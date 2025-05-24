@@ -240,11 +240,11 @@ const config: Config = {
             },
             {
               label: 'LinkedIn',
-              href: 'https://www.linkedin.com/company/femtech-weekend/posts/?feedView=all',
+              href: 'https://linkedin.com/company/femtech-weekend',
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/ChanMeng666/femtech-weekend-website',
+              label: 'Website',
+              href: 'https://www.femtechweekend.com',
             },
           ],
         },

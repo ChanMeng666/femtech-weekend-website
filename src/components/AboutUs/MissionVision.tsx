@@ -18,7 +18,7 @@ export function MissionVision() {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground leading-7">
-                To accelerate innovation in women's health by connecting entrepreneurs, investors, and healthcare professionals across China and globally. We foster an ecosystem where groundbreaking FemTech solutions can thrive and create meaningful impact.
+                We pioneer Women's Health Innovation in China to drive worldwide impact. We are dedicated to driving women's health innovation, amplifying women in tech entrepreneurship, and building a thriving ecosystem where every woman can access the knowledge, capital and support needed to succeed.
               </p>
             </CardContent>
           </Card>
@@ -35,7 +35,7 @@ export function MissionVision() {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground leading-7">
-                To become the leading platform bridging China's FemTech ecosystem with the global women's health community, empowering a future where every woman has access to innovative healthcare solutions tailored to her unique needs.
+                We believe in a future where women-led innovations in women's health and technology thrive without barriers. We build a thriving homegrown innovation hub while fostering cross-border collaboration - strengthening local industry-academia-investment-research ties while opening doors for worldwide knowledge exchange.
               </p>
             </CardContent>
           </Card>
