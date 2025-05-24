@@ -1,6 +1,6 @@
 export const homepageConfig = {
   seo: {
-    description: "FemTech Weekend - Rooted in China, Connecting globally"
+    description: "FemTech Weekend - Rooted in China, Connecting globally. We pioneer Women's Health Innovation in China to drive worldwide impact."
   },
   testimonials: {
     title: "What Our Community Says",
