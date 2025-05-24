@@ -5,7 +5,7 @@ import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 export function CompetitionSection() {
-  const treeSvgUrl = useBaseUrl('/img/undraw_docusaurus_tree.svg');
+  const treeSvgUrl = useBaseUrl('/img/bg/abstract-flowing-lines-and-elegant-curves-represen.png');
   
   return (
     <div className="relative bg-gradient-to-br from-primary/10 via-primary/5 to-background py-24 sm:py-32 overflow-hidden">
