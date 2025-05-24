@@ -246,6 +246,10 @@ const config: Config = {
               label: 'Website',
               href: 'https://www.femtechweekend.com',
             },
+            {
+              label: 'GitHub',
+              href: 'https://github.com/ChanMeng666/femtech-weekend-website',
+            },
           ],
         },
         {
