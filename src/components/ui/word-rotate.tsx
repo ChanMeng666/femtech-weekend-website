@@ -1,28 +1,33 @@
 "use client";
 
-import { AnimatePresence, motion, MotionProps } from "motion/react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { gsap } from "gsap";
 import { cn } from "../../lib/utils";
 
 interface WordRotateProps {
   words: string[];
   duration?: number;
-  motionProps?: MotionProps;
+  animationProps?: {
+    yOffset?: number;
+    animationDuration?: number;
+    ease?: string;
+  };
   className?: string;
 }
 
 export function WordRotate({
   words,
   duration = 2500,
-  motionProps = {
-    initial: { y: -75 },
-    animate: { y: 0 },
-    exit: { y: 75 },
-    transition: { duration: 0.25, ease: "easeInOut" },
+  animationProps = {
+    yOffset: 75,
+    animationDuration: 0.25,
+    ease: "power2.inOut",
   },
   className,
 }: WordRotateProps) {
   const [index, setIndex] = useState(0);
+  const spanRef = useRef<HTMLSpanElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -33,17 +38,64 @@ export function WordRotate({
     return () => clearInterval(interval);
   }, [words, duration]);
 
+  useEffect(() => {
+    if (spanRef.current) {
+      const span = spanRef.current;
+      const { yOffset = 75, animationDuration = 0.25, ease = "power2.inOut" } = animationProps;
+      
+      // Create timeline for word rotation animation
+      const tl = gsap.timeline();
+      
+      // Animate out (exit animation)
+      tl.fromTo(span, 
+        { y: 0, opacity: 1 },
+        { 
+          y: yOffset, 
+          opacity: 0, 
+          duration: animationDuration, 
+          ease: ease 
+        }
+      )
+      // Update content
+      .call(() => {
+        span.textContent = words[index];
+      })
+      // Animate in (enter animation)
+      .fromTo(span,
+        { y: -yOffset, opacity: 0 },
+        { 
+          y: 0, 
+          opacity: 1, 
+          duration: animationDuration, 
+          ease: ease 
+        }
+      );
+    }
+  }, [index, words, animationProps]);
+
+  useEffect(() => {
+    // Initial animation
+    if (spanRef.current) {
+      gsap.fromTo(spanRef.current,
+        { y: -animationProps.yOffset || -75, opacity: 0 },
+        { 
+          y: 0, 
+          opacity: 1, 
+          duration: animationProps.animationDuration || 0.25, 
+          ease: animationProps.ease || "power2.inOut" 
+        }
+      );
+    }
+  }, []);
+
   return (
-    <div className="overflow-hidden py-4">
-      <AnimatePresence mode="wait">
-        <motion.span
-          key={words[index]}
-          className={cn("block", className)}
-          {...motionProps}
-        >
-          {words[index]}
-        </motion.span>
-      </AnimatePresence>
+    <div ref={containerRef} className="overflow-hidden py-4">
+      <span
+        ref={spanRef}
+        className={cn("block", className)}
+      >
+        {words[0]}
+      </span>
     </div>
   );
 } 
