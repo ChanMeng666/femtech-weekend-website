@@ -5,22 +5,28 @@ import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 export function CompetitionSection() {
-  const treeSvgUrl = useBaseUrl('/img/bg/abstract-flowing-lines-and-elegant-curves-represen.png');
+  const treeSvgUrl = useBaseUrl('/img/bg/abstract-flowing-lines-and-elegant-curves-represen1.png');
   
   return (
     <div className="relative bg-gradient-to-br from-primary/10 via-primary/5 to-background py-24 sm:py-32 overflow-hidden">
       {/* Background image */}
-      <div 
-        className="absolute inset-0 z-0 opacity-10"
-        style={{
-          backgroundImage: `url(${treeSvgUrl})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          filter: 'blur(1px)',
-          transform: 'scale(1.05)'
-        }}
-      />
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div 
+          className="w-full h-full flex items-center justify-center opacity-15"
+          style={{
+            overflow: 'hidden',
+          }}
+        >
+          <img 
+            src={treeSvgUrl} 
+            alt="Background pattern" 
+            className="max-w-full max-h-full object-contain"
+            style={{
+              filter: 'blur(1px)',
+            }}
+          />
+        </div>
+      </div>
       
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <div className="mx-auto max-w-4xl">
