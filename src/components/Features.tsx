@@ -1,5 +1,6 @@
 import React from 'react';
 import { cn } from '../lib/utils';
+import Waves from './Waves';
 
 interface FeatureProps {
   title: string;
@@ -22,8 +23,24 @@ function Feature({ title, description, icon, className }: FeatureProps) {
 
 export function Features() {
   return (
-    <div className="bg-background py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <div className="relative bg-background py-24 sm:py-32 overflow-hidden">
+      {/* Waves background */}
+      <Waves 
+        lineColor="rgba(214, 171, 147, 0.85)"
+        backgroundColor="transparent"
+        waveSpeedX={0.01}
+        waveSpeedY={0.007}
+        waveAmpX={25}
+        waveAmpY={12}
+        friction={0.93}
+        tension={0.007}
+        maxCursorMove={80}
+        xGap={18}
+        yGap={45}
+        className="z-0 opacity-40"
+      />
+      
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             Empowering Women's Health Innovation

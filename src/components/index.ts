@@ -9,4 +9,7 @@ export { Features } from './Features';
 export { TestimonialsSection } from './TestimonialsSection';
 
 // Testimonial Components
-export { Testimonial, TestimonialGrid } from './Testimonial'; 
+export { Testimonial, TestimonialGrid } from './Testimonial';
+
+// Waves Component
+export { default as Waves } from './Waves'; 

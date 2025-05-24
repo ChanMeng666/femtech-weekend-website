@@ -2,11 +2,27 @@ import React from 'react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 export function CompetitionSection() {
+  const treeSvgUrl = useBaseUrl('/img/undraw_docusaurus_tree.svg');
+  
   return (
-    <div className="bg-gradient-to-br from-primary/10 via-primary/5 to-background py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <div className="relative bg-gradient-to-br from-primary/10 via-primary/5 to-background py-24 sm:py-32 overflow-hidden">
+      {/* Background image */}
+      <div 
+        className="absolute inset-0 z-0 opacity-10"
+        style={{
+          backgroundImage: `url(${treeSvgUrl})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          filter: 'blur(1px)',
+          transform: 'scale(1.05)'
+        }}
+      />
+      
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <div className="mx-auto max-w-4xl">
           {/* Badge */}
           <div className="text-center mb-8">
@@ -28,7 +44,7 @@ export function CompetitionSection() {
 
           {/* Competition Highlights */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <Card className="text-center border-primary/20 bg-background/50 backdrop-blur-sm">
+            <Card className="text-center border-primary/20 bg-background/80 backdrop-blur-sm">
               <CardHeader className="pb-3">
                 <div className="mx-auto h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                   <svg className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -42,7 +58,7 @@ export function CompetitionSection() {
               </CardContent>
             </Card>
 
-            <Card className="text-center border-primary/20 bg-background/50 backdrop-blur-sm">
+            <Card className="text-center border-primary/20 bg-background/80 backdrop-blur-sm">
               <CardHeader className="pb-3">
                 <div className="mx-auto h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                   <svg className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -56,7 +72,7 @@ export function CompetitionSection() {
               </CardContent>
             </Card>
 
-            <Card className="text-center border-primary/20 bg-background/50 backdrop-blur-sm">
+            <Card className="text-center border-primary/20 bg-background/80 backdrop-blur-sm">
               <CardHeader className="pb-3">
                 <div className="mx-auto h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                   <svg className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -72,7 +88,7 @@ export function CompetitionSection() {
           </div>
 
           {/* Key Dates */}
-          <div className="bg-background/70 backdrop-blur-sm rounded-xl p-6 mb-8 border border-primary/10">
+          <div className="bg-background/90 backdrop-blur-sm rounded-xl p-6 mb-8 border border-primary/10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex items-center space-x-3">
                 <div className="h-3 w-3 rounded-full bg-primary animate-pulse"></div>
