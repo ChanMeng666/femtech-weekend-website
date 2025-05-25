@@ -321,5 +321,57 @@
   "header.description": {
     "message": "中国女性健康行业创新公司目录",
     "description": "Description for the FemTech companies showcase page"
+  },
+  "theme.showcase.card.founder": {
+    "message": "创始人: ",
+    "description": "Label for founder information in company card"
+  },
+  "theme.showcase.card.funding": {
+    "message": "融资: ",
+    "description": "Label for funding information in company card"
+  },
+  "theme.showcase.card.investors": {
+    "message": "投资方: ",
+    "description": "Label for investors information in company card"
+  },
+  "theme.showcase.card.viewDetails": {
+    "message": "查看详情",
+    "description": "Text for the view details button in company card"
+  },
+  "theme.showcase.companyList.noResult": {
+    "message": "无结果",
+    "description": "Text displayed when no company matches the filters"
+  },
+  "theme.showcase.companyList.allCompanies": {
+    "message": "所有公司",
+    "description": "Heading for the list of all companies"
+  },
+  "theme.showcase.detail.location": {
+    "message": "地点: ",
+    "description": "Label for location in company detail modal"
+  },
+  "theme.showcase.detail.description": {
+    "message": "公司简介: ",
+    "description": "Label for description in company detail modal"
+  },
+  "theme.showcase.detail.founder": {
+    "message": "创始人: ",
+    "description": "Label for founder in company detail modal"
+  },
+  "theme.showcase.detail.website": {
+    "message": "网站: ",
+    "description": "Label for website in company detail modal"
+  },
+  "theme.showcase.detail.investors": {
+    "message": "投资方: ",
+    "description": "Label for investors in company detail modal"
+  },
+  "theme.showcase.detail.funding": {
+    "message": "融资情况: ",
+    "description": "Label for funding in company detail modal"
+  },
+  "theme.showcase.detail.tags": {
+    "message": "标签: ",
+    "description": "Label for tags in company detail modal"
   }
 }
