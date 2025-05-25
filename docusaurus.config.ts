@@ -48,6 +48,7 @@ const config: Config = {
   themes: ['@docusaurus/theme-mermaid'],
   plugins: [
     ['./src/plugins/tailwind-config.js', {}],
+    ['./src/plugins/api-routes.js', {}],
   ],
 
   presets: [
