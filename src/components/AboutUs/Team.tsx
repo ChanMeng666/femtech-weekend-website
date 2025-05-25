@@ -7,6 +7,7 @@ export function Team() {
       name: "Zhu Yihan",
       role: "Founder & CEO",
       bio: "Data, Balance Sheet Management and a global citizen with expertise in driving women's health innovation across borders.",
+      image: "/img/team/femtech-weekend-founder.jpg",
     },
     {
       name: "Michelle Li",
@@ -32,6 +33,7 @@ export function Team() {
       name: "Chan Meng",
       role: "Chief Technology Officer",
       bio: "Senior AI/ML Infrastructure Engineer with expertise in architecting robust technical foundations that power AI-driven health insights. Passionate about increasing representation in STEM fields and creating inclusive AI systems for diverse populations in women's health.",
+      image: "/img/team/chan-meng.jpg",
     }
   ];
 
