@@ -3,6 +3,19 @@ import { ReportItem } from '../types/reports';
 // Static fallback data based on existing blog posts
 export const staticReportsData: ReportItem[] = [
   {
+    id: '5',
+    title: 'FemTech Market Map 2025: Comprehensive Analysis of Women\'s Health Innovation in Mainland China and Hong Kong',
+    description: 'The FemTech market in Greater China is experiencing unprecedented growth, entering a phase of rapid expansion supported by favorable developments across policy, economic, social, and technological fronts.',
+    category: 'Research',
+    date: 'May 25',
+    readTime: '10 min read',
+    author: 'Zhu Yihan & Maaike Steinebach',
+    image: '/img/reports/report-cover.png',
+    link: '/blog/femtech-market-map-greater-china-2025',
+    tags: ['Research', 'Market Analysis', 'China', 'Hong Kong'],
+    isFeatured: true
+  },
+  {
     id: '1',
     title: 'Join the FemTech Hackathon 2024: Building the Future of Women\'s Health Tech in 48 Hours',
     description: 'Get ready for the most exciting women\'s health tech event of the year! FemTech Weekend is thrilled to announce our 2024 FemTech Hackathon - a 48-hour innovation sprint.',
@@ -13,7 +26,7 @@ export const staticReportsData: ReportItem[] = [
     image: '/img/femtech-weekend-social-card.png',
     link: '/blog/femtech-hackathon-2024',
     tags: ['Hackathon', 'Technology', 'Innovation'],
-    isFeatured: true
+    isFeatured: false
   },
   {
     id: '2',
