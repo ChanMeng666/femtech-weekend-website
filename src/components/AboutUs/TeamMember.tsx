@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
-import { Button } from '../ui/button';
 import { Modal } from '../ui/modal';
 
 export interface TeamMemberProps {
@@ -22,7 +21,10 @@ export function TeamMember({ name, role, bio, image, linkedin }: TeamMemberProps
 
   return (
     <>
-      <Card className="h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
+      <Card 
+        className="h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-2 cursor-pointer"
+        onClick={() => setIsModalOpen(true)}
+      >
         <CardHeader className="text-center">
           <div className="mx-auto mb-4 h-24 w-24 rounded-full overflow-hidden bg-gradient-to-br from-primary/20 to-primary/40">
             <img 
@@ -34,15 +36,6 @@ export function TeamMember({ name, role, bio, image, linkedin }: TeamMemberProps
           <CardTitle className="text-xl">{name}</CardTitle>
           <p className="text-primary font-medium">{role}</p>
         </CardHeader>
-        <CardContent className="text-center">
-          <Button 
-            variant="outline" 
-            className="w-full"
-            onClick={() => setIsModalOpen(true)}
-          >
-            Read Bio
-          </Button>
-        </CardContent>
       </Card>
 
       <Modal
