@@ -1,6 +1,15 @@
 import React from 'react';
+import {
+  getEcosystemBadgeText,
+  getEcosystemTitle,
+  getEcosystemDescription
+} from '../../constants/ecosystem-components';
 
 export function EcosystemHero() {
+  const badgeText = getEcosystemBadgeText();
+  const title = getEcosystemTitle();
+  const description = getEcosystemDescription();
+  
   return (
     <div className="relative isolate overflow-hidden bg-gradient-to-br from-primary/5 via-background to-primary/10 pt-24 pb-16">
       <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
@@ -17,15 +26,14 @@ export function EcosystemHero() {
         <div className="mx-auto max-w-4xl text-center">
           <div className="mb-4">
             <span className="inline-flex items-center rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
-              🌟 Join Our Community
+              {badgeText}
             </span>
           </div>
           <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
-            FemTech Weekend Ecosystem
+            {title}
           </h1>
           <p className="mt-6 text-lg leading-8 text-muted-foreground max-w-3xl mx-auto">
-            Join our dynamic and inclusive community, where founders, investors, corporates, academia, 
-            and enthusiasts from diverse backgrounds unite to drive progress in women's health.
+            {description}
           </p>
         </div>
       </div>

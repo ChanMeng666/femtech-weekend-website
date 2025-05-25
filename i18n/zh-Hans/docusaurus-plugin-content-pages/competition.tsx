@@ -8,8 +8,8 @@ import {
   Prizes,
   Requirements,
   RegistrationCTA
-} from '../components/Competition';
-import { getCompetitionTitle, getCompetitionDescription } from '../constants/competition';
+} from '../../../src/components/Competition';
+import { getCompetitionTitle, getCompetitionDescription } from '../../../src/constants/competition';
 
 export default function Competition(): React.ReactNode {
   const {siteConfig} = useDocusaurusContext();

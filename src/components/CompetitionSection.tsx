@@ -3,9 +3,39 @@ import { Button } from './ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import {
+  getCompetitionBadgeText,
+  getCompetitionTitle,
+  getCompetitionDescription,
+  getPrizePoolText,
+  getTeamsText,
+  getPartnersText,
+  getRegistrationOpenText,
+  getRegistrationDateText,
+  getFinalEventText,
+  getFinalEventDateText,
+  getJoinButtonText,
+  getLearnMoreButtonText,
+  getParticipationInfoText
+} from '../constants/competition-section';
 
 export function CompetitionSection() {
   const treeSvgUrl = useBaseUrl('/img/bg/abstract-flowing-lines-and-elegant-curves-represen1.png');
+  
+  // Get translated texts
+  const badgeText = getCompetitionBadgeText();
+  const title = getCompetitionTitle();
+  const description = getCompetitionDescription();
+  const prizePoolText = getPrizePoolText();
+  const teamsText = getTeamsText();
+  const partnersText = getPartnersText();
+  const registrationOpenText = getRegistrationOpenText();
+  const registrationDateText = getRegistrationDateText();
+  const finalEventText = getFinalEventText();
+  const finalEventDateText = getFinalEventDateText();
+  const joinButtonText = getJoinButtonText();
+  const learnMoreButtonText = getLearnMoreButtonText();
+  const participationInfoText = getParticipationInfoText();
   
   return (
     <div className="relative bg-gradient-to-br from-primary/10 via-primary/5 to-background py-24 sm:py-32 overflow-hidden">
@@ -33,18 +63,17 @@ export function CompetitionSection() {
           {/* Badge */}
           <div className="text-center mb-8">
             <span className="inline-flex items-center rounded-full bg-primary/20 px-4 py-2 text-sm font-medium text-primary animate-pulse">
-              🏆 Competition Now Live
+              {badgeText}
             </span>
           </div>
 
           {/* Main Content */}
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl mb-6">
-              FemTech Weekend Competition 2024
+              {title}
             </h2>
             <p className="text-lg leading-8 text-muted-foreground max-w-2xl mx-auto">
-              Join China's premier women's health innovation competition. Showcase your breakthrough solutions, 
-              connect with top investors, and win up to ¥500K in prizes.
+              {description}
             </p>
           </div>
 
@@ -60,7 +89,7 @@ export function CompetitionSection() {
                 <CardTitle className="text-2xl font-bold text-primary">¥500K</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground">Total Prize Pool</p>
+                <p className="text-sm text-muted-foreground">{prizePoolText}</p>
               </CardContent>
             </Card>
 
@@ -74,7 +103,7 @@ export function CompetitionSection() {
                 <CardTitle className="text-2xl font-bold text-primary">50+</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground">Participating Teams</p>
+                <p className="text-sm text-muted-foreground">{teamsText}</p>
               </CardContent>
             </Card>
 
@@ -88,7 +117,7 @@ export function CompetitionSection() {
                 <CardTitle className="text-2xl font-bold text-primary">20+</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground">Investment Partners</p>
+                <p className="text-sm text-muted-foreground">{partnersText}</p>
               </CardContent>
             </Card>
           </div>
@@ -99,15 +128,15 @@ export function CompetitionSection() {
               <div className="flex items-center space-x-3">
                 <div className="h-3 w-3 rounded-full bg-primary animate-pulse"></div>
                 <div>
-                  <p className="font-medium text-foreground">Registration Open</p>
-                  <p className="text-sm text-muted-foreground">Until February 28, 2024</p>
+                  <p className="font-medium text-foreground">{registrationOpenText}</p>
+                  <p className="text-sm text-muted-foreground">{registrationDateText}</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="h-3 w-3 rounded-full bg-muted"></div>
                 <div>
-                  <p className="font-medium text-foreground">Final Event</p>
-                  <p className="text-sm text-muted-foreground">April 20-21, 2024</p>
+                  <p className="font-medium text-foreground">{finalEventText}</p>
+                  <p className="text-sm text-muted-foreground">{finalEventDateText}</p>
                 </div>
               </div>
             </div>
@@ -118,18 +147,18 @@ export function CompetitionSection() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link to="/competition">
                 <Button size="lg" className="bg-primary hover:bg-primary/90 shadow-lg">
-                  🚀 Join Competition
+                  {joinButtonText}
                 </Button>
               </Link>
               <Link to="/competition#timeline">
                 <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10">
-                  Learn More
+                  {learnMoreButtonText}
                 </Button>
               </Link>
             </div>
             
             <p className="mt-4 text-sm text-muted-foreground">
-              Free to participate • Expert mentorship included • Investor access guaranteed
+              {participationInfoText}
             </p>
           </div>
         </div>

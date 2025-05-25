@@ -7,24 +7,28 @@
     "message": "FemTech Weekend 女性健康科技周末 网站标志",
     "description": "The alt text of navbar logo"
   },
-  "item.label.Tutorial": {
-    "message": "教程",
-    "description": "Navbar item with label Tutorial"
+  "item.label.About Us": {
+    "message": "关于我们",
+    "description": "Navbar item with label About Us"
   },
-  "item.label.Blog": {
-    "message": "博客",
-    "description": "Navbar item with label Blog"
+  "item.label.Competition": {
+    "message": "比赛",
+    "description": "Navbar item with label Competition"
   },
-  "item.label.Company Showcase": {
-    "message": "企业展示",
-    "description": "Navbar item with label Company Showcase"
+  "item.label.Ecosystem": {
+    "message": "生态系统",
+    "description": "Navbar item with label Ecosystem"
+  },
+  "item.label.Insights": {
+    "message": "洞察",
+    "description": "Navbar item with label Insights"
   },
   "item.label.Reports": {
     "message": "报告",
     "description": "Navbar item with label Reports"
   },
-  "item.label.Competition": {
-    "message": "比赛",
-    "description": "Navbar item with label Competition"
+  "item.label.Database": {
+    "message": "数据库",
+    "description": "Navbar item with label Database"
   }
 }

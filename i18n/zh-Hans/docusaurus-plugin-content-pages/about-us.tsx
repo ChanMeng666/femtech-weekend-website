@@ -7,8 +7,8 @@ import {
   Values, 
   Team, 
   CallToAction 
-} from '../components/AboutUs';
-import { getAboutUsTitle, getAboutUsDescription } from '../constants/about-us';
+} from '../../../src/components/AboutUs';
+import { getAboutUsTitle, getAboutUsDescription } from '../../../src/constants/about-us';
 
 export default function AboutUs(): React.ReactNode {
   const {siteConfig} = useDocusaurusContext();

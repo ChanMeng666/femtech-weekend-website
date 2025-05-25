@@ -1,6 +1,10 @@
 import React from 'react';
+import { getReportsTitle, getReportsSubtitle } from '../../constants/reports-components';
 
 export function ReportsHero(): React.ReactNode {
+  const title = getReportsTitle();
+  const subtitle = getReportsSubtitle();
+  
   return (
     <div className="relative isolate overflow-hidden bg-background pt-24 pb-16">
       <div className="absolute inset-x-0 top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
@@ -16,10 +20,10 @@ export function ReportsHero(): React.ReactNode {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
           <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
-            The FemTech Reports
+            {title}
           </h1>
           <p className="mt-6 text-xl leading-8 text-muted-foreground">
-            Latest insights and research on women's health technology, innovation, and market trends
+            {subtitle}
           </p>
         </div>
       </div>

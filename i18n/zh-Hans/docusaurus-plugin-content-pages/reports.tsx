@@ -3,7 +3,7 @@ import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 // Import types
-import { ReportCategory } from '../types/reports';
+import { ReportCategory } from '../../../src/types/reports';
 
 // Import data and utility functions
 import { 
@@ -11,8 +11,8 @@ import {
   getFeaturedReport, 
   filterReportsByCategory, 
   sortReportsByDate 
-} from '../data/reports';
-import { getReportsTitle, getReportsDescription } from '../constants/reports';
+} from '../../../src/data/reports';
+import { getReportsTitle, getReportsDescription } from '../../../src/constants/reports';
 
 // Import components
 import {
@@ -21,7 +21,7 @@ import {
   ReportsHero,
   ReportsNavigation,
   ReportsCTA
-} from '../components/Reports';
+} from '../../../src/components/Reports';
 
 export default function Reports(): React.ReactNode {
   const { siteConfig } = useDocusaurusContext();
@@ -73,12 +73,12 @@ export default function Reports(): React.ReactNode {
               {/* Latest Reports */}
               <div className="mb-8">
                 <h2 className="text-2xl font-bold text-foreground mb-2">
-                  {activeCategory === 'All Reports' ? 'Latest Reports' : `${activeCategory} Reports`}
+                  {activeCategory === 'All Reports' ? '最新报告' : `${activeCategory} 报告`}
                 </h2>
                 <p className="text-muted-foreground">
                   {activeCategory === 'All Reports' 
-                    ? 'Stay updated with our comprehensive research and analysis'
-                    : `Browse our ${activeCategory.toLowerCase()} reports and insights`
+                    ? '通过我们全面的研究和分析保持最新动态'
+                    : `浏览我们的${activeCategory.toLowerCase()}报告和洞察`
                   }
                 </p>
               </div>
@@ -93,7 +93,7 @@ export default function Reports(): React.ReactNode {
           ) : (
             <div className="text-center py-16">
               <p className="text-lg text-muted-foreground">
-                No reports found in this category. Check back soon for new content!
+                该类别中没有找到报告。请稍后再查看新内容！
               </p>
             </div>
           )}

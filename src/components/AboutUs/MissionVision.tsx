@@ -1,7 +1,18 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
+import { 
+  getMissionTitle, 
+  getMissionText, 
+  getVisionTitle, 
+  getVisionText 
+} from '../../constants/about-us-components';
 
 export function MissionVision() {
+  const missionTitle = getMissionTitle();
+  const missionText = getMissionText();
+  const visionTitle = getVisionTitle();
+  const visionText = getVisionText();
+  
   return (
     <div className="bg-muted/30 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -14,11 +25,11 @@ export function MissionVision() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z" />
                 </svg>
               </div>
-              <CardTitle className="text-2xl text-foreground">Our Mission</CardTitle>
+              <CardTitle className="text-2xl text-foreground">{missionTitle}</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground leading-7">
-                We pioneer Women's Health Innovation in China to drive worldwide impact. We are dedicated to driving women's health innovation, amplifying women in tech entrepreneurship, and building a thriving ecosystem where every woman can access the knowledge, capital and support needed to succeed.
+                {missionText}
               </p>
             </CardContent>
           </Card>
@@ -31,11 +42,11 @@ export function MissionVision() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                 </svg>
               </div>
-              <CardTitle className="text-2xl text-foreground">Our Vision</CardTitle>
+              <CardTitle className="text-2xl text-foreground">{visionTitle}</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground leading-7">
-                We believe in a future where women-led innovations in women's health and technology thrive without barriers. We build a thriving homegrown innovation hub while fostering cross-border collaboration - strengthening local industry-academia-investment-research ties while opening doors for worldwide knowledge exchange.
+                {visionText}
               </p>
             </CardContent>
           </Card>

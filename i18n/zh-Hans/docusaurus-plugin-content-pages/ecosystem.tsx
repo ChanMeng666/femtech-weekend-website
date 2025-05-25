@@ -7,8 +7,8 @@ import {
   EcosystemMission,
   MemberDirectory,
   JoinEcosystem
-} from '../components/Ecosystem';
-import { getEcosystemTitle, getEcosystemDescription } from '../constants/ecosystem';
+} from '../../../src/components/Ecosystem';
+import { getEcosystemTitle, getEcosystemDescription } from '../../../src/constants/ecosystem';
 
 export default function Ecosystem(): React.ReactNode {
   const { siteConfig } = useDocusaurusContext();

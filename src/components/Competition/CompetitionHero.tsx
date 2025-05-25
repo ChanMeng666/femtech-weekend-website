@@ -1,8 +1,21 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import { Button } from '../ui/button';
+import {
+  getCompetitionBadgeText,
+  getCompetitionTitle,
+  getCompetitionDescription,
+  getRegisterButtonText,
+  getLearnMoreButtonText
+} from '../../constants/competition-components';
 
 export default function CompetitionHero() {
+  const badgeText = getCompetitionBadgeText();
+  const title = getCompetitionTitle();
+  const description = getCompetitionDescription();
+  const registerButtonText = getRegisterButtonText();
+  const learnMoreButtonText = getLearnMoreButtonText();
+  
   return (
     <div className="relative isolate overflow-hidden bg-gradient-to-br from-primary/5 via-background to-primary/10 pt-24 pb-16">
       <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
@@ -19,25 +32,24 @@ export default function CompetitionHero() {
         <div className="mx-auto max-w-3xl text-center">
           <div className="mb-4">
             <span className="inline-flex items-center rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
-              🏆 Registration Now Open
+              {badgeText}
             </span>
           </div>
           <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
-            FemTech Weekend Competition 2024
+            {title}
           </h1>
           <p className="mt-6 text-lg leading-8 text-muted-foreground">
-            Join the premier women's health innovation competition in China. Showcase your groundbreaking 
-            solutions, connect with leading investors, and accelerate your FemTech journey.
+            {description}
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Link to="#register">
               <Button size="lg" className="bg-primary hover:bg-primary/90">
-                Register Now
+                {registerButtonText}
               </Button>
             </Link>
             <Link to="#timeline">
               <Button variant="outline" size="lg">
-                Learn More
+                {learnMoreButtonText}
               </Button>
             </Link>
           </div>

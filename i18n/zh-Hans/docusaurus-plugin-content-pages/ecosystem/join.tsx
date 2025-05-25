@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import Layout from '@theme/Layout';
 import { Button } from '@site/src/components/ui/button';
 import { cn } from '@site/src/lib/utils';
-import { getEcosystemJoinTitle, getEcosystemJoinDescription } from '../../constants/ecosystem-join';
+import { getEcosystemJoinTitle, getEcosystemJoinDescription } from '../../../../src/constants/ecosystem-join';
 
 function JoinForm() {
   // State for form data
@@ -123,11 +123,11 @@ function JoinForm() {
         });
       } else {
         console.error('Form submission failed:', result.message);
-        alert('Submission failed, please try again later');
+        alert('提交失败，请稍后再试');
       }
     } catch (error) {
       console.error('Error submitting form:', error);
-      alert('Submission failed, please try again later');
+      alert('提交失败，请稍后再试');
     } finally {
       setIsSubmitting(false);
     }
@@ -144,15 +144,15 @@ function JoinForm() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">Submission Successful!</h2>
+        <h2 className="text-2xl font-bold text-gray-800 mb-2">提交成功！</h2>
         <p className="text-gray-600 mb-6">
-          Thank you for your application. Our team will be in touch with you soon.
+          感谢您的申请。我们的团队将很快与您联系。
         </p>
         <Button 
           onClick={() => window.location.href = '/ecosystem'}
           className="bg-primary"
         >
-          Return to Ecosystem
+          返回生态系统
         </Button>
       </div>
     );
@@ -161,19 +161,19 @@ function JoinForm() {
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-3xl font-bold text-center mb-2">Join the Ecosystem</h1>
+        <h1 className="text-3xl font-bold text-center mb-2">加入生态系统</h1>
         <p className="text-center text-lg mb-8 text-muted-foreground">
-          Become part of the FemTech Weekend innovation ecosystem
+          成为FemTech Weekend创新生态系统的一部分
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-8">
           {/* Personal Information */}
           <div className="bg-card rounded-lg p-6 shadow-sm">
-            <h2 className="text-xl font-semibold mb-4">Personal Information</h2>
+            <h2 className="text-xl font-semibold mb-4">个人信息</h2>
             <div className="space-y-4">
               <div>
                 <label htmlFor="name" className="block mb-1 font-medium">
-                  Name <span className="text-red-500">*</span>
+                  姓名 <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -188,7 +188,7 @@ function JoinForm() {
               
               <div>
                 <label htmlFor="email" className="block mb-1 font-medium">
-                  Email <span className="text-red-500">*</span>
+                  电子邮箱 <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="email"
@@ -205,11 +205,11 @@ function JoinForm() {
 
           {/* Company Information */}
           <div className="bg-card rounded-lg p-6 shadow-sm">
-            <h2 className="text-xl font-semibold mb-4">Company Information</h2>
+            <h2 className="text-xl font-semibold mb-4">公司信息</h2>
             <div className="space-y-4">
               <div>
                 <label htmlFor="companyName" className="block mb-1 font-medium">
-                  Company Name <span className="text-red-500">*</span>
+                  公司名称 <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -224,13 +224,12 @@ function JoinForm() {
               
               <div>
                 <label htmlFor="companyWebsite" className="block mb-1 font-medium">
-                  Company Website <span className="text-red-500">*</span>
+                  公司网站
                 </label>
                 <input
                   type="url"
                   id="companyWebsite"
                   name="companyWebsite"
-                  required
                   value={formState.companyWebsite}
                   onChange={handleInputChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
@@ -239,13 +238,12 @@ function JoinForm() {
               
               <div>
                 <label htmlFor="companyLinkedin" className="block mb-1 font-medium">
-                  Company LinkedIn Profile <span className="text-red-500">*</span>
+                  公司领英
                 </label>
                 <input
                   type="url"
                   id="companyLinkedin"
                   name="companyLinkedin"
-                  required
                   value={formState.companyLinkedin}
                   onChange={handleInputChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
@@ -254,10 +252,10 @@ function JoinForm() {
               
               <div>
                 <label htmlFor="companyInstagram" className="block mb-1 font-medium">
-                  Company Instagram
+                  公司Instagram
                 </label>
                 <input
-                  type="text"
+                  type="url"
                   id="companyInstagram"
                   name="companyInstagram"
                   value={formState.companyInstagram}
@@ -270,11 +268,11 @@ function JoinForm() {
 
           {/* Founder Information */}
           <div className="bg-card rounded-lg p-6 shadow-sm">
-            <h2 className="text-xl font-semibold mb-4">Founder Information</h2>
+            <h2 className="text-xl font-semibold mb-4">创始人信息</h2>
             <div className="space-y-4">
               <div>
                 <label htmlFor="founderName" className="block mb-1 font-medium">
-                  Founder Name <span className="text-red-500">*</span>
+                  创始人姓名 <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -289,7 +287,7 @@ function JoinForm() {
               
               <div>
                 <label htmlFor="founderLinkedin" className="block mb-1 font-medium">
-                  Founder LinkedIn <span className="text-red-500">*</span>
+                  创始人领英 <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="url"
@@ -306,11 +304,11 @@ function JoinForm() {
 
           {/* Business Information */}
           <div className="bg-card rounded-lg p-6 shadow-sm">
-            <h2 className="text-xl font-semibold mb-4">Business Information</h2>
+            <h2 className="text-xl font-semibold mb-4">业务信息</h2>
             <div className="space-y-6">
               <div>
                 <label htmlFor="businessDescription" className="block mb-1 font-medium">
-                  Describe how your business utilises technology to enrich the lives of women?
+                  描述您的企业如何利用技术丰富女性的生活？
                 </label>
                 <textarea
                   id="businessDescription"
@@ -324,21 +322,21 @@ function JoinForm() {
               
               <div>
                 <p className="block mb-2 font-medium">
-                  What stage is your FemTech business at?
+                  您的FemTech业务处于什么阶段？
                 </p>
                 <div className="space-y-2">
-                  {['Idea', 'Discovery', 'Validation', 'Efficiency', 'Scale'].map((stage) => (
+                  {['创意', '探索', '验证', '效率', '规模化'].map((stage, index) => (
                     <div key={stage} className="flex items-center">
                       <input
                         type="radio"
-                        id={`stage-${stage}`}
+                        id={`stage-${index}`}
                         name="businessStage"
-                        value={stage}
-                        checked={formState.businessStage === stage}
+                        value={['Idea', 'Discovery', 'Validation', 'Efficiency', 'Scale'][index]}
+                        checked={formState.businessStage === ['Idea', 'Discovery', 'Validation', 'Efficiency', 'Scale'][index]}
                         onChange={handleInputChange}
                         className="mr-2 h-4 w-4 text-primary"
                       />
-                      <label htmlFor={`stage-${stage}`}>{stage}</label>
+                      <label htmlFor={`stage-${index}`}>{stage}</label>
                     </div>
                   ))}
                 </div>
@@ -346,34 +344,48 @@ function JoinForm() {
               
               <div>
                 <p className="block mb-2 font-medium">
-                  What categories best describe your company's product or service?
+                  哪些类别最能描述您公司的产品或服务？
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                   {[
-                    'Breast Health',
-                    'Fertility',
-                    'General Health',
-                    'Gynaecological & Pelvic Health',
-                    'Menopause',
-                    'Mental Health',
-                    'Reproductive Health & Contraception',
-                    'Sexual Health',
-                    'Hormone Health',
-                    'Minority Health',
-                    'Sexual Wellness Products',
-                    'LGBTQIA+ Health',
-                    'Pads, Tampons, Period Underwear, and Cups'
-                  ].map((category) => (
+                    '乳房健康',
+                    '生育能力',
+                    '一般健康',
+                    '妇科与盆腔健康',
+                    '更年期',
+                    '心理健康',
+                    '生殖健康与避孕',
+                    '性健康',
+                    '激素健康',
+                    '少数群体健康',
+                    '性健康产品',
+                    'LGBTQIA+健康',
+                    '卫生巾、卫生棉条、月经内裤和月经杯'
+                  ].map((category, index) => (
                     <div key={category} className="flex items-center">
                       <input
                         type="checkbox"
-                        id={`category-${category}`}
+                        id={`category-${index}`}
                         name="categories"
-                        value={category}
+                        value={[
+                          'Breast Health',
+                          'Fertility',
+                          'General Health',
+                          'Gynaecological & Pelvic Health',
+                          'Menopause',
+                          'Mental Health',
+                          'Reproductive Health & Contraception',
+                          'Sexual Health',
+                          'Hormone Health',
+                          'Minority Health',
+                          'Sexual Wellness Products',
+                          'LGBTQIA+ Health',
+                          'Pads, Tampons, Period Underwear, and Cups'
+                        ][index]}
                         onChange={handleCheckboxChange}
                         className="mr-2 h-4 w-4 text-primary"
                       />
-                      <label htmlFor={`category-${category}`}>{category}</label>
+                      <label htmlFor={`category-${index}`}>{category}</label>
                     </div>
                   ))}
                 </div>
@@ -381,7 +393,7 @@ function JoinForm() {
               
               <div>
                 <label htmlFor="additionalInfo" className="block mb-1 font-medium">
-                  Anything else we should know about you?
+                  还有什么我们应该了解的吗？
                 </label>
                 <textarea
                   id="additionalInfo"
@@ -394,7 +406,7 @@ function JoinForm() {
               </div>
               
               <div>
-                <p className="block mb-2 font-medium">Company Logo</p>
+                <p className="block mb-2 font-medium">公司标志</p>
                 <div 
                   className={`border-2 border-dashed border-gray-300 rounded-lg p-6 text-center ${logoPreview ? 'border-primary border-solid' : ''} hover:bg-gray-50 cursor-pointer transition-all`}
                   onClick={() => document.getElementById('logo').click()}
@@ -415,7 +427,7 @@ function JoinForm() {
                         alt="Logo preview" 
                         className="max-h-48 object-contain mb-2" 
                       />
-                      <p className="text-sm text-gray-500">Click to change</p>
+                      <p className="text-sm text-gray-500">点击更改</p>
                     </div>
                   ) : (
                     <div>
@@ -423,7 +435,7 @@ function JoinForm() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
                       </svg>
                       <p className="text-primary">
-                        Click or drag a file to this area to upload
+                        点击或拖拽文件到此区域上传
                       </p>
                     </div>
                   )}
@@ -439,7 +451,7 @@ function JoinForm() {
               disabled={isSubmitting}
               className={isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}
             >
-              {isSubmitting ? 'Submitting...' : 'Submit'}
+              {isSubmitting ? '提交中...' : '提交'}
             </Button>
           </div>
         </form>
