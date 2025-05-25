@@ -522,6 +522,14 @@
     "message": "认识女性科技周末背后的热情个体",
     "description": "Subtitle for the team section"
   },
+  "about.team.meetOurTeam": {
+    "message": "认识我们的团队",
+    "description": "Title for the Meet Our Team section"
+  },
+  "about.team.description": {
+    "message": "在全球范围内推动女性健康创新的充满激情的领导者。",
+    "description": "Description for the team section"
+  },
   "about.cta.title": {
     "message": "加入我们的使命",
     "description": "Title for the call to action section"
@@ -669,5 +677,61 @@
   "ecosystem.hero.description": {
     "message": "加入我们充满活力和包容性的社区，创始人、投资者、企业、学术界和各种背景的爱好者在这里共同推动女性健康领域的进步。",
     "description": "Description for the ecosystem hero section"
+  },
+  "reports.cta.title": {
+    "message": "获取我们的最新研究",
+    "description": "Title for the Reports CTA section"
+  },
+  "reports.cta.description": {
+    "message": "将最新报告和见解直接发送到您的收件箱。加入我们的女性健康创新者和投资者社区。",
+    "description": "Description for the Reports CTA section"
+  },
+  "reports.cta.learnMoreButton": {
+    "message": "了解更多关于我们",
+    "description": "Text for the Learn More About Us button in the Reports CTA section"
+  },
+  "reports.cta.contactButton": {
+    "message": "联系研究团队",
+    "description": "Text for the Contact Research Team button in the Reports CTA section"
+  },
+  "competition.stats.participatingTeams": {
+    "message": "参赛队伍",
+    "description": "Label for participating teams in the competition stats section"
+  },
+  "competition.stats.totalPrizePool": {
+    "message": "总奖金池",
+    "description": "Label for total prize pool in the competition stats section"
+  },
+  "competition.stats.industryMentors": {
+    "message": "行业导师",
+    "description": "Label for industry mentors in the competition stats section"
+  },
+  "competition.stats.investmentPartners": {
+    "message": "投资合作伙伴",
+    "description": "Label for investment partners in the competition stats section"
+  },
+  "competition.timeline.title": {
+    "message": "比赛时间线",
+    "description": "Title for the competition timeline section"
+  },
+  "competition.timeline.description": {
+    "message": "遵循我们的结构化计划，旨在最大化您的成功和成长。",
+    "description": "Description for the competition timeline section"
+  },
+  "ecosystem.stats.communityMembers": {
+    "message": "社区成员",
+    "description": "Label for community members in the ecosystem stats section"
+  },
+  "ecosystem.stats.memberCategories": {
+    "message": "成员类别",
+    "description": "Label for member categories in the ecosystem stats section"
+  },
+  "ecosystem.stats.countriesRepresented": {
+    "message": "国家代表",
+    "description": "Label for countries represented in the ecosystem stats section"
+  },
+  "ecosystem.stats.partnerOrganizations": {
+    "message": "合作组织",
+    "description": "Label for partner organizations in the ecosystem stats section"
   }
 }

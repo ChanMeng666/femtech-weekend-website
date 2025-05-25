@@ -1,7 +1,11 @@
 import React from 'react';
 import { TeamMember, TeamMemberProps } from './TeamMember';
+import { getTeamMeetOurTeamTitle, getTeamDescription } from '../../constants/about-us-components';
 
 export function Team() {
+  const title = getTeamMeetOurTeamTitle();
+  const description = getTeamDescription();
+  
   const teamMembers: TeamMemberProps[] = [
     {
       name: "Zhu Yihan",
@@ -42,10 +46,10 @@ export function Team() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Meet Our Team
+            {title}
           </h2>
           <p className="mt-6 text-lg leading-8 text-muted-foreground">
-            Passionate leaders driving innovation in women's health across the globe.
+            {description}
           </p>
         </div>
         <div className="mx-auto mt-16 grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">

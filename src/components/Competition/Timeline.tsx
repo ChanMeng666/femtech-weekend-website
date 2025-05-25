@@ -1,17 +1,21 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { timelineEvents } from '../../data/competition';
+import { getTimelineTitle, getTimelineDescription } from '../../constants/competition-components';
 
 export default function Timeline() {
+  const title = getTimelineTitle();
+  const description = getTimelineDescription();
+  
   return (
     <div id="timeline" className="bg-background py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Competition Timeline
+            {title}
           </h2>
           <p className="mt-6 text-lg leading-8 text-muted-foreground">
-            Follow our structured program designed to maximize your success and growth.
+            {description}
           </p>
         </div>
         

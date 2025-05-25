@@ -1,4 +1,10 @@
 import { EcosystemMember, StatItem } from '../types/ecosystem';
+import {
+  getCommunityMembersText,
+  getMemberCategoriesText,
+  getCountriesRepresentedText,
+  getPartnerOrganizationsText
+} from '../constants/ecosystem-components';
 
 export const ecosystemMembers: EcosystemMember[] = [
   // FemTech founders (Mainland China)
@@ -156,6 +162,15 @@ export const categories = [
   'FemTech enthusiasts'
 ];
 
+// Function to get ecosystem stats with translations
+export const getEcosystemStats = (): StatItem[] => [
+  { value: '200+', label: getCommunityMembersText() },
+  { value: '6', label: getMemberCategoriesText() },
+  { value: '15+', label: getCountriesRepresentedText() },
+  { value: '50+', label: getPartnerOrganizationsText() },
+];
+
+// Legacy static version (keeping for reference)
 export const ecosystemStats: StatItem[] = [
   { value: '200+', label: 'Community Members' },
   { value: '6', label: 'Member Categories' },
