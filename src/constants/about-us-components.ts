@@ -95,6 +95,16 @@ export const getTeamSubtitle = () => translate({
   message: 'Meet the passionate individuals behind FemTech Weekend',
 });
 
+export const getTeamMeetOurTeamTitle = () => translate({
+  id: 'about.team.meetOurTeam',
+  message: 'Meet Our Team',
+});
+
+export const getTeamDescription = () => translate({
+  id: 'about.team.description',
+  message: 'Passionate leaders driving innovation in women\'s health across the globe.',
+});
+
 // Call to Action section
 export const getCtaTitle = () => translate({
   id: 'about.cta.title',

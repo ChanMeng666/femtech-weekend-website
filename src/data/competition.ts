@@ -1,4 +1,11 @@
 // Competition data and configuration
+import {
+  getParticipatingTeamsText,
+  getTotalPrizePoolText,
+  getIndustryMentorsText,
+  getInvestmentPartnersText
+} from '../constants/competition-components';
+
 export interface CompetitionStat {
   value: string;
   label: string;
@@ -23,7 +30,15 @@ export interface CompetitionCategory {
   description: string;
 }
 
-// Competition statistics
+// Function to get competition stats with translations
+export const getCompetitionStats = (): CompetitionStat[] => [
+  { value: '50+', label: getParticipatingTeamsText() },
+  { value: '¥500K', label: getTotalPrizePoolText() },
+  { value: '30+', label: getIndustryMentorsText() },
+  { value: '20+', label: getInvestmentPartnersText() },
+];
+
+// Legacy static version (keeping for reference)
 export const competitionStats: CompetitionStat[] = [
   { value: '50+', label: 'Participating Teams' },
   { value: '¥500K', label: 'Total Prize Pool' },
