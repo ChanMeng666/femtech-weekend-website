@@ -1,38 +1,50 @@
-# Website
+# FemTech Weekend Website
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+The FemTech Weekend Website is a comprehensive platform built using [Docusaurus](https://docusaurus.io/), designed to support the FemTech Weekend community. It serves as a hub for the FemTech ecosystem, providing information about competitions, reports, and a database of FemTech startups.
+
+## Features
+
+- **Multilingual Support**: English and Chinese (Simplified) languages
+- **Competition Platform**: Information and registration for FemTech Weekend competitions
+- **Ecosystem Database**: Showcases FemTech startups and provides a submission form for new companies
+- **Reports and Insights**: Research and insights on the FemTech industry
+- **Interactive UI**: Modern and responsive design with TailwindCSS
+- **Form Submission**: Integration with Notion for data storage and Cloudinary for image uploads
+
+## Technology Stack
+
+- **Frontend**: Docusaurus, React, TypeScript, TailwindCSS
+- **Backend**: Node.js API server
+- **Data Storage**: Notion API integration
+- **Image Storage**: Cloudinary integration
+- **Search**: Algolia search integration
+
+## Setup Instructions
+
+### Prerequisites
+
+- Node.js (v18.0 or higher)
+- npm or yarn
+- Notion account and API token
+- Cloudinary account
 
 ### Installation
 
-```
-$ yarn
-```
+```bash
+# Clone the repository
+git clone https://github.com/ChanMeng666/femtech-weekend-website.git
+cd femtech-weekend-website
 
-Or with npm:
-
-```
-$ npm install
-```
-
-### Local Development
-
-```
-$ yarn start
+# Install dependencies
+npm install
+# Or with yarn
+yarn
 ```
 
-Or with npm:
+### Environment Variables
 
-```
-$ npm run start
-```
+Create a `.env.local` file in the root directory with the following variables:
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### API Server for Form Submissions
-
-This website includes form submission functionality on the `/ecosystem/join` page that saves data to Notion and uploads images to Cloudinary. To enable this functionality, you need to:
-
-1. Set up your environment variables in `.env.local`:
 ```
 # Notion API credentials
 NOTION_TOKEN=your_notion_token_here
@@ -42,22 +54,6 @@ NOTION_DATABASE_ID=your_notion_database_id_here
 CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
 CLOUDINARY_API_KEY=your_cloudinary_api_key
 CLOUDINARY_API_SECRET=your_cloudinary_api_secret
-```
-
-2. Run both the Docusaurus server and API server:
-
-```
-# Run the API server (in one terminal)
-$ npm run api
-
-# Run the Docusaurus server (in another terminal)
-$ npm run start
-```
-
-Or run both simultaneously:
-
-```
-$ npm run dev
 ```
 
 ### Notion Database Setup
@@ -78,36 +74,80 @@ For the `/ecosystem/join` form to work properly, you need to set up a Notion dat
 - `Additional Info` (rich text)
 - `Logo` (files & media)
 
-### Build
+## Development
 
-```
-$ yarn build
-```
+### Run the Development Server
 
-Or with npm:
+To run both the Docusaurus site and the API server concurrently:
 
-```
-$ npm run build
+```bash
+npm run dev
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+Or run them separately:
 
-### Deployment
+```bash
+# Run the Docusaurus server (in one terminal)
+npm run start
+
+# Run the API server (in another terminal)
+npm run api
+```
+
+The Docusaurus site will be available at [http://localhost:3000](http://localhost:3000) and the API server at [http://localhost:3001](http://localhost:3001).
+
+### Project Structure
+
+- `/src/pages`: Main website pages
+- `/src/components`: React components for the UI
+- `/src/api`: API server endpoints for form submissions
+- `/docs`: Documentation and FemTech insights
+- `/blog`: Blog posts and competition announcements
+- `/i18n`: Internationalization files for Chinese translation
+- `/static`: Static assets including images and data files
+
+## Building for Production
+
+```bash
+npm run build
+# Or with yarn
+yarn build
+```
+
+This command generates static content into the `build` directory which can be served using any static contents hosting service.
+
+## Deployment
 
 Using SSH:
 
-```
-$ USE_SSH=true yarn deploy
+```bash
+USE_SSH=true yarn deploy
 ```
 
 Not using SSH:
 
+```bash
+GIT_USER=<Your GitHub username> yarn deploy
 ```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
 
 When deploying to production, make sure to set up the necessary environment variables for Notion and Cloudinary in your hosting platform.
+
+## Customization
+
+- The announcement bar can be updated in `docusaurus.config.ts` by changing the `ANNOUNCEMENT_EVENT` and `ANNOUNCEMENT_DATE` constants
+- Main navigation structure is defined in the `navbar` section of `docusaurus.config.ts`
+- Homepage sections are configured in the `HomepageContent.tsx` component
+
+## i18n
+
+The key insight is that Docusaurus's i18n system works by replacing the entire page component when switching languages, not just translating strings within the same component.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the terms specified in the `LICENSE` file.
 
 
