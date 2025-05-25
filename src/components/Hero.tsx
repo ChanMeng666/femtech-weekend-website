@@ -6,9 +6,9 @@ import Waves from './Waves';
 
 export function Hero() {
   const rotatingWords = [
-    "Drive Women's Health Innovation",
-    "Amplify Women in Tech Entrepreneurship", 
-    "Build a thriving homegrown innovation hub"
+    "Drive women\'s health innovation with technology",
+    "Amplify women in tech entrepreneurship", 
+    "Build a global collaborative ecosystem"
   ];
 
   return (
@@ -52,14 +52,11 @@ export function Hero() {
             />
           </div>
           <p className="text-lg leading-8 text-muted-foreground">
-            Rooted in China, Connecting globally. We pioneer Women's Health Innovation in China to drive worldwide impact.
+            Bridging China and the world in advancing the women's health innovation.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
-            <Link to="/docs/intro">
-              <Button size="lg">Get Started</Button>
-            </Link>
-            <Link to="/blog">
-              <Button variant="outline" size="lg">Learn More</Button>
+            <Link to="/ecosystem/join">
+              <Button size="lg">Join The Ecosystem</Button>
             </Link>
           </div>
         </div>

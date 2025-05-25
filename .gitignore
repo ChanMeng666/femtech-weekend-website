@@ -22,3 +22,4 @@ yarn-error.log*
 static/docs/ftw-ai-chatbot.md
 .cursorignore
 /.vscode
+/femtech-weekend

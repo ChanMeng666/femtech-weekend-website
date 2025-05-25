@@ -5,6 +5,8 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
+    "api": "node api-server.js",
+    "dev": "concurrently \"npm run start\" \"npm run api\"",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -19,8 +21,11 @@
     "@docusaurus/preset-classic": "3.7.0",
     "@docusaurus/theme-mermaid": "^3.7.0",
     "@mdx-js/react": "^3.0.0",
+    "@notionhq/client": "^3.1.2",
     "autoprefixer": "^10.4.16",
+    "cloudinary": "^2.6.1",
     "clsx": "^2.0.0",
+    "dotenv": "^16.5.0",
     "gray-matter": "^4.0.3",
     "gsap": "^3.13.0",
     "postcss": "^8.4.35",
@@ -37,6 +42,8 @@
     "@docusaurus/tsconfig": "3.7.0",
     "@docusaurus/types": "3.7.0",
     "@tailwindcss/typography": "^0.5.10",
+    "concurrently": "^9.1.2",
+    "serverless-http": "^3.2.0",
     "typescript": "~5.6.2"
   },
   "browserslist": {
