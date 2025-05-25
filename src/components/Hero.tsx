@@ -3,13 +3,36 @@ import { Button } from './ui/button';
 import { WordRotate } from './ui/word-rotate';
 import Link from '@docusaurus/Link';
 import Waves from './Waves';
+import { 
+  getHeroTitle, 
+  getHeroSubtitle, 
+  getCtaStart 
+} from '../constants/homepage';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import {translate} from '@docusaurus/Translate';
 
 export function Hero() {
-  const rotatingWords = [
-    "Drive women\'s health innovation with technology",
-    "Amplify women in tech entrepreneurship", 
-    "Build a global collaborative ecosystem"
-  ];
+  const {i18n: {currentLocale}} = useDocusaurusContext();
+  
+  // Define rotating words based on current locale
+  const rotatingWords = currentLocale === 'zh-Hans' 
+    ? [
+        "用科技推动女性健康创新",
+        "提升女性科技创业影响力", 
+        "建立全球协作生态系统"
+      ]
+    : [
+        "Drive women\'s health innovation with technology",
+        "Amplify women in tech entrepreneurship", 
+        "Build a global collaborative ecosystem"
+      ];
+
+  const title = getHeroTitle();
+  const subtitle = getHeroSubtitle();
+  const ctaText = translate({
+    id: 'homepage.hero.cta.join',
+    message: 'Join The Ecosystem'
+  });
 
   return (
     <div className="relative isolate overflow-hidden bg-background">
@@ -42,7 +65,7 @@ export function Hero() {
       <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
-            FemTech Weekend
+            {title}
           </h1>
           <div className="mt-4 mb-6">
             <WordRotate
@@ -52,11 +75,11 @@ export function Hero() {
             />
           </div>
           <p className="text-lg leading-8 text-muted-foreground">
-            Bridging China and the world in advancing the women's health innovation.
+            {subtitle}
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Link to="/ecosystem/join">
-              <Button size="lg">Join The Ecosystem</Button>
+              <Button size="lg">{ctaText}</Button>
             </Link>
           </div>
         </div>

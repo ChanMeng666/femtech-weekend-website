@@ -2,6 +2,7 @@ import React from 'react';
 import { cn } from '../lib/utils';
 import { Marquee } from './ui/marquee';
 import { TestimonialData } from '../data/testimonials';
+import { getTestimonialsTitle, getTestimonialsSubtitle } from '../constants/homepage';
 
 interface ScrollingTestimonialsProps {
   title?: string;
@@ -63,11 +64,15 @@ const TestimonialCard = ({
 };
 
 export function ScrollingTestimonials({
-  title = "What Our Community Says",
-  subtitle = "Hear from entrepreneurs, investors, and healthcare professionals who are part of our growing ecosystem.",
+  title: propTitle,
+  subtitle: propSubtitle,
   testimonials,
   className = ""
 }: ScrollingTestimonialsProps) {
+  // Use provided title/subtitle or get from translations
+  const title = propTitle || getTestimonialsTitle();
+  const subtitle = propSubtitle || getTestimonialsSubtitle();
+  
   // Split testimonials into two rows for better visual effect
   const firstRow = testimonials.slice(0, Math.ceil(testimonials.length / 2));
   const secondRow = testimonials.slice(Math.ceil(testimonials.length / 2));

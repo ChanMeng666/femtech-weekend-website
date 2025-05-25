@@ -1,6 +1,10 @@
 import React from 'react';
+import { getAboutHeroTitle, getAboutHeroSubtitle } from '../../constants/about-us-components';
 
 export function AboutHero() {
+  const title = getAboutHeroTitle();
+  const subtitle = getAboutHeroSubtitle();
+  
   return (
     <div className="relative isolate overflow-hidden bg-background pt-24 pb-16">
       <div className="absolute inset-x-0 top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
@@ -16,10 +20,10 @@ export function AboutHero() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
-            About FemTech Weekend
+            {title}
           </h1>
           <p className="mt-6 text-lg leading-8 text-muted-foreground">
-            Rooted in China, Connecting globally. We pioneer Women's Health Innovation in China to drive worldwide impact through entrepreneurship, ecosystem building, and cross-border collaboration.
+            {subtitle}
           </p>
         </div>
       </div>
