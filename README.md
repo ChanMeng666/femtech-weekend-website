@@ -118,6 +118,21 @@ This command generates static content into the `build` directory which can be se
 
 ## Deployment
 
+### Vercel Deployment
+
+This project is configured for deployment on Vercel with API routes support. The `api` directory contains serverless functions that handle form submissions and image uploads.
+
+When deploying to Vercel:
+
+1. Connect your GitHub repository to Vercel
+2. Add the following environment variables in the Vercel project settings:
+   - `NOTION_TOKEN`
+   - `NOTION_DATABASE_ID`
+   - `CLOUDINARY_CLOUD_NAME`
+   - `CLOUDINARY_API_KEY`
+   - `CLOUDINARY_API_SECRET`
+3. Deploy the project
+
 Using SSH:
 
 ```bash
