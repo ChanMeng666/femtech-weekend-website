@@ -26,15 +26,11 @@ export default function Timeline() {
           {timelineEvents.map((event, index) => (
             <div key={index} className={`relative flex items-center mb-12 ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
               <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
-                <Card className={`${event.status === 'current' ? 'border-primary bg-primary/5' : ''}`}>
+                <Card className="border-primary bg-primary/5">
                   <CardHeader>
                     <div className="flex items-center justify-between">
                       <CardTitle className="text-lg">{event.title}</CardTitle>
-                      <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                        event.status === 'current' 
-                          ? 'bg-primary text-primary-foreground' 
-                          : 'bg-muted text-muted-foreground'
-                      }`}>
+                      <span className="px-3 py-1 rounded-full text-xs font-medium bg-primary text-primary-foreground">
                         {event.date}
                       </span>
                     </div>
@@ -46,9 +42,7 @@ export default function Timeline() {
               </div>
               
               {/* Timeline dot */}
-              <div className={`absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full border-4 border-background ${
-                event.status === 'current' ? 'bg-primary' : 'bg-muted'
-              }`}></div>
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full border-4 border-background bg-primary"></div>
             </div>
           ))}
         </div>

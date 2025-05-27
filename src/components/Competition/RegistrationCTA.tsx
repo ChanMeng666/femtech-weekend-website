@@ -11,7 +11,7 @@ export default function RegistrationCTA() {
             Ready to Transform Women's Health?
           </h2>
           <p className="mt-6 text-lg leading-8 text-muted-foreground">
-            Join us in building the future of FemTech. Registration closes February 28, 2024.
+            Join us in building the future of FemTech. Registration closes November 1, 2024.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Link to="mailto:competition@femtechweekend.com?subject=Competition Registration">
@@ -27,12 +27,6 @@ export default function RegistrationCTA() {
           </div>
           
           <div className="mt-12 flex items-center justify-center space-x-8 text-sm text-muted-foreground">
-            <div className="flex items-center">
-              <svg className="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              Free to participate
-            </div>
             <div className="flex items-center">
               <svg className="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />

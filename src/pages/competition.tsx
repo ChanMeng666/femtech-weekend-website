@@ -25,7 +25,7 @@ export default function Competition(): React.ReactNode {
         <CompetitionHero />
         <CompetitionStats />
         <Timeline />
-        <Prizes />
+        {/* <Prizes /> */}
         <Requirements />
         <RegistrationCTA />
       </main>

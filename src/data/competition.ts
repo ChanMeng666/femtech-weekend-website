@@ -49,31 +49,31 @@ export const competitionStats: CompetitionStat[] = [
 // Timeline events
 export const timelineEvents: TimelineEvent[] = [
   {
-    date: 'Jan 15 - Feb 28',
+    date: 'Until October 20, 2024',
     title: 'Registration & Application',
     description: 'Submit your application with team details and project pitch',
     status: 'current'
   },
   {
-    date: 'Mar 1 - Mar 15',
+    date: 'Nov 1 - Nov 20',
     title: 'Initial Screening',
     description: 'Expert panel reviews applications and selects semifinalists',
     status: 'upcoming'
   },
   {
-    date: 'Mar 20 - Apr 15',
+    date: 'Nov 23 - Nov 29',
     title: 'Mentorship Phase',
     description: 'Selected teams receive mentorship and refine their solutions',
     status: 'upcoming'
   },
   {
-    date: 'Apr 20 - Apr 21',
+    date: 'Nov 30 - Dec 1',
     title: 'Final Pitch Weekend',
     description: 'Teams present to judges and investors at the main event',
     status: 'upcoming'
   },
   {
-    date: 'Apr 21',
+    date: 'Dec 1',
     title: 'Awards Ceremony',
     description: 'Winners announced and networking celebration',
     status: 'upcoming'
