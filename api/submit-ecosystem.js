@@ -1,9 +1,9 @@
-// Import Notion client and dotenv for environment variables
+// Import Notion client
 const { Client } = require("@notionhq/client");
-require('dotenv').config({ path: '.env.local' });
 
-module.exports = async (req, res) => {
-  // Set CORS headers to allow cross-origin requests (if needed)
+// Export a default async function for Vercel serverless
+export default async function handler(req, res) {
+  // Set CORS headers to allow cross-origin requests
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -29,7 +29,7 @@ module.exports = async (req, res) => {
     
     // Parse request body
     const formData = req.body;
-    console.log("Form data:", JSON.stringify(formData, null, 2));
+    console.log("Form data received");
     
     // Get form fields
     const {
@@ -149,8 +149,6 @@ module.exports = async (req, res) => {
       },
     };
     
-    console.log("Notion page params:", JSON.stringify(notionPageParams, null, 2));
-    
     const response = await notion.pages.create(notionPageParams);
     console.log("Notion page created successfully:", response.id);
 
@@ -161,14 +159,12 @@ module.exports = async (req, res) => {
     });
   } catch (error) {
     console.error("Error submitting to Notion:", error);
-    console.error("Error details:", JSON.stringify(error, Object.getOwnPropertyNames(error)));
     
     // Return error response
     return res.status(500).json({ 
       success: false, 
       message: "Submission failed", 
-      error: error.message,
-      stack: error.stack
+      error: error.message
     });
   }
 } 
