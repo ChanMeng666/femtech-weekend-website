@@ -12,10 +12,10 @@ export default function OperatorButton() {
     <button
       type="button"
       className={cn(
-        "rounded-md px-3 py-2 text-xs font-medium transition-colors",
+        "rounded-full px-4 py-2 text-xs font-medium transition-all hover:scale-[1.02] hover:shadow-md",
         operator === 'OR' 
-          ? "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-          : "bg-primary text-primary-foreground hover:bg-primary/90"
+          ? "bg-secondary text-secondary-foreground hover:bg-secondary/90"
+          : "bg-primary text-primary-foreground hover:bg-primary-dark"
       )}
       onClick={toggleOperator}>
       {currentLocale === 'zh-Hans' ? `筛选条件: ${operator}` : translate(

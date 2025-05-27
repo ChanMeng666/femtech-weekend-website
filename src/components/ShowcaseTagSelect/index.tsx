@@ -26,10 +26,10 @@ export default function ShowcaseTagSelect({
     <button
       type="button"
       className={cn(
-        "inline-flex items-center rounded-full px-3 py-1 text-sm transition-colors border",
+        "inline-flex items-center rounded-full px-3 py-1 text-sm transition-all border hover:scale-[1.02]",
         selected
-          ? "bg-primary text-primary-foreground border-primary hover:bg-primary/90"
-          : "bg-background text-foreground border-border hover:bg-muted",
+          ? "bg-primary text-primary-foreground border-primary hover:bg-primary-dark hover:shadow-sm"
+          : "bg-background text-foreground border-border hover:bg-muted hover:border-primary/30",
       )}
       onClick={toggleTag}
       aria-label={`${label} ${description}`}>

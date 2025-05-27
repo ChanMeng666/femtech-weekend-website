@@ -6,6 +6,7 @@ import {
   getLearnMoreAboutUsText,
   getContactResearchTeamText
 } from '../../constants/reports-components';
+import { Button } from '../ui/button';
 
 export function ReportsCTA(): React.ReactNode {
   const title = getReportsCTATitle();
@@ -25,15 +26,19 @@ export function ReportsCTA(): React.ReactNode {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link 
             to="/about-us"
-            className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-10 rounded-md px-8 text-decoration-none"
+            className="no-underline"
           >
-            {learnMoreButtonText}
+            <Button size="lg">
+              {learnMoreButtonText}
+            </Button>
           </Link>
           <Link 
             to="mailto:hello@femtechweekend.com"
-            className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-transparent shadow-sm hover:bg-accent hover:text-accent-foreground h-10 rounded-md px-8 text-decoration-none"
+            className="no-underline"
           >
-            {contactButtonText}
+            <Button variant="outline" size="lg">
+              {contactButtonText}
+            </Button>
           </Link>
         </div>
       </div>
