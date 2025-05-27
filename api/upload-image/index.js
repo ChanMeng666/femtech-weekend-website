@@ -1,4 +1,4 @@
-// Import Cloudinary and dotenv for environment variables
+// Import Cloudinary
 const { v2: cloudinary } = require("cloudinary");
 
 // Configure Cloudinary with environment variables
@@ -8,9 +8,8 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-// Export a default async function for Vercel serverless
-export default async function handler(req, res) {
-  // Set CORS headers to allow cross-origin requests
+module.exports = async (req, res) => {
+  // Set CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -26,7 +25,6 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Log request for debugging
     console.log("Received image upload request");
     
     // Get the Base64 image data from the request body
