@@ -15,11 +15,11 @@ export const HomepageContent: React.FC = () => {
       <CompetitionSection />
       <LogoDivider />
       <Features />
-      <ScrollingTestimonials 
+      {/* <ScrollingTestimonials 
         title={homepageConfig.testimonials.title}
         subtitle={homepageConfig.testimonials.subtitle}
         testimonials={testimonialsData}
-      />
+      /> */}
     </>
   );
 }; 
