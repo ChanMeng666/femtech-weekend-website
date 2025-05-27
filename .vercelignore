@@ -1,0 +1,5 @@
+.docusaurus
+node_modules
+.github
+.git
+.env.local 
