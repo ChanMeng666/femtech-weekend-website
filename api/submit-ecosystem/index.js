@@ -1,9 +1,8 @@
 // Import Notion client
 const { Client } = require("@notionhq/client");
 
-// Export a default async function for Vercel serverless
-export default async function handler(req, res) {
-  // Set CORS headers to allow cross-origin requests
+module.exports = async (req, res) => {
+  // Set CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
