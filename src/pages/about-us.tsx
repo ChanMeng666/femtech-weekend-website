@@ -9,7 +9,7 @@ import {
   CallToAction 
 } from '../components/AboutUs';
 import { getAboutUsTitle, getAboutUsDescription } from '../constants/about-us';
-
+import { LogoDivider } from '../components/ui/LogoDivider';
 export default function AboutUs(): React.ReactNode {
   const {siteConfig} = useDocusaurusContext();
   
@@ -22,6 +22,7 @@ export default function AboutUs(): React.ReactNode {
       description={description}>
       <main>
         <AboutHero />
+        <LogoDivider />
         <MissionVision />
         <Values />
         <Team />

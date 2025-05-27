@@ -11,6 +11,8 @@
 @import './components/responsive.css';
 @import './components/card.css';
 @import './components/social-links.css';
+@import './components/logo-loader.css';
+@import './components/logo-mosaic.css';
 
 @tailwind base;
 @tailwind components;
@@ -52,6 +54,62 @@
   --chart-3: 45 37% 24%;
   --chart-4: 43 74% 66%;
   --chart-5: 27 87% 67%;
+}
+
+/* Logo animation keyframes */
+@keyframes slow-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes trace {
+  0% { stroke-dashoffset: 1000; }
+  100% { stroke-dashoffset: 0; }
+}
+
+/* Logo animation classes */
+.animate-slow-spin {
+  animation: slow-spin 20s linear infinite;
+  transform-origin: center;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.logo-trace {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: trace 3s ease-in-out forwards;
+}
+
+.logo-pattern {
+  background-image: url('/img/logo/femtech_weekend_logo_new.svg');
+  background-repeat: repeat;
+  background-size: 80px auto;
+  opacity: 0.03;
+}
+
+.logo-watermark {
+  position: absolute;
+  z-index: -1;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+/* Logo grid background */
+.logo-grid-bg {
+  background-image: url('/img/logo/femtech_weekend_logo_new.svg');
+  background-size: 60px;
+  background-repeat: space;
+  background-position: center;
+  opacity: 0.03;
 }
 
 [data-theme='dark'] {

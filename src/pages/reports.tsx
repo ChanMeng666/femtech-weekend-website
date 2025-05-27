@@ -22,6 +22,7 @@ import {
   ReportsNavigation,
   ReportsCTA
 } from '../components/Reports';
+import { LogoDivider } from '../components/ui/LogoDivider';
 
 export default function Reports(): React.ReactNode {
   const { siteConfig } = useDocusaurusContext();
@@ -64,6 +65,7 @@ export default function Reports(): React.ReactNode {
           {featuredReport && activeCategory === 'All Reports' && (
             <div className="mb-16">
               <FeaturedReport report={featuredReport} />
+              <LogoDivider className="mt-16" />
             </div>
           )}
 

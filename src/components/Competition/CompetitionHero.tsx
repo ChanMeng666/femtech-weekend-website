@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import { Button } from '../ui/button';
+import { LogoBackground } from '../ui/LogoBackground';
 import {
   getCompetitionBadgeText,
   getCompetitionTitle,
@@ -18,6 +19,9 @@ export default function CompetitionHero() {
   
   return (
     <div className="relative isolate overflow-hidden bg-gradient-to-br from-primary/5 via-background to-primary/10 pt-24 pb-16">
+      {/* Logo pattern background */}
+      <LogoBackground pattern="diagonal" opacity={0.05} animate={true} />
+      
       <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
         <div
           className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[var(--ifm-color-primary)] to-[var(--ifm-color-primary-lightest)] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"

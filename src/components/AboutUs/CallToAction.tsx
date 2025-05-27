@@ -3,7 +3,6 @@ import Link from '@docusaurus/Link';
 import { Button } from '../ui/button';
 import { getCtaTitle, getCtaText, getCtaButtonText } from '../../constants/about-us-components';
 import {translate} from '@docusaurus/Translate';
-
 export function CallToAction() {
   const title = getCtaTitle();
   const text = getCtaText();

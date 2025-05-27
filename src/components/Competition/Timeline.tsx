@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { timelineEvents } from '../../data/competition';
 import { getTimelineTitle, getTimelineDescription } from '../../constants/competition-components';
+import { LogoDivider } from '../ui/LogoDivider';
 
 export default function Timeline() {
   const title = getTimelineTitle();
@@ -18,7 +19,7 @@ export default function Timeline() {
             {description}
           </p>
         </div>
-        
+        <LogoDivider />
         <div className="relative">
           <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-primary/20"></div>
           

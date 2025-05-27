@@ -3,6 +3,7 @@ import ShowcaseHeader from '@site/src/components/ShowcaseHeader';
 import ShowcaseFilters from '@site/src/components/ShowcaseFilters';
 import ShowcaseSearchBar from '@site/src/components/ShowcaseSearchBar';
 import ShowcaseCards from '@site/src/components/ShowcaseCards';
+import { LogoDivider } from '@site/src/components/ui/LogoDivider';
 import type { ShowcaseLayoutProps } from '@site/src/types/showcase';
 
 export default function ShowcaseLayout({ children }: ShowcaseLayoutProps = {}): React.ReactNode {
@@ -18,6 +19,7 @@ export default function ShowcaseLayout({ children }: ShowcaseLayoutProps = {}): 
         <ShowcaseSearchBar />
       </div>
       <ShowcaseCards />
+      <LogoDivider />
       {children}
     </main>
   );
