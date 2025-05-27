@@ -13,7 +13,7 @@ export const getCompetitionTitle = () => translate({
 
 export const getCompetitionDescription = () => translate({
   id: 'homepage.competition.description',
-  message: "Join China's premier women's health innovation competition. Showcase your breakthrough solutions, connect with top investors, and win up to ¥500K in prizes.",
+  message: "Join China's first women's health innovation competition. Showcase your breakthrough solutions, connect with top investors, and win up to ¥10000 in prizes.",
 });
 
 // Competition statistics
@@ -29,7 +29,7 @@ export const getTeamsText = () => translate({
 
 export const getPartnersText = () => translate({
   id: 'homepage.competition.partners',
-  message: 'Investment Partners',
+  message: 'Investment Partners and Mentors',
 });
 
 // Key dates
