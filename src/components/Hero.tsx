@@ -74,7 +74,7 @@ export function Hero() {
               duration={3000}
             />
           </div>
-          <p className="text-lg leading-8 text-muted-foreground">
+          <p className="text-lg leading-8 text-foreground">
             {subtitle}
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">

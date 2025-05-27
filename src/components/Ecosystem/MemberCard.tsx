@@ -8,7 +8,7 @@ interface MemberCardProps {
 
 export function MemberCard({ member }: MemberCardProps) {
   return (
-    <Card className="h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-2 border-0 bg-white/80 backdrop-blur-sm">
+    <Card className="MemberCard h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-2 border-0 bg-white/80 backdrop-blur-sm">
       <CardHeader className="text-center pb-4">
         <div className="mx-auto mb-4 h-20 w-20 rounded-full bg-gradient-to-br from-primary/20 to-primary/40 flex items-center justify-center">
           {member.image ? (
@@ -36,7 +36,7 @@ export function MemberCard({ member }: MemberCardProps) {
         <p className="text-muted-foreground text-sm mb-4 line-clamp-3">{member.bio}</p>
         
         {member.expertise && (
-          <div className="mb-3">
+          <div className="expertise mb-3">
             <div className="flex flex-wrap gap-1">
               {member.expertise.slice(0, 3).map((skill, index) => (
                 <span
@@ -51,7 +51,7 @@ export function MemberCard({ member }: MemberCardProps) {
         )}
         
         {member.achievements && (
-          <div className="text-xs text-muted-foreground bg-muted/50 p-2 rounded">
+          <div className="achievements text-xs text-muted-foreground bg-muted/50 p-2 rounded">
             <strong>Notable:</strong> {member.achievements}
           </div>
         )}
