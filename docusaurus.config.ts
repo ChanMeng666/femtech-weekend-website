@@ -13,7 +13,7 @@ const ANNOUNCEMENT_DATE = '2024-12-01'; // 格式: YYYY-MM-DD
 const config: Config = {
   title: 'Femtech Weekend',
   tagline: 'Rooted in China, Connecting globally',
-  favicon: 'img/logo/femtech-weekend-sub-logo-brown.ico',
+  favicon: 'img/logo/femtech_weekend_logo_new.ico',
 
   // Set the production url of your site here
   url: 'https://femtech-weekend-website.vercel.app/',
@@ -111,8 +111,8 @@ const config: Config = {
       title: 'Femtech Weekend',
       logo: {
         alt: 'Femtech Weekend Logo',
-        src: 'img/logo/femtech-weekend-sub-logo-brown.svg',
-        srcDark: 'img/logo/femtech-weekend-sub-logo-beige.svg',
+        src: 'img/logo/femtech_weekend_logo_new.svg',
+        srcDark: 'img/logo/femtech_weekend_logo_new.svg',
       },
       items: [
         {
