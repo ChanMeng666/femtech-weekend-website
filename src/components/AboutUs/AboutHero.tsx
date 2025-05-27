@@ -1,5 +1,6 @@
 import React from 'react';
 import { getAboutHeroTitle, getAboutHeroSubtitle } from '../../constants/about-us-components';
+import { LogoAnimation } from '../ui/LogoAnimation';
 
 export function AboutHero() {
   const title = getAboutHeroTitle();
@@ -7,6 +8,9 @@ export function AboutHero() {
   
   return (
     <div className="relative isolate overflow-hidden bg-background pt-24 pb-16">
+      {/* Logo watermark background */}
+      <div className="absolute inset-0 -z-10 logo-grid-bg"></div>
+           
       <div className="absolute inset-x-0 top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
         <div
           className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[var(--ifm-color-primary)] to-[var(--ifm-color-primary-lightest)] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"

@@ -6,8 +6,9 @@ import {
   EcosystemStats,
   EcosystemMission,
   MemberDirectory,
-  JoinEcosystem
+  JoinEcosystem,
 } from '../components/Ecosystem';
+import { LogoDivider } from '../components/ui/LogoDivider';
 import { getEcosystemTitle, getEcosystemDescription } from '../constants/ecosystem';
 
 export default function Ecosystem(): React.ReactNode {
@@ -23,6 +24,7 @@ export default function Ecosystem(): React.ReactNode {
       <main>
         <EcosystemHero />
         <EcosystemStats />
+        <LogoDivider />
         <EcosystemMission />
         <MemberDirectory />
         <JoinEcosystem />

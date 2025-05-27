@@ -3,6 +3,7 @@ import { Button } from './ui/button';
 import { WordRotate } from './ui/word-rotate';
 import Link from '@docusaurus/Link';
 import Waves from './Waves';
+import { LogoAnimation } from './ui/LogoAnimation';
 import { 
   getHeroTitle, 
   getHeroSubtitle, 
@@ -51,7 +52,7 @@ export function Hero() {
         yGap={36}
         className="z-[-15]"
       />
-      
+           
       <div className="absolute inset-x-0 top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
         <div
           className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[var(--ifm-color-primary)] to-[var(--ifm-color-primary-lightest)] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"

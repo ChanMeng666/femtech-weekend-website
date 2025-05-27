@@ -1,6 +1,7 @@
 import React from 'react';
 import { cn } from '../lib/utils';
 import Waves from './Waves';
+import { LogoBackground } from './ui/LogoBackground';
 import { getFeaturesTitle, getFeaturesSubtitle } from '../constants/homepage';
 import {translate} from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -65,6 +66,9 @@ export function Features() {
 
   return (
     <div className="relative bg-background py-24 sm:py-32 overflow-hidden">
+      {/* Logo background */}
+      <LogoBackground pattern="scattered" opacity={0.04} animate={true} />
+      
       {/* Waves background */}
       <Waves 
         lineColor="rgba(214, 171, 147, 0.85)"
