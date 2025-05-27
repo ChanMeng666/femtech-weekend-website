@@ -1,10 +1,16 @@
 .tagButton {
-  border-radius: 20px;
+  border-radius: 9999px;
   padding: 0.2rem 0.8rem;
   margin: 0;
   display: flex;
   align-items: center;
   font-size: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+.tagButton:hover {
+  transform: scale(1.02);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .tagButtonSelected {
@@ -17,6 +23,8 @@
   background-color: var(--ifm-color-primary-darker);
   color: var(--ifm-color-white);
   border-color: var(--ifm-color-primary-darker);
+  transform: scale(1.02);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .tagLabel {
