@@ -331,6 +331,50 @@ div[class*="docMainContainer"] .markdown > * {
   }
 }
 
+/* 卡片和成员卡片的黑暗模式样式 */
+[data-theme='dark'] .bg-card,
+[data-theme='dark'] .bg-white\/80,
+[data-theme='dark'] .MemberCard {
+  background-color: hsl(215, 28%, 17%) !important; /* dark:bg-slate-800 */
+}
+
+[data-theme='dark'] .text-muted-foreground,
+[data-theme='dark'] .MemberCard p.text-muted-foreground {
+  color: hsl(214, 20%, 69%) !important; /* dark:text-slate-300 */
+}
+
+[data-theme='dark'] .text-foreground,
+[data-theme='dark'] .MemberCard h3,
+[data-theme='dark'] .MemberCard .CardTitle {
+  color: hsl(210, 40%, 98%) !important; /* dark:text-slate-50 */
+}
+
+[data-theme='dark'] .MemberCard .expertise span,
+[data-theme='dark'] span.bg-primary\/10 {
+  background-color: hsla(33, 42%, 73%, 0.2) !important; /* dark:bg-primary/20 */
+  color: hsl(210, 40%, 98%) !important; /* dark:text-primary-foreground */
+}
+
+[data-theme='dark'] .MemberCard .achievements,
+[data-theme='dark'] .bg-muted\/50 {
+  background-color: hsl(215, 25%, 27%) !important; /* dark:bg-slate-700 */
+  color: hsl(214, 32%, 91%) !important; /* dark:text-slate-200 */
+}
+
+/* 卡片底部标签区域 */
+[data-theme='dark'] .border-t.bg-accent\/10 {
+  background-color: hsl(215, 31%, 14%) !important; /* dark:bg-slate-900 */
+  border-color: hsl(215, 25%, 27%) !important; /* dark:border-slate-700 */
+}
+
+/* 卡片悬停效果 */
+[data-theme='dark'] .MemberCard:hover,
+[data-theme='dark'] .bg-card:hover {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3) !important;
+  transform: translateY(-0.5rem);
+  border-color: hsla(33, 42%, 73%, 0.5) !important;
+}
+
 
 
 
