@@ -623,7 +623,7 @@
     "description": "Title for the evidence-based impact value in the values section"
   },
   "about.values.evidence.description": {
-    "message": "我们优先考虑由研究和数据支持的解决方案，确保对女性健康结果产生切实的影响。",
+    "message": "我们优先考虑有研究和数据支持的解决方案，确保对女性健康结果产生实际影响。",
     "description": "Description for the evidence-based impact value in the values section"
   },
   "about.cta.exploreButton": {
@@ -733,5 +733,13 @@
   "ecosystem.stats.partnerOrganizations": {
     "message": "合作组织",
     "description": "Label for partner organizations in the ecosystem stats section"
+  },
+  "about.advisorBoard.title": {
+    "message": "顾问委员会",
+    "description": "Title for the Advisor Board section"
+  },
+  "about.advisorBoard.description": {
+    "message": "经验丰富的专业人士，引导我们的女性健康创新使命。",
+    "description": "Description for the Advisor Board section"
   }
 }
