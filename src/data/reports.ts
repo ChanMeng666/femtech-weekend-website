@@ -79,15 +79,11 @@ export const getFeaturedReport = (): ReportItem | undefined => {
 // Function to filter reports by category
 export const filterReportsByCategory = (reports: ReportItem[], category: string): ReportItem[] => {
   if (category === 'All Reports') {
-    // Don't show featured reports in regular listing
-    return reports.filter(report => !report.isFeatured);
+    // Return all reports including featured ones
+    return reports;
   }
   
   return reports.filter(report => {
-    // Don't show featured reports in regular listing
-    if (report.isFeatured) {
-      return false;
-    }
     return report.category === category;
   });
 };
