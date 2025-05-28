@@ -72,7 +72,7 @@ export default function Reports(): React.ReactNode {
           {/* Reports Section */}
           {sortedReports.length > 0 ? (
             <>
-              {/* Latest Reports */}
+              {/* Temporarily commented out Latest Reports section
               <div className="mb-8">
                 <h2 className="text-2xl font-bold text-foreground mb-2">
                   {activeCategory === 'All Reports' ? 'Latest Reports' : `${activeCategory} Reports`}
@@ -84,13 +84,15 @@ export default function Reports(): React.ReactNode {
                   }
                 </p>
               </div>
+              */}
 
-              {/* Reports Grid */}
+              {/* Temporarily commented out Reports Grid 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {sortedReports.map((report) => (
                   <ReportCard key={report.id} report={report} />
                 ))}
               </div>
+              */}
             </>
           ) : (
             <div className="text-center py-16">
