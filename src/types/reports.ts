@@ -14,7 +14,7 @@ export interface ReportItem {
 }
 
 // Report category type
-export type ReportCategory = 'All Reports' | 'Technology' | 'Competition' | 'Investment' | 'Research';
+export type ReportCategory = 'All Reports' | 'Technology' | 'Investment' | 'Research' | 'General';
 
 // Props interfaces for components
 export interface ReportCardProps {

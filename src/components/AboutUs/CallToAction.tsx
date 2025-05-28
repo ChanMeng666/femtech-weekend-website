@@ -24,7 +24,7 @@ export function CallToAction() {
             {text}
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
-            <Link to="/blog">
+            <Link to="/ecosystem/join">
               <Button size="lg">{buttonText}</Button>
             </Link>
             <Link to="/database">
