@@ -3,6 +3,7 @@ const { createServer } = require('http');
 const { parse } = require('url');
 const uploadImageHandler = require('./upload-image');
 const submitEcosystemHandler = require('./submit-ecosystem');
+const pdfFormSubmitHandler = require('./pdf-form-submit');
 
 // Simple middleware to parse JSON bodies
 const parseJsonBody = (req) => {
@@ -41,9 +42,30 @@ const enhanceResponse = (res) => {
   };
 };
 
+// Handle CORS preflight requests and add CORS headers
+const handleCORS = (req, res) => {
+  // Add CORS headers to all responses
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  
+  // Handle OPTIONS preflight requests
+  if (req.method === 'OPTIONS') {
+    res.statusCode = 204; // No Content
+    res.end();
+    return true; // Indicates that the request has been handled
+  }
+  return false; // Proceed with normal request handling
+};
+
 // Create a simple Express-like request handler
 const app = async (req, res) => {
   try {
+    // Handle CORS first
+    if (handleCORS(req, res)) {
+      return; // Request already handled by CORS handler
+    }
+    
     // Parse URL
     const parsedUrl = parse(req.url, true);
     const { pathname } = parsedUrl;
@@ -59,6 +81,8 @@ const app = async (req, res) => {
       return await uploadImageHandler(req, res);
     } else if (pathname === '/api/submit-ecosystem') {
       return await submitEcosystemHandler(req, res);
+    } else if (pathname === '/api/pdf-form-submit') {
+      return await pdfFormSubmitHandler(req, res);
     } else {
       return res.status(404).json({ error: 'Not found' });
     }

@@ -1,15 +1,115 @@
 # FemTech Weekend Website
 
-The FemTech Weekend Website is a comprehensive platform built using [Docusaurus](https://docusaurus.io/), designed to support the FemTech Weekend community. It serves as a hub for the FemTech ecosystem, providing information about competitions, reports, and a database of FemTech startups.
+This is the website for FemTech Weekend, built with Docusaurus and integrated with Notion for content management.
+
+## Installation
+
+### One-Click Installation
+
+The easiest way to get started is to use the one-click installation script:
+
+```bash
+node install.js
+```
+
+This script will:
+1. Check your Node.js version
+2. Install all dependencies
+3. Create necessary configuration files
+4. Verify API routes
+5. Offer to start the development environment
+
+### Manual Installation
+
+If you prefer to install manually:
+
+```bash
+npm install
+```
+
+## Development
+
+The easiest way to run the development environment is to use the setup script:
+
+```bash
+chmod +x setup.sh
+./setup.sh
+```
+
+This will:
+1. Install all dependencies
+2. Create the `.env.local` file with the correct environment variables
+3. Offer to run a test of the PDF form submission
+4. Start both the Docusaurus server and API server simultaneously
+
+You can also start the development environment directly:
+
+```bash
+node start-dev.js
+```
+
+For more granular control, you can run the servers separately:
+
+```bash
+# Just the Docusaurus site
+npm run start
+
+# Just the API server
+npm run api
+
+# Both servers together (using concurrently)
+npm run dev
+```
+
+## Important API Routes
+
+The website includes several API routes for form submissions:
+
+- `/api/pdf-form-submit` - Handles PDF form submissions to Notion
+- `/api/submit-ecosystem` - Handles ecosystem form submissions to Notion
+- `/api/upload-image` - Handles image uploads to Cloudinary
+
+## Environment Variables
+
+The application requires several environment variables to function correctly. These are loaded from a `.env.local` file which should contain:
+
+```
+# Notion API credentials
+NOTION_TOKEN=your_notion_token
+NOTION_DATABASE_ID=your_notion_database_id
+NOTION_BLOG_DATABASE_ID=your_notion_blog_database_id
+PDF_FORM_DATABASE_ID=your_pdf_form_database_id
+
+# Cloudinary configuration (if using image uploads)
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+```
 
 ## Features
 
-- **Multilingual Support**: English and Chinese (Simplified) languages
-- **Competition Platform**: Information and registration for FemTech Weekend competitions
-- **Ecosystem Database**: Showcases FemTech startups and provides a submission form for new companies
-- **Reports and Insights**: Research and insights on the FemTech industry
-- **Interactive UI**: Modern and responsive design with TailwindCSS
-- **Form Submission**: Integration with Notion for data storage and Cloudinary for image uploads
+- **Blog and Documentation**: Powered by Docusaurus
+- **PDF Form Submissions**: Collects user information before PDF downloads
+- **Ecosystem Directory**: Showcases FemTech companies and organizations
+- **Image Uploads**: Supports image uploads to Cloudinary
+- **Notion Integration**: Stores form submissions and content in Notion databases
+
+## Components
+
+### DownloadPdfButton
+
+A reusable component that displays a form before allowing PDF downloads. Usage:
+
+```jsx
+import DownloadPdfButton from '@site/src/components/DownloadPdfButton';
+
+<DownloadPdfButton 
+  pdfUrl="https://example.com/your-pdf-file.pdf" 
+  buttonText="Download Full PDF Report"
+/>
+```
+
+Form submissions are stored in your Notion database.
 
 ## Technology Stack
 
@@ -47,13 +147,15 @@ Create a `.env.local` file in the root directory with the following variables:
 
 ```
 # Notion API credentials
-NOTION_TOKEN=your_notion_token_here
-NOTION_DATABASE_ID=your_notion_database_id_here
+NOTION_TOKEN=your_notion_token
+NOTION_DATABASE_ID=your_notion_database_id
+NOTION_BLOG_DATABASE_ID=your_notion_blog_database_id
+PDF_FORM_DATABASE_ID=your_pdf_form_database_id
 
 # Cloudinary configuration
-CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
-CLOUDINARY_API_KEY=your_cloudinary_api_key
-CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
 ```
 
 ### Notion Database Setup

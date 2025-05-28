@@ -32,14 +32,6 @@ export function ReportsCTA(): React.ReactNode {
               {learnMoreButtonText}
             </Button>
           </Link>
-          <Link 
-            to="mailto:hello@femtechweekend.com"
-            className="no-underline"
-          >
-            <Button variant="outline" size="lg">
-              {contactButtonText}
-            </Button>
-          </Link>
         </div>
       </div>
     </div>

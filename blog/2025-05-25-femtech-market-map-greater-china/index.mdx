@@ -6,28 +6,17 @@ tags: [femtech, market-analysis, china, hong-kong, womens-health, innovation, fe
 ---
 
 import ZoomableImage from '@site/src/components/ZoomableImage';
+import DownloadPdfButton from '@site/src/components/DownloadPdfButton';
 
 # FemTech Market Map 2025: Greater China Report
 
 <ZoomableImage src={require('./img/report-cover.png').default} alt="FemTech Market Map Greater China 2025" />
 
 <div style={{ marginTop: '20px', marginBottom: '20px', textAlign: 'center' }}>
-  <a 
-    href="https://drive.google.com/file/d/1ddL3oZl-k0WJlzSSDm2mKdCe7OIvj16s/view?usp=sharing" 
-    target="_blank" 
-    rel="noopener noreferrer"
-    style={{
-      backgroundColor: '#e84c88',
-      color: 'white',
-      padding: '10px 20px',
-      borderRadius: '6px',
-      textDecoration: 'none',
-      fontWeight: 'bold',
-      display: 'inline-block'
-    }}
-  >
-    Download Full PDF Report
-  </a>
+  <DownloadPdfButton 
+    pdfUrl="https://drive.google.com/file/d/1ddL3oZl-k0WJlzSSDm2mKdCe7OIvj16s/view?usp=sharing" 
+    buttonText="Download Full PDF Report"
+  />
 </div>
 
 {/* truncate */}
