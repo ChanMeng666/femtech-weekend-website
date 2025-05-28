@@ -1,0 +1,385 @@
+/* PDF Form Modal Styles */
+.pdf-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.pdf-form-modal {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 500px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+}
+
+.pdf-form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.pdf-form-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.pdf-form-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pdf-form-body {
+  padding: 20px;
+}
+
+.pdf-form-input-group {
+  margin-bottom: 16px;
+}
+
+.pdf-form-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.pdf-form-required {
+  color: #e84c88;
+}
+
+.pdf-form-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  transition: border-color 0.15s ease;
+}
+
+.pdf-form-input:focus {
+  outline: none;
+  border-color: #e84c88;
+  box-shadow: 0 0 0 2px rgba(232, 76, 136, 0.1);
+}
+
+.pdf-form-input-error {
+  border-color: #dc3545;
+}
+
+.pdf-form-error-text {
+  color: #dc3545;
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+.pdf-form-error-banner {
+  background-color: rgba(220, 53, 69, 0.1);
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  color: #dc3545;
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.pdf-form-error-message {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.pdf-form-disclaimer {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.pdf-form-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.pdf-form-button {
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: none;
+}
+
+.pdf-form-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.pdf-form-button-primary {
+  background-color: #e84c88;
+  color: white;
+}
+
+.pdf-form-button-primary:hover:not(:disabled) {
+  background-color: #d83e77;
+}
+
+.pdf-form-button-secondary {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.pdf-form-button-secondary:hover {
+  background-color: #e9e9e9;
+}
+
+/* Success state */
+.pdf-form-success {
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.pdf-form-success-icon {
+  background-color: #28a745;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.pdf-form-success-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.pdf-form-success-text {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Download PDF Button Styles */
+.download-pdf-button {
+  display: inline-block;
+  background-color: #0066cc;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.download-pdf-button:hover {
+  background-color: #0055aa;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.download-pdf-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.3);
+}
+
+/* Modal Styles */
+.pdf-form-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.pdf-form-modal {
+  background-color: white;
+  border-radius: 8px;
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pdf-form-close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  color: #666;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.pdf-form-close-button:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.pdf-form-modal h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.pdf-form-modal p {
+  margin-bottom: 20px;
+  color: #666;
+}
+
+/* Form Styles */
+.pdf-form-field {
+  margin-bottom: 20px;
+}
+
+.pdf-form-field label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #444;
+  font-size: 0.9rem;
+}
+
+.pdf-form-field input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.pdf-form-field input:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+}
+
+.pdf-form-submit-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+.pdf-form-submit-button:hover {
+  background-color: #0055aa;
+}
+
+.pdf-form-submit-button:disabled {
+  background-color: #99ccff;
+  cursor: not-allowed;
+}
+
+/* Error Message */
+.pdf-form-error {
+  padding: 10px;
+  background-color: #ffeeee;
+  border: 1px solid #ffcccc;
+  border-radius: 4px;
+  color: #cc0000;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+/* Success Message */
+.pdf-form-success {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.pdf-form-success h2 {
+  color: #00aa55;
+  margin-bottom: 15px;
+}
+
+.pdf-form-success p {
+  margin-bottom: 10px;
+}
+
+.pdf-form-success a {
+  color: #0066cc;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.pdf-form-success a:hover {
+  text-decoration: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .pdf-form-modal {
+    padding: 20px;
+    margin: 20px;
+  }
+  
+  .pdf-form-field {
+    margin-bottom: 15px;
+  }
+} 
