@@ -32,7 +32,7 @@ export const staticReportsData: ReportItem[] = [
     id: '2',
     title: 'Announcing the FemTech Innovation Challenge 2024: Revolutionizing Women\'s Health Through Technology',
     description: 'Are you passionate about creating innovative solutions for women\'s health? Do you believe technology can break barriers and improve care for women?',
-    category: 'Competition',
+    category: 'General',
     date: 'Jun 15',
     readTime: '4 min read',
     author: 'Chan Meng',

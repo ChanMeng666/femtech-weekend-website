@@ -5,9 +5,9 @@ import { ReportCategory } from '../types/reports';
 export const REPORT_CATEGORIES: ReportCategory[] = [
   'All Reports', 
   'Technology', 
-  'Competition', 
   'Investment', 
-  'Research'
+  'Research',
+  'General'
 ];
 
 // Reports page constants
