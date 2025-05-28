@@ -5,9 +5,10 @@ import {
   AboutHero, 
   MissionVision, 
   Values, 
-  Team, 
+  Team,
   CallToAction 
 } from '../../../src/components/AboutUs';
+import { AdvisorBoard } from './AdvisorBoard';
 import { getAboutUsTitle, getAboutUsDescription } from '../../../src/constants/about-us';
 
 export default function AboutUs(): React.ReactNode {
@@ -25,6 +26,7 @@ export default function AboutUs(): React.ReactNode {
         <MissionVision />
         <Values />
         <Team />
+        <AdvisorBoard />
         <CallToAction />
       </main>
     </Layout>

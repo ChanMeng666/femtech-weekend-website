@@ -119,4 +119,15 @@ export const getCtaText = () => translate({
 export const getCtaButtonText = () => translate({
   id: 'about.cta.button',
   message: 'Get Involved',
+});
+
+// Advisor Board section
+export const getAdvisorBoardTitle = () => translate({
+  id: 'about.advisorBoard.title',
+  message: 'Advisor Board',
+});
+
+export const getAdvisorBoardDescription = () => translate({
+  id: 'about.advisorBoard.description',
+  message: 'Experienced professionals guiding our mission in women\'s health innovation.',
 }); 
