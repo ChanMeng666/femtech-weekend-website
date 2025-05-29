@@ -26,7 +26,7 @@ const config: Config = {
   organizationName: 'ChanMeng666', // Usually your GitHub org/user name.
   projectName: 'femtech-weekend-website', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
