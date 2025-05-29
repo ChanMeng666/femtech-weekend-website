@@ -67,6 +67,14 @@
 
 .pdf-form-required {
   color: #e84c88;
+  font-weight: bold;
+}
+
+.pdf-form-optional {
+  color: #777;
+  font-size: 0.85em;
+  font-weight: normal;
+  font-style: italic;
 }
 
 .pdf-form-input {

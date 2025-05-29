@@ -50,6 +50,20 @@ function DownloadPdfButton({ pdfUrl, buttonText = 'Download PDF', buttonClassNam
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Basic validation
+    if (!formData.firstName.trim() || !formData.lastName.trim() || !formData.email.trim() || !formData.country.trim()) {
+      setError('Please fill in all required fields');
+      return;
+    }
+    
+    // Email validation
+    const emailRegex = /\S+@\S+\.\S+/;
+    if (!emailRegex.test(formData.email)) {
+      setError('Please enter a valid email address');
+      return;
+    }
+    
     setIsSubmitting(true);
     setError(null);
     
@@ -170,19 +184,18 @@ function DownloadPdfButton({ pdfUrl, buttonText = 'Download PDF', buttonClassNam
                   </div>
                   
                   <div className="pdf-form-field">
-                    <label htmlFor="company">Company *</label>
+                    <label htmlFor="company">Company <span className="pdf-form-optional">(Optional)</span></label>
                     <input 
                       type="text" 
                       id="company" 
                       name="company" 
                       value={formData.company} 
                       onChange={handleChange}
-                      required
                     />
                   </div>
                   
                   <div className="pdf-form-field">
-                    <label htmlFor="website">Website *</label>
+                    <label htmlFor="website">Website <span className="pdf-form-optional">(Optional)</span></label>
                     <input 
                       type="url" 
                       id="website" 
@@ -190,7 +203,6 @@ function DownloadPdfButton({ pdfUrl, buttonText = 'Download PDF', buttonClassNam
                       value={formData.website} 
                       onChange={handleChange}
                       placeholder="https://example.com"
-                      required
                     />
                   </div>
                   

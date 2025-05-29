@@ -46,9 +46,9 @@ async function handler(req, res) {
     console.log(`${colors.cyan}Form data:${colors.reset}`, JSON.stringify(formData, null, 2));
 
     // Validate required fields
-    if (!formData.firstName || !formData.lastName || !formData.email || !formData.company || !formData.website || !formData.country) {
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.country) {
       console.log(`${colors.red}Missing required fields${colors.reset}`);
-      return res.status(400).json({ error: 'All fields are required' });
+      return res.status(400).json({ error: 'Required fields: firstName, lastName, email, country' });
     }
 
     // Check if we have the required environment variables
@@ -100,19 +100,19 @@ async function handler(req, res) {
       Email: {
         email: formData.email,
       },
-      // Company is a rich_text field
+      // Company is a rich_text field, but optional
       Company: {
         rich_text: [
           {
             text: {
-              content: formData.company,
+              content: formData.company || '',
             },
           },
         ],
       },
-      // Website is a URL field
+      // Website is a URL field, but optional
       Website: {
-        url: formData.website.startsWith('http') ? formData.website : `https://${formData.website}`,
+        url: formData.website ? (formData.website.startsWith('http') ? formData.website : `https://${formData.website}`) : null,
       },
       // Country is a rich_text field
       Country: {

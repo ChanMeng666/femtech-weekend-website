@@ -35,8 +35,6 @@ export default function DownloadPdfButton({ pdfUrl, buttonText = "Download Full 
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = 'Please enter a valid email address';
     }
-    if (!formData.company.trim()) newErrors.company = 'Please enter your company name';
-    if (!formData.website.trim()) newErrors.website = 'Please enter your website';
     if (!formData.country.trim()) newErrors.country = 'Please enter your country';
 
     setErrors(newErrors);
@@ -227,7 +225,7 @@ export default function DownloadPdfButton({ pdfUrl, buttonText = "Download Full 
                     
                     <div className="pdf-form-input-group">
                       <label className="pdf-form-label">
-                        Company <span className="pdf-form-required">*</span>
+                        Company <span className="pdf-form-optional">(可选)</span>
                       </label>
                       <input 
                         type="text"
@@ -241,7 +239,7 @@ export default function DownloadPdfButton({ pdfUrl, buttonText = "Download Full 
                     
                     <div className="pdf-form-input-group">
                       <label className="pdf-form-label">
-                        Website <span className="pdf-form-required">*</span>
+                        Website <span className="pdf-form-optional">(可选)</span>
                       </label>
                       <input 
                         type="text"
