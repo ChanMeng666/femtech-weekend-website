@@ -10,7 +10,7 @@ export const staticReportsData: ReportItem[] = [
     date: 'May 25',
     readTime: '10 min read',
     author: 'Zhu Yihan & Maaike Steinebach',
-    image: '/img/reports/report-cover.png',
+    image: '/img/reports/FemTech-Map-in-Greater-China-report-cover.svg',
     link: '/blog/femtech-market-map-greater-china-2025',
     tags: ['Research', 'Market Analysis', 'China', 'Hong Kong'],
     isFeatured: true

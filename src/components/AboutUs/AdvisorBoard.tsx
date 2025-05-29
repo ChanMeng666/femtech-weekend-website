@@ -10,7 +10,7 @@ export function AdvisorBoard() {
     {
       name: "Celina Chew",
       role: "Former President of Bayer Group Greater China",
-      bio: "the former President of Bayer for Greater China. She spent most of her career with Bayer, both as Head of Legal in Greater China (1998-2011) and in management roles, such as Country Group Head for Bayer North ASEAN Region (2011-2014) and President of Bayer, Greater China (2014-2019) overseeing Bayer's operations in these regions. Celina has also been a Board member of various chambers of commerce, Enactus China and acts as advisor to organizations such as Ladies Who Tech. She is honoured to have been named in Forbes 100 Most Powerful Business Lists (2016 and 2017) and to receive the International Friendship Award from IESE in 2018.",
+      bio: "Celina is the former President of Bayer for Greater China.  She holds Bachelor and Master degrees in law. She worked as a private practice lawyer before moving in-house to the Bayer Greater China Legal Department in 1997.  She was head of Legal in Greater China (1998-2011), then became Country Group Head for Bayer North ASEAN Region (2011-2014) and President of Bayer, Greater China (2014-2019) overseeing Bayer’s operations in these regions. Celina has also been a Board member of various chambers of commerce, Enactus China and has acted as advisor to various organizations such as Ladies Who Tech, SilVR Adventures, Global Women Connect. She is honoured to be named in Forbes 100 Most Powerful Business Lists (2017 and 2018) and to receive an International Friendship Award from IESE in 2018, presented by the Queen of Spain. Celina is also featured in the book“China CEO II: Voices of Experience from 25 Top Executives Leading MNCs in China” by Juan Antonio Fernandez, Laurie Underwood.",
       image: "/img/team/advisor-celina-chew.jpg",
     },
     {
@@ -22,7 +22,7 @@ export function AdvisorBoard() {
     {
       name: "Nicole Bu",
       role: "Healthcare Business Developer",
-      bio: "An enthusiastic, self-driven healthcare industry business developer with 3.5 years of experience in provider sales, B2B healthcare partnerships, sales operations optimization, and client relationship management to consistently achieve and exceed OKRs.",
+      bio: "Over 7+ years in startups scaling at-home diagnostics, SaMD, and remote patient monitoring platforms, Nicole has spearheaded GTM strategies for new product launches and built high-conversion, AI-automated sales funnels, cultivating a network of 500+ providers across pulmonology, mental health, and primary care. Combining operational execution with data-driven decision-making (MS, Healthcare Decision Analysis, USC), Nicole bridges the gap between innovation and clinical adoption—driving growth for cutting-edge healthtech solutions.",
       image: "/img/team/advisor-nicole-bu.svg",
     }
   ];
