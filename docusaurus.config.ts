@@ -156,6 +156,7 @@ const config: Config = {
       disableSwitch: false,
       respectPrefersColorScheme: true,
     },
+    /* Temporarily commented out - uncomment when needed
     announcementBar: {
       id: `${ANNOUNCEMENT_EVENT}-${ANNOUNCEMENT_DATE}`,
       content: '🎉 <b><a target="_blank" href="/competition">FemTech Weekend 2024 Competition</a> is now open for registration!</b> 🚀',
@@ -163,6 +164,7 @@ const config: Config = {
       textColor: '#be185d',
       isCloseable: true,
     },
+    */
     algolia: {
       // The application ID provided by Algolia
       appId: 'VNBIILHFAK',
