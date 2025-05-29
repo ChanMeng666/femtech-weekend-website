@@ -23,6 +23,7 @@ export function AdvisorBoard() {
       name: "Nicole Bu",
       role: "Healthcare Business Developer",
       bio: "An enthusiastic, self-driven healthcare industry business developer with 3.5 years of experience in provider sales, B2B healthcare partnerships, sales operations optimization, and client relationship management to consistently achieve and exceed OKRs.",
+      image: "/img/team/advisor-nicole-bu.svg",
     }
   ];
 
