@@ -7,7 +7,7 @@ export const staticReportsData: ReportItem[] = [
     title: 'FemTech Market Map 2025: Comprehensive Analysis of Women\'s Health Innovation in Mainland China and Hong Kong',
     description: 'The FemTech market in Greater China is experiencing unprecedented growth, entering a phase of rapid expansion supported by favorable developments across policy, economic, social, and technological fronts.',
     category: 'Research',
-    date: 'May 25',
+    date: 'May 30',
     readTime: '10 min read',
     author: 'Zhu Yihan & Maaike Steinebach',
     image: '/img/reports/FemTech-Map-in-Greater-China-report-cover.svg',
