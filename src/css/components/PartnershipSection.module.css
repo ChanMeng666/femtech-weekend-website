@@ -1,0 +1,70 @@
+.partnershipSection {
+  padding: 4rem 0;
+}
+
+.partnersContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3.5rem;
+  margin: 0 auto;
+}
+
+.partnerItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  transition: all 0.3s ease;
+  border-radius: 0.5rem;
+}
+
+.partnerItem:hover {
+  transform: translateY(-5px);
+}
+
+.partnerLogoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 120px;
+  border-radius: 8px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.partnerLogo {
+  max-width: 160px;
+  max-height: 90px;
+  object-fit: contain;
+  filter: grayscale(0%);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.partnerItem:hover .partnerLogo {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .partnersContainer {
+    gap: 2rem;
+  }
+  
+  .partnerItem {
+    width: 160px;
+  }
+  
+  .partnerLogoWrapper {
+    width: 140px;
+    height: 100px;
+  }
+  
+  .partnerLogo {
+    max-width: 120px;
+    max-height: 80px;
+  }
+} 
