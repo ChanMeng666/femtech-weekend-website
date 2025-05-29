@@ -11,11 +11,13 @@ export function AdvisorBoard() {
       name: "Celina Chew",
       role: "Former President of Bayer Group Greater China",
       bio: "the former President of Bayer for Greater China. She spent most of her career with Bayer, both as Head of Legal in Greater China (1998-2011) and in management roles, such as Country Group Head for Bayer North ASEAN Region (2011-2014) and President of Bayer, Greater China (2014-2019) overseeing Bayer's operations in these regions. Celina has also been a Board member of various chambers of commerce, Enactus China and acts as advisor to organizations such as Ladies Who Tech. She is honoured to have been named in Forbes 100 Most Powerful Business Lists (2016 and 2017) and to receive the International Friendship Award from IESE in 2018.",
+      image: "/img/team/advisor-celina-chew.jpg",
     },
     {
       name: "Sandy Lv",
       role: "Bayer Women's Health Department",
       bio: "Sandy is responsible for innovation and commercialization in early venture partnerships. One of Bayer Women's Health's key focus areas is to collaboratively build a women's health ecosystem with partners from government, industry, academia, research, and technology innovation companies. The goal is to dispel misconceptions, raise awareness of diseases, and provide high-quality, professional, and comprehensive healthcare services for women at all stages of life.",
+      image: "/img/team/advisor-sandy-lv.jpg",
     },
     {
       name: "Nicole Bu",

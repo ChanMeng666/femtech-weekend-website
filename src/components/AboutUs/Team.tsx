@@ -11,27 +11,31 @@ export function Team() {
       name: "Zhu Yihan",
       role: "Founder & CEO",
       bio: "Data, Balance Sheet Management and a global citizen with expertise in driving women's health innovation across borders.",
-      image: "/img/team/femtech-weekend-founder.jpg",
+      image: "/img/team/zhu-yihan.jpg",
     },
     {
       name: "Michelle Li",
       role: "Head of Partnerships",
       bio: "Expert in Private Equity investment and Due Diligence, specializing in connecting FemTech startups with strategic investors.",
+      image: "/img/team/michelle-li.jpg",
     },
     {
       name: "Leaf He",
       role: "Chief Operating Officer",
       bio: "Expert in Financial Advisory and community building, focused on creating sustainable ecosystem growth and operational excellence.",
+      image: "/img/team/leaf-he.jpg",
     },
     {
       name: "Joji Lee",
       role: "Chief Marketing Officer",
       bio: "Specializes in PR, consumer marketing and events organisation, driving global awareness for women's health innovation.",
+      image: "/img/team/joji-lee.jpg",
     },
     {
       name: "Lingxi Zhang",
       role: "Chief Design Officer",
       bio: "Specializes in Animation, Video editing and story telling, creating compelling narratives for the FemTech community.",
+      image: "/img/team/lingxi-zhang.jpg",
     },
     {
       name: "Chan Meng",
