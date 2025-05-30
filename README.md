@@ -259,6 +259,11 @@ When deploying to production, make sure to set up the necessary environment vari
 
 The key insight is that Docusaurus's i18n system works by replacing the entire page component when switching languages, not just translating strings within the same component.
 
+Separate Page Components for Each Language: Docusaurus's i18n system works by replacing the entire page component when switching languages. This means there are completely separate page components for each language.
+
+Important Note on Docusaurus i18n: With Docusaurus, when you want functionality changes (not just text translations) to apply to all language versions, you need to update each language-specific component file separately. The translation system only handles text content through the translation files (like code.json), not functional code.
+
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
