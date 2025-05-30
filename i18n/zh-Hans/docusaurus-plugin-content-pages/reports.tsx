@@ -22,6 +22,7 @@ import {
   ReportsNavigation,
   ReportsCTA
 } from '../../../src/components/Reports';
+import { LogoDivider } from '../../../src/components/ui/LogoDivider';
 
 export default function Reports(): React.ReactNode {
   const { siteConfig } = useDocusaurusContext();
@@ -64,13 +65,14 @@ export default function Reports(): React.ReactNode {
           {featuredReport && activeCategory === 'All Reports' && (
             <div className="mb-16">
               <FeaturedReport report={featuredReport} />
+              <LogoDivider className="mt-16" />
             </div>
           )}
 
           {/* Reports Section */}
           {sortedReports.length > 0 ? (
             <>
-              {/* Latest Reports */}
+              {/* Temporarily commented out Latest Reports section
               <div className="mb-8">
                 <h2 className="text-2xl font-bold text-foreground mb-2">
                   {activeCategory === 'All Reports' ? '最新报告' : `${activeCategory} 报告`}
@@ -82,13 +84,15 @@ export default function Reports(): React.ReactNode {
                   }
                 </p>
               </div>
+              */}
 
-              {/* Reports Grid */}
+              {/* Temporarily commented out Reports Grid 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {sortedReports.map((report) => (
                   <ReportCard key={report.id} report={report} />
                 ))}
               </div>
+              */}
             </>
           ) : (
             <div className="text-center py-16">
