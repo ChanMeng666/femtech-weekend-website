@@ -746,6 +746,90 @@
     "message": "合作组织",
     "description": "Label for partner organizations in the ecosystem stats section"
   },
+  "ecosystem.mission.title": {
+    "message": "在女性健康领域架起桥梁",
+    "description": "Title for the ecosystem mission section"
+  },
+  "ecosystem.mission.paragraph1": {
+    "message": "在女性健康科技周末，我们认识到女性健康长期以来一直被忽视、资金不足和被忽视。这就是为什么我们致力于跨学科架起桥梁——因为真正的创新发生在不同观点汇聚的地方。",
+    "description": "First paragraph of the ecosystem mission section"
+  },
+  "ecosystem.mission.paragraph2": {
+    "message": "我们相信协作、机缘和共同目标的力量。无论您是开拓性的创始人、热情的投资者、企业变革者、倡导者，还是仅仅对女性健康创新充满热情，您都将在这里找到机会去CONNECT、COLLABORATE和CREATE影响。",
+    "description": "Second paragraph of the ecosystem mission section"
+  },
+  "ecosystem.mission.paragraph3": {
+    "message": "通过精心策划的项目、指导、研讨会和互动活动，女性健康科技周末是您突破障碍并在中国或全球范围内塑造女性健康创新更加公平未来的门户。",
+    "description": "Third paragraph of the ecosystem mission section"
+  },
+  "ecosystem.directory.title": {
+    "message": "认识我们的社区",
+    "description": "Title for the member directory section"
+  },
+  "ecosystem.directory.description": {
+    "message": "发现推动女性健康前进的多元化创新者、领导者和变革者群体。",
+    "description": "Description for the member directory section"
+  },
+  "ecosystem.directory.noMembers": {
+    "message": "在此类别中未找到成员。随着我们社区的发展，请稍后再查看！",
+    "description": "Text displayed when no members are found in a category"
+  },
+  "ecosystem.directory.allMembers": {
+    "message": "所有成员",
+    "description": "Label for the All Members category"
+  },
+  "ecosystem.directory.category.femtechFoundersChina": {
+    "message": "女性健康科技创始人（中国大陆）",
+    "description": "Label for the FemTech founders (Mainland China) category"
+  },
+  "ecosystem.directory.category.femtechFoundersInternational": {
+    "message": "女性健康科技创始人（国际）",
+    "description": "Label for the FemTech founders (International) category"
+  },
+  "ecosystem.directory.category.investors": {
+    "message": "投资者",
+    "description": "Label for the Investors category"
+  },
+  "ecosystem.directory.category.corporates": {
+    "message": "企业",
+    "description": "Label for the Corporates category"
+  },
+  "ecosystem.directory.category.academia": {
+    "message": "学术界",
+    "description": "Label for the Academia category"
+  },
+  "ecosystem.directory.category.femtechEnthusiasts": {
+    "message": "女性健康科技爱好者",
+    "description": "Label for the FemTech enthusiasts category"
+  },
+  "ecosystem.mission.highlight.connect": {
+    "message": "连接",
+    "description": "Highlighted term CONNECT in ecosystem mission section"
+  },
+  "ecosystem.mission.highlight.collaborate": {
+    "message": "协作",
+    "description": "Highlighted term COLLABORATE in ecosystem mission section"
+  },
+  "ecosystem.mission.highlight.create": {
+    "message": "创造",
+    "description": "Highlighted term CREATE in ecosystem mission section"
+  },
+  "ecosystem.join.readyTitle": {
+    "message": "准备好加入生态系统了吗？",
+    "description": "Title for the join ecosystem section"
+  },
+  "ecosystem.join.readyDescription": {
+    "message": "加入我们，成为女性健康科技周末生态系统的一部分——一个赋能、激励和庆祝所有致力于推进女性健康的人的网络。",
+    "description": "Description for the join ecosystem section"
+  },
+  "ecosystem.join.learnMoreButton": {
+    "message": "了解更多",
+    "description": "Text for the Learn More button in the join ecosystem section"
+  },
+  "ecosystem.join.applyButton": {
+    "message": "申请加入",
+    "description": "Text for the Apply to Join button in the join ecosystem section"
+  },
   "about.advisorBoard.title": {
     "message": "顾问委员会",
     "description": "Title for the Advisor Board section"
