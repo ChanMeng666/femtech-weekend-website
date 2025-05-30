@@ -51,13 +51,13 @@ export async function submitEcosystemForm(formState: JoinFormState) {
     
     return {
       success: result.success,
-      message: result.message || 'Form submitted successfully'
+      message: result.message || '表单提交成功'
     };
   } catch (error) {
     console.error('Error submitting form:', error);
     return {
       success: false,
-      message: 'Submission failed, please try again later'
+      message: '提交失败，请稍后再试'
     };
   }
 } 
