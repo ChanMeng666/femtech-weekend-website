@@ -453,64 +453,32 @@ export default function JoinEcosystemPage() {
   const title = getEcosystemJoinTitle();
   const description = getEcosystemJoinDescription();
   
-  // 添加自定义滚动条样式
-  useEffect(() => {
-    // 创建style元素
-    const style = document.createElement('style');
-    style.innerHTML = `
-      .custom-scrollbar::-webkit-scrollbar {
-        width: 8px;
-      }
-      .custom-scrollbar::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 4px;
-      }
-      .custom-scrollbar::-webkit-scrollbar-thumb {
-        background: rgba(0, 0, 0, 0.2);
-        border-radius: 4px;
-      }
-      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-        background: rgba(0, 0, 0, 0.3);
-      }
-      /* 添加自定义阴影样式，确保表单阴影显示完整 */
-      .form-container {
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        padding: 24px;
-        background-color: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(12px);
-        border-radius: 12px;
-        margin: 24px 0 32px 0;
-      }
-    `;
-    // 添加到head
-    document.head.appendChild(style);
-    
-    // 清理函数
-    return () => {
-      document.head.removeChild(style);
-    };
-  }, []);
-  
   return (
     <Layout
       title={title}
       description={description}
     >
-      <div className="absolute inset-0 w-full h-screen bg-cover bg-center" 
-           style={{ backgroundImage: 'url(/img/bg/abstract-flowing-lines-and-elegant-curves-represen1-0.png)' }}>
-        <div className="absolute inset-0 bg-gradient-to-b from-white/30 to-white/90"></div>
-      </div>
-      <div className="min-h-screen pt-8 pb-24 relative z-10">
-        <div className="w-full max-w-4xl mx-auto h-[calc(100vh-200px)] overflow-y-auto custom-scrollbar px-4">
-          <div className="py-8">
-            <div className="form-container">
-              <JoinForm />
+      <div 
+        className="min-h-screen w-full"
+        style={{ 
+          backgroundImage: 'url(/img/bg/abstract-flowing-lines-and-elegant-curves-represen1-0.png)', 
+          backgroundSize: '100% auto',
+          backgroundRepeat: 'repeat-y',
+          backgroundAttachment: 'scroll',
+          position: 'relative'
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-white/30 to-white/90 pointer-events-none"></div>
+        
+        <div className="relative z-10 pt-8 pb-24">
+          <div className="w-full max-w-4xl mx-auto px-4">
+            <div className="py-8">
+              <div className="bg-white/90 backdrop-blur-sm rounded-lg p-6 shadow-md border border-gray-100">
+                <JoinForm />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="relative z-20">
-        {/* 这里是空的div，但它有一个较高的z-index，确保footer可见 */}
       </div>
     </Layout>
   );
