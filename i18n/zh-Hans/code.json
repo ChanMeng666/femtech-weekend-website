@@ -704,7 +704,115 @@
   },
   "reports.cta.contactButton": {
     "message": "联系研究团队",
-    "description": "Text for the Contact Research Team button in the Reports CTA section"
+    "description": "Contact research team button text in the reports CTA section"
+  },
+  "reports.featured.label": {
+    "message": "精选报告",
+    "description": "Label for featured report in the featured report component"
+  },
+  "reports.category.research": {
+    "message": "研究",
+    "description": "Research category for reports"
+  },
+  "reports.category.technology": {
+    "message": "技术",
+    "description": "Technology category for reports"
+  },
+  "reports.category.general": {
+    "message": "综合",
+    "description": "General category for reports"
+  },
+  "reports.category.investment": {
+    "message": "投资",
+    "description": "Investment category for reports"
+  },
+  "reports.filter.allReports": {
+    "message": "所有报告",
+    "description": "Filter option to show all reports"
+  },
+  "reports.tag.research": {
+    "message": "研究",
+    "description": "Research tag for reports"
+  },
+  "reports.tag.marketAnalysis": {
+    "message": "市场分析",
+    "description": "Market Analysis tag for reports"
+  },
+  "reports.tag.china": {
+    "message": "中国",
+    "description": "China tag for reports"
+  },
+  "reports.tag.hongKong": {
+    "message": "香港",
+    "description": "Hong Kong tag for reports"
+  },
+  "reports.tag.hackathon": {
+    "message": "黑客马拉松",
+    "description": "Hackathon tag for reports"
+  },
+  "reports.tag.technology": {
+    "message": "技术",
+    "description": "Technology tag for reports"
+  },
+  "reports.tag.innovation": {
+    "message": "创新",
+    "description": "Innovation tag for reports"
+  },
+  "reports.tag.competition": {
+    "message": "比赛",
+    "description": "Competition tag for reports"
+  },
+  "reports.tag.womensHealth": {
+    "message": "女性健康",
+    "description": "Women's Health tag for reports"
+  },
+  "reports.tag.startup": {
+    "message": "创业",
+    "description": "Startup tag for reports"
+  },
+  "reports.tag.investment": {
+    "message": "投资",
+    "description": "Investment tag for reports"
+  },
+  "reports.data.femtech-market-map.title": {
+    "message": "女性健康科技市场图谱2025：中国内地和香港女性健康创新综合分析",
+    "description": "Title for FemTech Market Map report"
+  },
+  "reports.data.femtech-market-map.description": {
+    "message": "大中华区的女性健康科技市场正经历前所未有的增长，在政策、经济、社会和技术方面的有利发展支持下，进入快速扩张阶段。",
+    "description": "Description for FemTech Market Map report"
+  },
+  "reports.data.femtech-hackathon.title": {
+    "message": "参加2024年女性健康科技黑客马拉松：48小时内打造女性健康科技的未来",
+    "description": "Title for FemTech Hackathon report"
+  },
+  "reports.data.femtech-hackathon.description": {
+    "message": "准备参加今年最激动人心的女性健康科技活动！女性健康科技周末很高兴宣布我们的2024年女性健康科技黑客马拉松 - 48小时创新冲刺。",
+    "description": "Description for FemTech Hackathon report"
+  },
+  "reports.data.innovation-challenge.title": {
+    "message": "宣布2024年女性健康科技创新挑战赛：通过技术革新女性健康",
+    "description": "Title for Innovation Challenge report"
+  },
+  "reports.data.innovation-challenge.description": {
+    "message": "您是否热衷于为女性健康创造创新解决方案？您是否相信技术可以打破障碍并改善女性护理？",
+    "description": "Description for Innovation Challenge report"
+  },
+  "reports.data.startup-pitch.title": {
+    "message": "女性健康科技创业路演比赛：通往全球投资者的门户",
+    "description": "Title for Startup Pitch Competition report"
+  },
+  "reports.data.startup-pitch.description": {
+    "message": "您是否正在女性健康技术领域构建创新解决方案？女性健康科技周末很高兴宣布我们首届女性健康科技创业路演比赛。",
+    "description": "Description for Startup Pitch Competition report"
+  },
+  "reports.data.research-symposium.title": {
+    "message": "2024年女性健康科技研究研讨会：连接科学与女性健康创新",
+    "description": "Title for Research Symposium report"
+  },
+  "reports.data.research-symposium.description": {
+    "message": "女性健康科技周末自豪地宣布我们的首届女性健康科技研究研讨会，这是一个汇集领先研究人员、临床医生、技术专家和企业家的里程碑活动。",
+    "description": "Description for Research Symposium report"
   },
   "competition.stats.participatingTeams": {
     "message": "参赛队伍",
@@ -1013,5 +1121,57 @@
   "competition.timeline.event5.description": {
     "message": "公布获奖者并举行交流庆祝活动",
     "description": "Description for awards ceremony event"
+  },
+  "reports.category.allReports": {
+    "message": "所有报告",
+    "description": "All Reports category"
+  },
+  "reports.category.technology": {
+    "message": "技术",
+    "description": "Technology category"
+  },
+  "reports.category.investment": {
+    "message": "投资",
+    "description": "Investment category"
+  },
+  "reports.category.research": {
+    "message": "研究",
+    "description": "Research category"
+  },
+  "reports.category.general": {
+    "message": "综合",
+    "description": "General category for reports"
+  },
+  "reports.noReportsFound": {
+    "message": "在此类别中没有找到报告。请稍后再查看新内容！",
+    "description": "Message shown when no reports are found in a category"
+  },
+  "reports.categoryReportsSuffix": {
+    "message": "报告",
+    "description": "Suffix for category reports title"
+  },
+  "reports.browsePrefix": {
+    "message": "浏览我们的",
+    "description": "Prefix for browsing category reports"
+  },
+  "reports.browseSuffix": {
+    "message": "报告和见解",
+    "description": "Suffix for browsing category reports"
+  },
+  "reports.filteringByTag": {
+    "message": "按标签筛选：",
+    "description": "Label shown when filtering reports by tag"
+  },
+  "reports.clearFilter": {
+    "message": "清除筛选",
+    "description": "Aria label for the clear filter button"
+  },
+  "reports.tagResultsPrefix": {
+    "message": "标签结果：",
+    "description": "Prefix for tag results title"
+  },
+  "reports.showingTagResults": {
+    "message": "显示所有包含所选标签的报告",
+    "description": "Message shown when displaying reports filtered by tag"
   }
 }
