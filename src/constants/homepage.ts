@@ -24,6 +24,13 @@ export const HOMEPAGE_CONSTANTS = {
   DEFAULT_TESTIMONIALS_SUBTITLE: 'Hear from entrepreneurs, investors, and healthcare professionals who are part of our growing ecosystem.'
 } as const;
 
+// 添加轮播词翻译常量
+export const HERO_ROTATING_WORDS = {
+  WORD1_ID: 'homepage.hero.rotating.word1',
+  WORD2_ID: 'homepage.hero.rotating.word2',
+  WORD3_ID: 'homepage.hero.rotating.word3',
+};
+
 // Helper functions to get translated content
 export const getHomepageTitle = () => translate({
   id: HOMEPAGE_CONSTANTS.TITLE_ID,
@@ -73,4 +80,20 @@ export const getTestimonialsTitle = () => translate({
 export const getTestimonialsSubtitle = () => translate({
   id: HOMEPAGE_CONSTANTS.TESTIMONIALS_SUBTITLE_ID,
   message: HOMEPAGE_CONSTANTS.DEFAULT_TESTIMONIALS_SUBTITLE,
+});
+
+// 添加轮播词获取函数
+export const getHeroRotatingWord1 = () => translate({
+  id: HERO_ROTATING_WORDS.WORD1_ID,
+  message: "Drive women's health innovation with technology",
+});
+
+export const getHeroRotatingWord2 = () => translate({
+  id: HERO_ROTATING_WORDS.WORD2_ID,
+  message: "Amplify women in tech entrepreneurship",
+});
+
+export const getHeroRotatingWord3 = () => translate({
+  id: HERO_ROTATING_WORDS.WORD3_ID,
+  message: "Build a global collaborative ecosystem",
 }); 

@@ -7,7 +7,10 @@ import { LogoAnimation } from './ui/LogoAnimation';
 import { 
   getHeroTitle, 
   getHeroSubtitle, 
-  getCtaStart 
+  getCtaStart,
+  getHeroRotatingWord1,
+  getHeroRotatingWord2,
+  getHeroRotatingWord3
 } from '../constants/homepage';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {translate} from '@docusaurus/Translate';
@@ -15,18 +18,13 @@ import {translate} from '@docusaurus/Translate';
 export function Hero() {
   const {i18n: {currentLocale}} = useDocusaurusContext();
   
-  // Define rotating words based on current locale
-  const rotatingWords = currentLocale === 'zh-Hans' 
-    ? [
-        "用科技推动女性健康创新",
-        "提升女性科技创业影响力", 
-        "建立全球协作生态系统"
-      ]
-    : [
-        "Drive women\'s health innovation with technology",
-        "Amplify women in tech entrepreneurship", 
-        "Build a global collaborative ecosystem"
-      ];
+  // Get translated rotating words
+  const word1 = getHeroRotatingWord1();
+  const word2 = getHeroRotatingWord2();
+  const word3 = getHeroRotatingWord3();
+  
+  // Define rotating words using translated content
+  const rotatingWords = [word1, word2, word3];
 
   const title = getHeroTitle();
   const subtitle = getHeroSubtitle();

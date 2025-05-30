@@ -415,15 +415,15 @@
     "description": "The description of the Reports page"
   },
   "homepage.title": {
-    "message": "女性科技周末",
+    "message": "女性健康科技周末",
     "description": "The title of the homepage"
   },
   "homepage.description": {
-    "message": "女性科技周末 - 植根中国，连接全球。为女性健康创新和创业提供平台。",
+    "message": "女性健康科技周末 - 植根中国，连接全球。为女性健康创新和创业提供平台。",
     "description": "The description of the homepage"
   },
   "homepage.hero.title": {
-    "message": "女性科技周末",
+    "message": "女性健康科技周末",
     "description": "The title of the hero section"
   },
   "homepage.hero.subtitle": {
@@ -442,12 +442,24 @@
     "message": "加入生态系统",
     "description": "The join ecosystem button text"
   },
+  "homepage.hero.rotating.word1": {
+    "message": "用科技推动女性健康创新",
+    "description": "First rotating word in hero section"
+  },
+  "homepage.hero.rotating.word2": {
+    "message": "提升女性科技创业影响力",
+    "description": "Second rotating word in hero section"
+  },
+  "homepage.hero.rotating.word3": {
+    "message": "建立全球协作生态系统",
+    "description": "Third rotating word in hero section"
+  },
   "homepage.features.title": {
     "message": "赋能女性健康创新",
     "description": "The title of the features section"
   },
   "homepage.features.subtitle": {
-    "message": "女性科技周末汇聚创业者、投资者和医疗专业人士，共同推进女性健康解决方案。",
+    "message": "女性健康科技周末汇聚创业者、投资者和医疗专业人士，共同推进女性健康解决方案。",
     "description": "The subtitle of the features section"
   },
   "homepage.features.feature1.title": {
@@ -483,7 +495,7 @@
     "description": "The subtitle of the testimonials section"
   },
   "about.hero.title": {
-    "message": "关于女性科技周末",
+    "message": "关于女性健康科技周末",
     "description": "Title for the About Us hero section"
   },
   "about.hero.subtitle": {
@@ -519,7 +531,7 @@
     "description": "Title for the team section"
   },
   "about.team.subtitle": {
-    "message": "认识女性科技周末背后的热情个体",
+    "message": "认识女性健康科技周末背后的热情个体",
     "description": "Subtitle for the team section"
   },
   "about.team.meetOurTeam": {
@@ -547,11 +559,11 @@
     "description": "Badge text for the competition section on homepage"
   },
   "homepage.competition.title": {
-    "message": "女性科技周末比赛 2024",
+    "message": "女性健康科技周末比赛 2024",
     "description": "Title for the competition section on homepage"
   },
   "homepage.competition.description": {
-    "message": "加入中国首屈一指的女性健康创新比赛。展示您的突破性解决方案，与顶级投资者建立联系，并赢取高达¥50万的奖金。",
+    "message": "加入中国首屈一指的女性健康创新比赛。展示您的突破性解决方案，与顶级投资者建立联系，并赢取高达¥10,000的奖金。",
     "description": "Description for the competition section on homepage"
   },
   "homepage.competition.prizePool": {
@@ -563,7 +575,7 @@
     "description": "Label for participating teams in the competition section"
   },
   "homepage.competition.partners": {
-    "message": "投资合作伙伴",
+    "message": "投资合作伙伴和导师",
     "description": "Label for investment partners in the competition section"
   },
   "homepage.competition.registrationOpen": {
@@ -591,7 +603,7 @@
     "description": "Text for the learn more button"
   },
   "homepage.competition.participationInfo": {
-    "message": "免费参与 • 专家指导 • 确保投资者接触",
+    "message": "专家指导 • 确保投资者接触",
     "description": "Participation information text"
   },
   "about.values.innovation.title": {
@@ -651,7 +663,7 @@
     "description": "Badge text for the competition hero section"
   },
   "competition.hero.title": {
-    "message": "女性科技周末大赛 2024",
+    "message": "女性健康科技周末大赛 2024",
     "description": "Title for the competition hero section"
   },
   "competition.hero.description": {
@@ -671,7 +683,7 @@
     "description": "Badge text for the ecosystem hero section"
   },
   "ecosystem.hero.title": {
-    "message": "女性科技周末生态系统",
+    "message": "女性健康科技周末生态系统",
     "description": "Title for the ecosystem hero section"
   },
   "ecosystem.hero.description": {
@@ -741,5 +753,29 @@
   "about.advisorBoard.description": {
     "message": "经验丰富的专业人士，引导我们的女性健康创新使命。",
     "description": "Description for the Advisor Board section"
+  },
+  "homepage.partnership.title": {
+    "message": "我们的合作伙伴",
+    "description": "Title for the partnership section"
+  },
+  "homepage.partnership.subtitle": {
+    "message": "与领先组织合作推进女性健康技术",
+    "description": "Subtitle for the partnership section"
+  },
+  "homepage.competition.continents": {
+    "message": "大洲",
+    "description": "Label for continents in the competition section"
+  },
+  "homepage.competition.applications": {
+    "message": "申请者",
+    "description": "Label for applications in the competition section"
+  },
+  "homepage.competition.registrationUntilDate": {
+    "message": "截至2024年11月1日",
+    "description": "Specific date for registration until in the competition section"
+  },
+  "homepage.competition.finalEventSpecificDate": {
+    "message": "2024年11月30日",
+    "description": "Specific date for final event in the competition section"
   }
 }

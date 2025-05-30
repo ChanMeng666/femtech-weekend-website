@@ -15,24 +15,28 @@
     "message": "首页",
     "description": "The label of footer link with label=Home linking to /"
   },
-  "link.item.label.Reports": {
-    "message": "报告",
-    "description": "The label of footer link with label=Reports linking to /docs/intro"
+  "link.item.label.About Us": {
+    "message": "关于我们",
+    "description": "The label of footer link with label=About Us linking to /about-us"
   },
   "link.item.label.Competition": {
     "message": "比赛",
-    "description": "The label of footer link with label=Competition linking to /blog"
+    "description": "The label of footer link with label=Competition linking to /competition"
+  },
+  "link.item.label.Ecosystem": {
+    "message": "生态系统",
+    "description": "The label of footer link with label=Ecosystem linking to /ecosystem"
+  },
+  "link.item.label.Reports": {
+    "message": "报告",
+    "description": "The label of footer link with label=Reports linking to /reports"
   },
   "link.item.label.Database": {
     "message": "数据库",
     "description": "The label of footer link with label=Database linking to /database"
   },
-  "link.item.label.About Us": {
-    "message": "关于我们",
-    "description": "The label of footer link with label=About Us linking to /about-us"
-  },
   "link.item.label.Email": {
-    "message": "电子邮件",
+    "message": "hello@femtechweekend.com",
     "description": "The label of footer link with label=Email"
   },
   "link.item.label.LinkedIn": {
@@ -58,5 +62,13 @@
   "copyright": {
     "message": "版权所有 © {year} FemTech Weekend 女性健康科技周末",
     "description": "The footer copyright"
+  },
+  "footer.qrcode.xiaohongshu": {
+    "message": "小红书",
+    "description": "The label for Xiaohongshu QR code"
+  },
+  "footer.qrcode.wechat": {
+    "message": "微信",
+    "description": "The label for WeChat QR code"
   }
 }
