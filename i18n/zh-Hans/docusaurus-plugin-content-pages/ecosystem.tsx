@@ -8,6 +8,7 @@ import {
   MemberDirectory,
   JoinEcosystem
 } from '../../../src/components/Ecosystem';
+import { LogoDivider } from '../../../src/components/ui/LogoDivider';
 import { getEcosystemTitle, getEcosystemDescription } from '../../../src/constants/ecosystem';
 
 export default function Ecosystem(): React.ReactNode {
@@ -23,6 +24,7 @@ export default function Ecosystem(): React.ReactNode {
       <main>
         <EcosystemHero />
         <EcosystemStats />
+        <LogoDivider />
         <EcosystemMission />
         <MemberDirectory />
         <JoinEcosystem />

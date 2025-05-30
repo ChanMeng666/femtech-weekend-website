@@ -2,17 +2,83 @@ import React, { useState } from 'react';
 import { Button } from '../ui/button';
 import { MemberCard } from './MemberCard';
 import { ecosystemMembers, categories } from '../../data/ecosystemData';
+import { translate } from '@docusaurus/Translate';
 
 export function MemberDirectory() {
-  const [activeCategory, setActiveCategory] = useState('All Members');
+  const title = translate({
+    id: 'ecosystem.directory.title',
+    message: 'Meet Our Community'
+  });
+  
+  const description = translate({
+    id: 'ecosystem.directory.description',
+    message: 'Discover the diverse group of innovators, leaders, and changemakers driving women\'s health forward.'
+  });
+  
+  const noMembersText = translate({
+    id: 'ecosystem.directory.noMembers',
+    message: 'No members found in this category. Check back soon as our community grows!'
+  });
+  
+  const allMembersText = translate({
+    id: 'ecosystem.directory.allMembers',
+    message: 'All Members'
+  });
+  
+  // Function to translate category names
+  const translateCategory = (category: string) => {
+    if (category === 'All Members') {
+      return allMembersText;
+    } else if (category === 'FemTech founders (Mainland China)') {
+      return translate({
+        id: 'ecosystem.directory.category.femtechFoundersChina',
+        message: 'FemTech founders (Mainland China)'
+      });
+    } else if (category === 'FemTech founders (International)') {
+      return translate({
+        id: 'ecosystem.directory.category.femtechFoundersInternational',
+        message: 'FemTech founders (International)'
+      });
+    } else if (category === 'Investors') {
+      return translate({
+        id: 'ecosystem.directory.category.investors',
+        message: 'Investors'
+      });
+    } else if (category === 'Corporates') {
+      return translate({
+        id: 'ecosystem.directory.category.corporates',
+        message: 'Corporates'
+      });
+    } else if (category === 'Academia') {
+      return translate({
+        id: 'ecosystem.directory.category.academia',
+        message: 'Academia'
+      });
+    } else if (category === 'FemTech enthusiasts') {
+      return translate({
+        id: 'ecosystem.directory.category.femtechEnthusiasts',
+        message: 'FemTech enthusiasts'
+      });
+    }
+    return category;
+  };
+  
+  const [activeCategory, setActiveCategory] = useState(allMembersText);
+  const [originalActiveCategory, setOriginalActiveCategory] = useState('All Members');
 
-  // Filter members based on active category
+  // Filter members based on active category - use original category for filtering
   const filteredMembers = ecosystemMembers.filter(member => {
-    if (activeCategory === 'All Members') {
+    if (originalActiveCategory === 'All Members') {
       return true;
     }
-    return member.category === activeCategory;
+    return member.category === originalActiveCategory;
   });
+
+  // Handle category change
+  const handleCategoryChange = (category: string) => {
+    setOriginalActiveCategory(category);
+    setActiveCategory(translateCategory(category));
+  };
 
   return (
     <div className="bg-background py-24 sm:py-32">
@@ -21,10 +87,10 @@ export function MemberDirectory() {
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Meet Our Community
+            {title}
           </h2>
           <p className="mt-6 text-lg leading-8 text-muted-foreground">
-            Discover the diverse group of innovators, leaders, and changemakers driving women's health forward.
+            {description}
           </p>
         </div>
 
@@ -33,17 +99,21 @@ export function MemberDirectory() {
           {categories.map((category) => (
             <Button
               key={category}
-              variant={activeCategory === category ? "default" : "outline"}
+              variant={originalActiveCategory === category ? "default" : "outline"}
               size="sm"
-              onClick={() => setActiveCategory(category)}
+              onClick={() => handleCategoryChange(category)}
               className={`transition-all duration-300 ${
-                activeCategory === category
+                originalActiveCategory === category
                   ? 'bg-primary text-primary-foreground shadow-lg scale-105'
                   : 'hover:bg-primary/10 hover:text-primary hover:border-primary'
               }`}
             >
-              {category}
-              <span className="ml-2 text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">
+              {translateCategory(category)}
+              <span className={`ml-2 text-xs px-2 py-1 rounded-full ${
+                originalActiveCategory === category
+                  ? 'bg-white/20 text-white font-medium'
+                  : 'bg-primary/20 text-primary'
+              }`}>
                 {category === 'All Members' 
                   ? ecosystemMembers.length 
                   : ecosystemMembers.filter(m => m.category === category).length
@@ -63,7 +133,7 @@ export function MemberDirectory() {
         ) : (
           <div className="text-center py-16">
             <p className="text-lg text-muted-foreground">
-              No members found in this category. Check back soon as our community grows!
+              {noMembersText}
             </p>
           </div>
         )}
