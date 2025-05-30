@@ -1,12 +1,14 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { timelineEvents } from '../../data/competition';
+import { getTimelineEvents } from '../../data/competition-i18n';
 import { getTimelineTitle, getTimelineDescription } from '../../constants/competition-components';
 import { LogoDivider } from '../ui/LogoDivider';
 
 export default function Timeline() {
   const title = getTimelineTitle();
   const description = getTimelineDescription();
+  const events = getTimelineEvents();
   
   return (
     <div id="timeline" className="bg-background py-24 sm:py-32">
@@ -23,7 +25,7 @@ export default function Timeline() {
         <div className="relative">
           <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-primary/20"></div>
           
-          {timelineEvents.map((event, index) => (
+          {events.map((event, index) => (
             <div key={index} className={`relative flex items-center mb-12 ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
               <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
                 <Card className="border-primary bg-primary/5">

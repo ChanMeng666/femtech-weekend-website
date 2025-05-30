@@ -56,4 +56,51 @@ export const getTimelineTitle = () => translate({
 export const getTimelineDescription = () => translate({
   id: 'competition.timeline.description',
   message: 'Follow our structured program designed to maximize your success and growth.',
+});
+
+// Requirements section
+export const getRequirementsTitle = () => translate({
+  id: 'competition.requirements.title',
+  message: 'Competition Categories & Requirements',
+});
+
+export const getRequirementsDescription = () => translate({
+  id: 'competition.requirements.description',
+  message: "We welcome innovative solutions across all areas of women's health technology.",
+});
+
+export const getEligibilityCriteriaTitle = () => translate({
+  id: 'competition.requirements.eligibilityCriteriaTitle',
+  message: 'Eligibility Criteria',
+});
+
+// Registration CTA section
+export const getRegistrationTitle = () => translate({
+  id: 'competition.registration.title',
+  message: "Ready to Transform Women's Health?",
+});
+
+export const getRegistrationDescription = () => translate({
+  id: 'competition.registration.description',
+  message: 'Join us in building the future of FemTech. Registration closes November 1, 2024.',
+});
+
+export const getRegisterTeamButtonText = () => translate({
+  id: 'competition.registration.registerTeamButton',
+  message: 'Register Your Team',
+});
+
+export const getViewPreviousWinnersButtonText = () => translate({
+  id: 'competition.registration.viewPreviousWinnersButton',
+  message: 'View Previous Winners',
+});
+
+export const getMentorshipFeatureText = () => translate({
+  id: 'competition.registration.mentorshipFeature',
+  message: 'Expert mentorship included',
+});
+
+export const getInvestorAccessFeatureText = () => translate({
+  id: 'competition.registration.investorAccessFeature',
+  message: 'Investor access guaranteed',
 }); 

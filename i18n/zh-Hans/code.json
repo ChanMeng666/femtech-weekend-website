@@ -777,5 +777,157 @@
   "homepage.competition.finalEventSpecificDate": {
     "message": "2024年11月30日",
     "description": "Specific date for final event in the competition section"
+  },
+  "competition.requirements.title": {
+    "message": "比赛类别及要求",
+    "description": "Title for the competition requirements section"
+  },
+  "competition.requirements.description": {
+    "message": "我们欢迎女性健康技术各领域的创新解决方案。",
+    "description": "Description for the competition requirements section"
+  },
+  "competition.requirements.eligibilityCriteriaTitle": {
+    "message": "参赛资格标准",
+    "description": "Title for the eligibility criteria section"
+  },
+  "competition.registration.title": {
+    "message": "准备好改变女性健康领域了吗？",
+    "description": "Title for the registration CTA section"
+  },
+  "competition.registration.description": {
+    "message": "加入我们，共同构建FemTech的未来。报名截止日期为2024年11月1日。",
+    "description": "Description for the registration CTA section"
+  },
+  "competition.registration.registerTeamButton": {
+    "message": "注册您的团队",
+    "description": "Text for the register team button"
+  },
+  "competition.registration.viewPreviousWinnersButton": {
+    "message": "查看往届获奖者",
+    "description": "Text for the view previous winners button"
+  },
+  "competition.registration.mentorshipFeature": {
+    "message": "包含专家指导",
+    "description": "Text for the mentorship feature"
+  },
+  "competition.registration.investorAccessFeature": {
+    "message": "保证投资者对接",
+    "description": "Text for the investor access feature"
+  },
+  "competition.categories.reproductiveHealth.title": {
+    "message": "生殖健康",
+    "description": "Title for reproductive health category"
+  },
+  "competition.categories.reproductiveHealth.description": {
+    "message": "生育跟踪、避孕、孕期护理、更年期管理",
+    "description": "Description for reproductive health category"
+  },
+  "competition.categories.mentalHealth.title": {
+    "message": "心理健康与养生",
+    "description": "Title for mental health & wellness category"
+  },
+  "competition.categories.mentalHealth.description": {
+    "message": "产后抑郁、焦虑管理、健康应用、治疗平台",
+    "description": "Description for mental health & wellness category"
+  },
+  "competition.categories.preventiveCare.title": {
+    "message": "预防保健",
+    "description": "Title for preventive care category"
+  },
+  "competition.categories.preventiveCare.description": {
+    "message": "癌症筛查、诊断工具、早期检测系统、健康监测",
+    "description": "Description for preventive care category"
+  },
+  "competition.categories.chronicDisease.title": {
+    "message": "慢性疾病管理",
+    "description": "Title for chronic disease management category"
+  },
+  "competition.categories.chronicDisease.description": {
+    "message": "多囊卵巢综合征、子宫内膜异位症、自身免疫疾病、个性化治疗方案",
+    "description": "Description for chronic disease management category"
+  },
+  "competition.eligibility.earlyStageCriteria": {
+    "message": "早期创业公司（A轮前）",
+    "description": "Early-stage startups criteria"
+  },
+  "competition.eligibility.focusCriteria": {
+    "message": "专注于女性健康技术",
+    "description": "Focus on women's health technology criteria"
+  },
+  "competition.eligibility.teamSizeCriteria": {
+    "message": "2-5人团队",
+    "description": "Team size criteria"
+  },
+  "competition.eligibility.prototypeCriteria": {
+    "message": "具有可工作的原型或最小可行产品",
+    "description": "Working prototype criteria"
+  },
+  "competition.eligibility.businessModelCriteria": {
+    "message": "清晰的商业模式和市场策略",
+    "description": "Business model criteria"
+  },
+  "competition.eligibility.commitmentCriteria": {
+    "message": "承诺全程参与项目",
+    "description": "Commitment criteria"
+  },
+  "competition.timeline.event1.date": {
+    "message": "截至2024年10月20日",
+    "description": "Date for registration & application event"
+  },
+  "competition.timeline.event1.title": {
+    "message": "注册与申请",
+    "description": "Title for registration & application event"
+  },
+  "competition.timeline.event1.description": {
+    "message": "提交您的团队详情和项目介绍",
+    "description": "Description for registration & application event"
+  },
+  "competition.timeline.event2.date": {
+    "message": "11月1日 - 11月20日",
+    "description": "Date for initial screening event"
+  },
+  "competition.timeline.event2.title": {
+    "message": "初步筛选",
+    "description": "Title for initial screening event"
+  },
+  "competition.timeline.event2.description": {
+    "message": "专家小组审核申请并选择半决赛入围者",
+    "description": "Description for initial screening event"
+  },
+  "competition.timeline.event3.date": {
+    "message": "11月23日 - 11月29日",
+    "description": "Date for mentorship phase event"
+  },
+  "competition.timeline.event3.title": {
+    "message": "指导阶段",
+    "description": "Title for mentorship phase event"
+  },
+  "competition.timeline.event3.description": {
+    "message": "入选团队接受指导并完善他们的解决方案",
+    "description": "Description for mentorship phase event"
+  },
+  "competition.timeline.event4.date": {
+    "message": "11月30日 - 12月1日",
+    "description": "Date for final pitch weekend event"
+  },
+  "competition.timeline.event4.title": {
+    "message": "决赛路演周末",
+    "description": "Title for final pitch weekend event"
+  },
+  "competition.timeline.event4.description": {
+    "message": "团队在主要活动中向评委和投资者展示",
+    "description": "Description for final pitch weekend event"
+  },
+  "competition.timeline.event5.date": {
+    "message": "12月1日",
+    "description": "Date for awards ceremony event"
+  },
+  "competition.timeline.event5.title": {
+    "message": "颁奖典礼",
+    "description": "Title for awards ceremony event"
+  },
+  "competition.timeline.event5.description": {
+    "message": "公布获奖者并举行交流庆祝活动",
+    "description": "Description for awards ceremony event"
   }
 }
