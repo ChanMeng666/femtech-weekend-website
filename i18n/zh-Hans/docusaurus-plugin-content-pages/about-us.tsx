@@ -5,9 +5,9 @@ import {
   AboutHero, 
   MissionVision, 
   Values, 
-  Team,
   CallToAction 
 } from '../../../src/components/AboutUs';
+import { Team } from './Team';
 import { AdvisorBoard } from './AdvisorBoard';
 import { getAboutUsTitle, getAboutUsDescription } from '../../../src/constants/about-us';
 
