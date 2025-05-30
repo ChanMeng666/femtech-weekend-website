@@ -8,8 +8,8 @@ export default function Home(): React.ReactNode {
   
   return (
     <Layout
-      title="女性科技周末"
-      description="女性科技周末 - 植根中国，连接全球">
+      title="女性健康科技周末"
+      description="女性健康科技周末 - 植根中国，连接全球">
       <main>
         <HomepageContent />
       </main>

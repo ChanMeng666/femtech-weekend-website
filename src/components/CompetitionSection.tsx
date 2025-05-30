@@ -16,7 +16,11 @@ import {
   getFinalEventDateText,
   getJoinButtonText,
   getLearnMoreButtonText,
-  getParticipationInfoText
+  getParticipationInfoText,
+  getContinentsText,
+  getApplicationsText,
+  getRegistrationUntilDateText,
+  getFinalEventSpecificDateText
 } from '../constants/competition-section';
 
 export function CompetitionSection() {
@@ -29,10 +33,14 @@ export function CompetitionSection() {
   const prizePoolText = getPrizePoolText();
   const teamsText = getTeamsText();
   const partnersText = getPartnersText();
+  const continentsText = getContinentsText();
+  const applicationsText = getApplicationsText();
   const registrationOpenText = getRegistrationOpenText();
   const registrationDateText = getRegistrationDateText();
+  const registrationUntilDateText = getRegistrationUntilDateText();
   const finalEventText = getFinalEventText();
   const finalEventDateText = getFinalEventDateText();
+  const finalEventSpecificDateText = getFinalEventSpecificDateText();
   const joinButtonText = getJoinButtonText();
   const learnMoreButtonText = getLearnMoreButtonText();
   const participationInfoText = getParticipationInfoText();
@@ -86,10 +94,10 @@ export function CompetitionSection() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                   </svg>
                 </div>
-                <CardTitle className="text-2xl font-bold text-primary">¥10000</CardTitle>
+                <CardTitle className="text-2xl font-bold text-primary">¥10,000</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground">Total Prize Pool</p>
+                <p className="text-sm text-muted-foreground">{prizePoolText}</p>
               </CardContent>
             </Card>
 
@@ -103,7 +111,7 @@ export function CompetitionSection() {
                 <CardTitle className="text-2xl font-bold text-primary">4</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground">Continents</p>
+                <p className="text-sm text-muted-foreground">{continentsText}</p>
               </CardContent>
             </Card>
 
@@ -117,7 +125,7 @@ export function CompetitionSection() {
                 <CardTitle className="text-2xl font-bold text-primary">150+</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground">Applications</p>
+                <p className="text-sm text-muted-foreground">{applicationsText}</p>
               </CardContent>
             </Card>
 
@@ -131,7 +139,7 @@ export function CompetitionSection() {
                 <CardTitle className="text-2xl font-bold text-primary">10</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground">Investment Partners and Mentors</p>
+                <p className="text-sm text-muted-foreground">{partnersText}</p>
               </CardContent>
             </Card>
           </div>
@@ -143,14 +151,14 @@ export function CompetitionSection() {
                 <div className="h-3 w-3 rounded-full bg-primary animate-pulse"></div>
                 <div>
                   <p className="font-medium text-foreground">{registrationOpenText}</p>
-                  <p className="text-sm text-muted-foreground">Until November 1, 2024</p>
+                  <p className="text-sm text-muted-foreground">{registrationUntilDateText}</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="h-3 w-3 rounded-full bg-muted"></div>
                 <div>
                   <p className="font-medium text-foreground">{finalEventText}</p>
-                  <p className="text-sm text-muted-foreground">November 30, 2024</p>
+                  <p className="text-sm text-muted-foreground">{finalEventSpecificDateText}</p>
                 </div>
               </div>
             </div>

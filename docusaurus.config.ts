@@ -50,6 +50,13 @@ const config: Config = {
     ['./src/plugins/tailwind-config.js', {}],
     ['./src/plugins/api-routes.js', {}],
   ],
+  scripts: [
+    {
+      src: '/js/qr-code-translate.js',
+      async: true,
+      defer: true,
+    },
+  ],
 
   presets: [
     [
@@ -217,20 +224,24 @@ const config: Config = {
               to: '/',
             },
             {
-              label: 'Reports',
-              to: '/docs/intro',
+              label: 'About Us',
+              to: '/about-us',
             },
             {
               label: 'Competition',
-              to: '/blog',
+              to: '/competition',
+            },
+            {
+              label: 'Ecosystem',
+              to: '/ecosystem',
+            },
+            {
+              label: 'Reports',
+              to: '/reports',
             },
             {
               label: 'Database',
               to: '/database',
-            },
-            {
-              label: 'About Us',
-              to: '/about-us',
             },
           ],
         },
@@ -238,7 +249,7 @@ const config: Config = {
           title: 'Connect With Us',
           items: [
             {
-              label: 'Email',
+              label: 'hello@femtechweekend.com',
               href: 'mailto:hello@femtechweekend.com',
             },
             {
@@ -259,18 +270,7 @@ const config: Config = {
           title: 'Scan to Follow',
           items: [
             {
-              html: `
-                <div class="footer__qrcode-container">
-                  <div class="footer__qrcode-item">
-                    <img src="/img/qrcode/femtech-weekend-xiaohongshu-qrcode.png" alt="Xiaohongshu QR Code" />
-                    <span>Xiaohongshu</span>
-                  </div>
-                  <div class="footer__qrcode-item">
-                    <img src="/img/qrcode/femtech-weekend-gongzhonghao-qrcode.jpg" alt="WeChat Official Account QR Code" />
-                    <span>WeChat</span>
-                  </div>
-                </div>
-              `,
+              html: `<div id="footer-qrcodes"></div>`,
             },
           ],
         },
