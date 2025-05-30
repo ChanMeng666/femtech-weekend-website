@@ -42,3 +42,28 @@ releases:
   label: 发布
   permalink: /tags/releases
   description: 产品和功能发布公告
+
+femtech:
+  label: 女性健康科技
+  permalink: /tags/femtech
+  description: 关于女性健康科技领域的内容
+
+market-analysis:
+  label: 市场分析
+  permalink: /tags/market-analysis
+  description: 市场研究和分析报告
+
+china:
+  label: 中国
+  permalink: /tags/china
+  description: 关于中国市场和创新的内容
+
+hong-kong:
+  label: 香港
+  permalink: /tags/hong-kong
+  description: 关于香港市场和创新的内容
+
+featured-report:
+  label: 精选报告
+  permalink: /tags/featured-report
+  description: 精选的深度分析和市场报告
