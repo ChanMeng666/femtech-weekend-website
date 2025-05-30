@@ -1,13 +1,55 @@
 import {translate} from '@docusaurus/Translate';
 import { ReportCategory } from '../types/reports';
 
+// Available report categories (keys for translation)
+export const REPORT_CATEGORY_KEYS = {
+  ALL_REPORTS: 'All Reports',
+  TECHNOLOGY: 'Technology',
+  INVESTMENT: 'Investment',
+  RESEARCH: 'Research',
+  GENERAL: 'General'
+};
+
+// Helper functions to get translated categories
+export const getTranslatedCategory = (category: string) => {
+  switch(category) {
+    case REPORT_CATEGORY_KEYS.ALL_REPORTS:
+      return translate({
+        id: 'reports.category.allReports',
+        message: 'All Reports'
+      });
+    case REPORT_CATEGORY_KEYS.TECHNOLOGY:
+      return translate({
+        id: 'reports.category.technology',
+        message: 'Technology'
+      });
+    case REPORT_CATEGORY_KEYS.INVESTMENT:
+      return translate({
+        id: 'reports.category.investment',
+        message: 'Investment'
+      });
+    case REPORT_CATEGORY_KEYS.RESEARCH:
+      return translate({
+        id: 'reports.category.research',
+        message: 'Research'
+      });
+    case REPORT_CATEGORY_KEYS.GENERAL:
+      return translate({
+        id: 'reports.category.general',
+        message: 'General'
+      });
+    default:
+      return category;
+  }
+};
+
 // Available report categories
 export const REPORT_CATEGORIES: ReportCategory[] = [
-  'All Reports', 
-  'Technology', 
-  'Investment', 
-  'Research',
-  'General'
+  REPORT_CATEGORY_KEYS.ALL_REPORTS, 
+  REPORT_CATEGORY_KEYS.TECHNOLOGY, 
+  REPORT_CATEGORY_KEYS.INVESTMENT, 
+  REPORT_CATEGORY_KEYS.RESEARCH,
+  REPORT_CATEGORY_KEYS.GENERAL
 ];
 
 // Reports page constants

@@ -2,8 +2,28 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import { Card } from '../ui/card';
 import { FeaturedReportProps } from '../../types/reports';
+import { getFeaturedReportLabel } from '../../constants/reports-components';
 
-export function FeaturedReport({ report }: FeaturedReportProps): React.ReactNode {
+interface ReportTagProps {
+  tag: string;
+  onClick: (tag: string) => void;
+}
+
+const ReportTag = ({ tag, onClick }: ReportTagProps) => (
+  <span
+    className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm text-primary font-medium cursor-pointer hover:bg-primary/20 transition-colors"
+    onClick={(e) => {
+      e.preventDefault(); // Prevent the Link from navigating
+      onClick(tag);
+    }}
+  >
+    {tag}
+  </span>
+);
+
+export function FeaturedReport({ report, onTagClick }: FeaturedReportProps): React.ReactNode {
+  const featuredReportLabel = getFeaturedReportLabel();
+  
   return (
     <Card className="group cursor-pointer transition-all duration-300 hover:shadow-xl border-0 bg-gradient-to-r from-primary/5 to-primary/10 backdrop-blur-sm">
       <Link to={report.link} className="block text-decoration-none">
@@ -31,7 +51,7 @@ export function FeaturedReport({ report }: FeaturedReportProps): React.ReactNode
           <div className="p-8 flex flex-col justify-center">
             <div className="mb-4">
               <span className="inline-block rounded-full bg-primary/20 px-4 py-2 text-sm font-medium text-primary">
-                Featured Report
+                {featuredReportLabel}
               </span>
             </div>
             <h2 className="text-3xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
@@ -49,12 +69,11 @@ export function FeaturedReport({ report }: FeaturedReportProps): React.ReactNode
             </div>
             <div className="flex flex-wrap gap-2">
               {report.tags.map((tag, index) => (
-                <span
+                <ReportTag
                   key={index}
-                  className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm text-primary font-medium"
-                >
-                  {tag}
-                </span>
+                  tag={tag}
+                  onClick={onTagClick}
+                />
               ))}
             </div>
           </div>

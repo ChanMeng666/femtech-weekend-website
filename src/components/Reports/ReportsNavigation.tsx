@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '../ui/button';
-import { REPORT_CATEGORIES } from '../../constants/reports';
+import { REPORT_CATEGORIES, getTranslatedCategory } from '../../constants/reports';
 import { ReportCategory } from '../../types/reports';
 
 interface ReportsNavigationProps {
@@ -25,7 +25,7 @@ export function ReportsNavigation({ activeCategory, onCategoryChange }: ReportsN
                   : 'text-muted-foreground hover:text-foreground hover:bg-muted'
               }`}
             >
-              {category}
+              {getTranslatedCategory(category)}
             </Button>
           ))}
         </div>
