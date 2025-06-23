@@ -21,7 +21,9 @@ const REPORT_TAGS = {
   COMPETITION: 'competition',
   WOMENS_HEALTH: 'womensHealth',
   STARTUP: 'startup',
-  INVESTMENT: 'investment'
+  INVESTMENT: 'investment',
+  PARTNERSHIP: 'partnership',
+  EUROPE: 'europe'
 };
 
 // Helper function to translate a tag
@@ -34,6 +36,38 @@ const translateTag = (tagKey: string) => {
 
 // Static fallback data based on existing blog posts
 export const staticReportsData: ReportItem[] = [
+  {
+    id: '6',
+    title: translateReportField(
+      'reports.data.femmehealth-alliance.title',
+      'FemTech Weekend Partners with FemmeHealth Ventures Alliance to Bridge China-Europe Women\'s Health Investment'
+    ),
+    description: translateReportField(
+      'reports.data.femmehealth-alliance.description',
+      'A groundbreaking content partnership to bring investment-grade women\'s health insights to Chinese-speaking audiences, fostering cross-border alignment in femtech innovation and strategic capital.'
+    ),
+    category: getReportCategoryInvestment(),
+    date: 'June 12',
+    readTime: getReportReadTime('5'),
+    author: 'Zhu Yihan',
+    image: '/img/reports/femmehealth-alliance-partnership.png',
+    link: '/blog/femmehealth-ventures-alliance-partnership',
+    tags: [
+      translateTag(REPORT_TAGS.PARTNERSHIP),
+      translateTag(REPORT_TAGS.INVESTMENT),
+      translateTag(REPORT_TAGS.CHINA),
+      translateTag(REPORT_TAGS.EUROPE),
+      translateTag(REPORT_TAGS.WOMENS_HEALTH)
+    ],
+    tagKeys: [
+      REPORT_TAGS.PARTNERSHIP,
+      REPORT_TAGS.INVESTMENT,
+      REPORT_TAGS.CHINA,
+      REPORT_TAGS.EUROPE,
+      REPORT_TAGS.WOMENS_HEALTH
+    ],
+    isFeatured: true
+  },
   {
     id: '5',
     title: translateReportField(
@@ -62,7 +96,7 @@ export const staticReportsData: ReportItem[] = [
       REPORT_TAGS.CHINA,
       REPORT_TAGS.HONG_KONG
     ],
-    isFeatured: true
+    isFeatured: false
   }
 ];
 
