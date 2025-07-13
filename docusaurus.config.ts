@@ -50,13 +50,7 @@ const config: Config = {
     ['./src/plugins/tailwind-config.js', {}],
     ['./src/plugins/api-routes.js', {}],
   ],
-  scripts: [
-    {
-      src: '/js/qr-code-translate.js',
-      async: true,
-      defer: true,
-    },
-  ],
+  scripts: [],
 
   presets: [
     [
@@ -270,7 +264,18 @@ const config: Config = {
           title: 'Scan to Follow',
           items: [
             {
-              html: `<div id="footer-qrcodes"></div>`,
+              html: `
+                <div style="display: flex; gap: 20px; align-items: center; justify-content: center;">
+                  <div style="text-align: center;">
+                    <img src="/img/qrcode/femtech-weekend-xiaohongshu-qrcode.png" alt="Xiaohongshu QR Code" style="width: 80px; height: 80px;" />
+                    <div style="margin-top: 5px; font-size: 12px;">Xiaohongshu</div>
+                  </div>
+                  <div style="text-align: center;">
+                    <img src="/img/qrcode/femtech-weekend-gongzhonghao-qrcode.jpg" alt="WeChat Official Account QR Code" style="width: 80px; height: 80px;" />
+                    <div style="margin-top: 5px; font-size: 12px;">WeChat</div>
+                  </div>
+                </div>
+              `,
             },
           ],
         },
