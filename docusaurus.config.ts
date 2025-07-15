@@ -167,12 +167,13 @@ const config: Config = {
     },
     */
     algolia: {
-      // The application ID provided by Algolia
+      // The application ID provided by Algolia - Application ID
       appId: 'VNBIILHFAK',
 
-      // Public API key: it is safe to commit it
+      // Public API key: it is safe to commit it - Search API Key
       apiKey: 'a66efbe06c7b3a50d3c677308e22ca7f',
 
+      // Crawler Name
       indexName: 'femtech-weekend-website-crawler',
 
       // Optional: see doc section below
