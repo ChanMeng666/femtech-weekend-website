@@ -3,7 +3,7 @@ import { PresetQuestion } from './types';
 export const presetQuestions: PresetQuestion[] = [
   {
     id: '1',
-    question: 'What is FemTech Weekend (飞姆科技周末)?',
+    question: 'What is FemTech Weekend (女性健康科技周末)?',
     category: 'about',
     answer: "FemTech Weekend is China's first organization focusing on women's health technology challenges. We're dedicated to bridging the gender gap in women's health innovation through competitions, ecosystem building, and research dissemination. Our mission is to connect FemTech innovators, investors, and healthcare professionals across China and globally."
   },
