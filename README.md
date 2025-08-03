@@ -422,8 +422,12 @@ npm run dev
 
 ### Environment Setup
 
-Create `.env.local` file with the following variables:
+1. Copy the environment template:
+```bash
+cp .env.example .env.local
+```
 
+2. Edit `.env.local` with your actual credentials:
 ```bash
 # Notion Configuration
 NOTION_TOKEN="your_notion_integration_token"
@@ -435,9 +439,14 @@ CLOUDINARY_CLOUD_NAME="your_cloud_name"
 CLOUDINARY_API_KEY="your_api_key"
 CLOUDINARY_API_SECRET="your_api_secret"
 
+# Google Gemini AI Configuration (Required for AI Chatbot)
+GOOGLE_GENERATIVE_AI_API_KEY="your_gemini_api_key"
+
 # Environment
 NODE_ENV="development"
 ```
+
+⚠️ **Security Note**: Never commit `.env.local` to version control. See [SECURITY.md](SECURITY.md) for detailed security guidelines.
 
 ### Development Mode
 
