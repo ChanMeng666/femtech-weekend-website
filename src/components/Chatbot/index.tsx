@@ -52,15 +52,6 @@ export const Chatbot: React.FC = () => {
 
       {/* Chat Window */}
       <ChatWindow isOpen={isOpen} onClose={() => setIsOpen(false)} />
-
-      {/* Tooltip */}
-      {!isOpen && (
-        <div className={styles.chatbotTooltip}>
-          <span>Chat with AI Assistant</span>
-          <kbd>⌘K</kbd>
-        </div>
-      )}
-
     </>
   );
 };

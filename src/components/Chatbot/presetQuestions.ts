@@ -3,7 +3,7 @@ import { PresetQuestion } from './types';
 export const presetQuestions: PresetQuestion[] = [
   {
     id: '1',
-    question: 'What is FemTech Weekend?',
+    question: 'What is FemTech Weekend (飞姆科技周末)?',
     category: 'about',
     answer: "FemTech Weekend is China's first organization focusing on women's health technology challenges. We're dedicated to bridging the gender gap in women's health innovation through competitions, ecosystem building, and research dissemination. Our mission is to connect FemTech innovators, investors, and healthcare professionals across China and globally."
   },
@@ -15,15 +15,15 @@ export const presetQuestions: PresetQuestion[] = [
   },
   {
     id: '3',
-    question: 'How do I join the ecosystem?',
-    category: 'ecosystem',
-    answer: "To join our FemTech ecosystem of 200+ members, visit the Ecosystem page and click 'Join Ecosystem'. We welcome FemTech founders, investors, healthcare professionals, researchers, and corporate partners. Fill out the application form with your information, and our team will review your submission. Being part of our ecosystem gives you access to networking opportunities, resources, and collaboration possibilities."
+    question: 'Who are the team members behind FemTech Weekend?',
+    category: 'team',
+    answer: "Our leadership team includes six passionate women: Chan Meng (陈萌) and Grace Yang (杨冠琼) as Co-founders, Juliette Yao (姚嘉俊) as Program Lead, Jessica Shi (石洁诗) as Partnership Lead, Qiqi Xu (徐琦) as Research Lead, and Vivian Wang (王薇) as Community Lead. Each brings unique expertise in tech, healthcare, and ecosystem building."
   },
   {
     id: '4',
-    question: 'What research reports are available?',
-    category: 'research',
-    answer: "We publish comprehensive research on FemTech market trends, investment insights, and technology innovations in women's health. Our reports focus on the Greater China market with global perspectives, covering topics like market analysis, funding data, AI applications in women's health, and regional FemTech landscapes. Visit our Reports page to access these valuable resources."
+    question: 'What is the size of China\'s women\'s health market?',
+    category: 'market',
+    answer: "China's women's health market is valued at over ¥500 billion RMB with 15-20% annual growth. With 689 million women (48.8% of population), China represents one of the world's largest FemTech opportunities. FemTech investment reached $300+ million USD in 2023, with AI/ML applications growing 30%+ annually."
   },
   {
     id: '5',
@@ -45,8 +45,20 @@ export const presetQuestions: PresetQuestion[] = [
   },
   {
     id: '8',
-    question: 'What makes FemTech Weekend unique?',
-    category: 'about',
-    answer: "As China's first FemTech-focused organization, we bridge the gap between local innovation and global opportunities. Our unique position allows us to connect Chinese FemTech innovators with international markets while bringing global best practices to China. We combine competition platforms, ecosystem building, and research to create a comprehensive support system for women's health innovation."
+    question: 'What are the major women\'s health challenges in China?',
+    category: 'market',
+    answer: "Key challenges include: 20% infertility rate among couples, 15-20% postpartum depression prevalence, breast cancer as the #1 cancer in Chinese women, and 100+ million menopausal women with <2% HRT usage. These represent significant opportunities for FemTech innovation."
+  },
+  {
+    id: '9',
+    question: 'How can I contact specific team members?',
+    category: 'team',
+    answer: "You can reach our team members directly: Chan Meng (chanmeng@femtechweekend.com), Grace Yang (guanqiong@femtechweekend.com), Juliette Yao (juliette@femtechweekend.com), Jessica Shi (jessica@femtechweekend.com), Qiqi Xu (research@femtechweekend.com), or Vivian Wang (community@femtechweekend.com)."
+  },
+  {
+    id: '10',
+    question: '中国女性健康市场有哪些机会？',
+    category: 'market',
+    answer: "中国女性健康市场规模超过5000亿人民币，年增长率15-20%。6.89亿女性人口，智能手机普及率60%+，远程医疗市场预计2025年达2000亿。主要机会包括：生殖健康、产后护理、慢病管理、心理健康和更年期管理等领域。"
   }
 ];
