@@ -23,7 +23,8 @@ console.log(`${colors.green}Starting API server...${colors.reset}`);
 const API_ROUTES = {
   '/api/upload-image': require('./src/api/upload-image'),
   '/api/submit-ecosystem': require('./src/api/submit-ecosystem'),
-  '/api/pdf-form-submit': null // Will be loaded dynamically
+  '/api/pdf-form-submit': null, // Will be loaded dynamically
+  '/api/chat-stream': require('./src/api/chat-stream')
 };
 
 // Check if we have a local API route or a Vercel API route
