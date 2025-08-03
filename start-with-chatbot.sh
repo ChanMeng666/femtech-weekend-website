@@ -27,7 +27,7 @@ CLOUDINARY_API_KEY="your_api_key"
 CLOUDINARY_API_SECRET="your_api_secret"
 
 # Google Gemini AI Configuration
-GOOGLE_GENERATIVE_AI_API_KEY=AIzaSyB20tmcBvxE_1V6OyZnY50SKz0q-8ryUvQ
+GOOGLE_GENERATIVE_AI_API_KEY="your_gemini_api_key_here"
 
 # Environment
 NODE_ENV="development"
