@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "FemTech Weekend Competition",
+    "description": "The title for the blog used in SEO"
+  },
+  "description": {
+    "message": "FemTech Weekend Competition Platform",
+    "description": "The description for the blog used in SEO"
+  },
+  "sidebar.title": {
+    "message": "All competitions",
+    "description": "The label for the left sidebar"
+  }
+}

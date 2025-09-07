@@ -10,12 +10,16 @@ function Footer() {
   if (!footer) {
     return null;
   }
+  
   const {links, logo, style} = footer;
+  
+  // Filter out the Developer section from config since we don't need it as a column anymore
+  const filteredLinks = links?.filter(section => section.title !== 'Developer') || [];
 
   return (
     <FooterLayout
       style={style}
-      links={links && links.length > 0 && <FooterLinks links={links} />}
+      links={filteredLinks && filteredLinks.length > 0 && <FooterLinks links={filteredLinks} />}
       logo={logo && <FooterLogo logo={logo} />}
       copyright={<FooterCopyright />}
     />

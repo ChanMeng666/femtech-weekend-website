@@ -1,0 +1,951 @@
+{
+  "homepage.features.feature1.title": {
+    "message": "Drive Women's Health Innovation"
+  },
+  "homepage.features.feature1.description": {
+    "message": "We are dedicated to pioneering innovation in women's health, advocating for cutting-edge technology to break barriers, improve care, and empower women from China."
+  },
+  "homepage.features.feature2.title": {
+    "message": "Amplify Women in Tech Entrepreneurship"
+  },
+  "homepage.features.feature2.description": {
+    "message": "We redefine who builds the future of women's health – creating an inclusive ecosystem where every woman from China can access the knowledge, capital and support needed to succeed."
+  },
+  "homepage.features.feature3.title": {
+    "message": "Ecosystem Building"
+  },
+  "homepage.features.feature3.description": {
+    "message": "We build a thriving homegrown innovation hub while fostering cross-border collaboration - strengthening local industry-academia-investment-research ties while opening doors for worldwide knowledge exchange."
+  },
+  "homepage.hero.cta.join": {
+    "message": "Join The Ecosystem"
+  },
+  "homepage.partnership.title": {
+    "message": "Our Partners"
+  },
+  "homepage.partnership.subtitle": {
+    "message": "Collaborating with leading organizations to advance women's health technology"
+  },
+  "about.hero.title": {
+    "message": "About FemTech Weekend"
+  },
+  "about.hero.subtitle": {
+    "message": "Rooted in China, Connecting globally. We pioneer Women's Health Innovation in China to drive worldwide impact through entrepreneurship, ecosystem building, and cross-border collaboration."
+  },
+  "about.mission.title": {
+    "message": "Our Mission & Vision"
+  },
+  "about.mission.text": {
+    "message": "To advance women's health through innovation, entrepreneurship, and global collaboration."
+  },
+  "about.vision.title": {
+    "message": "Vision"
+  },
+  "about.vision.text": {
+    "message": "A world where technology empowers every woman to thrive through all life stages and health conditions."
+  },
+  "about.values.title": {
+    "message": "Our Values"
+  },
+  "about.values.subtitle": {
+    "message": "The principles that guide everything we do"
+  },
+  "about.values.innovation.title": {
+    "message": "Innovation First"
+  },
+  "about.values.innovation.description": {
+    "message": "We believe in pushing boundaries and supporting cutting-edge solutions that address real challenges in women's health."
+  },
+  "about.values.global.title": {
+    "message": "Global Connectivity"
+  },
+  "about.values.global.description": {
+    "message": "We build bridges between different markets, cultures, and communities to create a truly global FemTech ecosystem."
+  },
+  "about.values.inclusive.title": {
+    "message": "Inclusive Community"
+  },
+  "about.values.inclusive.description": {
+    "message": "We foster an environment where diverse perspectives are welcomed and everyone can contribute to advancing women's health."
+  },
+  "about.values.evidence.title": {
+    "message": "Evidence-Based Impact"
+  },
+  "about.values.evidence.description": {
+    "message": "We prioritize solutions backed by research and data, ensuring real-world impact on women's health outcomes."
+  },
+  "about.team.title": {
+    "message": "Our Team"
+  },
+  "about.team.subtitle": {
+    "message": "Meet the passionate individuals behind FemTech Weekend"
+  },
+  "about.team.meetOurTeam": {
+    "message": "Meet Our Team"
+  },
+  "about.team.description": {
+    "message": "Passionate leaders driving innovation in women's health across the globe."
+  },
+  "about.cta.title": {
+    "message": "Join Our Mission"
+  },
+  "about.cta.text": {
+    "message": "Become part of our growing community and help shape the future of women's health innovation in China and beyond."
+  },
+  "about.cta.button": {
+    "message": "Get Involved"
+  },
+  "about.advisorBoard.title": {
+    "message": "Advisor Board"
+  },
+  "about.advisorBoard.description": {
+    "message": "Experienced professionals guiding our mission in women's health innovation."
+  },
+  "competition.hero.badge": {
+    "message": "🏆 Registration Now Open"
+  },
+  "competition.hero.title": {
+    "message": "FemTech Weekend Competition 2024"
+  },
+  "competition.hero.description": {
+    "message": "Join the premier women's health innovation competition in China. Showcase your groundbreaking solutions, connect with leading investors, and accelerate your FemTech journey."
+  },
+  "competition.hero.registerButton": {
+    "message": "Register Now"
+  },
+  "competition.hero.learnMoreButton": {
+    "message": "Learn More"
+  },
+  "competition.stats.participatingTeams": {
+    "message": "Participating Teams"
+  },
+  "competition.stats.totalPrizePool": {
+    "message": "Total Prize Pool"
+  },
+  "competition.stats.industryMentors": {
+    "message": "Industry Mentors"
+  },
+  "competition.stats.investmentPartners": {
+    "message": "Investment Partners"
+  },
+  "competition.timeline.title": {
+    "message": "Competition Timeline"
+  },
+  "competition.timeline.description": {
+    "message": "Follow our structured program designed to maximize your success and growth."
+  },
+  "competition.requirements.title": {
+    "message": "Competition Categories & Requirements"
+  },
+  "competition.requirements.description": {
+    "message": "We welcome innovative solutions across all areas of women's health technology."
+  },
+  "competition.requirements.eligibilityCriteriaTitle": {
+    "message": "Eligibility Criteria"
+  },
+  "competition.registration.title": {
+    "message": "Ready to Transform Women's Health?"
+  },
+  "competition.registration.description": {
+    "message": "Join us in building the future of FemTech. Registration closes November 1, 2024."
+  },
+  "competition.registration.registerTeamButton": {
+    "message": "Register Your Team"
+  },
+  "competition.registration.viewPreviousWinnersButton": {
+    "message": "View Previous Winners"
+  },
+  "competition.registration.mentorshipFeature": {
+    "message": "Expert mentorship included"
+  },
+  "competition.registration.investorAccessFeature": {
+    "message": "Investor access guaranteed"
+  },
+  "homepage.competition.badge": {
+    "message": "🏆 Competition Now Live"
+  },
+  "homepage.competition.title": {
+    "message": "FemTech Weekend Competition 2024"
+  },
+  "homepage.competition.description": {
+    "message": "Join China's first women's health innovation competition. Showcase your breakthrough solutions, connect with top investors, and win up to ¥10,000 in prizes."
+  },
+  "homepage.competition.prizePool": {
+    "message": "Total Prize Pool"
+  },
+  "homepage.competition.teams": {
+    "message": "Participating Teams"
+  },
+  "homepage.competition.partners": {
+    "message": "Investment Partners and Mentors"
+  },
+  "homepage.competition.continents": {
+    "message": "Continents"
+  },
+  "homepage.competition.applications": {
+    "message": "Applications"
+  },
+  "homepage.competition.registrationOpen": {
+    "message": "Registration Open"
+  },
+  "homepage.competition.registrationDate": {
+    "message": "Until February 28, 2024"
+  },
+  "homepage.competition.finalEvent": {
+    "message": "Final Event"
+  },
+  "homepage.competition.finalEventDate": {
+    "message": "April 20-21, 2024"
+  },
+  "homepage.competition.registrationUntilDate": {
+    "message": "Until November 1, 2024"
+  },
+  "homepage.competition.finalEventSpecificDate": {
+    "message": "November 30, 2024"
+  },
+  "homepage.competition.joinButton": {
+    "message": "🚀 Join Competition"
+  },
+  "homepage.competition.learnMoreButton": {
+    "message": "Learn More"
+  },
+  "homepage.competition.participationInfo": {
+    "message": "Expert mentorship included • Investor access guaranteed"
+  },
+  "ecosystem.hero.badge": {
+    "message": "🌟 Join Our Community"
+  },
+  "ecosystem.hero.title": {
+    "message": "FemTech Weekend Ecosystem"
+  },
+  "ecosystem.hero.description": {
+    "message": "Join our dynamic and inclusive community, where founders, investors, corporates, academia, and enthusiasts from diverse backgrounds unite to drive progress in women's health."
+  },
+  "ecosystem.stats.communityMembers": {
+    "message": "Community Members"
+  },
+  "ecosystem.stats.memberCategories": {
+    "message": "Member Categories"
+  },
+  "ecosystem.stats.countriesRepresented": {
+    "message": "Countries Represented"
+  },
+  "ecosystem.stats.partnerOrganizations": {
+    "message": "Partner Organizations"
+  },
+  "reports.hero.title": {
+    "message": "The FemTech Reports"
+  },
+  "reports.hero.subtitle": {
+    "message": "Latest insights and research on women's health technology, innovation, and market trends"
+  },
+  "reports.section.title": {
+    "message": "Latest Reports"
+  },
+  "reports.section.subtitle": {
+    "message": "Stay updated with our comprehensive research and analysis"
+  },
+  "reports.cta.title": {
+    "message": "Stay Updated with Our Research"
+  },
+  "reports.cta.description": {
+    "message": "Get the latest reports and insights delivered directly to your inbox. Join our community of women's health innovators and investors."
+  },
+  "reports.cta.learnMoreButton": {
+    "message": "Learn More About Us"
+  },
+  "reports.cta.contactButton": {
+    "message": "Contact Research Team"
+  },
+  "reports.featured.label": {
+    "message": "Featured Report"
+  },
+  "reports.category.research": {
+    "message": "Research"
+  },
+  "reports.category.technology": {
+    "message": "Technology"
+  },
+  "reports.category.general": {
+    "message": "General"
+  },
+  "reports.category.investment": {
+    "message": "Investment"
+  },
+  "reports.category.allReports": {
+    "message": "All Reports"
+  },
+  "competition.categories.reproductiveHealth.title": {
+    "message": "Reproductive Health"
+  },
+  "competition.categories.reproductiveHealth.description": {
+    "message": "Fertility tracking, contraception, pregnancy care, menopause management"
+  },
+  "competition.categories.mentalHealth.title": {
+    "message": "Mental Health & Wellness"
+  },
+  "competition.categories.mentalHealth.description": {
+    "message": "Postpartum depression, anxiety management, wellness apps, therapy platforms"
+  },
+  "competition.categories.preventiveCare.title": {
+    "message": "Preventive Care"
+  },
+  "competition.categories.preventiveCare.description": {
+    "message": "Cancer screening, diagnostic tools, early detection systems, health monitoring"
+  },
+  "competition.categories.chronicDisease.title": {
+    "message": "Chronic Disease Management"
+  },
+  "competition.categories.chronicDisease.description": {
+    "message": "PCOS, endometriosis, autoimmune conditions, personalized treatment plans"
+  },
+  "competition.eligibility.earlyStageCriteria": {
+    "message": "Early-stage startups (pre-Series A)"
+  },
+  "competition.eligibility.focusCriteria": {
+    "message": "Focus on women's health technology"
+  },
+  "competition.eligibility.teamSizeCriteria": {
+    "message": "Team of 2-5 members"
+  },
+  "competition.eligibility.prototypeCriteria": {
+    "message": "Working prototype or MVP"
+  },
+  "competition.eligibility.businessModelCriteria": {
+    "message": "Clear business model and go-to-market strategy"
+  },
+  "competition.eligibility.commitmentCriteria": {
+    "message": "Commitment to participate in full program"
+  },
+  "competition.timeline.event1.date": {
+    "message": "Until October 20, 2024"
+  },
+  "competition.timeline.event1.title": {
+    "message": "Registration & Application"
+  },
+  "competition.timeline.event1.description": {
+    "message": "Submit your application with team details and project pitch"
+  },
+  "competition.timeline.event2.date": {
+    "message": "Nov 1 - Nov 20"
+  },
+  "competition.timeline.event2.title": {
+    "message": "Initial Screening"
+  },
+  "competition.timeline.event2.description": {
+    "message": "Expert panel reviews applications and selects semifinalists"
+  },
+  "competition.timeline.event3.date": {
+    "message": "Nov 23 - Nov 29"
+  },
+  "competition.timeline.event3.title": {
+    "message": "Mentorship Phase"
+  },
+  "competition.timeline.event3.description": {
+    "message": "Selected teams receive mentorship and refine their solutions"
+  },
+  "competition.timeline.event4.date": {
+    "message": "Nov 30 - Dec 1"
+  },
+  "competition.timeline.event4.title": {
+    "message": "Final Pitch Weekend"
+  },
+  "competition.timeline.event4.description": {
+    "message": "Teams present to judges and investors at the main event"
+  },
+  "competition.timeline.event5.date": {
+    "message": "Dec 1"
+  },
+  "competition.timeline.event5.title": {
+    "message": "Awards Ceremony"
+  },
+  "competition.timeline.event5.description": {
+    "message": "Winners announced and networking celebration"
+  },
+  "showcase.filters.resultCount": {
+    "message": "1 company|{companyCount} companies",
+    "description": "Pluralized label for the number of companies found on the showcase. Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "about.cta.exploreButton": {
+    "message": "Explore Companies"
+  },
+  "theme.showcase.filters.clearAll": {
+    "message": "Clear filters"
+  },
+  "ecosystem.mission.title": {
+    "message": "Building Bridges in Women's Health"
+  },
+  "ecosystem.mission.paragraph1": {
+    "message": "At FemTech Weekend, we recognise that women's health has long been underserved, underfunded, and overlooked. That's why we are dedicated to building bridges across disciplines—because true innovation happens when different perspectives come together."
+  },
+  "ecosystem.mission.paragraph2": {
+    "message": "We believe in the power of collaboration, serendipity, and shared purpose. Whether you are a pioneering founder, a passionate investor, a corporate changemaker, an advocate, or simply enthusiastic about women's health innovation, you'll find opportunities here to CONNECT, COLLABORATE, and CREATE impact."
+  },
+  "ecosystem.mission.paragraph3": {
+    "message": "Through curated programs, mentorship, workshops, and engaging events, FemTech Weekend is your gateway to breaking barriers and shaping a more equitable future in women's health innovation in China or connecting globally."
+  },
+  "ecosystem.mission.highlight.connect": {
+    "message": "CONNECT"
+  },
+  "ecosystem.mission.highlight.collaborate": {
+    "message": "COLLABORATE"
+  },
+  "ecosystem.mission.highlight.create": {
+    "message": "CREATE"
+  },
+  "ecosystem.join.readyTitle": {
+    "message": "Ready to Join the Ecosystem?"
+  },
+  "ecosystem.join.readyDescription": {
+    "message": "Join us and become part of the FemTech Weekend Ecosystem—a network that empowers, inspires, and celebrates everyone working to advance women's health."
+  },
+  "ecosystem.join.learnMoreButton": {
+    "message": "Learn More"
+  },
+  "ecosystem.join.applyButton": {
+    "message": "Apply to Join"
+  },
+  "ecosystem.directory.title": {
+    "message": "Meet Our Community"
+  },
+  "ecosystem.directory.description": {
+    "message": "Discover the diverse group of innovators, leaders, and changemakers driving women's health forward."
+  },
+  "ecosystem.directory.noMembers": {
+    "message": "No members found in this category. Check back soon as our community grows!"
+  },
+  "ecosystem.directory.allMembers": {
+    "message": "All Members"
+  },
+  "ecosystem.directory.category.femtechFoundersChina": {
+    "message": "FemTech founders (Mainland China)"
+  },
+  "ecosystem.directory.category.femtechFoundersInternational": {
+    "message": "FemTech founders (International)"
+  },
+  "ecosystem.directory.category.investors": {
+    "message": "Investors"
+  },
+  "ecosystem.directory.category.corporates": {
+    "message": "Corporates"
+  },
+  "ecosystem.directory.category.academia": {
+    "message": "Academia"
+  },
+  "ecosystem.directory.category.femtechEnthusiasts": {
+    "message": "FemTech enthusiasts"
+  },
+  "theme.showcase.card.founder": {
+    "message": "Founder: "
+  },
+  "theme.showcase.card.funding": {
+    "message": "Funding: "
+  },
+  "theme.showcase.card.investors": {
+    "message": "Investors: "
+  },
+  "theme.showcase.filters.operator": {
+    "message": "Filter criteria: {operator}"
+  },
+  "theme.showcase.companyList.noResult": {
+    "message": "No results"
+  },
+  "theme.showcase.companyList.allCompanies": {
+    "message": "All Companies"
+  },
+  "theme.showcase.filters.title": {
+    "message": "Filters"
+  },
+  "header.title": {
+    "message": "FemTech Companies Showcase"
+  },
+  "header.description": {
+    "message": "Directory of innovative companies in the women's health industry in China"
+  },
+  "database.searchBar.placeholder": {
+    "message": "Search for company name..."
+  },
+  "theme.showcase.detail.location": {
+    "message": "Location: "
+  },
+  "theme.showcase.detail.description": {
+    "message": "Company Description: "
+  },
+  "theme.showcase.detail.founder": {
+    "message": "Founder: "
+  },
+  "theme.showcase.detail.website": {
+    "message": "Website: "
+  },
+  "theme.showcase.detail.investors": {
+    "message": "Investors: "
+  },
+  "theme.showcase.detail.funding": {
+    "message": "Funding History: "
+  },
+  "theme.showcase.detail.tags": {
+    "message": "Tags: "
+  },
+  "footer.developer.attribution.text": {
+    "message": "Website crafted with",
+    "description": "Developer attribution text"
+  },
+  "footer.developer.attribution.by": {
+    "message": "by",
+    "description": "Developer attribution by"
+  },
+  "footer.developer.name": {
+    "message": "Chan Meng",
+    "description": "Developer name"
+  },
+  "footer.developer.attribution.contact": {
+    "message": "Need a website?",
+    "description": "Contact for development"
+  },
+  "footer.developer.attribution.email": {
+    "message": "Get in touch",
+    "description": "Email contact"
+  },
+  "theme.ErrorPageContent.title": {
+    "message": "This page crashed.",
+    "description": "The title of the fallback page when the page crashed"
+  },
+  "theme.BackToTopButton.buttonAriaLabel": {
+    "message": "Scroll back to top",
+    "description": "The ARIA label for the back to top button"
+  },
+  "theme.blog.archive.title": {
+    "message": "Archive",
+    "description": "The page & hero title of the blog archive page"
+  },
+  "theme.blog.archive.description": {
+    "message": "Archive",
+    "description": "The page & hero description of the blog archive page"
+  },
+  "theme.blog.paginator.navAriaLabel": {
+    "message": "Blog list page navigation",
+    "description": "The ARIA label for the blog pagination"
+  },
+  "theme.blog.paginator.newerEntries": {
+    "message": "Newer entries",
+    "description": "The label used to navigate to the newer blog posts page (previous page)"
+  },
+  "theme.blog.paginator.olderEntries": {
+    "message": "Older entries",
+    "description": "The label used to navigate to the older blog posts page (next page)"
+  },
+  "theme.blog.post.paginator.navAriaLabel": {
+    "message": "Blog post page navigation",
+    "description": "The ARIA label for the blog posts pagination"
+  },
+  "theme.blog.post.paginator.newerPost": {
+    "message": "Newer post",
+    "description": "The blog post button label to navigate to the newer/previous post"
+  },
+  "theme.blog.post.paginator.olderPost": {
+    "message": "Older post",
+    "description": "The blog post button label to navigate to the older/next post"
+  },
+  "theme.tags.tagsPageLink": {
+    "message": "View all tags",
+    "description": "The label of the link targeting the tag list page"
+  },
+  "theme.colorToggle.ariaLabel": {
+    "message": "Switch between dark and light mode (currently {mode})",
+    "description": "The ARIA label for the navbar color mode toggle"
+  },
+  "theme.colorToggle.ariaLabel.mode.dark": {
+    "message": "dark mode",
+    "description": "The name for the dark color mode"
+  },
+  "theme.colorToggle.ariaLabel.mode.light": {
+    "message": "light mode",
+    "description": "The name for the light color mode"
+  },
+  "theme.docs.DocCard.categoryDescription.plurals": {
+    "message": "1 item|{count} items",
+    "description": "The default description for a category card in the generated index about how many items this category includes"
+  },
+  "theme.docs.breadcrumbs.navAriaLabel": {
+    "message": "Breadcrumbs",
+    "description": "The ARIA label for the breadcrumbs"
+  },
+  "theme.docs.paginator.navAriaLabel": {
+    "message": "Docs pages",
+    "description": "The ARIA label for the docs pagination"
+  },
+  "theme.docs.paginator.previous": {
+    "message": "Previous",
+    "description": "The label used to navigate to the previous doc"
+  },
+  "theme.docs.paginator.next": {
+    "message": "Next",
+    "description": "The label used to navigate to the next doc"
+  },
+  "theme.docs.tagDocListPageTitle.nDocsTagged": {
+    "message": "One doc tagged|{count} docs tagged",
+    "description": "Pluralized label for \"{count} docs tagged\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.docs.tagDocListPageTitle": {
+    "message": "{nDocsTagged} with \"{tagName}\"",
+    "description": "The title of the page for a docs tag"
+  },
+  "theme.docs.versionBadge.label": {
+    "message": "Version: {versionLabel}"
+  },
+  "theme.docs.versions.unreleasedVersionLabel": {
+    "message": "This is unreleased documentation for {siteTitle} {versionLabel} version.",
+    "description": "The label used to tell the user that he's browsing an unreleased doc version"
+  },
+  "theme.docs.versions.unmaintainedVersionLabel": {
+    "message": "This is documentation for {siteTitle} {versionLabel}, which is no longer actively maintained.",
+    "description": "The label used to tell the user that he's browsing an unmaintained doc version"
+  },
+  "theme.docs.versions.latestVersionSuggestionLabel": {
+    "message": "For up-to-date documentation, see the {latestVersionLink} ({versionLabel}).",
+    "description": "The label used to tell the user to check the latest version"
+  },
+  "theme.docs.versions.latestVersionLinkLabel": {
+    "message": "latest version",
+    "description": "The label used for the latest version suggestion link label"
+  },
+  "theme.common.editThisPage": {
+    "message": "Edit this page",
+    "description": "The link label to edit the current page"
+  },
+  "theme.common.headingLinkTitle": {
+    "message": "Direct link to {heading}",
+    "description": "Title for link to heading"
+  },
+  "theme.lastUpdated.atDate": {
+    "message": " on {date}",
+    "description": "The words used to describe on which date a page has been last updated"
+  },
+  "theme.lastUpdated.byUser": {
+    "message": " by {user}",
+    "description": "The words used to describe by who the page has been last updated"
+  },
+  "theme.lastUpdated.lastUpdatedAtBy": {
+    "message": "Last updated{atDate}{byUser}",
+    "description": "The sentence used to display when a page has been last updated, and by who"
+  },
+  "theme.navbar.mobileVersionsDropdown.label": {
+    "message": "Versions",
+    "description": "The label for the navbar versions dropdown on mobile view"
+  },
+  "theme.NotFound.title": {
+    "message": "Page Not Found",
+    "description": "The title of the 404 page"
+  },
+  "theme.tags.tagsListLabel": {
+    "message": "Tags:",
+    "description": "The label alongside a tag list"
+  },
+  "theme.AnnouncementBar.closeButtonAriaLabel": {
+    "message": "Close",
+    "description": "The ARIA label for close button of announcement bar"
+  },
+  "theme.admonition.caution": {
+    "message": "caution",
+    "description": "The default label used for the Caution admonition (:::caution)"
+  },
+  "theme.admonition.danger": {
+    "message": "danger",
+    "description": "The default label used for the Danger admonition (:::danger)"
+  },
+  "theme.admonition.info": {
+    "message": "info",
+    "description": "The default label used for the Info admonition (:::info)"
+  },
+  "theme.admonition.note": {
+    "message": "note",
+    "description": "The default label used for the Note admonition (:::note)"
+  },
+  "theme.admonition.tip": {
+    "message": "tip",
+    "description": "The default label used for the Tip admonition (:::tip)"
+  },
+  "theme.admonition.warning": {
+    "message": "warning",
+    "description": "The default label used for the Warning admonition (:::warning)"
+  },
+  "theme.blog.sidebar.navAriaLabel": {
+    "message": "Blog recent posts navigation",
+    "description": "The ARIA label for recent posts in the blog sidebar"
+  },
+  "theme.CodeBlock.copied": {
+    "message": "Copied",
+    "description": "The copied button label on code blocks"
+  },
+  "theme.CodeBlock.copyButtonAriaLabel": {
+    "message": "Copy code to clipboard",
+    "description": "The ARIA label for copy code blocks button"
+  },
+  "theme.CodeBlock.copy": {
+    "message": "Copy",
+    "description": "The copy button label on code blocks"
+  },
+  "theme.CodeBlock.wordWrapToggle": {
+    "message": "Toggle word wrap",
+    "description": "The title attribute for toggle word wrapping button of code block lines"
+  },
+  "theme.DocSidebarItem.expandCategoryAriaLabel": {
+    "message": "Expand sidebar category '{label}'",
+    "description": "The ARIA label to expand the sidebar category"
+  },
+  "theme.DocSidebarItem.collapseCategoryAriaLabel": {
+    "message": "Collapse sidebar category '{label}'",
+    "description": "The ARIA label to collapse the sidebar category"
+  },
+  "theme.NavBar.navAriaLabel": {
+    "message": "Main",
+    "description": "The ARIA label for the main navigation"
+  },
+  "theme.NotFound.p1": {
+    "message": "We could not find what you were looking for.",
+    "description": "The first paragraph of the 404 page"
+  },
+  "theme.NotFound.p2": {
+    "message": "Please contact the owner of the site that linked you to the original URL and let them know their link is broken.",
+    "description": "The 2nd paragraph of the 404 page"
+  },
+  "theme.TOCCollapsible.toggleButtonLabel": {
+    "message": "On this page",
+    "description": "The label used by the button on the collapsible TOC component"
+  },
+  "theme.navbar.mobileLanguageDropdown.label": {
+    "message": "Languages",
+    "description": "The label for the mobile language switcher dropdown"
+  },
+  "theme.blog.post.readMore": {
+    "message": "Read more",
+    "description": "The label used in blog post item excerpts to link to full blog posts"
+  },
+  "theme.blog.post.readMoreLabel": {
+    "message": "Read more about {title}",
+    "description": "The ARIA label for the link to full blog posts from excerpts"
+  },
+  "theme.docs.breadcrumbs.home": {
+    "message": "Home page",
+    "description": "The ARIA label for the home page in the breadcrumbs"
+  },
+  "theme.blog.post.readingTime.plurals": {
+    "message": "One min read|{readingTime} min read",
+    "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.docs.sidebar.collapseButtonTitle": {
+    "message": "Collapse sidebar",
+    "description": "The title attribute for collapse button of doc sidebar"
+  },
+  "theme.docs.sidebar.collapseButtonAriaLabel": {
+    "message": "Collapse sidebar",
+    "description": "The title attribute for collapse button of doc sidebar"
+  },
+  "theme.docs.sidebar.navAriaLabel": {
+    "message": "Docs sidebar",
+    "description": "The ARIA label for the sidebar navigation"
+  },
+  "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
+    "message": "Close navigation bar",
+    "description": "The ARIA label for close button of mobile sidebar"
+  },
+  "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
+    "message": "← Back to main menu",
+    "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)"
+  },
+  "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
+    "message": "Toggle navigation bar",
+    "description": "The ARIA label for hamburger menu button of mobile navigation"
+  },
+  "theme.docs.sidebar.expandButtonTitle": {
+    "message": "Expand sidebar",
+    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
+  "theme.docs.sidebar.expandButtonAriaLabel": {
+    "message": "Expand sidebar",
+    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
+  "theme.SearchBar.seeAll": {
+    "message": "See all {count} results"
+  },
+  "theme.SearchPage.documentsFound.plurals": {
+    "message": "One document found|{count} documents found",
+    "description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.SearchPage.existingResultsTitle": {
+    "message": "Search results for \"{query}\"",
+    "description": "The search page title for non-empty query"
+  },
+  "theme.SearchPage.emptyResultsTitle": {
+    "message": "Search the documentation",
+    "description": "The search page title for empty query"
+  },
+  "theme.SearchPage.inputPlaceholder": {
+    "message": "Type your search here",
+    "description": "The placeholder for search page input"
+  },
+  "theme.SearchPage.inputLabel": {
+    "message": "Search",
+    "description": "The ARIA label for search page input"
+  },
+  "theme.SearchPage.algoliaLabel": {
+    "message": "Search by Algolia",
+    "description": "The ARIA label for Algolia mention"
+  },
+  "theme.SearchPage.noResultsText": {
+    "message": "No results were found",
+    "description": "The paragraph for empty search result"
+  },
+  "theme.SearchPage.fetchingNewResults": {
+    "message": "Fetching new results...",
+    "description": "The paragraph for fetching new search results"
+  },
+  "theme.SearchBar.label": {
+    "message": "Search",
+    "description": "The ARIA label and placeholder for search button"
+  },
+  "theme.SearchModal.searchBox.resetButtonTitle": {
+    "message": "Clear the query",
+    "description": "The label and ARIA label for search box reset button"
+  },
+  "theme.SearchModal.searchBox.cancelButtonText": {
+    "message": "Cancel",
+    "description": "The label and ARIA label for search box cancel button"
+  },
+  "theme.SearchModal.startScreen.recentSearchesTitle": {
+    "message": "Recent",
+    "description": "The title for recent searches"
+  },
+  "theme.SearchModal.startScreen.noRecentSearchesText": {
+    "message": "No recent searches",
+    "description": "The text when no recent searches"
+  },
+  "theme.SearchModal.startScreen.saveRecentSearchButtonTitle": {
+    "message": "Save this search",
+    "description": "The label for save recent search button"
+  },
+  "theme.SearchModal.startScreen.removeRecentSearchButtonTitle": {
+    "message": "Remove this search from history",
+    "description": "The label for remove recent search button"
+  },
+  "theme.SearchModal.startScreen.favoriteSearchesTitle": {
+    "message": "Favorite",
+    "description": "The title for favorite searches"
+  },
+  "theme.SearchModal.startScreen.removeFavoriteSearchButtonTitle": {
+    "message": "Remove this search from favorites",
+    "description": "The label for remove favorite search button"
+  },
+  "theme.SearchModal.errorScreen.titleText": {
+    "message": "Unable to fetch results",
+    "description": "The title for error screen of search modal"
+  },
+  "theme.SearchModal.errorScreen.helpText": {
+    "message": "You might want to check your network connection.",
+    "description": "The help text for error screen of search modal"
+  },
+  "theme.SearchModal.footer.selectText": {
+    "message": "to select",
+    "description": "The explanatory text of the action for the enter key"
+  },
+  "theme.SearchModal.footer.selectKeyAriaLabel": {
+    "message": "Enter key",
+    "description": "The ARIA label for the Enter key button that makes the selection"
+  },
+  "theme.SearchModal.footer.navigateText": {
+    "message": "to navigate",
+    "description": "The explanatory text of the action for the Arrow up and Arrow down key"
+  },
+  "theme.SearchModal.footer.navigateUpKeyAriaLabel": {
+    "message": "Arrow up",
+    "description": "The ARIA label for the Arrow up key button that makes the navigation"
+  },
+  "theme.SearchModal.footer.navigateDownKeyAriaLabel": {
+    "message": "Arrow down",
+    "description": "The ARIA label for the Arrow down key button that makes the navigation"
+  },
+  "theme.SearchModal.footer.closeText": {
+    "message": "to close",
+    "description": "The explanatory text of the action for Escape key"
+  },
+  "theme.SearchModal.footer.closeKeyAriaLabel": {
+    "message": "Escape key",
+    "description": "The ARIA label for the Escape key button that close the modal"
+  },
+  "theme.SearchModal.footer.searchByText": {
+    "message": "Search by",
+    "description": "The text explain that the search is making by Algolia"
+  },
+  "theme.SearchModal.noResultsScreen.noResultsText": {
+    "message": "No results for",
+    "description": "The text explains that there are no results for the following search"
+  },
+  "theme.SearchModal.noResultsScreen.suggestedQueryText": {
+    "message": "Try searching for",
+    "description": "The text for the suggested query when no results are found for the following search"
+  },
+  "theme.SearchModal.noResultsScreen.reportMissingResultsText": {
+    "message": "Believe this query should return results?",
+    "description": "The text for the question where the user thinks there are missing results"
+  },
+  "theme.SearchModal.noResultsScreen.reportMissingResultsLinkText": {
+    "message": "Let us know.",
+    "description": "The text for the link to report missing results"
+  },
+  "theme.SearchModal.placeholder": {
+    "message": "Search docs",
+    "description": "The placeholder of the input of the DocSearch pop-up modal"
+  },
+  "theme.blog.post.plurals": {
+    "message": "One post|{count} posts",
+    "description": "Pluralized label for \"{count} posts\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.blog.tagTitle": {
+    "message": "{nPosts} tagged with \"{tagName}\"",
+    "description": "The title of the page for a blog tag"
+  },
+  "theme.blog.author.pageTitle": {
+    "message": "{authorName} - {nPosts}",
+    "description": "The title of the page for a blog author"
+  },
+  "theme.blog.authorsList.pageTitle": {
+    "message": "Authors",
+    "description": "The title of the authors page"
+  },
+  "theme.blog.authorsList.viewAll": {
+    "message": "View all authors",
+    "description": "The label of the link targeting the blog authors page"
+  },
+  "theme.blog.author.noPosts": {
+    "message": "This author has not written any posts yet.",
+    "description": "The text for authors with 0 blog post"
+  },
+  "theme.contentVisibility.unlistedBanner.title": {
+    "message": "Unlisted page",
+    "description": "The unlisted content banner title"
+  },
+  "theme.contentVisibility.unlistedBanner.message": {
+    "message": "This page is unlisted. Search engines will not index it, and only users having a direct link can access it.",
+    "description": "The unlisted content banner message"
+  },
+  "theme.contentVisibility.draftBanner.title": {
+    "message": "Draft page",
+    "description": "The draft content banner title"
+  },
+  "theme.contentVisibility.draftBanner.message": {
+    "message": "This page is a draft. It will only be visible in dev and be excluded from the production build.",
+    "description": "The draft content banner message"
+  },
+  "theme.ErrorPageContent.tryAgain": {
+    "message": "Try again",
+    "description": "The label of the button to try again rendering when the React error boundary captures an error"
+  },
+  "theme.common.skipToMainContent": {
+    "message": "Skip to main content",
+    "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
+  },
+  "theme.tags.tagsPageTitle": {
+    "message": "Tags",
+    "description": "The title of the tag list page"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "title": {
+    "message": "Femtech Weekend",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Femtech Weekend Logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.About Us": {
+    "message": "About Us",
+    "description": "Navbar item with label About Us"
+  },
+  "item.label.Competition": {
+    "message": "Competition",
+    "description": "Navbar item with label Competition"
+  },
+  "item.label.Ecosystem": {
+    "message": "Ecosystem",
+    "description": "Navbar item with label Ecosystem"
+  },
+  "item.label.Insights": {
+    "message": "Insights",
+    "description": "Navbar item with label Insights"
+  },
+  "item.label.Reports": {
+    "message": "Reports",
+    "description": "Navbar item with label Reports"
+  },
+  "item.label.Database": {
+    "message": "Database",
+    "description": "Navbar item with label Database"
+  }
+}

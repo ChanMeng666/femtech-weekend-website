@@ -1,0 +1,14 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.FemTech WKD Insights": {
+    "message": "FemTech WKD Insights",
+    "description": "The label for category FemTech WKD Insights in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.FemTech WKD Insights.link.generated-index.description": {
+    "message": "Insights into the latest trends and innovations in Female Health Technology",
+    "description": "The generated-index page description for category FemTech WKD Insights in sidebar tutorialSidebar"
+  }
+}
