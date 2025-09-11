@@ -28,12 +28,12 @@ export const GEOAnalytics = {
   },
 
   trackAITraffic: (referrer, query, userAgent) => {
-    const isAITraffic = this.detectAITraffic(referrer, userAgent);
+    const isAITraffic = GEOAnalytics.detectAITraffic(referrer, userAgent);
     
     if (isAITraffic && typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'ai_traffic', {
         event_category: 'GEO Performance',
-        ai_source: this.identifyAISource(referrer, userAgent),
+        ai_source: GEOAnalytics.identifyAISource(referrer, userAgent),
         search_query: query,
         traffic_type: 'ai_generated'
       });
@@ -42,7 +42,7 @@ export const GEOAnalytics = {
     // Console logging for development
     if (process.env.NODE_ENV === 'development' && isAITraffic) {
       console.log('AI Traffic Detected:', {
-        source: this.identifyAISource(referrer, userAgent),
+        source: GEOAnalytics.identifyAISource(referrer, userAgent),
         referrer,
         userAgent,
         query,
@@ -172,12 +172,12 @@ export const GEOAnalytics = {
     const currentPath = window.location.pathname;
     
     // Check for AI traffic
-    const isAITraffic = this.trackAITraffic(referrer, null, userAgent);
+    const isAITraffic = GEOAnalytics.trackAITraffic(referrer, null, userAgent);
     
     // Track page load for GEO analysis
     window.addEventListener('load', () => {
       const loadTime = performance.now();
-      this.trackPagePerformance(this.getPageType(currentPath), {
+      GEOAnalytics.trackPagePerformance(GEOAnalytics.getPageType(currentPath), {
         loadTime: Math.round(loadTime),
         referrer: referrer,
         isAITraffic: isAITraffic,
@@ -190,7 +190,7 @@ export const GEOAnalytics = {
     const query = urlParams.get('q') || urlParams.get('query') || urlParams.get('search');
     
     if (query && isAITraffic) {
-      this.trackCitation('organic_search', query, 'direct_visit');
+      GEOAnalytics.trackCitation('organic_search', query, 'direct_visit');
     }
   },
 
