@@ -12,4 +12,11 @@ export { TestimonialsSection } from './TestimonialsSection';
 export { Testimonial, TestimonialGrid } from './Testimonial';
 
 // Waves Component
-export { default as Waves } from './Waves'; 
+export { default as Waves } from './Waves';
+
+// Analytics Components
+export { default as GEOTracker } from './GEOTracker';
+export { default as GEOHead } from './GEOHead';
+
+// Structured Data Components
+export { OrganizationSchema, EventSchema } from './StructuredData'; 

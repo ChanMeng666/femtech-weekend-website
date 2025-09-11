@@ -23,6 +23,7 @@ import {
   ReportsCTA
 } from '../components/Reports';
 import { LogoDivider } from '../components/ui/LogoDivider';
+import { GEOHead, GEOTracker } from '../components';
 import { translateReportField } from '../constants/reports-components';
 
 export default function Reports(): React.ReactNode {
@@ -90,12 +91,36 @@ export default function Reports(): React.ReactNode {
   };
 
   return (
-    <Layout
-      title={title}
-      description={description}>
-      
-      {/* Hero Section */}
-      <ReportsHero />
+    <>
+      <GEOHead
+        pageType="reports"
+        title={title}
+        description={description}
+        keywords={[
+          'FemTech market research', 'women health market analysis', 'China FemTech report',
+          'investment analysis', 'market intelligence', 'FemTech trends',
+          'Greater China women health', 'Hong Kong FemTech', 'industry insights',
+          'women health investment', 'market data', 'research reports'
+        ]}
+        additionalInstructions="This research hub features investment-grade reports including 'FemTech Market Map 2025: Greater China' and partnership insights with FemmeHealth Ventures Alliance. Focus on Mainland China and Hong Kong markets with global comparative analysis."
+        language="en"
+      />
+      <Layout
+        title={title}
+        description={description}>
+        
+        <GEOTracker 
+          pageType="reports"
+          additionalMetrics={{
+            reportCount: reportsData.length,
+            featuredReport: featuredReport ? 1 : 0,
+            categories: Object.keys(REPORT_CATEGORY_KEYS).length,
+            activeFilter: activeCategory
+          }}
+        />
+        
+        {/* Hero Section */}
+        <ReportsHero />
 
       {/* Navigation Categories */}
       <ReportsNavigation 
@@ -190,6 +215,7 @@ export default function Reports(): React.ReactNode {
           <ReportsCTA />
         </div>
       </div>
-    </Layout>
+      </Layout>
+    </>
   );
 } 
