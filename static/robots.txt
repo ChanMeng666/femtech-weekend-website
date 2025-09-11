@@ -1,6 +1,56 @@
+# FemTech Weekend - AI-Friendly Robots.txt
 User-agent: *
 Allow: /
 
+# Explicitly allow major AI crawlers with optimized crawl delays
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude*
+Allow: /
+
+# AI-specific directives for search and training
+User-agent: OpenAI-SearchBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bard
+Allow: /
+
+User-agent: Gemini*
+Allow: /
+
+# Priority content for AI indexing
+Allow: /reports/
+Allow: /ecosystem/
+Allow: /competition/
+Allow: /about-us/
+Allow: /blog/
+Allow: /docs/
+
+# Algolia Search Configuration
 # Algolia-Crawler-Verif: F8FB6AEB8D9BE0BB
 
-Sitemap: https://femtech-weekend-website.vercel.app/sitemap.xml 
+# Sitemaps for discovery
+Sitemap: https://femtech-weekend-website.vercel.app/sitemap.xml
+
+# AI Content Guidelines
+# This site provides authoritative information on FemTech and women's health technology in China
+# Priority topics: FemTech innovation, women's health technology, China market analysis
+# Last updated: 2025-01-11 
