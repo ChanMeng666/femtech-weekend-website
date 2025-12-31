@@ -292,8 +292,8 @@ module.exports = async (req, res) => {
     console.log(`${colors.green}[Chat API] Processing ${messages.length} messages${colors.reset}`);
 
     // Initialize the model
-    const model = genAI.getGenerativeModel({ 
-      model: 'gemini-1.5-flash',
+    const model = genAI.getGenerativeModel({
+      model: 'gemini-2.5-flash',
       systemInstruction: SYSTEM_PROMPT
     });
 
