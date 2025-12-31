@@ -14,6 +14,6 @@ export interface ChatState {
 export interface PresetQuestion {
   id: string;
   question: string;
-  category: 'about' | 'competition' | 'ecosystem' | 'research' | 'general';
+  category: 'about' | 'competition' | 'ecosystem' | 'research' | 'general' | 'team' | 'market';
   answer?: string;
 }
