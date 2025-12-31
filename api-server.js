@@ -24,7 +24,8 @@ const API_ROUTES = {
   '/api/upload-image': require('./src/api/upload-image'),
   '/api/submit-ecosystem': require('./src/api/submit-ecosystem'),
   '/api/pdf-form-submit': null, // Will be loaded dynamically
-  '/api/chat-stream': require('./src/api/chat-stream')
+  '/api/chat-stream': require('./src/api/chat-stream'),
+  '/api/admin/send-approval': require('./src/api/admin/send-approval')
 };
 
 // Check if we have a local API route or a Vercel API route
@@ -97,7 +98,7 @@ const handleCORS = (req, res) => {
   // Add CORS headers to all responses
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, x-admin-key, X-Admin-Key');
   
   // Handle OPTIONS preflight requests
   if (req.method === 'OPTIONS') {
@@ -179,5 +180,10 @@ server.listen(PORT, () => {
   console.log(`- NOTION_TOKEN: ${process.env.NOTION_TOKEN ? '✓ Set' : '✗ Not set'}`);
   console.log(`- NOTION_DATABASE_ID: ${process.env.NOTION_DATABASE_ID ? '✓ Set' : '✗ Not set'}`);
   console.log(`- PDF_FORM_DATABASE_ID: ${process.env.PDF_FORM_DATABASE_ID ? '✓ Set' : '✗ Not set'}`);
+  console.log(`${colors.cyan}Email configuration:${colors.reset}`);
+  console.log(`- RESEND_API_KEY: ${process.env.RESEND_API_KEY ? '✓ Set' : '✗ Not set'}`);
+  console.log(`- RESEND_FROM_EMAIL: ${process.env.RESEND_FROM_EMAIL || 'noreply@femtechweekend.com (default)'}`);
+  console.log(`- ADMIN_EMAILS: ${process.env.ADMIN_EMAILS ? process.env.ADMIN_EMAILS : '✗ Not set'}`);
+  console.log(`- ADMIN_API_KEY: ${process.env.ADMIN_API_KEY ? '✓ Set' : '✗ Not set'}`);
   console.log(`${colors.yellow}Make sure to run Docusaurus with "npm start" in another terminal window${colors.reset}`);
 }); 

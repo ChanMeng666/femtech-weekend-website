@@ -1,4 +1,5 @@
 const { Client } = require("@notionhq/client");
+const { sendEcosystemEmails } = require('./services/email');
 
 // Initialize Notion client
 const notion = new Client({
@@ -142,10 +143,27 @@ module.exports = async function handler(req, res) {
     const response = await notion.pages.create(notionPageParams);
     console.log("Notion page created successfully:", response.id);
 
+    // Send confirmation emails (non-blocking)
+    // Email failures should not affect the main response
+    try {
+      const emailResults = await sendEcosystemEmails(formData);
+      console.log("Email send results:", JSON.stringify(emailResults, null, 2));
+
+      if (!emailResults.userEmail.success) {
+        console.warn("Failed to send user confirmation email:", emailResults.userEmail.error);
+      }
+      if (!emailResults.adminEmail.success) {
+        console.warn("Failed to send admin notification email:", emailResults.adminEmail.error);
+      }
+    } catch (emailError) {
+      // Log but don't fail the request
+      console.error("Email sending error (non-fatal):", emailError.message);
+    }
+
     // Return success response
-    return res.status(200).json({ 
-      success: true, 
-      message: "Form data successfully submitted to Notion" 
+    return res.status(200).json({
+      success: true,
+      message: "Form data successfully submitted to Notion"
     });
   } catch (error) {
     console.error("Error submitting to Notion:", error);
