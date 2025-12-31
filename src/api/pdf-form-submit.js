@@ -3,6 +3,7 @@
  * This handler receives form data and stores it in a Notion database
  */
 const { Client } = require('@notionhq/client');
+const { sendPdfDownloadEmails } = require('./services/email');
 
 // Colors for console output
 const colors = {
@@ -171,9 +172,26 @@ async function handler(req, res) {
     const response = await notion.pages.create(pageParams);
     console.log(`${colors.green}Notion page created successfully:${colors.reset}`, response.id);
 
+    // Send confirmation emails (non-blocking)
+    // Email failures should not affect the main response
+    try {
+      const emailResults = await sendPdfDownloadEmails(formData);
+      console.log(`${colors.cyan}Email send results:${colors.reset}`, JSON.stringify(emailResults, null, 2));
+
+      if (!emailResults.userEmail.success) {
+        console.warn(`${colors.yellow}Failed to send user confirmation email:${colors.reset}`, emailResults.userEmail.error);
+      }
+      if (!emailResults.adminEmail.success) {
+        console.warn(`${colors.yellow}Failed to send admin notification email:${colors.reset}`, emailResults.adminEmail.error);
+      }
+    } catch (emailError) {
+      // Log but don't fail the request
+      console.error(`${colors.yellow}Email sending error (non-fatal):${colors.reset}`, emailError.message);
+    }
+
     // Return success response
-    return res.status(200).json({ 
-      success: true, 
+    return res.status(200).json({
+      success: true,
       message: 'Form submitted successfully',
       pageId: response.id
     });
