@@ -23,7 +23,8 @@ const REPORT_TAGS = {
   STARTUP: 'startup',
   INVESTMENT: 'investment',
   PARTNERSHIP: 'partnership',
-  EUROPE: 'europe'
+  EUROPE: 'europe',
+  GLOBAL: 'global'
 };
 
 // Helper function to translate a tag
@@ -36,6 +37,37 @@ const translateTag = (tagKey: string) => {
 
 // Static fallback data based on existing blog posts
 export const staticReportsData: ReportItem[] = [
+  {
+    id: '7',
+    title: translateReportField(
+      'reports.data.femtech-investment-landscape-2025.title',
+      '2025 Global FemTech Investment Landscape Review: Capital Shift from Consumer Narrative to Serious Healthcare'
+    ),
+    description: translateReportField(
+      'reports.data.femtech-investment-landscape-2025.description',
+      'In 2025, the global FemTech sector has witnessed a surge in investment and financing activities. This comprehensive two-way analysis between Western countries and China reviews 50+ major transactions, deconstructing the underlying logic of capital preferences and sector structure.'
+    ),
+    category: getReportCategoryInvestment(),
+    date: 'January 1',
+    readTime: getReportReadTime('10'),
+    author: 'Zhu Yihan',
+    link: '/blog/femtech-investment-landscape-2025',
+    tags: [
+      translateTag(REPORT_TAGS.INVESTMENT),
+      translateTag(REPORT_TAGS.MARKET_ANALYSIS),
+      translateTag(REPORT_TAGS.CHINA),
+      translateTag(REPORT_TAGS.GLOBAL),
+      translateTag(REPORT_TAGS.WOMENS_HEALTH)
+    ],
+    tagKeys: [
+      REPORT_TAGS.INVESTMENT,
+      REPORT_TAGS.MARKET_ANALYSIS,
+      REPORT_TAGS.CHINA,
+      REPORT_TAGS.GLOBAL,
+      REPORT_TAGS.WOMENS_HEALTH
+    ],
+    isFeatured: true
+  },
   {
     id: '6',
     title: translateReportField(
@@ -142,8 +174,20 @@ export const filterReportsByCategory = (reports: ReportItem[], category: string)
 
 // Function to sort reports by date (newest first)
 export const sortReportsByDate = (reports: ReportItem[]): ReportItem[] => {
-  return reports.sort((a, b) => 
-    new Date('2024-' + b.date.replace(' ', '-')).getTime() - 
-    new Date('2024-' + a.date.replace(' ', '-')).getTime()
-  );
+  const getYearFromDate = (dateStr: string): number => {
+    // If date contains "January" and is 2026, return 2026
+    // Otherwise assume 2025 for other dates
+    if (dateStr.includes('January')) {
+      return 2026;
+    }
+    return 2025;
+  };
+
+  return reports.sort((a, b) => {
+    const yearA = getYearFromDate(a.date);
+    const yearB = getYearFromDate(b.date);
+    const dateA = new Date(`${yearA}-${a.date.replace(' ', '-')}`);
+    const dateB = new Date(`${yearB}-${b.date.replace(' ', '-')}`);
+    return dateB.getTime() - dateA.getTime();
+  });
 }; 
