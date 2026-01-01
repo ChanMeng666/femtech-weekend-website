@@ -38,37 +38,6 @@ const translateTag = (tagKey: string) => {
 // Static fallback data based on existing blog posts
 export const staticReportsData: ReportItem[] = [
   {
-    id: '7',
-    title: translateReportField(
-      'reports.data.femtech-investment-landscape-2025.title',
-      '2025 Global FemTech Investment Landscape Review: Capital Shift from Consumer Narrative to Serious Healthcare'
-    ),
-    description: translateReportField(
-      'reports.data.femtech-investment-landscape-2025.description',
-      'In 2025, the global FemTech sector has witnessed a surge in investment and financing activities. This comprehensive two-way analysis between Western countries and China reviews 50+ major transactions, deconstructing the underlying logic of capital preferences and sector structure.'
-    ),
-    category: getReportCategoryInvestment(),
-    date: 'January 1',
-    readTime: getReportReadTime('10'),
-    author: 'Zhu Yihan',
-    link: '/blog/femtech-investment-landscape-2025',
-    tags: [
-      translateTag(REPORT_TAGS.INVESTMENT),
-      translateTag(REPORT_TAGS.MARKET_ANALYSIS),
-      translateTag(REPORT_TAGS.CHINA),
-      translateTag(REPORT_TAGS.GLOBAL),
-      translateTag(REPORT_TAGS.WOMENS_HEALTH)
-    ],
-    tagKeys: [
-      REPORT_TAGS.INVESTMENT,
-      REPORT_TAGS.MARKET_ANALYSIS,
-      REPORT_TAGS.CHINA,
-      REPORT_TAGS.GLOBAL,
-      REPORT_TAGS.WOMENS_HEALTH
-    ],
-    isFeatured: false
-  },
-  {
     id: '6',
     title: translateReportField(
       'reports.data.femmehealth-alliance.title',
