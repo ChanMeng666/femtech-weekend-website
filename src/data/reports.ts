@@ -66,7 +66,7 @@ export const staticReportsData: ReportItem[] = [
       REPORT_TAGS.GLOBAL,
       REPORT_TAGS.WOMENS_HEALTH
     ],
-    isFeatured: true
+    isFeatured: false
   },
   {
     id: '6',
