@@ -48,7 +48,7 @@ export default function Competition(): React.ReactNode {
         title={title}
         description={description}>
         <main>
-          <GEOTracker 
+          <GEOTracker
             pageType="competition"
             additionalMetrics={{
               prizePool: '¥500K',
@@ -59,10 +59,14 @@ export default function Competition(): React.ReactNode {
           />
           <CompetitionHero />
           <CompetitionStats />
-          <Timeline />
+          <div id="timeline">
+            <Timeline />
+          </div>
           {/* <Prizes /> */}
           <Requirements />
-          <RegistrationCTA />
+          <div id="register">
+            <RegistrationCTA />
+          </div>
         </main>
       </Layout>
     </>
