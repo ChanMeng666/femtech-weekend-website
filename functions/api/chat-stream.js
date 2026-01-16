@@ -176,8 +176,8 @@ export async function onRequest(context) {
     };
 
     if (stream) {
-      // Streaming response - use gemini-1.5-flash for better stability
-      const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse&key=${env.GOOGLE_GENERATIVE_AI_API_KEY}`;
+      // Streaming response - use gemini-1.5-flash-latest for better stability
+      const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:streamGenerateContent?alt=sse&key=${env.GOOGLE_GENERATIVE_AI_API_KEY}`;
 
       const geminiResponse = await fetch(geminiUrl, {
         method: 'POST',
@@ -261,7 +261,7 @@ export async function onRequest(context) {
 
     } else {
       // Non-streaming response
-      const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${env.GOOGLE_GENERATIVE_AI_API_KEY}`;
+      const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${env.GOOGLE_GENERATIVE_AI_API_KEY}`;
 
       const geminiResponse = await fetch(geminiUrl, {
         method: 'POST',
