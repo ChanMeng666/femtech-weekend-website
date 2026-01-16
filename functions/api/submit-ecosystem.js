@@ -1,10 +1,7 @@
 /**
  * Cloudflare Pages Function for ecosystem form submission
- * Stores form data in Notion database and sends confirmation emails via Resend
+ * Uses native fetch API for Notion and Resend to avoid SDK compatibility issues
  */
-
-import { Client } from '@notionhq/client';
-import { Resend } from 'resend';
 
 // Brand styles for emails
 const brandStyles = {
@@ -249,30 +246,60 @@ Reply directly to respond to the applicant.
 }
 
 /**
- * Send email using Resend
+ * Create a page in Notion using REST API
  */
-async function sendEmail(resend, { to, subject, html, text, from, replyTo }) {
-  if (!resend) {
-    console.warn('[Email Service] Resend client not available');
-    return { success: false, error: 'Email service not configured' };
+async function createNotionPage(notionToken, databaseId, properties) {
+  const response = await fetch('https://api.notion.com/v1/pages', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${notionToken}`,
+      'Content-Type': 'application/json',
+      'Notion-Version': '2022-06-28',
+    },
+    body: JSON.stringify({
+      parent: { database_id: databaseId },
+      properties: properties,
+    }),
+  });
+
+  if (!response.ok) {
+    const errorData = await response.text();
+    console.error('[Notion] API error:', errorData);
+    throw new Error(`Notion API error: ${response.status}`);
   }
 
-  try {
-    console.log(`[Email Service] Sending email to: ${Array.isArray(to) ? to.join(', ') : to}`);
-    const result = await resend.emails.send({
+  return response.json();
+}
+
+/**
+ * Send email using Resend REST API
+ */
+async function sendEmailViaResend(apiKey, { to, subject, html, text, from, replyTo }) {
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
       from: `FemTech Weekend <${from}>`,
       to: Array.isArray(to) ? to : [to],
       subject,
       html,
       text,
-      ...(replyTo && { reply_to: replyTo })
-    });
-    console.log(`[Email Service] Email sent successfully, id: ${result.data?.id}`);
-    return { success: true, data: result.data };
-  } catch (error) {
-    console.error('[Email Service] Failed to send email:', error.message);
-    return { success: false, error: error.message };
+      ...(replyTo && { reply_to: replyTo }),
+    }),
+  });
+
+  if (!response.ok) {
+    const errorData = await response.text();
+    console.error('[Resend] API error:', errorData);
+    return { success: false, error: `Resend API error: ${response.status}` };
   }
+
+  const data = await response.json();
+  console.log('[Resend] Email sent successfully:', data.id);
+  return { success: true, data };
 }
 
 /**
@@ -310,9 +337,6 @@ export async function onRequest(context) {
       });
     }
 
-    // Initialize Notion client
-    const notion = new Client({ auth: env.NOTION_TOKEN });
-
     // Extract form fields
     const {
       name,
@@ -331,73 +355,69 @@ export async function onRequest(context) {
     } = formData;
 
     // Create Notion page properties
-    const notionPageParams = {
-      parent: { database_id: env.NOTION_DATABASE_ID },
-      properties: {
-        Name: {
-          title: [{ text: { content: name || 'No Name Provided' } }],
-        },
-        Email: {
-          email: email || '',
-        },
-        'Company Name': {
-          rich_text: [{ text: { content: companyName || 'No Company Name' } }],
-        },
-        'Company Website': {
-          url: companyWebsite || null,
-        },
-        'Company LinkedIn': {
-          url: companyLinkedin || null,
-        },
-        'Company Instagram': {
-          url: companyInstagram || null,
-        },
-        'Founder Name': {
-          rich_text: [{ text: { content: founderName || 'No Founder Name' } }],
-        },
-        'Founder LinkedIn': {
-          url: founderLinkedin || null,
-        },
-        'Business Description': {
-          rich_text: [{ text: { content: businessDescription || '' } }],
-        },
-        'Business Stage': {
-          select: { name: businessStage || 'Idea' },
-        },
-        'Categories': categories && categories.length > 0 ? {
-          multi_select: categories.map(category => ({ name: category })),
-        } : {
-          multi_select: [],
-        },
-        'Additional Info': {
-          rich_text: [{ text: { content: additionalInfo || '' } }],
-        },
-        'Logo': logo ? {
-          files: [{
-            name: 'Company Logo',
-            type: 'external',
-            external: { url: logo }
-          }]
-        } : {
-          files: []
-        },
+    const properties = {
+      Name: {
+        title: [{ text: { content: name || 'No Name Provided' } }],
+      },
+      Email: {
+        email: email || '',
+      },
+      'Company Name': {
+        rich_text: [{ text: { content: companyName || 'No Company Name' } }],
+      },
+      'Company Website': {
+        url: companyWebsite || null,
+      },
+      'Company LinkedIn': {
+        url: companyLinkedin || null,
+      },
+      'Company Instagram': {
+        url: companyInstagram || null,
+      },
+      'Founder Name': {
+        rich_text: [{ text: { content: founderName || 'No Founder Name' } }],
+      },
+      'Founder LinkedIn': {
+        url: founderLinkedin || null,
+      },
+      'Business Description': {
+        rich_text: [{ text: { content: (businessDescription || '').substring(0, 2000) } }],
+      },
+      'Business Stage': {
+        select: { name: businessStage || 'Idea' },
+      },
+      'Categories': categories && categories.length > 0 ? {
+        multi_select: categories.map(category => ({ name: category })),
+      } : {
+        multi_select: [],
+      },
+      'Additional Info': {
+        rich_text: [{ text: { content: (additionalInfo || '').substring(0, 2000) } }],
+      },
+      'Logo': logo ? {
+        files: [{
+          name: 'Company Logo',
+          type: 'external',
+          external: { url: logo }
+        }]
+      } : {
+        files: []
       },
     };
 
     console.log('[Ecosystem] Creating Notion page...');
-    const response = await notion.pages.create(notionPageParams);
-    console.log('[Ecosystem] Notion page created:', response.id);
+    const notionResponse = await createNotionPage(env.NOTION_TOKEN, env.NOTION_DATABASE_ID, properties);
+    console.log('[Ecosystem] Notion page created:', notionResponse.id);
 
     // Send confirmation emails (non-blocking)
     try {
       if (env.RESEND_API_KEY) {
-        const resend = new Resend(env.RESEND_API_KEY);
         const fromEmail = env.RESEND_FROM_EMAIL || 'noreply@femtechweekend.com';
         const adminEmails = env.ADMIN_EMAILS ? env.ADMIN_EMAILS.split(',').map(e => e.trim()).filter(Boolean) : [];
 
         // Send user confirmation
         const userEmailContent = getEcosystemConfirmationEmail(formData);
-        const userResult = await sendEmail(resend, {
+        const userResult = await sendEmailViaResend(env.RESEND_API_KEY, {
           to: email,
           subject: userEmailContent.subject,
           html: userEmailContent.html,
@@ -409,7 +429,7 @@ export async function onRequest(context) {
         // Send admin notification
         if (adminEmails.length > 0) {
           const adminEmailContent = getEcosystemAdminNotificationEmail(formData);
-          const adminResult = await sendEmail(resend, {
+          const adminResult = await sendEmailViaResend(env.RESEND_API_KEY, {
             to: adminEmails,
             subject: adminEmailContent.subject,
             html: adminEmailContent.html,
