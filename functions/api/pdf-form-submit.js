@@ -1,10 +1,7 @@
 /**
  * Cloudflare Pages Function for PDF form submission
- * Stores form data in Notion database and sends confirmation emails via Resend
+ * Uses native fetch API for Notion and Resend to avoid SDK compatibility issues
  */
-
-import { Client } from '@notionhq/client';
-import { Resend } from 'resend';
 
 // Brand styles for emails
 const brandStyles = {
@@ -225,30 +222,60 @@ This is an automated notification from FemTech Weekend Platform.
 }
 
 /**
- * Send email using Resend
+ * Create a page in Notion using REST API
  */
-async function sendEmail(resend, { to, subject, html, text, from, replyTo }) {
-  if (!resend) {
-    console.warn('[Email Service] Resend client not available');
-    return { success: false, error: 'Email service not configured' };
+async function createNotionPage(notionToken, databaseId, properties) {
+  const response = await fetch('https://api.notion.com/v1/pages', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${notionToken}`,
+      'Content-Type': 'application/json',
+      'Notion-Version': '2022-06-28',
+    },
+    body: JSON.stringify({
+      parent: { database_id: databaseId },
+      properties: properties,
+    }),
+  });
+
+  if (!response.ok) {
+    const errorData = await response.text();
+    console.error('[Notion] API error:', errorData);
+    throw new Error(`Notion API error: ${response.status}`);
   }
 
-  try {
-    console.log(`[Email Service] Sending email to: ${Array.isArray(to) ? to.join(', ') : to}`);
-    const result = await resend.emails.send({
+  return response.json();
+}
+
+/**
+ * Send email using Resend REST API
+ */
+async function sendEmailViaResend(apiKey, { to, subject, html, text, from, replyTo }) {
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
       from: `FemTech Weekend <${from}>`,
       to: Array.isArray(to) ? to : [to],
       subject,
       html,
       text,
-      ...(replyTo && { reply_to: replyTo })
-    });
-    console.log(`[Email Service] Email sent successfully, id: ${result.data?.id}`);
-    return { success: true, data: result.data };
-  } catch (error) {
-    console.error('[Email Service] Failed to send email:', error.message);
-    return { success: false, error: error.message };
+      ...(replyTo && { reply_to: replyTo }),
+    }),
+  });
+
+  if (!response.ok) {
+    const errorData = await response.text();
+    console.error('[Resend] API error:', errorData);
+    return { success: false, error: `Resend API error: ${response.status}` };
   }
+
+  const data = await response.json();
+  console.log('[Resend] Email sent successfully:', data.id);
+  return { success: true, data };
 }
 
 /**
@@ -294,9 +321,6 @@ export async function onRequest(context) {
       });
     }
 
-    // Initialize Notion client
-    const notion = new Client({ auth: env.NOTION_TOKEN });
-
     // Format the full name
     const fullName = `${formData.firstName} ${formData.lastName}`;
 
@@ -324,37 +348,33 @@ export async function onRequest(context) {
         rich_text: [{ text: { content: formData.country } }],
       },
       'PDF URL': {
-        url: formData.pdfUrl || '',
+        url: formData.pdfUrl || null,
       },
       'Submission Date': {
         date: { start: formData.timestamp || new Date().toISOString() },
       },
       'User Agent': {
-        rich_text: [{ text: { content: formData.userAgent || '' } }],
+        rich_text: [{ text: { content: (formData.userAgent || '').substring(0, 2000) } }],
       },
       Referrer: {
-        rich_text: [{ text: { content: formData.referrer || '' } }],
+        rich_text: [{ text: { content: (formData.referrer || '').substring(0, 2000) } }],
       },
     };
 
     // Create the page in Notion
     console.log('[PDF Form] Creating Notion page...');
-    const response = await notion.pages.create({
-      parent: { database_id: env.PDF_FORM_DATABASE_ID },
-      properties: properties,
-    });
-    console.log('[PDF Form] Notion page created:', response.id);
+    const notionResponse = await createNotionPage(env.NOTION_TOKEN, env.PDF_FORM_DATABASE_ID, properties);
+    console.log('[PDF Form] Notion page created:', notionResponse.id);
 
     // Send confirmation emails (non-blocking)
     try {
       if (env.RESEND_API_KEY) {
-        const resend = new Resend(env.RESEND_API_KEY);
         const fromEmail = env.RESEND_FROM_EMAIL || 'noreply@femtechweekend.com';
         const adminEmails = env.ADMIN_EMAILS ? env.ADMIN_EMAILS.split(',').map(e => e.trim()).filter(Boolean) : [];
 
         // Send user confirmation
         const userEmail = getPdfDownloadConfirmationEmail(formData);
-        const userResult = await sendEmail(resend, {
+        const userResult = await sendEmailViaResend(env.RESEND_API_KEY, {
           to: formData.email,
           subject: userEmail.subject,
           html: userEmail.html,
@@ -366,7 +386,7 @@ export async function onRequest(context) {
         // Send admin notification
         if (adminEmails.length > 0) {
           const adminEmail = getPdfAdminNotificationEmail(formData);
-          const adminResult = await sendEmail(resend, {
+          const adminResult = await sendEmailViaResend(env.RESEND_API_KEY, {
             to: adminEmails,
             subject: adminEmail.subject,
             html: adminEmail.html,
@@ -384,7 +404,7 @@ export async function onRequest(context) {
     return new Response(JSON.stringify({
       success: true,
       message: 'Form submitted successfully',
-      pageId: response.id
+      pageId: notionResponse.id
     }), {
       headers: { 'Content-Type': 'application/json', ...corsHeaders },
     });
