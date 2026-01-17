@@ -23,9 +23,9 @@
     "message": "Ecosystem",
     "description": "The label of footer link with label=Ecosystem linking to /ecosystem"
   },
-  "link.item.label.Reports": {
-    "message": "Reports",
-    "description": "The label of footer link with label=Reports linking to /reports"
+  "link.item.label.Insights": {
+    "message": "Insights",
+    "description": "The label of footer link with label=Insights linking to /insights"
   },
   "link.item.label.Database": {
     "message": "Database",

@@ -19,9 +19,9 @@
     "message": "洞察",
     "description": "Navbar item with label Insights"
   },
-  "item.label.Reports": {
-    "message": "报告",
-    "description": "Navbar item with label Reports"
+  "item.label.Insights": {
+    "message": "洞察",
+    "description": "Navbar item with label Insights"
   },
   "item.label.Database": {
     "message": "数据库",

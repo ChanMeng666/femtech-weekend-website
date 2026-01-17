@@ -1,22 +1,22 @@
 import React from 'react';
-import { getReportsTitle, getReportsSubtitle } from '../../constants/reports-components';
+import { getInsightsTitle, getInsightsSubtitle } from '../../constants/insights-components';
 import { LogoMosaic } from '../ui/LogoMosaic';
 
-export function ReportsHero(): React.ReactNode {
-  const title = getReportsTitle();
-  const subtitle = getReportsSubtitle();
-  
+export function InsightsHero(): React.ReactNode {
+  const title = getInsightsTitle();
+  const subtitle = getInsightsSubtitle();
+
   return (
     <div className="relative isolate overflow-hidden bg-background pt-24 pb-16">
-      <LogoMosaic 
-        rows={6} 
-        columns={12} 
+      <LogoMosaic
+        rows={6}
+        columns={12}
         size={40}
         opacity={0.05}
         hoverEffect={true}
         colorful={true}
       />
-      
+
       <div className="absolute inset-x-0 top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
         <div
           className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[var(--ifm-color-primary)] to-[var(--ifm-color-primary-lightest)] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
@@ -26,7 +26,7 @@ export function ReportsHero(): React.ReactNode {
           }}
         />
       </div>
-      
+
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
           <div className="inline-block mb-6 relative">
@@ -63,4 +63,4 @@ export function ReportsHero(): React.ReactNode {
       </div>
     </div>
   );
-} 
+}

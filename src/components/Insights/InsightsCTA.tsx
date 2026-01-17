@@ -1,19 +1,19 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
-import { 
-  getReportsCTATitle, 
-  getReportsCTADescription,
+import {
+  getInsightsCTATitle,
+  getInsightsCTADescription,
   getLearnMoreAboutUsText,
   getContactResearchTeamText
-} from '../../constants/reports-components';
+} from '../../constants/insights-components';
 import { Button } from '../ui/button';
 
-export function ReportsCTA(): React.ReactNode {
-  const title = getReportsCTATitle();
-  const description = getReportsCTADescription();
+export function InsightsCTA(): React.ReactNode {
+  const title = getInsightsCTATitle();
+  const description = getInsightsCTADescription();
   const learnMoreButtonText = getLearnMoreAboutUsText();
   const contactButtonText = getContactResearchTeamText();
-  
+
   return (
     <div className="mt-20 text-center">
       <div className="rounded-2xl bg-gradient-to-r from-primary/10 to-primary/5 p-8">
@@ -24,7 +24,7 @@ export function ReportsCTA(): React.ReactNode {
           {description}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link 
+          <Link
             to="/about-us"
             className="no-underline"
           >
@@ -36,4 +36,4 @@ export function ReportsCTA(): React.ReactNode {
       </div>
     </div>
   );
-} 
+}
