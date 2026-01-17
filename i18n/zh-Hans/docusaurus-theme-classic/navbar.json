@@ -11,10 +11,6 @@
     "message": "关于我们",
     "description": "Navbar item with label About Us"
   },
-  "item.label.Competition": {
-    "message": "比赛",
-    "description": "Navbar item with label Competition"
-  },
   "item.label.Ecosystem": {
     "message": "生态系统",
     "description": "Navbar item with label Ecosystem"

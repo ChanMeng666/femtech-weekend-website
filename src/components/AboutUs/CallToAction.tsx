@@ -27,9 +27,11 @@ export function CallToAction() {
             <Link to="/ecosystem/join">
               <Button size="lg">{buttonText}</Button>
             </Link>
+            {/* Database button temporarily hidden
             <Link to="/database">
               <Button variant="outline" size="lg">{exploreButtonText}</Button>
             </Link>
+            */}
           </div>
         </div>
       </div>

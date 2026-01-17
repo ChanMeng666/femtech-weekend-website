@@ -7,8 +7,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // 广告宣传位配置
 // 当需要显示新的重要公告时，更新这个日期和事件名称
 // 这样即使用户之前关闭了广告，新的重要事件公告仍会显示
-const ANNOUNCEMENT_EVENT = 'competition-2024';
-const ANNOUNCEMENT_DATE = '2024-12-01'; // 格式: YYYY-MM-DD
+const ANNOUNCEMENT_EVENT = 'general-2025';
+const ANNOUNCEMENT_DATE = '2025-01-01'; // 格式: YYYY-MM-DD
 
 const config: Config = {
   title: 'Femtech Weekend',
@@ -80,10 +80,10 @@ const config: Config = {
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
-          blogTitle: 'FemTech Weekend Competition',
-          blogDescription: 'FemTech Weekend Competition Platform',
+          blogTitle: 'FemTech Weekend Blog',
+          blogDescription: 'FemTech Weekend Platform Updates',
           postsPerPage: 'ALL',
-          blogSidebarTitle: 'All competitions',
+          blogSidebarTitle: 'All posts',
           blogSidebarCount: 0,
           showLastUpdateAuthor: false,
           showLastUpdateTime: false,
@@ -122,10 +122,6 @@ const config: Config = {
           label: 'About Us',
           position: 'left'
         },
-        {to: '/competition', 
-          label: 'Competition', 
-          position: 'left'
-        },
         {
           to: '/ecosystem',
           label: 'Ecosystem',
@@ -140,10 +136,11 @@ const config: Config = {
               to: '/reports',
               label: 'Reports',
             },
-            {
-              to: '/database',
-              label: 'Database',
-            },
+            // Database temporarily hidden
+            // {
+            //   to: '/database',
+            //   label: 'Database',
+            // },
           ],
         },
         {
@@ -224,10 +221,6 @@ const config: Config = {
               to: '/about-us',
             },
             {
-              label: 'Competition',
-              to: '/competition',
-            },
-            {
               label: 'Ecosystem',
               to: '/ecosystem',
             },
@@ -235,10 +228,11 @@ const config: Config = {
               label: 'Reports',
               to: '/reports',
             },
-            {
-              label: 'Database',
-              to: '/database',
-            },
+            // Database temporarily hidden
+            // {
+            //   label: 'Database',
+            //   to: '/database',
+            // },
           ],
         },
         {

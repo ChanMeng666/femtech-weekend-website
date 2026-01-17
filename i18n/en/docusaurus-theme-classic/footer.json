@@ -19,10 +19,6 @@
     "message": "About Us",
     "description": "The label of footer link with label=About Us linking to /about-us"
   },
-  "link.item.label.Competition": {
-    "message": "Competition",
-    "description": "The label of footer link with label=Competition linking to /competition"
-  },
   "link.item.label.Ecosystem": {
     "message": "Ecosystem",
     "description": "The label of footer link with label=Ecosystem linking to /ecosystem"

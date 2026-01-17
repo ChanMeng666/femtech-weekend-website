@@ -9,9 +9,9 @@ export const presetQuestions: PresetQuestion[] = [
   },
   {
     id: '2',
-    question: 'How can I participate in the competition?',
-    category: 'competition',
-    answer: "You can participate in our annual FemTech innovation challenges by visiting the Competition page on our website. We offer prizes, mentorship, and global exposure for innovative solutions in women's health. Registration typically opens several months before each event, and we welcome participants from diverse backgrounds including developers, designers, healthcare professionals, and entrepreneurs."
+    question: 'How can I join the FemTech ecosystem?',
+    category: 'ecosystem',
+    answer: "You can join our FemTech ecosystem by visiting the Ecosystem page on our website and submitting an application. We welcome founders, investors, healthcare professionals, researchers, and corporate partners who are passionate about women's health innovation. As a member, you'll gain access to networking events, research insights, and collaboration opportunities across China and globally."
   },
   {
     id: '3',
@@ -34,8 +34,8 @@ export const presetQuestions: PresetQuestion[] = [
   {
     id: '6',
     question: 'What events does FemTech Weekend organize?',
-    category: 'competition',
-    answer: "We organize annual FemTech hackathons and innovation challenges, networking events for ecosystem members, research report launches, and educational workshops. Our flagship competition brings together innovators to solve pressing women's health challenges, with opportunities for mentorship, funding, and global exposure."
+    category: 'ecosystem',
+    answer: "We organize networking events for ecosystem members, research report launches, and educational workshops. Our events bring together innovators to discuss pressing women's health challenges, with opportunities for mentorship, partnerships, and global exposure. We also host regular meetups and conferences connecting FemTech stakeholders across China and internationally."
   },
   {
     id: '7',
