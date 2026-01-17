@@ -19,10 +19,6 @@
     "message": "关于我们",
     "description": "The label of footer link with label=About Us linking to /about-us"
   },
-  "link.item.label.Competition": {
-    "message": "比赛",
-    "description": "The label of footer link with label=Competition linking to /competition"
-  },
   "link.item.label.Ecosystem": {
     "message": "生态系统",
     "description": "The label of footer link with label=Ecosystem linking to /ecosystem"

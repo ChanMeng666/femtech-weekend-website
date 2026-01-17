@@ -1,6 +1,6 @@
 import React from 'react';
 import { Hero } from './Hero';
-import { CompetitionSection } from './CompetitionSection';
+import { StatsSection } from './StatsSection';
 import { Features } from './Features';
 import { LogoDivider } from './ui/LogoDivider';
 import { PartnershipSection } from './PartnershipSection';
@@ -10,7 +10,7 @@ export const HomepageContent: React.FC = () => {
     <>
       <Hero />
       <LogoDivider />
-      <CompetitionSection />
+      <StatsSection />
       <LogoDivider />
       <Features />
       <LogoDivider />

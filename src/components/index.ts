@@ -4,7 +4,7 @@ export { HomepageContent } from './HomepageContent';
 
 // Content Sections
 export { Hero } from './Hero';
-export { CompetitionSection } from './CompetitionSection';
+export { StatsSection } from './StatsSection';
 export { Features } from './Features';
 export { TestimonialsSection } from './TestimonialsSection';
 
