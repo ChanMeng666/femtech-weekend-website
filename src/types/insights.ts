@@ -1,5 +1,5 @@
-// Report data interface
-export interface ReportItem {
+// Insight data interface
+export interface InsightItem {
   id: string;
   title: string;
   description: string;
@@ -14,16 +14,16 @@ export interface ReportItem {
   isFeatured?: boolean;
 }
 
-// Report category type
-export type ReportCategory = string;
+// Insight category type
+export type InsightCategory = string;
 
 // Props interfaces for components
-export interface ReportCardProps {
-  report: ReportItem;
+export interface InsightCardProps {
+  insight: InsightItem;
   onTagClick: (tag: string) => void;
 }
 
-export interface FeaturedReportProps {
-  report: ReportItem;
+export interface FeaturedInsightProps {
+  insight: InsightItem;
   onTagClick: (tag: string) => void;
-} 
+}

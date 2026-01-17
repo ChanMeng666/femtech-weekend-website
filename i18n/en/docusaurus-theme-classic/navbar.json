@@ -19,9 +19,9 @@
     "message": "Insights",
     "description": "Navbar item with label Insights"
   },
-  "item.label.Reports": {
-    "message": "Reports",
-    "description": "Navbar item with label Reports"
+  "item.label.Insights": {
+    "message": "Insights",
+    "description": "Navbar item with label Insights"
   },
   "item.label.Database": {
     "message": "Database",

@@ -128,20 +128,9 @@ const config: Config = {
           position: 'left'
         },
         {
-          type: 'dropdown',
+          to: '/insights',
           label: 'Insights',
-          position: 'left',
-          items: [
-            {
-              to: '/reports',
-              label: 'Reports',
-            },
-            // Database temporarily hidden
-            // {
-            //   to: '/database',
-            //   label: 'Database',
-            // },
-          ],
+          position: 'left'
         },
         {
           type: 'localeDropdown',
@@ -225,8 +214,8 @@ const config: Config = {
               to: '/ecosystem',
             },
             {
-              label: 'Reports',
-              to: '/reports',
+              label: 'Insights',
+              to: '/insights',
             },
             // Database temporarily hidden
             // {
