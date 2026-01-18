@@ -1,0 +1,30 @@
+chanmeng:
+  name: Chan Meng
+  title: Full Stack Developer @FemTech Weekend
+  url: https://github.com/ChanMeng666
+  image_url: /img/team/chan-meng.jpg
+  page: false
+  socials:
+    github: https://github.com/ChanMeng666
+    linkedin: https://linkedin.com/in/chanmeng666
+    medium: https://medium.com/@chanmeng666
+    website: https://chanmeng.live/
+
+zhuyihan:
+  name: Zhu Yihan
+  title: Founder @FemTech Weekend
+  url: https://www.linkedin.com/in/yihanzhu/
+  image_url: /img/team/zhu-yihan.jpg
+  page: false
+  socials:
+    linkedin: https://linkedin.com/in/yihanzhu
+
+maaikesteinebach:
+  name: Maaike Steinebach
+  title: Founder @FemTech Future
+  url: https://www.linkedin.com/in/maaike-steinebach-8a3a304/
+  image_url: /img/team/maaike-steinebach.jpg
+  page: false
+  socials:
+    linkedin: https://www.linkedin.com/in/maaike-steinebach-8a3a304/
+    website: https://femtechfuture.com
