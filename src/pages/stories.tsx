@@ -127,21 +127,21 @@ export default function Stories(): React.ReactNode {
         onCategoryChange={handleCategoryChange}
       />
 
-      {/* Content */}
-      <div className="bg-background py-16">
+      {/* Content - Magazine style layout */}
+      <div className="bg-gradient-to-b from-background via-rose-50/20 to-background dark:from-background dark:via-rose-950/5 dark:to-background py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
           {/* Active Tag Display */}
           {activeTag && (
             <div className="mb-8 flex items-center">
-              <div className="mr-3 mckinsey-label text-muted-foreground">
+              <div className="mr-3 text-sm text-muted-foreground">
                 {translateStoryField('stories.filteringByTag', 'Filtering by tag:')}
               </div>
-              <div className="flex items-center border border-primary/30 px-4 py-2">
-                <span className="mckinsey-label text-primary mr-3">{activeTag}</span>
+              <div className="flex items-center bg-rose-100 dark:bg-rose-900/30 px-4 py-2 rounded-full">
+                <span className="text-sm font-medium text-rose-700 dark:text-rose-300 mr-3">{activeTag}</span>
                 <button
                   onClick={() => setActiveTag(null)}
-                  className="text-primary hover:text-primary/70 transition-colors text-lg leading-none"
+                  className="text-rose-500 hover:text-rose-700 dark:hover:text-rose-200 transition-colors text-lg leading-none"
                   aria-label={translateStoryField('stories.clearFilter', 'Clear filter')}
                 >
                   ×
@@ -188,7 +188,8 @@ export default function Stories(): React.ReactNode {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* 2-column grid for horizontal cards */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {sortedStories
                   .filter(story => !story.isFeatured || activeCategory !== STORY_CATEGORY_KEYS.ALL_STORIES || activeTag)
                   .map((story) => (

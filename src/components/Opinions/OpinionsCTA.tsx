@@ -4,11 +4,10 @@ import {
   getOpinionsCTATitle,
   getOpinionsCTADescription,
   getLearnMoreAboutUsText,
-  getSubmitArticleText
 } from '../../constants/opinions-components';
 import { Button } from '../ui/button';
-import { AnimatedLine } from '../ui/AnimatedLine';
 import { translate } from '@docusaurus/Translate';
+import { ArrowRight, PenLine } from 'lucide-react';
 
 export function OpinionsCTA(): React.ReactNode {
   const [isVisible, setIsVisible] = useState(false);
@@ -42,64 +41,91 @@ export function OpinionsCTA(): React.ReactNode {
   }, []);
 
   return (
-    <div ref={sectionRef} className="mt-20 bg-foreground text-background py-16 lg:py-20">
-      <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
-        {/* Animated label */}
-        <div
-          className="mb-6 flex justify-center transition-all duration-700"
-          style={{
-            opacity: isVisible ? 1 : 0,
-            transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-            transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
-          }}
-        >
-          <AnimatedLine variant="label" label={sectionLabel} className="text-background/70 before:bg-background/50" />
-        </div>
+    <div ref={sectionRef} className="mt-20">
+      {/* Editorial-style CTA - clean black and white */}
+      <div className="relative bg-foreground text-background py-16 lg:py-20">
+        {/* Decorative corner elements */}
+        <div className="absolute top-6 left-6 w-8 h-8 border-t-2 border-l-2 border-background/20" />
+        <div className="absolute top-6 right-6 w-8 h-8 border-t-2 border-r-2 border-background/20" />
+        <div className="absolute bottom-6 left-6 w-8 h-8 border-b-2 border-l-2 border-background/20" />
+        <div className="absolute bottom-6 right-6 w-8 h-8 border-b-2 border-r-2 border-background/20" />
 
-        {/* Title - serif */}
-        <h3
-          className="font-display text-2xl sm:text-3xl lg:text-4xl font-normal tracking-tight transition-all duration-700"
-          style={{
-            opacity: isVisible ? 1 : 0,
-            transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-            transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
-            transitionDelay: '100ms',
-          }}
-        >
-          {title}
-        </h3>
+        <div className="relative mx-auto max-w-4xl px-6 lg:px-8 text-center">
+          {/* Icon */}
+          <div
+            className="mb-6 flex justify-center transition-all duration-700"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+              transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+            }}
+          >
+            <div className="inline-flex items-center justify-center w-16 h-16 border border-background/30 rounded-full">
+              <PenLine className="w-7 h-7 text-background/70" />
+            </div>
+          </div>
 
-        {/* Description */}
-        <p
-          className="mt-6 text-lg text-background/80 max-w-2xl mx-auto leading-relaxed transition-all duration-700"
-          style={{
-            opacity: isVisible ? 1 : 0,
-            transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-            transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
-            transitionDelay: '200ms',
-          }}
-        >
-          {description}
-        </p>
+          {/* Label */}
+          <div
+            className="mb-4 transition-all duration-700"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+              transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+              transitionDelay: '50ms',
+            }}
+          >
+            <span className="text-xs font-bold tracking-[0.3em] uppercase text-background/50">
+              {sectionLabel}
+            </span>
+          </div>
 
-        {/* CTA Button */}
-        <div
-          className="mt-10 transition-all duration-700"
-          style={{
-            opacity: isVisible ? 1 : 0,
-            transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-            transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
-            transitionDelay: '300ms',
-          }}
-        >
-          <Link to="/about-us" className="no-underline">
-            <Button
-              size="lg"
-              className="bg-background text-foreground hover:bg-background/90"
-            >
-              {learnMoreButtonText}
-            </Button>
-          </Link>
+          {/* Title */}
+          <h3
+            className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight transition-all duration-700"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+              transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+              transitionDelay: '100ms',
+            }}
+          >
+            {title}
+          </h3>
+
+          {/* Description */}
+          <p
+            className="mt-6 text-lg text-background/70 max-w-2xl mx-auto leading-relaxed font-light transition-all duration-700"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+              transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+              transitionDelay: '200ms',
+            }}
+          >
+            {description}
+          </p>
+
+          {/* CTA Button */}
+          <div
+            className="mt-10 transition-all duration-700"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+              transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+              transitionDelay: '300ms',
+            }}
+          >
+            <Link to="/about-us" className="no-underline">
+              <Button
+                size="lg"
+                className="bg-background text-foreground hover:bg-background/90 font-semibold group"
+              >
+                {learnMoreButtonText}
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

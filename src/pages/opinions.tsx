@@ -127,21 +127,21 @@ export default function Opinions(): React.ReactNode {
         onCategoryChange={handleCategoryChange}
       />
 
-      {/* Content */}
+      {/* Content - Editorial newspaper layout */}
       <div className="bg-background py-16">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
 
           {/* Active Tag Display */}
           {activeTag && (
-            <div className="mb-8 flex items-center">
-              <div className="mr-3 mckinsey-label text-muted-foreground">
-                {translateOpinionField('opinions.filteringByTag', 'Filtering by tag:')}
-              </div>
-              <div className="flex items-center border border-primary/30 px-4 py-2">
-                <span className="mckinsey-label text-primary mr-3">{activeTag}</span>
+            <div className="mb-8 flex items-center justify-center">
+              <div className="flex items-center border border-foreground/30 px-4 py-2">
+                <span className="text-sm text-muted-foreground mr-2">
+                  {translateOpinionField('opinions.filteringByTag', 'Filtering:')}
+                </span>
+                <span className="text-sm font-semibold text-foreground mr-3">{activeTag}</span>
                 <button
                   onClick={() => setActiveTag(null)}
-                  className="text-primary hover:text-primary/70 transition-colors text-lg leading-none"
+                  className="text-foreground/50 hover:text-foreground transition-colors text-lg leading-none"
                   aria-label={translateOpinionField('opinions.clearFilter', 'Clear filter')}
                 >
                   ×
@@ -163,8 +163,14 @@ export default function Opinions(): React.ReactNode {
           {/* Opinions Section */}
           {sortedOpinions.length > 0 ? (
             <>
-              <div className="mb-12">
-                <h2 className="font-display text-2xl sm:text-3xl font-normal tracking-tight text-foreground mb-3">
+              {/* Section header with editorial divider */}
+              <div className="mb-12 text-center">
+                <div className="flex items-center justify-center gap-4 mb-6">
+                  <div className="w-16 h-px bg-foreground/20" />
+                  <div className="w-2 h-2 bg-foreground/20 rotate-45" />
+                  <div className="w-16 h-px bg-foreground/20" />
+                </div>
+                <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-foreground mb-3">
                   {activeTag
                     ? getTagResultsTitle()
                     : activeCategory === OPINION_CATEGORY_KEYS.ALL_OPINIONS
@@ -172,7 +178,7 @@ export default function Opinions(): React.ReactNode {
                       : `${getTranslatedCategory(activeCategory)} ${translateOpinionField('opinions.categoryOpinionsSuffix', 'Opinions')}`
                   }
                 </h2>
-                <p className="text-muted-foreground text-lg">
+                <p className="text-muted-foreground text-lg font-light">
                   {activeTag
                     ? translateOpinionField(
                         'opinions.showingTagResults',
@@ -188,15 +194,20 @@ export default function Opinions(): React.ReactNode {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Single column newspaper layout with staggered widths */}
+              <div className="space-y-0">
                 {sortedOpinions
                   .filter(opinion => !opinion.isFeatured || activeCategory !== OPINION_CATEGORY_KEYS.ALL_OPINIONS || activeTag)
-                  .map((opinion) => (
-                    <OpinionCard
+                  .map((opinion, index) => (
+                    <div
                       key={opinion.id}
-                      opinion={opinion}
-                      onTagClick={handleTagClick}
-                    />
+                      className={index % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'}
+                    >
+                      <OpinionCard
+                        opinion={opinion}
+                        onTagClick={handleTagClick}
+                      />
+                    </div>
                   ))
                 }
               </div>
