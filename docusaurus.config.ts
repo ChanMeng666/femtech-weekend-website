@@ -134,6 +134,11 @@ const config: Config = {
           position: 'left'
         },
         {
+          to: '/gallery',
+          label: 'Gallery',
+          position: 'left'
+        },
+        {
           type: 'localeDropdown',
           position: 'right',
         },
@@ -218,6 +223,10 @@ const config: Config = {
             {
               label: 'Insights',
               to: '/insights',
+            },
+            {
+              label: 'Gallery',
+              to: '/gallery',
             },
             // Database temporarily hidden
             // {
