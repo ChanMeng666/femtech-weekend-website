@@ -29,35 +29,62 @@ const translateTag = (tagKey: string) => {
   );
 };
 
-// Static fallback data - initially empty, add opinions as they are published
+// Static opinions data
 export const staticOpinionsData: OpinionItem[] = [
-  // Example opinion entry (commented out until real content is available):
-  // {
-  //   id: '1',
-  //   title: translateOpinionField(
-  //     'opinions.data.example.title',
-  //     'Example Opinion Title'
-  //   ),
-  //   description: translateOpinionField(
-  //     'opinions.data.example.description',
-  //     'Example description of the opinion piece.'
-  //   ),
-  //   category: getOpinionCategoryAnalysis(),
-  //   date: 'January 15',
-  //   readTime: getOpinionReadTime('5'),
-  //   author: 'Zhu Yihan',
-  //   image: '/img/opinions/example.jpg',
-  //   link: '/opinions/example-opinion',
-  //   tags: [
-  //     translateTag(OPINION_TAGS.INDUSTRY_ANALYSIS),
-  //     translateTag(OPINION_TAGS.THOUGHT_LEADERSHIP)
-  //   ],
-  //   tagKeys: [
-  //     OPINION_TAGS.INDUSTRY_ANALYSIS,
-  //     OPINION_TAGS.THOUGHT_LEADERSHIP
-  //   ],
-  //   isFeatured: true
-  // }
+  {
+    id: '1',
+    title: translateOpinionField(
+      'opinions.data.ai-revolution.title',
+      "The AI Revolution in Women's Health: What 2025 Will Bring"
+    ),
+    description: translateOpinionField(
+      'opinions.data.ai-revolution.description',
+      "As artificial intelligence transforms healthcare, women's health stands to benefit most—but only if we get the implementation right."
+    ),
+    category: getOpinionCategoryAnalysis(),
+    date: 'January 12',
+    readTime: getOpinionReadTime('6'),
+    author: 'Zhu Yihan',
+    link: '/opinions/ai-revolution-womens-health-2025',
+    tags: [
+      translateTag(OPINION_TAGS.INDUSTRY_ANALYSIS),
+      translateTag(OPINION_TAGS.TECHNOLOGY_TRENDS),
+      translateTag(OPINION_TAGS.THOUGHT_LEADERSHIP)
+    ],
+    tagKeys: [
+      OPINION_TAGS.INDUSTRY_ANALYSIS,
+      OPINION_TAGS.TECHNOLOGY_TRENDS,
+      OPINION_TAGS.THOUGHT_LEADERSHIP
+    ],
+    isFeatured: true
+  },
+  {
+    id: '2',
+    title: translateOpinionField(
+      'opinions.data.china-policy.title',
+      "Policy Tailwinds: How China's New Healthcare Reforms Will Shape FemTech"
+    ),
+    description: translateOpinionField(
+      'opinions.data.china-policy.description',
+      "Recent policy shifts in China are creating unprecedented opportunities for women's health innovation. Here's what entrepreneurs and investors need to know."
+    ),
+    category: getOpinionCategoryPolicy(),
+    date: 'January 8',
+    readTime: getOpinionReadTime('7'),
+    author: 'Maaike Steinebach',
+    link: '/opinions/china-femtech-policy-outlook-2025',
+    tags: [
+      translateTag(OPINION_TAGS.POLICY_PERSPECTIVE),
+      translateTag(OPINION_TAGS.MARKET_TRENDS),
+      translateTag(OPINION_TAGS.COMMENTARY)
+    ],
+    tagKeys: [
+      OPINION_TAGS.POLICY_PERSPECTIVE,
+      OPINION_TAGS.MARKET_TRENDS,
+      OPINION_TAGS.COMMENTARY
+    ],
+    isFeatured: false
+  }
 ];
 
 // Function to get opinions data (can be extended to fetch from API)

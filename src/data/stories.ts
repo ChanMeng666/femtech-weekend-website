@@ -29,39 +29,68 @@ const translateTag = (tagKey: string) => {
   );
 };
 
-// Static fallback data - initially empty, add stories as they are published
+// Static stories data
 export const staticStoriesData: StoryItem[] = [
-  // Example story entry (commented out until real content is available):
-  // {
-  //   id: '1',
-  //   title: translateStoryField(
-  //     'stories.data.example.title',
-  //     'Example Interview Title'
-  //   ),
-  //   description: translateStoryField(
-  //     'stories.data.example.description',
-  //     'Example description of the interview story.'
-  //   ),
-  //   category: getStoryCategoryFounders(),
-  //   date: 'January 15',
-  //   readTime: getStoryReadTime('8'),
-  //   author: 'Zhu Yihan',
-  //   interviewee: 'Jane Doe',
-  //   role: 'CEO of Example FemTech Startup',
-  //   image: '/img/stories/example.jpg',
-  //   link: '/stories/example-interview',
-  //   tags: [
-  //     translateTag(STORY_TAGS.FOUNDER_STORY),
-  //     translateTag(STORY_TAGS.INTERVIEW),
-  //     translateTag(STORY_TAGS.ENTREPRENEURSHIP)
-  //   ],
-  //   tagKeys: [
-  //     STORY_TAGS.FOUNDER_STORY,
-  //     STORY_TAGS.INTERVIEW,
-  //     STORY_TAGS.ENTREPRENEURSHIP
-  //   ],
-  //   isFeatured: true
-  // }
+  {
+    id: '1',
+    title: translateStoryField(
+      'stories.data.jane-chen.title',
+      "From Lab to Launch: Jane Chen's Journey Building a Fertility Tech Startup in China"
+    ),
+    description: translateStoryField(
+      'stories.data.jane-chen.description',
+      "An exclusive interview with Jane Chen, founder of FertilityAI, on her journey from biomedical research to building one of China's most promising fertility technology startups."
+    ),
+    category: getStoryCategoryFounders(),
+    date: 'January 15',
+    readTime: getStoryReadTime('8'),
+    author: 'Zhu Yihan',
+    interviewee: 'Jane Chen',
+    role: 'Founder & CEO of FertilityAI',
+    link: '/stories/interview-jane-chen-femtech-founder',
+    tags: [
+      translateTag(STORY_TAGS.FOUNDER_STORY),
+      translateTag(STORY_TAGS.INTERVIEW),
+      translateTag(STORY_TAGS.ENTREPRENEURSHIP),
+      translateTag(STORY_TAGS.INNOVATION_STORY)
+    ],
+    tagKeys: [
+      STORY_TAGS.FOUNDER_STORY,
+      STORY_TAGS.INTERVIEW,
+      STORY_TAGS.ENTREPRENEURSHIP,
+      STORY_TAGS.INNOVATION_STORY
+    ],
+    isFeatured: true
+  },
+  {
+    id: '2',
+    title: translateStoryField(
+      'stories.data.lisa-wang.title',
+      "Why I Bet Big on Women's Health: Lisa Wang's Investment Philosophy"
+    ),
+    description: translateStoryField(
+      'stories.data.lisa-wang.description',
+      "Lisa Wang, Partner at Horizon Ventures and one of Asia's most active FemTech investors, shares her perspective on why women's health is the next frontier in healthcare investing."
+    ),
+    category: getStoryCategoryInvestors(),
+    date: 'January 10',
+    readTime: getStoryReadTime('7'),
+    author: 'Zhu Yihan',
+    interviewee: 'Lisa Wang',
+    role: 'Partner at Horizon Ventures',
+    link: '/stories/investor-spotlight-lisa-wang',
+    tags: [
+      translateTag(STORY_TAGS.INVESTOR_PERSPECTIVE),
+      translateTag(STORY_TAGS.INTERVIEW),
+      translateTag(STORY_TAGS.LEADERSHIP)
+    ],
+    tagKeys: [
+      STORY_TAGS.INVESTOR_PERSPECTIVE,
+      STORY_TAGS.INTERVIEW,
+      STORY_TAGS.LEADERSHIP
+    ],
+    isFeatured: false
+  }
 ];
 
 // Function to get stories data (can be extended to fetch from API)
