@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Link from '@docusaurus/Link';
 import { FeaturedStoryProps } from '../../types/stories';
 import { getFeaturedStoryLabel } from '../../constants/stories-components';
-import { ArrowRight, Quote, User } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 interface StoryTagProps {
   tag: string;
@@ -11,7 +11,7 @@ interface StoryTagProps {
 
 const StoryTag = ({ tag, onClick }: StoryTagProps) => (
   <span
-    className="inline-block bg-rose-100 dark:bg-rose-900/30 px-3 py-1.5 text-rose-700 dark:text-rose-300 text-xs font-medium rounded-full cursor-pointer hover:bg-rose-200 dark:hover:bg-rose-800/40 transition-colors"
+    className="mckinsey-label inline-block bg-primary/10 px-3 py-1 text-primary cursor-pointer hover:bg-primary/20 transition-colors"
     onClick={(e) => {
       e.preventDefault();
       onClick(tag);
@@ -27,24 +27,43 @@ export function FeaturedStory({ story, onTagClick }: FeaturedStoryProps): React.
 
   return (
     <div
-      className="group relative cursor-pointer"
+      className="group relative cursor-pointer bg-card border border-border transition-all duration-500 hover:border-primary/30"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Link to={story.link} className="block no-underline">
-        {/* Magazine-style featured card */}
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-rose-50 via-white to-amber-50 dark:from-rose-950/40 dark:via-background dark:to-amber-950/30 border border-rose-100/50 dark:border-rose-900/30">
-          {/* Large decorative quote */}
-          <div className="absolute top-8 right-8 opacity-5">
-            <Quote className="w-32 h-32 text-foreground" strokeWidth={1} />
-          </div>
+      {/* Corner accents */}
+      <div
+        className="absolute top-4 left-4 w-6 h-px bg-primary transition-all duration-500"
+        style={{ opacity: isHovered ? 1 : 0 }}
+      />
+      <div
+        className="absolute top-4 left-4 w-px h-6 bg-primary transition-all duration-500"
+        style={{ opacity: isHovered ? 1 : 0 }}
+      />
+      <div
+        className="absolute bottom-4 right-4 w-6 h-px bg-primary transition-all duration-500"
+        style={{ opacity: isHovered ? 1 : 0 }}
+      />
+      <div
+        className="absolute bottom-4 right-4 w-px h-6 bg-primary transition-all duration-500"
+        style={{ opacity: isHovered ? 1 : 0 }}
+      />
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 min-h-[400px]">
-            {/* Left: Profile Section */}
-            <div className="lg:col-span-2 p-8 lg:p-12 flex flex-col justify-center items-center lg:items-start text-center lg:text-left bg-gradient-to-br from-rose-100/50 to-transparent dark:from-rose-900/20">
-              {/* Profile avatar placeholder */}
+      <Link to={story.link} className="block no-underline">
+        <div className="grid grid-cols-1 lg:grid-cols-3 h-full">
+          {/* Left: Profile Section with quote - unique to Stories */}
+          <div className="relative p-8 lg:p-10 bg-gradient-to-br from-primary/5 to-transparent flex flex-col justify-center">
+            {/* Large quote mark */}
+            <div className="absolute top-6 left-6 opacity-10">
+              <svg className="w-16 h-16 text-primary" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+              </svg>
+            </div>
+
+            {/* Profile placeholder */}
+            <div className="relative z-10">
               <div
-                className="w-28 h-28 rounded-full bg-gradient-to-br from-rose-200 to-amber-100 dark:from-rose-800 dark:to-amber-900 flex items-center justify-center mb-6 shadow-lg transition-transform duration-500"
+                className="w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/10 border border-primary/30 flex items-center justify-center mb-6 transition-transform duration-500"
                 style={{
                   transform: isHovered ? 'scale(1.05)' : 'scale(1)',
                 }}
@@ -53,91 +72,92 @@ export function FeaturedStory({ story, onTagClick }: FeaturedStoryProps): React.
                   <img
                     src={story.image}
                     alt={story.interviewee || story.title}
-                    className="w-full h-full rounded-full object-cover"
+                    className="w-full h-full object-cover"
                   />
                 ) : (
-                  <User className="w-12 h-12 text-rose-400 dark:text-rose-500" />
+                  <span className="font-display text-2xl text-primary/60">
+                    {story.interviewee?.[0] || 'S'}
+                  </span>
                 )}
               </div>
 
               {/* Interviewee name */}
               {story.interviewee && (
-                <h3 className="font-display text-2xl font-medium text-foreground mb-2">
+                <h3 className="font-display text-xl font-normal text-foreground mb-1">
                   {story.interviewee}
                 </h3>
               )}
 
               {/* Role */}
               {story.role && (
-                <p className="text-rose-600 dark:text-rose-400 text-sm font-medium mb-4">
+                <p className="text-primary text-sm mb-4">
                   {story.role}
                 </p>
               )}
 
               {/* Featured badge */}
-              <div className="inline-flex items-center gap-2 bg-rose-500 text-white px-4 py-1.5 rounded-full text-xs font-medium uppercase tracking-wide">
-                <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
+              <span className="mckinsey-label text-primary border border-primary px-3 py-1 inline-block">
                 {featuredStoryLabel}
-              </div>
+              </span>
+            </div>
+          </div>
+
+          {/* Right: Content Section */}
+          <div className="lg:col-span-2 p-8 lg:p-10 flex flex-col justify-center border-l border-border">
+            {/* Category label */}
+            <div className="mb-4">
+              <span className="mckinsey-label text-primary">
+                {story.category}
+              </span>
             </div>
 
-            {/* Right: Content Section */}
-            <div className="lg:col-span-3 p-8 lg:p-12 flex flex-col justify-center">
-              {/* Category */}
-              <div className="mb-4">
-                <span className="text-xs font-semibold uppercase tracking-wider text-rose-500 dark:text-rose-400">
-                  {story.category}
-                </span>
-              </div>
+            {/* Title - serif */}
+            <h2
+              className="font-display text-2xl sm:text-3xl lg:text-4xl font-normal tracking-tight text-foreground mb-4 transition-all duration-500"
+              style={{
+                transform: isHovered ? 'translateX(4px)' : 'translateX(0)',
+                transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)'
+              }}
+            >
+              {story.title}
+            </h2>
 
-              {/* Title */}
-              <h2
-                className="font-display text-2xl sm:text-3xl lg:text-4xl font-normal tracking-tight text-foreground mb-4 leading-tight transition-all duration-500"
-                style={{
-                  transform: isHovered ? 'translateX(8px)' : 'translateX(0)',
-                  transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)'
-                }}
-              >
-                {story.title}
-              </h2>
+            {/* Description with quote style */}
+            <div className="relative pl-4 border-l-2 border-primary/30 mb-6">
+              <p className="text-muted-foreground text-lg leading-relaxed italic">
+                "{story.description}"
+              </p>
+            </div>
 
-              {/* Pull quote style description */}
-              <div className="relative pl-6 border-l-2 border-rose-300 dark:border-rose-700 mb-6">
-                <p className="text-muted-foreground text-lg italic leading-relaxed">
-                  "{story.description}"
-                </p>
-              </div>
+            {/* Metadata */}
+            <div className="flex items-center mckinsey-label text-muted-foreground mb-6">
+              <span>{story.author}</span>
+              <span className="mx-3">—</span>
+              <span>{story.date}</span>
+              <span className="mx-3">—</span>
+              <span>{story.readTime}</span>
+            </div>
 
-              {/* Metadata */}
-              <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-6">
-                <span className="font-medium">{story.author}</span>
-                <span className="w-1 h-1 bg-muted-foreground rounded-full" />
-                <span>{story.date}</span>
-                <span className="w-1 h-1 bg-muted-foreground rounded-full" />
-                <span>{story.readTime}</span>
-              </div>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-8">
-                {story.tags.slice(0, 4).map((tag, index) => (
-                  <StoryTag
-                    key={index}
-                    tag={tag}
-                    onClick={onTagClick}
-                  />
-                ))}
-              </div>
-
-              {/* CTA */}
-              <div className="flex items-center gap-3 text-rose-600 dark:text-rose-400 font-medium group/cta">
-                <span>Read Full Story</span>
-                <ArrowRight
-                  className="w-5 h-5 transition-transform duration-300 group-hover/cta:translate-x-2"
-                  style={{
-                    transform: isHovered ? 'translateX(8px)' : 'translateX(0)'
-                  }}
+            {/* Tags */}
+            <div className="flex flex-wrap gap-2 mb-6">
+              {story.tags.map((tag, index) => (
+                <StoryTag
+                  key={index}
+                  tag={tag}
+                  onClick={onTagClick}
                 />
-              </div>
+              ))}
+            </div>
+
+            {/* CTA with arrow */}
+            <div className="flex items-center gap-2 text-primary mckinsey-label">
+              <span>Read Full Story</span>
+              <ArrowUpRight
+                className="h-4 w-4 transition-transform duration-300"
+                style={{
+                  transform: isHovered ? 'translate(2px, -2px)' : 'translate(0, 0)'
+                }}
+              />
             </div>
           </div>
         </div>
