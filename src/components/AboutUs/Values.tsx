@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   getValuesTitle,
   getValuesSubtitle,
@@ -11,12 +11,22 @@ import {
   getValueEvidenceTitle,
   getValueEvidenceDescription
 } from '../../constants/about-us-components';
+import { AnimatedLine } from '../ui/AnimatedLine';
+import { translate } from '@docusaurus/Translate';
 
 export function Values() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
   // Get translated texts
   const title = getValuesTitle();
   const subtitle = getValuesSubtitle();
-  
+
+  const sectionLabel = translate({
+    id: 'aboutUs.values.label',
+    message: 'Our Values',
+  });
+
   const values = [
     {
       title: getValueInnovationTitle(),
@@ -56,29 +66,101 @@ export function Values() {
     }
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="bg-background py-24 sm:py-32">
+    <div ref={sectionRef} className="bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        {/* Section Header */}
+        <div className="mb-16">
+          <div
+            className="mb-6 transition-all duration-700"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+              transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+            }}
+          >
+            <AnimatedLine variant="label" label={sectionLabel} />
+          </div>
+
+          <h2
+            className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-foreground transition-all duration-700"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+              transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+              transitionDelay: '100ms',
+            }}
+          >
             {title}
           </h2>
-          <p className="mt-6 text-lg leading-8 text-muted-foreground">
+
+          <p
+            className="mt-4 max-w-2xl text-lg text-muted-foreground transition-all duration-700"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+              transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+              transitionDelay: '200ms',
+            }}
+          >
             {subtitle}
           </p>
         </div>
-        <div className="mx-auto mt-16 grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+
+        {/* Values Grid */}
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {values.map((value, index) => (
-            <div key={index} className="flex flex-col items-start">
-              <div className="mb-4 bg-primary/10 p-3 text-primary">
+            <div
+              key={index}
+              className="group relative border border-border bg-card p-6 transition-all duration-500 hover:border-primary/50 hover:shadow-lg"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+                transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                transitionDelay: `${300 + index * 100}ms`,
+              }}
+            >
+              {/* Corner accents */}
+              <div className="absolute right-4 bottom-4 h-6 w-px bg-primary/70 transition-all duration-500 opacity-0 group-hover:opacity-100" />
+              <div className="absolute right-4 bottom-4 h-px w-6 bg-primary/70 transition-all duration-500 opacity-0 group-hover:opacity-100" />
+
+              {/* Index number */}
+              <span className="mckinsey-label text-primary/60 mb-4 block">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+
+              {/* Icon */}
+              <div className="mb-4 bg-primary/10 p-3 w-fit text-primary">
                 {value.icon}
               </div>
-              <h3 className="mb-2 text-xl font-medium text-foreground">{value.title}</h3>
-              <p className="text-muted-foreground">{value.description}</p>
+
+              {/* Title - serif */}
+              <h3 className="font-display text-xl text-foreground mb-3">{value.title}</h3>
+
+              {/* Description */}
+              <p className="text-muted-foreground text-sm leading-relaxed">{value.description}</p>
             </div>
           ))}
         </div>
       </div>
     </div>
   );
-} 
+}

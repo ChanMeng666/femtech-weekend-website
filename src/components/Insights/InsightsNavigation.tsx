@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button } from '../ui/button';
 import { INSIGHT_CATEGORIES, getTranslatedCategory } from '../../constants/insights';
 import { InsightCategory } from '../../types/insights';
+import { cn } from '../../lib/utils';
 
 interface InsightsNavigationProps {
   activeCategory: InsightCategory;
@@ -10,26 +10,25 @@ interface InsightsNavigationProps {
 
 export function InsightsNavigation({ activeCategory, onCategoryChange }: InsightsNavigationProps): React.ReactNode {
   return (
-    <div className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <nav className="border-b border-border bg-background sticky top-16 z-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="flex items-center space-x-1 py-4 overflow-x-auto">
+        <div className="flex gap-8 overflow-x-auto py-4 -mb-px">
           {INSIGHT_CATEGORIES.map((category) => (
-            <Button
+            <button
               key={category}
-              variant={activeCategory === category ? "default" : "ghost"}
-              size="sm"
               onClick={() => onCategoryChange(category)}
-              className={`whitespace-nowrap px-4 py-2 text-sm font-medium transition-colors ${
+              className={cn(
+                "mckinsey-label whitespace-nowrap pb-4 transition-all duration-300 relative border-b-2",
                 activeCategory === category
-                  ? 'bg-primary text-primary-foreground hover:bg-primary/90'
-                  : 'text-muted-foreground hover:text-foreground hover:bg-muted'
-              }`}
+                  ? "text-primary border-primary"
+                  : "text-muted-foreground border-transparent hover:text-foreground hover:border-primary/30"
+              )}
             >
               {getTranslatedCategory(category)}
-            </Button>
+            </button>
           ))}
         </div>
       </div>
-    </div>
+    </nav>
   );
 }

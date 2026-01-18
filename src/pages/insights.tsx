@@ -22,7 +22,6 @@ import {
   InsightsNavigation,
   InsightsCTA
 } from '../components/Insights';
-import { LogoDivider } from '../components/ui/LogoDivider';
 import { GEOHead, GEOTracker } from '../components';
 import { translateInsightField } from '../constants/insights-components';
 
@@ -135,14 +134,14 @@ export default function Insights(): React.ReactNode {
           {/* Active Tag Display */}
           {activeTag && (
             <div className="mb-8 flex items-center">
-              <div className="mr-2 text-muted-foreground">
+              <div className="mr-3 mckinsey-label text-muted-foreground">
                 {translateInsightField('insights.filteringByTag', 'Filtering by tag:')}
               </div>
-              <div className="flex items-center bg-primary/10 px-4 py-2">
-                <span className="font-medium text-primary mr-2">{activeTag}</span>
+              <div className="flex items-center border border-primary/30 px-4 py-2">
+                <span className="mckinsey-label text-primary mr-3">{activeTag}</span>
                 <button
                   onClick={() => setActiveTag(null)}
-                  className="text-primary hover:text-primary/70 transition-colors"
+                  className="text-primary hover:text-primary/70 transition-colors text-lg leading-none"
                   aria-label={translateInsightField('insights.clearFilter', 'Clear filter')}
                 >
                   ×
@@ -158,15 +157,14 @@ export default function Insights(): React.ReactNode {
                 insight={featuredInsight}
                 onTagClick={handleTagClick}
               />
-              <LogoDivider className="mt-16" />
             </div>
           )}
 
           {/* Insights Section */}
           {sortedInsights.length > 0 ? (
             <>
-              <div className="mb-8">
-                <h2 className="text-2xl font-bold text-foreground mb-2">
+              <div className="mb-12">
+                <h2 className="font-display text-2xl sm:text-3xl font-normal tracking-tight text-foreground mb-3">
                   {activeTag
                     ? getTagResultsTitle()
                     : activeCategory === INSIGHT_CATEGORY_KEYS.ALL_INSIGHTS
@@ -174,7 +172,7 @@ export default function Insights(): React.ReactNode {
                       : `${getTranslatedCategory(activeCategory)} ${translateInsightField('insights.categoryInsightsSuffix', 'Insights')}`
                   }
                 </h2>
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground text-lg">
                   {activeTag
                     ? translateInsightField(
                         'insights.showingTagResults',
@@ -204,8 +202,8 @@ export default function Insights(): React.ReactNode {
               </div>
             </>
           ) : (
-            <div className="text-center py-16">
-              <p className="text-lg text-muted-foreground">
+            <div className="text-center py-20">
+              <p className="font-display text-xl text-muted-foreground">
                 {noInsightsMessage}
               </p>
             </div>
