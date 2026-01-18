@@ -1,19 +1,15 @@
 import React from 'react';
-import { Button } from './ui/button';
 import { WordRotate } from './ui/word-rotate';
-import Link from '@docusaurus/Link';
 import Waves from './Waves';
 import { LogoAnimation } from './ui/LogoAnimation';
-import { 
-  getHeroTitle, 
-  getHeroSubtitle, 
-  getCtaStart,
+import {
+  getHeroTitle,
+  getHeroSubtitle,
   getHeroRotatingWord1,
   getHeroRotatingWord2,
   getHeroRotatingWord3
 } from '../constants/homepage';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import {translate} from '@docusaurus/Translate';
 
 export function Hero() {
   const {i18n: {currentLocale}} = useDocusaurusContext();
@@ -28,10 +24,6 @@ export function Hero() {
 
   const title = getHeroTitle();
   const subtitle = getHeroSubtitle();
-  const ctaText = translate({
-    id: 'homepage.hero.cta.join',
-    message: 'Join The Ecosystem'
-  });
 
   return (
     <div className="relative isolate overflow-hidden bg-background">
@@ -76,11 +68,6 @@ export function Hero() {
           <p className="text-lg leading-8 text-foreground">
             {subtitle}
           </p>
-          <div className="mt-10 flex items-center justify-center gap-x-6">
-            <Link to="/ecosystem/join">
-              <Button size="lg">{ctaText}</Button>
-            </Link>
-          </div>
         </div>
       </div>
       

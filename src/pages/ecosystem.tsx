@@ -1,3 +1,11 @@
+import { Redirect } from '@docusaurus/router';
+
+// Ecosystem page temporarily hidden - redirect to homepage
+export default function Ecosystem() {
+  return <Redirect to="/" />;
+}
+
+/* Original ecosystem page code - preserved for future restoration
 import React from 'react';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -37,7 +45,7 @@ export default function Ecosystem(): React.ReactNode {
         title={title}
         description={description}>
         <main>
-          <GEOTracker 
+          <GEOTracker
             pageType="ecosystem"
             additionalMetrics={{
               memberCount: '200+',
@@ -56,4 +64,5 @@ export default function Ecosystem(): React.ReactNode {
       </Layout>
     </>
   );
-} 
+}
+*/
