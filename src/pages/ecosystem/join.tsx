@@ -1,3 +1,11 @@
+import { Redirect } from '@docusaurus/router';
+
+// Ecosystem join page temporarily hidden - redirect to homepage
+export default function JoinEcosystemPage() {
+  return <Redirect to="/" />;
+}
+
+/* Original join page code - preserved for future restoration
 import React from 'react';
 import Layout from '@theme/Layout';
 import { JoinForm } from '@site/src/components/Ecosystem/JoinForm';
@@ -6,16 +14,16 @@ import { getEcosystemJoinTitle, getEcosystemJoinDescription } from '../../consta
 export default function JoinEcosystemPage() {
   const title = getEcosystemJoinTitle();
   const description = getEcosystemJoinDescription();
-  
+
   return (
     <Layout
       title={title}
       description={description}
     >
-      <div 
+      <div
         className="min-h-screen w-full"
-        style={{ 
-          backgroundImage: 'url(/img/bg/abstract-flowing-lines-and-elegant-curves-represen1-0.png)', 
+        style={{
+          backgroundImage: 'url(/img/bg/abstract-flowing-lines-and-elegant-curves-represen1-0.png)',
           backgroundSize: '100% auto',
           backgroundRepeat: 'repeat-y',
           backgroundAttachment: 'scroll',
@@ -23,7 +31,7 @@ export default function JoinEcosystemPage() {
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-white/30 to-white/90 pointer-events-none"></div>
-        
+
         <div className="relative z-10 pt-8 pb-24">
           <div className="w-full max-w-4xl mx-auto px-4">
             <div className="py-8">
@@ -36,4 +44,5 @@ export default function JoinEcosystemPage() {
       </div>
     </Layout>
   );
-} 
+}
+*/

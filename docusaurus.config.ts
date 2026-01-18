@@ -122,11 +122,12 @@ const config: Config = {
           label: 'About Us',
           position: 'left'
         },
-        {
-          to: '/ecosystem',
-          label: 'Ecosystem',
-          position: 'left'
-        },
+        // Ecosystem temporarily hidden
+        // {
+        //   to: '/ecosystem',
+        //   label: 'Ecosystem',
+        //   position: 'left'
+        // },
         {
           to: '/insights',
           label: 'Insights',
@@ -209,10 +210,11 @@ const config: Config = {
               label: 'About Us',
               to: '/about-us',
             },
-            {
-              label: 'Ecosystem',
-              to: '/ecosystem',
-            },
+            // Ecosystem temporarily hidden
+            // {
+            //   label: 'Ecosystem',
+            //   to: '/ecosystem',
+            // },
             {
               label: 'Insights',
               to: '/insights',
