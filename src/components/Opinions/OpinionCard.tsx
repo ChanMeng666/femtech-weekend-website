@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Link from '@docusaurus/Link';
 import { OpinionCardProps } from '../../types/opinions';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface OpinionCardTagProps {
   tag: string;
@@ -10,13 +10,13 @@ interface OpinionCardTagProps {
 
 const OpinionCardTag = ({ tag, onClick }: OpinionCardTagProps) => (
   <span
-    className="mckinsey-label inline-block bg-muted px-2 py-1 text-muted-foreground cursor-pointer hover:bg-primary/10 hover:text-primary transition-colors"
+    className="inline-block text-foreground/50 text-xs cursor-pointer hover:text-foreground transition-colors"
     onClick={(e) => {
       e.preventDefault();
       onClick(tag);
     }}
   >
-    {tag}
+    #{tag}
   </span>
 );
 
@@ -25,116 +25,85 @@ export function OpinionCard({ opinion, onTagClick }: OpinionCardProps): React.Re
 
   return (
     <div
-      className="group relative cursor-pointer bg-card border border-border transition-all duration-500 hover:border-primary/30 h-full flex flex-col"
+      className="group relative cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Corner accents */}
-      <div
-        className="absolute top-3 left-3 w-4 h-px bg-primary transition-all duration-500"
-        style={{ opacity: isHovered ? 1 : 0 }}
-      />
-      <div
-        className="absolute top-3 left-3 w-px h-4 bg-primary transition-all duration-500"
-        style={{ opacity: isHovered ? 1 : 0 }}
-      />
-      <div
-        className="absolute bottom-3 right-3 w-4 h-px bg-primary transition-all duration-500"
-        style={{ opacity: isHovered ? 1 : 0 }}
-      />
-      <div
-        className="absolute bottom-3 right-3 w-px h-4 bg-primary transition-all duration-500"
-        style={{ opacity: isHovered ? 1 : 0 }}
-      />
+      <Link to={opinion.link} className="block no-underline">
+        {/* Newspaper column style - text-heavy, minimal decoration */}
+        <article className="relative h-full">
+          {/* Top border that animates on hover */}
+          <div
+            className="absolute top-0 left-0 h-1 bg-foreground transition-all duration-500"
+            style={{
+              width: isHovered ? '100%' : '40px'
+            }}
+          />
 
-      <Link to={opinion.link} className="block h-full no-underline flex flex-col">
-        {/* Image section */}
-        <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-primary/10 to-primary/5">
-          {opinion.image ? (
-            <>
-              <img
-                src={opinion.image}
-                alt={opinion.title}
-                className="h-full w-full object-cover transition-transform duration-700"
+          <div className="pt-6 pb-8 border-b border-border/50 h-full flex flex-col">
+            {/* Category */}
+            <div className="mb-4">
+              <span className="text-xs font-bold uppercase tracking-wider text-primary">
+                {opinion.category}
+              </span>
+            </div>
+
+            {/* Headline - bold newspaper style */}
+            <h3
+              className="font-display text-xl lg:text-2xl font-bold tracking-tight text-foreground mb-4 leading-tight transition-all duration-300"
+              style={{
+                transform: isHovered ? 'translateX(4px)' : 'translateX(0)',
+              }}
+            >
+              {opinion.title}
+            </h3>
+
+            {/* Description */}
+            <p className="text-muted-foreground text-sm mb-6 line-clamp-3 leading-relaxed flex-1">
+              {opinion.description}
+            </p>
+
+            {/* Byline */}
+            <div className="flex items-center gap-2 text-xs text-muted-foreground mb-4">
+              <span className="font-semibold text-foreground">{opinion.author}</span>
+              <span>|</span>
+              <span>{opinion.date}</span>
+              <span>|</span>
+              <span>{opinion.readTime}</span>
+            </div>
+
+            {/* Tags row */}
+            <div className="flex flex-wrap items-center gap-3 mb-4">
+              {opinion.tags.slice(0, 3).map((tag, index) => (
+                <OpinionCardTag
+                  key={index}
+                  tag={tag}
+                  onClick={onTagClick}
+                />
+              ))}
+            </div>
+
+            {/* Read more - subtle */}
+            <div
+              className="flex items-center gap-2 text-foreground text-sm font-medium mt-auto"
+            >
+              <span
+                className="transition-all duration-300"
                 style={{
-                  transform: isHovered ? 'scale(1.05)' : 'scale(1)',
-                  transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)'
+                  borderBottom: isHovered ? '1px solid currentColor' : '1px solid transparent'
+                }}
+              >
+                Continue Reading
+              </span>
+              <ArrowRight
+                className="w-4 h-4 transition-transform duration-300"
+                style={{
+                  transform: isHovered ? 'translateX(4px)' : 'translateX(0)'
                 }}
               />
-              {/* Frame overlay on hover */}
-              <div
-                className="absolute inset-3 border border-white/40 pointer-events-none transition-opacity duration-500"
-                style={{ opacity: isHovered ? 1 : 0 }}
-              />
-            </>
-          ) : (
-            <div className="flex h-full items-center justify-center">
-              <div className="text-center">
-                <div className="font-display text-4xl font-normal text-primary/20 mb-2">
-                  {opinion.title.split(' ')[0]}
-                </div>
-                <div className="mckinsey-label text-primary/60">
-                  {opinion.category}
-                </div>
-              </div>
             </div>
-          )}
-        </div>
-
-        {/* Content section */}
-        <div className="p-6 flex-1 flex flex-col">
-          {/* Category label */}
-          <div className="mb-3">
-            <span className="mckinsey-label text-primary">
-              {opinion.category}
-            </span>
           </div>
-
-          {/* Title - serif */}
-          <h3
-            className="font-display text-xl font-normal tracking-tight text-foreground mb-3 transition-all duration-500"
-            style={{
-              transform: isHovered ? 'translateX(2px)' : 'translateX(0)',
-              transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)'
-            }}
-          >
-            {opinion.title}
-          </h3>
-
-          {/* Description */}
-          <p className="text-muted-foreground text-sm mb-4 line-clamp-3 flex-1">
-            {opinion.description}
-          </p>
-
-          {/* Metadata */}
-          <div className="flex items-center mckinsey-label text-muted-foreground mb-3">
-            <span>{opinion.author}</span>
-            <span className="mx-2">—</span>
-            <span>{opinion.date}</span>
-          </div>
-
-          {/* Tags */}
-          <div className="flex flex-wrap gap-1 mb-4">
-            {opinion.tags.slice(0, 3).map((tag, index) => (
-              <OpinionCardTag
-                key={index}
-                tag={tag}
-                onClick={onTagClick}
-              />
-            ))}
-          </div>
-
-          {/* Read indicator */}
-          <div className="flex items-center gap-1 text-primary mckinsey-label mt-auto">
-            <span>{opinion.readTime}</span>
-            <ArrowUpRight
-              className="h-3 w-3 transition-transform duration-300"
-              style={{
-                transform: isHovered ? 'translate(2px, -2px)' : 'translate(0, 0)'
-              }}
-            />
-          </div>
-        </div>
+        </article>
       </Link>
     </div>
   );
