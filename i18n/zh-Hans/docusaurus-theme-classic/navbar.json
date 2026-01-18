@@ -19,9 +19,17 @@
     "message": "洞察",
     "description": "Navbar item with label Insights"
   },
-  "item.label.Insights": {
-    "message": "洞察",
-    "description": "Navbar item with label Insights"
+  "item.label.Stories": {
+    "message": "人物故事",
+    "description": "Navbar item with label Stories"
+  },
+  "item.label.Opinions": {
+    "message": "观点",
+    "description": "Navbar item with label Opinions"
+  },
+  "item.label.Gallery": {
+    "message": "图库",
+    "description": "Navbar item with label Gallery"
   },
   "item.label.Database": {
     "message": "数据库",

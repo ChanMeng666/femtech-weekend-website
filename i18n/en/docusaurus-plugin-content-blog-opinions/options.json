@@ -1,0 +1,46 @@
+{
+  "title": {
+    "message": "Opinions",
+    "description": "The blog title for SEO"
+  },
+  "description": {
+    "message": "Short articles and essays on women's health technology",
+    "description": "The blog description for SEO"
+  },
+  "sidebar.title": {
+    "message": "Recent Opinions",
+    "description": "The label for the left sidebar"
+  },
+  "archive.title": {
+    "message": "Opinion Archive",
+    "description": "The blog archive page title"
+  },
+  "readingTime.plurals": {
+    "message": "About {readingTime} min read",
+    "description": "Reading time text"
+  },
+  "readMore": {
+    "message": "Read More",
+    "description": "Read more link label"
+  },
+  "post.paginator.navAriaLabel": {
+    "message": "Opinion post navigation",
+    "description": "Opinion post pagination navigation aria label"
+  },
+  "post.paginator.newerPost": {
+    "message": "Newer Opinion",
+    "description": "Newer opinion link label"
+  },
+  "post.paginator.olderPost": {
+    "message": "Older Opinion",
+    "description": "Older opinion link label"
+  },
+  "authors.title": {
+    "message": "Authors",
+    "description": "Authors page title"
+  },
+  "tags.title": {
+    "message": "Tags",
+    "description": "All tags page title"
+  }
+}

@@ -52,6 +52,56 @@ const config: Config = {
   plugins: [
     ['./src/plugins/tailwind-config.js', {}],
     ['./src/plugins/api-routes.js', {}],
+    // Stories Blog - 人物采访
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'stories',
+        routeBasePath: 'stories',
+        path: './stories',
+        showReadingTime: true,
+        feedOptions: {
+          type: ['rss', 'atom'],
+          xslt: true,
+        },
+        editUrl: 'https://github.com/ChanMeng666/femtech-weekend-website/blob/main/',
+        onInlineTags: 'warn',
+        onInlineAuthors: 'warn',
+        onUntruncatedBlogPosts: 'warn',
+        blogTitle: 'FemTech Weekend Stories',
+        blogDescription: 'Character interviews and inspiring stories from the FemTech community',
+        postsPerPage: 'ALL',
+        blogSidebarTitle: 'All Stories',
+        blogSidebarCount: 0,
+        showLastUpdateAuthor: false,
+        showLastUpdateTime: false,
+      },
+    ],
+    // Opinions Blog - 短篇文章
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'opinions',
+        routeBasePath: 'opinions',
+        path: './opinions',
+        showReadingTime: true,
+        feedOptions: {
+          type: ['rss', 'atom'],
+          xslt: true,
+        },
+        editUrl: 'https://github.com/ChanMeng666/femtech-weekend-website/blob/main/',
+        onInlineTags: 'warn',
+        onInlineAuthors: 'warn',
+        onUntruncatedBlogPosts: 'warn',
+        blogTitle: 'FemTech Weekend Opinions',
+        blogDescription: 'Short articles and essays on women\'s health technology',
+        postsPerPage: 'ALL',
+        blogSidebarTitle: 'All Opinions',
+        blogSidebarCount: 0,
+        showLastUpdateAuthor: false,
+        showLastUpdateTime: false,
+      },
+    ],
   ],
   scripts: [],
 
@@ -133,6 +183,16 @@ const config: Config = {
         {
           to: '/insights',
           label: 'Insights',
+          position: 'left'
+        },
+        {
+          to: '/stories',
+          label: 'Stories',
+          position: 'left'
+        },
+        {
+          to: '/opinions',
+          label: 'Opinions',
           position: 'left'
         },
         {
@@ -225,6 +285,14 @@ const config: Config = {
             {
               label: 'Insights',
               to: '/insights',
+            },
+            {
+              label: 'Stories',
+              to: '/stories',
+            },
+            {
+              label: 'Opinions',
+              to: '/opinions',
             },
             {
               label: 'Gallery',

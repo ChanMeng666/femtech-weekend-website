@@ -27,6 +27,18 @@
     "message": "洞察",
     "description": "The label of footer link with label=Insights linking to /insights"
   },
+  "link.item.label.Stories": {
+    "message": "人物故事",
+    "description": "The label of footer link with label=Stories linking to /stories"
+  },
+  "link.item.label.Opinions": {
+    "message": "观点",
+    "description": "The label of footer link with label=Opinions linking to /opinions"
+  },
+  "link.item.label.Gallery": {
+    "message": "图库",
+    "description": "The label of footer link with label=Gallery linking to /gallery"
+  },
   "link.item.label.Database": {
     "message": "数据库",
     "description": "The label of footer link with label=Database linking to /database"
