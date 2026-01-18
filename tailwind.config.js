@@ -22,6 +22,11 @@ module.exports = {
     				}
     			}
     		},
+    		fontFamily: {
+    			'display': ['Georgia', 'Times New Roman', 'serif'],
+    			'body': ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+    			'mono': ['SF Mono', 'Monaco', 'Courier New', 'monospace'],
+    		},
     		colors: {
     			background: 'hsl(var(--background))',
     			foreground: 'hsl(var(--foreground))',
@@ -66,9 +71,11 @@ module.exports = {
     			}
     		},
     		borderRadius: {
-    			lg: 'var(--radius)',
-    			md: 'calc(var(--radius) - 2px)',
-    			sm: 'calc(var(--radius) - 4px)'
+    			lg: '0',
+    			md: '0',
+    			sm: '0',
+    			none: '0',
+    			DEFAULT: '0',
     		},
     		keyframes: {
     			marquee: {
@@ -113,6 +120,34 @@ module.exports = {
     				to: {
     					height: '0'
     				}
+    			},
+    			'fade-in-up': {
+    				'0%': {
+    					opacity: '0',
+    					transform: 'translateY(20px)'
+    				},
+    				'100%': {
+    					opacity: '1',
+    					transform: 'translateY(0)'
+    				}
+    			},
+    			'line-expand': {
+    				'0%': {
+    					width: '32px'
+    				},
+    				'100%': {
+    					width: '48px'
+    				}
+    			},
+    			'count-up': {
+    				'0%': {
+    					opacity: '0',
+    					transform: 'translateY(10px)'
+    				},
+    				'100%': {
+    					opacity: '1',
+    					transform: 'translateY(0)'
+    				}
     			}
     		},
     		animation: {
@@ -120,7 +155,13 @@ module.exports = {
     			'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
     			shine: 'shine var(--duration) infinite linear',
     			'accordion-down': 'accordion-down 0.2s ease-out',
-    			'accordion-up': 'accordion-up 0.2s ease-out'
+    			'accordion-up': 'accordion-up 0.2s ease-out',
+    			'fade-in-up': 'fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+    			'line-expand': 'line-expand 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+    			'count-up': 'count-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards'
+    		},
+    		transitionTimingFunction: {
+    			'professional': 'cubic-bezier(0.16, 1, 0.3, 1)',
     		}
     	}
     },

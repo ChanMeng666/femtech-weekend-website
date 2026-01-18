@@ -70,7 +70,7 @@ export function Values() {
         <div className="mx-auto mt-16 grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {values.map((value, index) => (
             <div key={index} className="flex flex-col items-start">
-              <div className="mb-4 rounded-lg bg-primary/10 p-3 text-primary">
+              <div className="mb-4 bg-primary/10 p-3 text-primary">
                 {value.icon}
               </div>
               <h3 className="mb-2 text-xl font-medium text-foreground">{value.title}</h3>

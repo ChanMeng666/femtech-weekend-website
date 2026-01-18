@@ -21,7 +21,7 @@ const TestimonialCard = ({
   return (
     <div
       className={cn(
-        "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+        "relative h-full w-64 cursor-pointer overflow-hidden border p-4",
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
         "dark:bg-gray-900/80 dark:border-gray-800/50 dark:hover:bg-gray-900/50",
       )}
@@ -29,7 +29,7 @@ const TestimonialCard = ({
       <div className="flex flex-row items-center gap-2">
         {avatarSrc ? (
           <img
-            className="rounded-full"
+            className=""
             width="32"
             height="32"
             alt=""
@@ -40,12 +40,12 @@ const TestimonialCard = ({
               target.style.display = 'none';
               const parent = target.parentElement;
               if (parent) {
-                parent.innerHTML = `<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-medium text-sm">${author.split(' ').map(n => n[0]).join('')}</div>`;
+                parent.innerHTML = `<div class="w-8 h-8 bg-primary/10 flex items-center justify-center text-primary font-medium text-sm">${author.split(' ').map(n => n[0]).join('')}</div>`;
               }
             }}
           />
         ) : (
-          <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-medium text-sm">
+          <div className="w-8 h-8 bg-primary/10 flex items-center justify-center text-primary font-medium text-sm">
             {author.split(' ').map(n => n[0]).join('')}
           </div>
         )}

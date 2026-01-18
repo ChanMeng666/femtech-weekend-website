@@ -6,7 +6,13 @@ export { HomepageContent } from './HomepageContent';
 export { Hero } from './Hero';
 export { StatsSection } from './StatsSection';
 export { Features } from './Features';
+export { ShowcaseSection } from './ShowcaseSection';
 export { TestimonialsSection } from './TestimonialsSection';
+export { PartnershipSection } from './PartnershipSection';
+
+// UI Components
+export { AnimatedLine } from './ui/AnimatedLine';
+export { FeatureSpotlight } from './ui/feature-spotlight';
 
 // Testimonial Components
 export { Testimonial, TestimonialGrid } from './Testimonial';

@@ -19,7 +19,7 @@ export function Testimonial({
   className,
 }: TestimonialProps) {
   return (
-    <div className={cn("relative rounded-xl border border-border bg-card p-6 shadow-sm", className)}>
+    <div className={cn("relative border border-border bg-card p-6 shadow-sm", className)}>
       <div className="flex flex-col gap-4">
         <div className="relative">
           <svg
@@ -41,7 +41,7 @@ export function Testimonial({
         </div>
         <div className="flex items-center gap-3">
           {avatarSrc && (
-            <div className="h-10 w-10 overflow-hidden rounded-full">
+            <div className="h-10 w-10 overflow-hidden">
               <img
                 alt={`${author} avatar`}
                 className="h-full w-full object-cover"

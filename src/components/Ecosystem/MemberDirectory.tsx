@@ -109,7 +109,7 @@ export function MemberDirectory() {
               }`}
             >
               {translateCategory(category)}
-              <span className={`ml-2 text-xs px-2 py-1 rounded-full ${
+              <span className={`ml-2 text-xs px-2 py-1 ${
                 originalActiveCategory === category
                   ? 'bg-white/20 text-white font-medium'
                   : 'bg-primary/20 text-primary'

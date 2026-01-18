@@ -26,7 +26,7 @@ export function TeamMember({ name, role, bio, image, linkedin }: TeamMemberProps
         onClick={() => setIsModalOpen(true)}
       >
         <CardHeader className="text-center">
-          <div className="mx-auto mb-4 h-24 w-24 rounded-full overflow-hidden bg-gradient-to-br from-primary/20 to-primary/40">
+          <div className="mx-auto mb-4 h-24 w-24 overflow-hidden bg-gradient-to-br from-primary/20 to-primary/40">
             <img 
               src={image || getPlaceholderImage(name)} 
               alt={name}
@@ -45,7 +45,7 @@ export function TeamMember({ name, role, bio, image, linkedin }: TeamMemberProps
       >
         <div className="space-y-4">
           <div className="flex items-center space-x-4">
-            <div className="h-16 w-16 rounded-full overflow-hidden bg-gradient-to-br from-primary/20 to-primary/40 flex-shrink-0">
+            <div className="h-16 w-16 overflow-hidden bg-gradient-to-br from-primary/20 to-primary/40 flex-shrink-0">
               <img 
                 src={image || getPlaceholderImage(name)} 
                 alt={name}

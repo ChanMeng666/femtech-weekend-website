@@ -138,7 +138,7 @@ export default function Insights(): React.ReactNode {
               <div className="mr-2 text-muted-foreground">
                 {translateInsightField('insights.filteringByTag', 'Filtering by tag:')}
               </div>
-              <div className="flex items-center bg-primary/10 rounded-full px-4 py-2">
+              <div className="flex items-center bg-primary/10 px-4 py-2">
                 <span className="font-medium text-primary mr-2">{activeTag}</span>
                 <button
                   onClick={() => setActiveTag(null)}

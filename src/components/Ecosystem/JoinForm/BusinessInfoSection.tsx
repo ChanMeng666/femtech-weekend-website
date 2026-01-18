@@ -40,7 +40,7 @@ export default function BusinessInfoSection({
   handleFileChange
 }: BusinessInfoSectionProps) {
   return (
-    <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-sm border border-gray-100">
+    <div className="bg-white/80 backdrop-blur-sm p-6 shadow-sm border border-gray-100">
       <h2 className="text-xl font-semibold mb-4">Business Information</h2>
       <div className="space-y-6">
         <div>
@@ -53,7 +53,7 @@ export default function BusinessInfoSection({
             rows={4}
             value={businessDescription}
             onChange={handleInputChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
           />
         </div>
         
@@ -111,14 +111,14 @@ export default function BusinessInfoSection({
             rows={3}
             value={additionalInfo}
             onChange={handleInputChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
           />
         </div>
         
         <div>
           <p className="block mb-2 font-medium">Company Logo</p>
           <div 
-            className={`border-2 border-dashed border-gray-300 rounded-lg p-6 text-center ${logoPreview ? 'border-primary border-solid' : ''} hover:bg-gray-50 cursor-pointer transition-all`}
+            className={`border-2 border-dashed border-gray-300 p-6 text-center ${logoPreview ? 'border-primary border-solid' : ''} hover:bg-gray-50 cursor-pointer transition-all`}
             onClick={() => document.getElementById('logo').click()}
           >
             <input

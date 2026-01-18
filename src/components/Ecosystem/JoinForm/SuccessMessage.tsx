@@ -9,9 +9,9 @@ export default function SuccessMessage({ successRef }: SuccessMessageProps) {
   return (
     <div 
       ref={successRef}
-      className="max-w-2xl mx-auto p-8 my-12 bg-green-50 rounded-lg border border-green-200 text-center shadow-sm backdrop-blur-sm"
+      className="max-w-2xl mx-auto p-8 my-12 bg-green-50 border border-green-200 text-center shadow-sm backdrop-blur-sm"
     >
-      <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+      <div className="w-20 h-20 bg-green-100 flex items-center justify-center mx-auto mb-6">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
         </svg>

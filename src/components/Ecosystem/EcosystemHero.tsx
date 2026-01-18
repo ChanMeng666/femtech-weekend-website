@@ -25,7 +25,7 @@ export function EcosystemHero() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
           <div className="mb-4">
-            <span className="inline-flex items-center rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
+            <span className="inline-flex items-center bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
               {badgeText}
             </span>
           </div>

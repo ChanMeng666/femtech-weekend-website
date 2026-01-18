@@ -16,7 +16,7 @@ export function InsightsCTA(): React.ReactNode {
 
   return (
     <div className="mt-20 text-center">
-      <div className="rounded-2xl bg-gradient-to-r from-primary/10 to-primary/5 p-8">
+      <div className="bg-gradient-to-r from-primary/10 to-primary/5 p-8">
         <h3 className="text-2xl font-bold text-foreground mb-4">
           {title}
         </h3>

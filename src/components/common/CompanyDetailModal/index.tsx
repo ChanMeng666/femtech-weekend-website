@@ -19,7 +19,7 @@ function TagItem({
   return (
     <li className="inline-flex items-center mr-2 mb-1" title={description}>
       <span className="text-xs text-muted-foreground">{label}</span>
-      <span className="w-2 h-2 ml-1.5 rounded-full" style={{backgroundColor: color}} />
+      <span className="w-2 h-2 ml-1.5" style={{backgroundColor: color}} />
     </li>
   );
 }
@@ -69,7 +69,7 @@ export default function CompanyDetailModal({
       className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
       onClick={handleBackdropClick}
     >
-      <div className="bg-card max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-lg shadow-xl">
+      <div className="bg-card max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-xl">
         <div className="p-6 space-y-4">
           <div className="flex justify-between items-start">
             <Heading as="h3" className="text-2xl font-bold">

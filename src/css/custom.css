@@ -48,7 +48,7 @@
   --border: 240 5.9% 90%;
   --input: 240 5.9% 90%;
   --ring: 240 5.9% 10%;
-  --radius: 0.75rem;
+  --radius: 0;
   --chart-1: 12 76% 61%;
   --chart-2: 33 58% 39%;
   --chart-3: 45 37% 24%;
@@ -110,6 +110,235 @@
   background-repeat: space;
   background-position: center;
   opacity: 0.03;
+}
+
+/* ============================================
+   McKinsey-Inspired Professional Typography
+   ============================================ */
+
+/* Display/Headline - Serif font for professional look */
+.mckinsey-headline {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* Section titles - Serif with slightly larger tracking */
+.mckinsey-display {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+/* Body text - Clean sans-serif */
+.mckinsey-body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Labels - Uppercase with wide tracking */
+.mckinsey-label {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+}
+
+/* Index numbers - Monospace style for numbered items */
+.mckinsey-index {
+  font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: hsl(var(--muted-foreground));
+}
+
+/* ============================================
+   McKinsey-Inspired Animation Keyframes
+   ============================================ */
+
+/* Line expansion animation */
+@keyframes line-expand {
+  from {
+    width: 32px;
+  }
+  to {
+    width: 48px;
+  }
+}
+
+/* Subtle fade in up animation */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Line draw animation for SVG paths */
+@keyframes line-draw {
+  from {
+    stroke-dashoffset: 100%;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Subtle scale animation */
+@keyframes subtle-scale {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.02);
+  }
+}
+
+/* Arrow rotate animation */
+@keyframes arrow-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(45deg);
+  }
+}
+
+/* ============================================
+   McKinsey-Inspired Animation Classes
+   ============================================ */
+
+/* Animated line that expands on hover */
+.animated-line {
+  height: 1px;
+  background-color: hsl(var(--foreground));
+  width: 32px;
+  transition: width 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .animated-line,
+.animated-line:hover {
+  width: 48px;
+}
+
+/* Fade in up animation class */
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Staggered animation delays */
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+
+/* Hover lift effect for cards */
+.hover-lift {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Border reveal on hover */
+.border-reveal {
+  position: relative;
+}
+
+.border-reveal::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  transition: border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.border-reveal:hover::after {
+  border-color: hsl(var(--primary));
+}
+
+/* Arrow rotation on hover */
+.arrow-rotate {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .arrow-rotate {
+  transform: rotate(45deg);
+}
+
+/* Grayscale to color hover effect for images/logos */
+.grayscale-hover {
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: filter 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.grayscale-hover:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* Text hover displacement effect */
+.text-hover-shift {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .text-hover-shift {
+  transform: translateX(8px);
+}
+
+/* Professional cubic bezier timing function utility */
+.ease-professional {
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Corner accent decorations (used on hover) */
+.corner-accents {
+  position: relative;
+}
+
+.corner-accents::before,
+.corner-accents::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.corner-accents::before {
+  top: 8px;
+  left: 8px;
+  border-top: 1px solid hsl(var(--primary));
+  border-left: 1px solid hsl(var(--primary));
+}
+
+.corner-accents::after {
+  bottom: 8px;
+  right: 8px;
+  border-bottom: 1px solid hsl(var(--primary));
+  border-right: 1px solid hsl(var(--primary));
+}
+
+.corner-accents:hover::before,
+.corner-accents:hover::after {
+  opacity: 1;
 }
 
 [data-theme='dark'] {
@@ -203,7 +432,7 @@ article h2 a {
 }
 
 .image img {
-  @apply !rounded-lg border border-border;
+  @apply border border-border;
 }
 
 .image-dark {

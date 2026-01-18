@@ -96,7 +96,7 @@ function HeadingRow() {
 export default function ShowcaseFilters() {
   return (
     <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div className="bg-card border border-border rounded-lg p-6">
+      <div className="bg-card border border-border p-6">
         <HeadingRow />
         <ShowcaseTagList />
       </div>

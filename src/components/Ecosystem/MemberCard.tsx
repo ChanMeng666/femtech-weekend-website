@@ -10,12 +10,12 @@ export function MemberCard({ member }: MemberCardProps) {
   return (
     <Card className="MemberCard h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-2 border-0 bg-white/80 backdrop-blur-sm">
       <CardHeader className="text-center pb-4">
-        <div className="mx-auto mb-4 h-20 w-20 rounded-full bg-gradient-to-br from-primary/20 to-primary/40 flex items-center justify-center">
+        <div className="mx-auto mb-4 h-20 w-20 bg-gradient-to-br from-primary/20 to-primary/40 flex items-center justify-center">
           {member.image ? (
             <img 
               src={member.image} 
               alt={member.name}
-              className="h-full w-full rounded-full object-cover"
+              className="h-full w-full object-cover"
             />
           ) : (
             <div className="text-lg font-bold text-primary">
@@ -41,7 +41,7 @@ export function MemberCard({ member }: MemberCardProps) {
               {member.expertise.slice(0, 3).map((skill, index) => (
                 <span
                   key={index}
-                  className="inline-block rounded-full bg-primary/10 px-2 py-1 text-xs text-primary font-medium"
+                  className="inline-block bg-primary/10 px-2 py-1 text-xs text-primary font-medium"
                 >
                   {skill}
                 </span>

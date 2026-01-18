@@ -11,7 +11,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         className={cn(
-          "inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 disabled:pointer-events-none disabled:opacity-50",
+          "inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 disabled:pointer-events-none disabled:opacity-50",
           {
             "bg-primary text-primary-foreground shadow hover:bg-primary-dark hover:scale-[1.02] hover:shadow-md": variant === "default",
             "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90 hover:scale-[1.02] hover:shadow-md": variant === "destructive",
@@ -20,8 +20,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             "hover:bg-accent/60 hover:text-accent-foreground hover:scale-[1.02]": variant === "ghost",
             "text-primary underline-offset-4 hover:underline": variant === "link",
             "h-9 px-5 py-2": size === "default",
-            "h-8 rounded-full px-4 text-xs": size === "sm",
-            "h-10 rounded-full px-8": size === "lg",
+            "h-8 px-4 text-xs": size === "sm",
+            "h-10 px-8": size === "lg",
             "h-9 w-9 p-0": size === "icon",
           },
           className
@@ -35,4 +35,4 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.displayName = "Button";
 
-export { Button }; 
+export { Button };
