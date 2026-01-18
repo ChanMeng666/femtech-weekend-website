@@ -12,7 +12,7 @@ export default function FounderInfoSection({
   handleInputChange
 }: FounderInfoSectionProps) {
   return (
-    <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-sm border border-gray-100">
+    <div className="bg-white/80 backdrop-blur-sm p-6 shadow-sm border border-gray-100">
       <h2 className="text-xl font-semibold mb-4">Founder Information</h2>
       <div className="space-y-4">
         <div>
@@ -26,7 +26,7 @@ export default function FounderInfoSection({
             required
             value={founderName}
             onChange={handleInputChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
           />
         </div>
         
@@ -41,7 +41,7 @@ export default function FounderInfoSection({
             required
             value={founderLinkedin}
             onChange={handleInputChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
           />
         </div>
       </div>

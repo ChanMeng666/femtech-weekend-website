@@ -20,7 +20,7 @@ function TagItem({
   return (
     <li className="inline-flex items-center mr-2 mb-1" title={description}>
       <span className="text-xs text-muted-foreground dark:text-slate-300">{label}</span>
-      <span className="w-2 h-2 ml-1.5 rounded-full" style={{backgroundColor: color}} />
+      <span className="w-2 h-2 ml-1.5" style={{backgroundColor: color}} />
     </li>
   );
 }
@@ -53,7 +53,7 @@ function ShowcaseCard({company}: {company: Company}) {
   return (
     <>
       <li 
-        className="group relative rounded-xl border border-border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md hover:border-primary/50 overflow-hidden cursor-pointer dark:bg-slate-800 dark:hover:bg-slate-700"
+        className="group relative border border-border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md hover:border-primary/50 overflow-hidden cursor-pointer dark:bg-slate-800 dark:hover:bg-slate-700"
         onClick={() => setIsModalOpen(true)}
       >
         <div className="p-6">
@@ -64,7 +64,7 @@ function ShowcaseCard({company}: {company: Company}) {
               </span>
             </Heading>
             {company.location && (
-              <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded-full dark:bg-slate-700 dark:text-slate-200">
+              <span className="text-xs text-muted-foreground bg-muted px-2 py-1 dark:bg-slate-700 dark:text-slate-200">
                 {company.location}
               </span>
             )}

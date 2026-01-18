@@ -11,7 +11,7 @@ interface InsightTagProps {
 
 const InsightTag = ({ tag, onClick }: InsightTagProps) => (
   <span
-    className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm text-primary font-medium cursor-pointer hover:bg-primary/20 transition-colors"
+    className="inline-block bg-primary/10 px-3 py-1 text-sm text-primary font-medium cursor-pointer hover:bg-primary/20 transition-colors"
     onClick={(e) => {
       e.preventDefault(); // Prevent the Link from navigating
       onClick(tag);
@@ -50,7 +50,7 @@ export function FeaturedInsight({ insight, onTagClick }: FeaturedInsightProps): 
           </div>
           <div className="p-8 flex flex-col justify-center">
             <div className="mb-4">
-              <span className="inline-block rounded-full bg-primary/20 px-4 py-2 text-sm font-medium text-primary">
+              <span className="inline-block bg-primary/20 px-4 py-2 text-sm font-medium text-primary">
                 {featuredInsightLabel}
               </span>
             </div>

@@ -12,7 +12,7 @@ export default function OperatorButton() {
     <button
       type="button"
       className={cn(
-        "rounded-full px-4 py-2 text-xs font-medium transition-all hover:scale-[1.02] hover:shadow-md",
+        "px-4 py-2 text-xs font-medium transition-all hover:scale-[1.02] hover:shadow-md",
         operator === 'OR' 
           ? "bg-secondary text-secondary-foreground hover:bg-secondary/90"
           : "bg-primary text-primary-foreground hover:bg-primary-dark"

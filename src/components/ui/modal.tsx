@@ -20,7 +20,7 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
       />
       
       {/* Modal Content */}
-      <div className="relative bg-background rounded-lg shadow-xl max-w-md w-full max-h-[80vh] overflow-y-auto">       
+      <div className="relative bg-background shadow-xl max-w-md w-full max-h-[80vh] overflow-y-auto">       
         {/* Body */}
         <div className="p-6">
           {children}

@@ -1,24 +1,21 @@
-import React from 'react';
-import clsx from 'clsx';
-import { LogoBackground } from './ui/LogoBackground';
-import Waves from './Waves';
-import styles from '../css/components/PartnershipSection.module.css';
-import {translate} from '@docusaurus/Translate';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import React, { useEffect, useRef, useState } from 'react';
+import { AnimatedLine } from './ui/AnimatedLine';
+import { translate } from '@docusaurus/Translate';
 
 export const PartnershipSection: React.FC = () => {
-  const {i18n: {currentLocale}} = useDocusaurusContext();
-  
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
   const title = translate({
     id: 'homepage.partnership.title',
     message: 'Our Partners'
   });
-  
+
   const subtitle = translate({
     id: 'homepage.partnership.subtitle',
     message: 'Collaborating with leading organizations to advance women\'s health technology'
   });
-  
+
   const partners = [
     {
       name: 'C2C',
@@ -34,61 +31,109 @@ export const PartnershipSection: React.FC = () => {
     },
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="relative bg-background py-24 sm:py-32 overflow-hidden">
-      {/* Logo background */}
-      <LogoBackground pattern="scattered" opacity={0.04} animate={true} />
-      
-      {/* Waves background */}
-      <Waves 
-        lineColor="rgba(214, 171, 147, 0.85)"
-        backgroundColor="transparent"
-        waveSpeedX={0.01}
-        waveSpeedY={0.007}
-        waveAmpX={25}
-        waveAmpY={12}
-        friction={0.93}
-        tension={0.007}
-        maxCursorMove={80}
-        xGap={18}
-        yGap={45}
-        className="z-0 opacity-40"
-      />
-      
+    <div
+      ref={sectionRef}
+      className="relative bg-background py-16 sm:py-20 lg:py-24 overflow-hidden"
+    >
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            {title}
-          </h2>
-          <p className="mt-6 text-lg leading-8 text-muted-foreground">
+        {/* Top divider line */}
+        <div
+          className="mb-12 transition-all duration-700"
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+          }}
+        >
+          <div className="h-px bg-border w-full" />
+        </div>
+
+        {/* Section Header */}
+        <div className="text-center mb-12">
+          <div
+            className="flex justify-center mb-4 transition-all duration-700"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+              transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+            }}
+          >
+            <AnimatedLine variant="label" label={title} />
+          </div>
+
+          <p
+            className="text-muted-foreground text-sm sm:text-base max-w-xl mx-auto transition-all duration-700"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+              transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+              transitionDelay: '100ms',
+            }}
+          >
             {subtitle}
           </p>
         </div>
-        
-        <div className={clsx('mt-16 sm:mt-20 lg:mt-24', styles.partnersContainer)}>
+
+        {/* Partners Grid */}
+        <div
+          className="flex flex-wrap justify-center items-center gap-8 sm:gap-12 lg:gap-16 transition-all duration-700"
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+            transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+            transitionDelay: '200ms',
+          }}
+        >
           {partners.map((partner, idx) => (
-            <div key={idx} className={styles.partnerItem}>
-              <div className={styles.partnerLogoWrapper}>
-                <img 
-                  src={partner.logo} 
-                  alt={`${partner.name} logo`} 
-                  className={styles.partnerLogo}
-                />
-              </div>
+            <div
+              key={idx}
+              className="group relative flex items-center justify-center"
+              style={{
+                transitionDelay: `${200 + idx * 100}ms`,
+              }}
+            >
+              <img
+                src={partner.logo}
+                alt={`${partner.name} logo`}
+                className="h-12 sm:h-14 lg:h-16 w-auto object-contain grayscale-hover transition-all duration-500"
+                style={{
+                  transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                }}
+              />
             </div>
           ))}
         </div>
-        
-        <div className="absolute inset-x-0 bottom-0 -z-10 transform-gpu overflow-hidden blur-3xl" aria-hidden="true">
-          <div
-            className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[var(--ifm-color-primary-darker)] to-[var(--ifm-color-primary)] opacity-20 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-            style={{
-              clipPath:
-                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-            }}
-          />
+
+        {/* Bottom divider line */}
+        <div
+          className="mt-12 transition-all duration-700"
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+            transitionDelay: '400ms',
+          }}
+        >
+          <div className="h-px bg-border w-full" />
         </div>
       </div>
     </div>
   );
-} 
+};

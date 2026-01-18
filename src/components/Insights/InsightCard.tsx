@@ -24,7 +24,7 @@ export function InsightCard({ insight, onTagClick }: InsightCardProps): React.Re
   return (
     <Card className="group cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border-0 bg-white/50 backdrop-blur-sm">
       <Link to={insight.link} className="block h-full text-decoration-none">
-        <div className="aspect-[16/10] overflow-hidden rounded-t-lg bg-gradient-to-br from-primary/10 to-primary/5">
+        <div className="aspect-[16/10] overflow-hidden bg-gradient-to-br from-primary/10 to-primary/5">
           {insight.image ? (
             <img
               src={insight.image}
@@ -46,7 +46,7 @@ export function InsightCard({ insight, onTagClick }: InsightCardProps): React.Re
         </div>
         <CardContent className="p-6">
           <div className="mb-3">
-            <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+            <span className="inline-block bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
               {insight.category}
             </span>
           </div>
