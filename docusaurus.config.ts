@@ -27,7 +27,6 @@ const config: Config = {
   projectName: 'femtech-weekend-website', // Usually your repo name.
 
   onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
   onBrokenAnchors: 'ignore',
 
   // Even if you don't use internationalization, you can use this field to set
@@ -44,6 +43,9 @@ const config: Config = {
       comments: false,
       admonitions: false,
       headingIds: false,
+    },
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
     },
   },
   themes: ['@docusaurus/theme-mermaid'],
