@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from '@docusaurus/Link';
-import { Card, CardContent } from '../ui/card';
 import { InsightCardProps } from '../../types/insights';
+import { ArrowUpRight } from 'lucide-react';
 
 interface InsightCardTagProps {
   tag: string;
@@ -10,9 +10,9 @@ interface InsightCardTagProps {
 
 const InsightCardTag = ({ tag, onClick }: InsightCardTagProps) => (
   <span
-    className="inline-block rounded bg-muted px-2 py-1 text-xs text-muted-foreground cursor-pointer hover:bg-primary/10 hover:text-primary transition-colors"
+    className="mckinsey-label inline-block bg-muted px-2 py-1 text-muted-foreground cursor-pointer hover:bg-primary/10 hover:text-primary transition-colors"
     onClick={(e) => {
-      e.preventDefault(); // Prevent the Link from navigating
+      e.preventDefault();
       onClick(tag);
     }}
   >
@@ -21,51 +21,100 @@ const InsightCardTag = ({ tag, onClick }: InsightCardTagProps) => (
 );
 
 export function InsightCard({ insight, onTagClick }: InsightCardProps): React.ReactNode {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <Card className="group cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border-0 bg-white/50 backdrop-blur-sm">
-      <Link to={insight.link} className="block h-full text-decoration-none">
-        <div className="aspect-[16/10] overflow-hidden bg-gradient-to-br from-primary/10 to-primary/5">
+    <div
+      className="group relative cursor-pointer bg-card border border-border transition-all duration-500 hover:border-primary/30 h-full flex flex-col"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Corner accents */}
+      <div
+        className="absolute top-3 left-3 w-4 h-px bg-primary transition-all duration-500"
+        style={{ opacity: isHovered ? 1 : 0 }}
+      />
+      <div
+        className="absolute top-3 left-3 w-px h-4 bg-primary transition-all duration-500"
+        style={{ opacity: isHovered ? 1 : 0 }}
+      />
+      <div
+        className="absolute bottom-3 right-3 w-4 h-px bg-primary transition-all duration-500"
+        style={{ opacity: isHovered ? 1 : 0 }}
+      />
+      <div
+        className="absolute bottom-3 right-3 w-px h-4 bg-primary transition-all duration-500"
+        style={{ opacity: isHovered ? 1 : 0 }}
+      />
+
+      <Link to={insight.link} className="block h-full no-underline flex flex-col">
+        {/* Image section */}
+        <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-primary/10 to-primary/5">
           {insight.image ? (
-            <img
-              src={insight.image}
-              alt={insight.title}
-              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-            />
+            <>
+              <img
+                src={insight.image}
+                alt={insight.title}
+                className="h-full w-full object-cover transition-transform duration-700"
+                style={{
+                  transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+                  transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)'
+                }}
+              />
+              {/* Frame overlay on hover */}
+              <div
+                className="absolute inset-3 border border-white/40 pointer-events-none transition-opacity duration-500"
+                style={{ opacity: isHovered ? 1 : 0 }}
+              />
+            </>
           ) : (
             <div className="flex h-full items-center justify-center">
               <div className="text-center">
-                <div className="text-4xl font-bold text-primary/20 mb-2">
+                <div className="font-display text-4xl font-normal text-primary/20 mb-2">
                   {insight.title.split(' ')[0]}
                 </div>
-                <div className="text-primary/60 text-sm font-medium">
+                <div className="mckinsey-label text-primary/60">
                   {insight.category}
                 </div>
               </div>
             </div>
           )}
         </div>
-        <CardContent className="p-6">
+
+        {/* Content section */}
+        <div className="p-6 flex-1 flex flex-col">
+          {/* Category label */}
           <div className="mb-3">
-            <span className="inline-block bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+            <span className="mckinsey-label text-primary">
               {insight.category}
             </span>
           </div>
-          <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+
+          {/* Title - serif */}
+          <h3
+            className="font-display text-xl font-normal tracking-tight text-foreground mb-3 transition-all duration-500"
+            style={{
+              transform: isHovered ? 'translateX(2px)' : 'translateX(0)',
+              transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)'
+            }}
+          >
             {insight.title}
           </h3>
-          <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+
+          {/* Description */}
+          <p className="text-muted-foreground text-sm mb-4 line-clamp-3 flex-1">
             {insight.description}
           </p>
-          <div className="flex items-center justify-between text-xs text-muted-foreground">
-            <div className="flex items-center space-x-2">
-              <span>{insight.author}</span>
-              <span>•</span>
-              <span>{insight.date}</span>
-              <span>•</span>
-              <span>{insight.readTime}</span>
-            </div>
+
+          {/* Metadata */}
+          <div className="flex items-center mckinsey-label text-muted-foreground mb-3">
+            <span>{insight.author}</span>
+            <span className="mx-2">—</span>
+            <span>{insight.date}</span>
           </div>
-          <div className="flex flex-wrap gap-1 mt-3">
+
+          {/* Tags */}
+          <div className="flex flex-wrap gap-1 mb-4">
             {insight.tags.slice(0, 3).map((tag, index) => (
               <InsightCardTag
                 key={index}
@@ -74,8 +123,19 @@ export function InsightCard({ insight, onTagClick }: InsightCardProps): React.Re
               />
             ))}
           </div>
-        </CardContent>
+
+          {/* Read indicator */}
+          <div className="flex items-center gap-1 text-primary mckinsey-label mt-auto">
+            <span>{insight.readTime}</span>
+            <ArrowUpRight
+              className="h-3 w-3 transition-transform duration-300"
+              style={{
+                transform: isHovered ? 'translate(2px, -2px)' : 'translate(0, 0)'
+              }}
+            />
+          </div>
+        </div>
       </Link>
-    </Card>
+    </div>
   );
 }

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from '@docusaurus/Link';
-import { Card } from '../ui/card';
 import { FeaturedInsightProps } from '../../types/insights';
 import { getFeaturedInsightLabel } from '../../constants/insights-components';
+import { ArrowUpRight } from 'lucide-react';
 
 interface InsightTagProps {
   tag: string;
@@ -11,9 +11,9 @@ interface InsightTagProps {
 
 const InsightTag = ({ tag, onClick }: InsightTagProps) => (
   <span
-    className="inline-block bg-primary/10 px-3 py-1 text-sm text-primary font-medium cursor-pointer hover:bg-primary/20 transition-colors"
+    className="mckinsey-label inline-block bg-primary/10 px-3 py-1 text-primary cursor-pointer hover:bg-primary/20 transition-colors"
     onClick={(e) => {
-      e.preventDefault(); // Prevent the Link from navigating
+      e.preventDefault();
       onClick(tag);
     }}
   >
@@ -23,51 +23,103 @@ const InsightTag = ({ tag, onClick }: InsightTagProps) => (
 
 export function FeaturedInsight({ insight, onTagClick }: FeaturedInsightProps): React.ReactNode {
   const featuredInsightLabel = getFeaturedInsightLabel();
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <Card className="group cursor-pointer transition-all duration-300 hover:shadow-xl border-0 bg-gradient-to-r from-primary/5 to-primary/10 backdrop-blur-sm">
-      <Link to={insight.link} className="block text-decoration-none">
+    <div
+      className="group relative cursor-pointer bg-card border border-border transition-all duration-500 hover:border-primary/30"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Corner accents */}
+      <div
+        className="absolute top-4 left-4 w-6 h-px bg-primary transition-all duration-500"
+        style={{ opacity: isHovered ? 1 : 0 }}
+      />
+      <div
+        className="absolute top-4 left-4 w-px h-6 bg-primary transition-all duration-500"
+        style={{ opacity: isHovered ? 1 : 0 }}
+      />
+      <div
+        className="absolute bottom-4 right-4 w-6 h-px bg-primary transition-all duration-500"
+        style={{ opacity: isHovered ? 1 : 0 }}
+      />
+      <div
+        className="absolute bottom-4 right-4 w-px h-6 bg-primary transition-all duration-500"
+        style={{ opacity: isHovered ? 1 : 0 }}
+      />
+
+      <Link to={insight.link} className="block no-underline">
         <div className="grid grid-cols-1 lg:grid-cols-2 h-full">
-          <div className="aspect-[16/10] lg:aspect-auto overflow-hidden">
+          {/* Image section */}
+          <div className="relative aspect-[16/10] lg:aspect-auto overflow-hidden">
             {insight.image ? (
-              <img
-                src={insight.image}
-                alt={insight.title}
-                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-              />
+              <>
+                <img
+                  src={insight.image}
+                  alt={insight.title}
+                  className="h-full w-full object-cover transition-transform duration-700"
+                  style={{
+                    transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+                    transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)'
+                  }}
+                />
+                {/* Frame overlay on hover */}
+                <div
+                  className="absolute inset-4 border border-white/40 pointer-events-none transition-opacity duration-500"
+                  style={{ opacity: isHovered ? 1 : 0 }}
+                />
+              </>
             ) : (
-              <div className="flex h-full items-center justify-center bg-gradient-to-br from-primary/20 to-primary/30">
+              <div className="flex h-full items-center justify-center bg-gradient-to-br from-primary/10 to-primary/20">
                 <div className="text-center">
-                  <div className="text-6xl font-bold text-primary/40 mb-4">
+                  <div className="font-display text-6xl font-normal text-primary/30 mb-4">
                     {insight.title.split(' ')[0]}
                   </div>
-                  <div className="text-primary/70 font-medium">
+                  <div className="mckinsey-label text-primary/60">
                     {insight.category}
                   </div>
                 </div>
               </div>
             )}
           </div>
-          <div className="p-8 flex flex-col justify-center">
-            <div className="mb-4">
-              <span className="inline-block bg-primary/20 px-4 py-2 text-sm font-medium text-primary">
+
+          {/* Content section */}
+          <div className="p-8 lg:p-10 flex flex-col justify-center">
+            {/* Featured label */}
+            <div className="mb-6">
+              <span className="mckinsey-label text-primary">
                 {featuredInsightLabel}
               </span>
             </div>
-            <h2 className="text-3xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
+
+            {/* Title - serif */}
+            <h2
+              className="font-display text-2xl sm:text-3xl lg:text-4xl font-normal tracking-tight text-foreground mb-4 transition-all duration-500"
+              style={{
+                transform: isHovered ? 'translateX(4px)' : 'translateX(0)',
+                transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)'
+              }}
+            >
               {insight.title}
             </h2>
+
+            {/* Description */}
             <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
               {insight.description}
             </p>
-            <div className="flex items-center text-sm text-muted-foreground mb-4">
-              <span className="font-medium">{insight.author}</span>
-              <span className="mx-2">•</span>
+
+            {/* Metadata */}
+            <div className="flex items-center mckinsey-label text-muted-foreground mb-6">
+              <span>{insight.author}</span>
+              <span className="mx-3">—</span>
               <span>{insight.date}</span>
-              <span className="mx-2">•</span>
+              <span className="mx-3">—</span>
               <span>{insight.readTime}</span>
             </div>
-            <div className="flex flex-wrap gap-2">
+
+            {/* Tags */}
+            <div className="flex flex-wrap gap-2 mb-6">
               {insight.tags.map((tag, index) => (
                 <InsightTag
                   key={index}
@@ -76,9 +128,20 @@ export function FeaturedInsight({ insight, onTagClick }: FeaturedInsightProps): 
                 />
               ))}
             </div>
+
+            {/* CTA with arrow */}
+            <div className="flex items-center gap-2 text-primary mckinsey-label">
+              <span>Read More</span>
+              <ArrowUpRight
+                className="h-4 w-4 transition-transform duration-300"
+                style={{
+                  transform: isHovered ? 'translate(2px, -2px)' : 'translate(0, 0)'
+                }}
+              />
+            </div>
           </div>
         </div>
       </Link>
-    </Card>
+    </div>
   );
 }

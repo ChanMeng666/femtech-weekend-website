@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Modal } from '../ui/modal';
 
 export interface TeamMemberProps {
@@ -12,7 +11,8 @@ export interface TeamMemberProps {
 
 export function TeamMember({ name, role, bio, image, linkedin }: TeamMemberProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
+  const [isHovered, setIsHovered] = useState(false);
+
   // Generate a placeholder image URL based on the name
   const getPlaceholderImage = (name: string) => {
     const seed = name.replace(/\s+/g, '').toLowerCase();
@@ -21,22 +21,55 @@ export function TeamMember({ name, role, bio, image, linkedin }: TeamMemberProps
 
   return (
     <>
-      <Card 
-        className="h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-2 cursor-pointer"
+      <div
+        className="group relative border border-border bg-card p-6 transition-all duration-500 hover:border-primary/50 hover:shadow-lg cursor-pointer"
         onClick={() => setIsModalOpen(true)}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
       >
-        <CardHeader className="text-center">
-          <div className="mx-auto mb-4 h-24 w-24 overflow-hidden bg-gradient-to-br from-primary/20 to-primary/40">
-            <img 
-              src={image || getPlaceholderImage(name)} 
-              alt={name}
-              className="h-full w-full object-cover"
-            />
-          </div>
-          <CardTitle className="text-xl">{name}</CardTitle>
-          <p className="text-primary font-medium">{role}</p>
-        </CardHeader>
-      </Card>
+        {/* Corner accents */}
+        <div
+          className="absolute right-4 bottom-4 h-6 w-px bg-primary/70 transition-all duration-500"
+          style={{
+            opacity: isHovered ? 1 : 0,
+            transform: isHovered ? 'scaleY(1)' : 'scaleY(0)',
+            transformOrigin: 'bottom',
+          }}
+        />
+        <div
+          className="absolute right-4 bottom-4 h-px w-6 bg-primary/70 transition-all duration-500"
+          style={{
+            opacity: isHovered ? 1 : 0,
+            transform: isHovered ? 'scaleX(1)' : 'scaleX(0)',
+            transformOrigin: 'right',
+          }}
+        />
+
+        {/* Photo - square with hover frame */}
+        <div className="relative mx-auto mb-6 h-32 w-32 overflow-hidden bg-gradient-to-br from-primary/20 to-primary/40">
+          <img
+            src={image || getPlaceholderImage(name)}
+            alt={name}
+            className="h-full w-full object-cover transition-transform duration-500"
+            style={{
+              transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+            }}
+          />
+          {/* Frame overlay on hover */}
+          <div
+            className="absolute inset-2 border border-white/50 transition-opacity duration-500"
+            style={{
+              opacity: isHovered ? 1 : 0,
+            }}
+          />
+        </div>
+
+        {/* Name - serif */}
+        <h4 className="font-display text-xl text-center text-foreground">{name}</h4>
+
+        {/* Role */}
+        <p className="text-primary text-center mt-1 text-sm">{role}</p>
+      </div>
 
       <Modal
         isOpen={isModalOpen}
@@ -45,24 +78,24 @@ export function TeamMember({ name, role, bio, image, linkedin }: TeamMemberProps
       >
         <div className="space-y-4">
           <div className="flex items-center space-x-4">
-            <div className="h-16 w-16 overflow-hidden bg-gradient-to-br from-primary/20 to-primary/40 flex-shrink-0">
-              <img 
-                src={image || getPlaceholderImage(name)} 
+            <div className="h-20 w-20 overflow-hidden bg-gradient-to-br from-primary/20 to-primary/40 flex-shrink-0">
+              <img
+                src={image || getPlaceholderImage(name)}
                 alt={name}
                 className="h-full w-full object-cover"
               />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-foreground">{name}</h3>
+              <h3 className="font-display text-xl text-foreground">{name}</h3>
               <p className="text-primary font-medium">{role}</p>
             </div>
           </div>
           <p className="text-muted-foreground leading-relaxed">{bio}</p>
           {linkedin && (
             <div className="pt-4">
-              <a 
-                href={linkedin} 
-                target="_blank" 
+              <a
+                href={linkedin}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-2 text-primary hover:text-primary/80 transition-colors"
               >
@@ -77,4 +110,4 @@ export function TeamMember({ name, role, bio, image, linkedin }: TeamMemberProps
       </Modal>
     </>
   );
-} 
+}

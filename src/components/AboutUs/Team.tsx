@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { TeamMember, TeamMemberProps } from './TeamMember';
 import { getTeamMeetOurTeamTitle, getTeamDescription } from '../../constants/about-us-components';
+import { AnimatedLine } from '../ui/AnimatedLine';
+import { translate } from '@docusaurus/Translate';
 
 export function Team() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
   const title = getTeamMeetOurTeamTitle();
   const description = getTeamDescription();
-  
+
+  const sectionLabel = translate({
+    id: 'aboutUs.team.label',
+    message: 'Our Team',
+  });
+
   const teamMembers: TeamMemberProps[] = [
     {
       name: "Zhu Yihan",
@@ -45,23 +55,84 @@ export function Team() {
     }
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="bg-muted/30 py-24 sm:py-32">
+    <div ref={sectionRef} className="bg-muted/30 py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        {/* Section Header */}
+        <div className="mb-16">
+          <div
+            className="mb-6 transition-all duration-700"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+              transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+            }}
+          >
+            <AnimatedLine variant="label" label={sectionLabel} />
+          </div>
+
+          <h2
+            className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-foreground transition-all duration-700"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+              transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+              transitionDelay: '100ms',
+            }}
+          >
             {title}
           </h2>
-          <p className="mt-6 text-lg leading-8 text-muted-foreground">
+
+          <p
+            className="mt-4 max-w-2xl text-lg text-muted-foreground transition-all duration-700"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+              transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+              transitionDelay: '200ms',
+            }}
+          >
             {description}
           </p>
         </div>
-        <div className="mx-auto mt-16 grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">
+
+        {/* Team Grid */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {teamMembers.map((member, index) => (
-            <TeamMember key={index} {...member} />
+            <div
+              key={index}
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+                transitionProperty: 'opacity, transform',
+                transitionDuration: '700ms',
+                transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                transitionDelay: `${300 + index * 100}ms`,
+              }}
+            >
+              <TeamMember {...member} />
+            </div>
           ))}
         </div>
       </div>
     </div>
   );
-} 
+}
