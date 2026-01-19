@@ -25,7 +25,8 @@ const API_ROUTES = {
   '/api/submit-ecosystem': require('./src/api/submit-ecosystem'),
   '/api/pdf-form-submit': null, // Will be loaded dynamically
   '/api/chat-stream': require('./src/api/chat-stream'),
-  '/api/admin/send-approval': require('./src/api/admin/send-approval')
+  '/api/admin/send-approval': require('./src/api/admin/send-approval'),
+  '/api/subscribe-newsletter': require('./src/api/subscribe-newsletter')
 };
 
 // Check if we have a local API route or a Vercel API route

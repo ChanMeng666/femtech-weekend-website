@@ -7,6 +7,7 @@ import {
 } from '../../constants/stories-components';
 import { Button } from '../ui/button';
 import { AnimatedLine } from '../ui/AnimatedLine';
+import { NewsletterSubscribe } from '../ui/NewsletterSubscribe';
 import { translate } from '@docusaurus/Translate';
 
 export function StoriesCTA(): React.ReactNode {
@@ -88,7 +89,7 @@ export function StoriesCTA(): React.ReactNode {
           {description}
         </p>
 
-        {/* CTA Button */}
+        {/* Newsletter Subscribe Form */}
         <div
           className="mt-10 transition-all duration-700"
           style={{
@@ -98,10 +99,24 @@ export function StoriesCTA(): React.ReactNode {
             transitionDelay: '300ms',
           }}
         >
+          <NewsletterSubscribe variant="dark" />
+        </div>
+
+        {/* CTA Button */}
+        <div
+          className="mt-8 transition-all duration-700"
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+            transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+            transitionDelay: '400ms',
+          }}
+        >
           <Link to="/about-us" className="no-underline">
             <Button
               size="lg"
-              className="bg-background text-foreground hover:bg-background/90"
+              variant="outline"
+              className="border-background/30 text-background hover:bg-background/10"
             >
               {learnMoreButtonText}
             </Button>

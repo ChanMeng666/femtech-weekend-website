@@ -6,6 +6,7 @@ import {
   getLearnMoreAboutUsText,
 } from '../../constants/opinions-components';
 import { Button } from '../ui/button';
+import { NewsletterSubscribe } from '../ui/NewsletterSubscribe';
 import { translate } from '@docusaurus/Translate';
 import { ArrowRight, PenLine } from 'lucide-react';
 
@@ -106,7 +107,7 @@ export function OpinionsCTA(): React.ReactNode {
             {description}
           </p>
 
-          {/* CTA Button */}
+          {/* Newsletter Subscribe Form */}
           <div
             className="mt-10 transition-all duration-700"
             style={{
@@ -116,10 +117,24 @@ export function OpinionsCTA(): React.ReactNode {
               transitionDelay: '300ms',
             }}
           >
+            <NewsletterSubscribe variant="dark" />
+          </div>
+
+          {/* CTA Button */}
+          <div
+            className="mt-8 transition-all duration-700"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+              transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+              transitionDelay: '400ms',
+            }}
+          >
             <Link to="/about-us" className="no-underline">
               <Button
                 size="lg"
-                className="bg-background text-foreground hover:bg-background/90 font-semibold group"
+                variant="outline"
+                className="border-background/30 text-background hover:bg-background/10 font-semibold group"
               >
                 {learnMoreButtonText}
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
