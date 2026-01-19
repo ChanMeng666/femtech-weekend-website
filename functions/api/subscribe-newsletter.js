@@ -181,7 +181,7 @@ async function createContactWithSegment(apiKey, email, segmentId) {
   const requestBody = {
     email: email,
     unsubscribed: false,
-    segments: [segmentId],
+    segments: [{ id: segmentId }],
   };
 
   console.log('[Resend] Request body:', JSON.stringify(requestBody));
