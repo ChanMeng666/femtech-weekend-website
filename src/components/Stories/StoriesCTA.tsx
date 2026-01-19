@@ -42,7 +42,7 @@ export function StoriesCTA(): React.ReactNode {
   }, []);
 
   return (
-    <div ref={sectionRef} className="mt-20 bg-foreground text-background py-16 lg:py-20 relative">
+    <div ref={sectionRef} className="mt-20 bg-foreground text-background py-20 lg:py-28 relative">
       {/* Decorative quote mark - unique to Stories CTA */}
       <div className="absolute top-8 right-8 lg:right-16 opacity-5 pointer-events-none">
         <svg className="w-24 h-24 lg:w-32 lg:h-32 text-background" viewBox="0 0 24 24" fill="currentColor">
@@ -115,8 +115,7 @@ export function StoriesCTA(): React.ReactNode {
           <Link to="/about-us" className="no-underline">
             <Button
               size="lg"
-              variant="outline"
-              className="border-background/30 text-background hover:bg-background/10"
+              className="bg-background text-foreground hover:bg-background/90"
             >
               {learnMoreButtonText}
             </Button>

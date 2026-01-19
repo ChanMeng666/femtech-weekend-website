@@ -118,7 +118,7 @@ export const getCtaText = () => translate({
 
 export const getCtaButtonText = () => translate({
   id: 'about.cta.button',
-  message: 'Get Involved',
+  message: 'Explore Insights',
 });
 
 // Advisor Board section

@@ -43,7 +43,7 @@ export function InsightsCTA(): React.ReactNode {
   }, []);
 
   return (
-    <div ref={sectionRef} className="mt-20 bg-foreground text-background py-16 lg:py-20">
+    <div ref={sectionRef} className="mt-20 bg-foreground text-background py-20 lg:py-28">
       <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
         {/* Animated label */}
         <div
@@ -109,8 +109,7 @@ export function InsightsCTA(): React.ReactNode {
           <Link to="/about-us" className="no-underline">
             <Button
               size="lg"
-              variant="outline"
-              className="border-background/30 text-background hover:bg-background/10"
+              className="bg-background text-foreground hover:bg-background/90"
             >
               {learnMoreButtonText}
             </Button>
