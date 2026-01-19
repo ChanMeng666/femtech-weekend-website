@@ -16,7 +16,7 @@ export const HOMEPAGE_CONSTANTS = {
   DEFAULT_DESCRIPTION: "FemTech Weekend - Rooted in China, Connecting globally. We pioneer Women's Health Innovation in China to drive worldwide impact.",
   DEFAULT_HERO_TITLE: 'FemTech Weekend',
   DEFAULT_HERO_SUBTITLE: "Rooted in China, Connecting globally. We pioneer Women's Health Innovation in China to drive worldwide impact.",
-  DEFAULT_CTA_START: 'Get Started',
+  DEFAULT_CTA_START: 'Explore Insights',
   DEFAULT_CTA_LEARN_MORE: 'Learn More',
   DEFAULT_FEATURES_TITLE: 'Empowering Women\'s Health Innovation',
   DEFAULT_FEATURES_SUBTITLE: 'FemTech Weekend brings together entrepreneurs, investors, and healthcare professionals to advance women\'s health solutions.',

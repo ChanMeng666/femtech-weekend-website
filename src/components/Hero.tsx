@@ -116,7 +116,7 @@ export function Hero() {
             >
               {/* Primary CTA */}
               <a
-                href="/ecosystem"
+                href="/insights"
                 className="group inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground  font-medium transition-all duration-500 hover:shadow-lg hover:shadow-primary/20"
                 style={{
                   transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',

@@ -87,7 +87,7 @@ export function CallToAction() {
             transitionDelay: '300ms',
           }}
         >
-          <Link to="/ecosystem/join">
+          <Link to="/insights">
             <Button
               size="lg"
               className="bg-background text-foreground hover:bg-background/90"

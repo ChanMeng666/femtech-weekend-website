@@ -44,7 +44,7 @@ export function OpinionsCTA(): React.ReactNode {
   return (
     <div ref={sectionRef} className="mt-20">
       {/* Editorial-style CTA - clean black and white */}
-      <div className="relative bg-foreground text-background py-16 lg:py-20">
+      <div className="relative bg-foreground text-background py-20 lg:py-28">
         {/* Decorative corner elements */}
         <div className="absolute top-6 left-6 w-8 h-8 border-t-2 border-l-2 border-background/20" />
         <div className="absolute top-6 right-6 w-8 h-8 border-t-2 border-r-2 border-background/20" />
@@ -133,8 +133,7 @@ export function OpinionsCTA(): React.ReactNode {
             <Link to="/about-us" className="no-underline">
               <Button
                 size="lg"
-                variant="outline"
-                className="border-background/30 text-background hover:bg-background/10 font-semibold group"
+                className="bg-background text-foreground hover:bg-background/90 font-semibold group"
               >
                 {learnMoreButtonText}
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
