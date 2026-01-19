@@ -42,10 +42,10 @@ export function StoriesCTA(): React.ReactNode {
   }, []);
 
   return (
-    <div ref={sectionRef} className="mt-20 bg-foreground text-background py-20 lg:py-28 relative">
+    <div ref={sectionRef} className="mt-20 bg-primary text-primary-foreground py-20 lg:py-28 relative">
       {/* Decorative quote mark - unique to Stories CTA */}
       <div className="absolute top-8 right-8 lg:right-16 opacity-5 pointer-events-none">
-        <svg className="w-24 h-24 lg:w-32 lg:h-32 text-background" viewBox="0 0 24 24" fill="currentColor">
+        <svg className="w-24 h-24 lg:w-32 lg:h-32 text-primary-foreground" viewBox="0 0 24 24" fill="currentColor">
           <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
         </svg>
       </div>
@@ -60,7 +60,7 @@ export function StoriesCTA(): React.ReactNode {
             transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
           }}
         >
-          <AnimatedLine variant="label" label={sectionLabel} className="text-background/70 before:bg-background/50" />
+          <AnimatedLine variant="label" label={sectionLabel} className="text-primary-foreground/70 before:bg-primary-foreground/50" />
         </div>
 
         {/* Title - serif */}
@@ -78,7 +78,7 @@ export function StoriesCTA(): React.ReactNode {
 
         {/* Description */}
         <p
-          className="mt-6 text-lg text-background/80 max-w-2xl mx-auto leading-relaxed transition-all duration-700"
+          className="mt-6 text-lg text-primary-foreground/80 max-w-2xl mx-auto leading-relaxed transition-all duration-700"
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
@@ -115,7 +115,7 @@ export function StoriesCTA(): React.ReactNode {
           <Link to="/about-us" className="no-underline">
             <Button
               size="lg"
-              className="bg-background text-foreground hover:bg-background/90"
+              className="bg-primary-foreground text-primary hover:bg-primary-foreground/90"
             >
               {learnMoreButtonText}
             </Button>

@@ -92,14 +92,14 @@ export function NewsletterSubscribe({
           className={cn(
             'p-4 rounded-lg text-center',
             isDark
-              ? 'bg-background/10 text-background'
+              ? 'bg-primary-foreground/10 text-primary-foreground'
               : 'bg-green-50 text-green-800'
           )}
         >
           <svg
             className={cn(
               'w-6 h-6 mx-auto mb-2',
-              isDark ? 'text-background' : 'text-green-500'
+              isDark ? 'text-primary-foreground' : 'text-green-500'
             )}
             fill="none"
             stroke="currentColor"
@@ -133,7 +133,7 @@ export function NewsletterSubscribe({
                 'flex-1 px-4 py-2.5 rounded-md text-sm transition-colors',
                 'focus:outline-none focus:ring-2',
                 isDark
-                  ? 'bg-background/10 text-background placeholder:text-background/50 border border-background/20 focus:ring-background/30 focus:border-background/40'
+                  ? 'bg-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/50 border border-primary-foreground/20 focus:ring-primary-foreground/30 focus:border-primary-foreground/40'
                   : 'bg-white text-foreground placeholder:text-muted-foreground border border-input focus:ring-primary/30 focus:border-primary',
                 status === 'loading' && 'opacity-50 cursor-not-allowed'
               )}
@@ -145,7 +145,7 @@ export function NewsletterSubscribe({
               className={cn(
                 'whitespace-nowrap',
                 isDark
-                  ? 'bg-background text-foreground hover:bg-background/90'
+                  ? 'bg-primary-foreground text-primary hover:bg-primary-foreground/90'
                   : 'bg-primary text-primary-foreground hover:bg-primary-dark'
               )}
             >

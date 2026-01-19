@@ -117,7 +117,7 @@ export function Hero() {
               {/* Primary CTA */}
               <a
                 href="/insights"
-                className="group inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground  font-medium transition-all duration-500 hover:shadow-lg hover:shadow-primary/20"
+                className="group inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-medium transition-all duration-500 hover:shadow-lg hover:shadow-primary/20 hover:text-primary-foreground hover:bg-primary-dark no-underline"
                 style={{
                   transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
                 }}
@@ -129,7 +129,7 @@ export function Hero() {
               {/* Secondary CTA */}
               <a
                 href="/insights"
-                className="group inline-flex items-center justify-center gap-2 px-6 py-3 border border-border text-foreground  font-medium transition-all duration-500 hover:border-primary hover:text-primary"
+                className="group inline-flex items-center justify-center gap-2 px-6 py-3 border border-border text-foreground font-medium transition-all duration-500 hover:border-primary hover:text-primary no-underline"
                 style={{
                   transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
                 }}
