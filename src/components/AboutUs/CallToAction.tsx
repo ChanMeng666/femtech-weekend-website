@@ -37,7 +37,7 @@ export function CallToAction() {
   }, []);
 
   return (
-    <div ref={sectionRef} className="bg-foreground text-background py-20 lg:py-28">
+    <div ref={sectionRef} className="bg-primary text-primary-foreground py-20 lg:py-28">
       <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
         {/* Animated label */}
         <div
@@ -48,7 +48,7 @@ export function CallToAction() {
             transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
           }}
         >
-          <AnimatedLine variant="label" label={sectionLabel} className="text-background/70 before:bg-background/50" />
+          <AnimatedLine variant="label" label={sectionLabel} className="text-primary-foreground/70 before:bg-primary-foreground/50" />
         </div>
 
         {/* Title - serif */}
@@ -66,7 +66,7 @@ export function CallToAction() {
 
         {/* Description */}
         <p
-          className="mt-6 text-lg text-background/80 max-w-2xl mx-auto leading-relaxed transition-all duration-700"
+          className="mt-6 text-lg text-primary-foreground/80 max-w-2xl mx-auto leading-relaxed transition-all duration-700"
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
@@ -87,10 +87,10 @@ export function CallToAction() {
             transitionDelay: '300ms',
           }}
         >
-          <Link to="/insights">
+          <Link to="/insights" className="no-underline">
             <Button
               size="lg"
-              className="bg-background text-foreground hover:bg-background/90"
+              className="bg-primary-foreground text-primary hover:bg-primary-foreground/90"
             >
               {buttonText}
             </Button>

@@ -43,13 +43,13 @@ export function OpinionsCTA(): React.ReactNode {
 
   return (
     <div ref={sectionRef} className="mt-20">
-      {/* Editorial-style CTA - clean black and white */}
-      <div className="relative bg-foreground text-background py-20 lg:py-28">
+      {/* Editorial-style CTA - brand colors */}
+      <div className="relative bg-primary text-primary-foreground py-20 lg:py-28">
         {/* Decorative corner elements */}
-        <div className="absolute top-6 left-6 w-8 h-8 border-t-2 border-l-2 border-background/20" />
-        <div className="absolute top-6 right-6 w-8 h-8 border-t-2 border-r-2 border-background/20" />
-        <div className="absolute bottom-6 left-6 w-8 h-8 border-b-2 border-l-2 border-background/20" />
-        <div className="absolute bottom-6 right-6 w-8 h-8 border-b-2 border-r-2 border-background/20" />
+        <div className="absolute top-6 left-6 w-8 h-8 border-t-2 border-l-2 border-primary-foreground/20" />
+        <div className="absolute top-6 right-6 w-8 h-8 border-t-2 border-r-2 border-primary-foreground/20" />
+        <div className="absolute bottom-6 left-6 w-8 h-8 border-b-2 border-l-2 border-primary-foreground/20" />
+        <div className="absolute bottom-6 right-6 w-8 h-8 border-b-2 border-r-2 border-primary-foreground/20" />
 
         <div className="relative mx-auto max-w-4xl px-6 lg:px-8 text-center">
           {/* Icon */}
@@ -61,8 +61,8 @@ export function OpinionsCTA(): React.ReactNode {
               transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
             }}
           >
-            <div className="inline-flex items-center justify-center w-16 h-16 border border-background/30 rounded-full">
-              <PenLine className="w-7 h-7 text-background/70" />
+            <div className="inline-flex items-center justify-center w-16 h-16 border border-primary-foreground/30 rounded-full">
+              <PenLine className="w-7 h-7 text-primary-foreground/70" />
             </div>
           </div>
 
@@ -76,7 +76,7 @@ export function OpinionsCTA(): React.ReactNode {
               transitionDelay: '50ms',
             }}
           >
-            <span className="text-xs font-bold tracking-[0.3em] uppercase text-background/50">
+            <span className="text-xs font-bold tracking-[0.3em] uppercase text-primary-foreground/50">
               {sectionLabel}
             </span>
           </div>
@@ -96,7 +96,7 @@ export function OpinionsCTA(): React.ReactNode {
 
           {/* Description */}
           <p
-            className="mt-6 text-lg text-background/70 max-w-2xl mx-auto leading-relaxed font-light transition-all duration-700"
+            className="mt-6 text-lg text-primary-foreground/70 max-w-2xl mx-auto leading-relaxed font-light transition-all duration-700"
             style={{
               opacity: isVisible ? 1 : 0,
               transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
@@ -133,7 +133,7 @@ export function OpinionsCTA(): React.ReactNode {
             <Link to="/about-us" className="no-underline">
               <Button
                 size="lg"
-                className="bg-background text-foreground hover:bg-background/90 font-semibold group"
+                className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-semibold group"
               >
                 {learnMoreButtonText}
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
