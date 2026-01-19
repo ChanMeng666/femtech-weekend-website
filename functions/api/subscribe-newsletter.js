@@ -165,28 +165,40 @@ If you didn't subscribe, you can safely ignore this email.
 
 /**
  * Add contact to Resend segment using REST API
+ * Endpoint: POST /contacts/{email}/segments/{segment_id}
+ * See: https://resend.com/docs/api-reference/contacts/add-contact-to-segment
  */
 async function addContactToSegment(apiKey, email, segmentId) {
-  const response = await fetch('https://api.resend.com/audiences/segments/contacts', {
+  const encodedEmail = encodeURIComponent(email);
+  const url = `https://api.resend.com/contacts/${encodedEmail}/segments/${segmentId}`;
+
+  console.log('[Resend] Adding contact to segment, URL:', url);
+
+  const response = await fetch(url, {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${apiKey}`,
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({
-      email: email,
-      segment_id: segmentId,
-    }),
   });
 
+  const responseText = await response.text();
+  console.log('[Resend] Segment add response status:', response.status);
+  console.log('[Resend] Segment add response:', responseText);
+
   if (!response.ok) {
-    const errorData = await response.text();
-    console.error('[Resend] Segment add error:', errorData);
-    return { success: false, error: `Resend API error: ${response.status}` };
+    console.error('[Resend] Segment add error:', responseText);
+    return { success: false, error: `Resend API error: ${response.status} - ${responseText}` };
   }
 
-  const data = await response.json();
-  console.log('[Resend] Contact added to segment:', data);
+  let data = {};
+  try {
+    data = JSON.parse(responseText);
+  } catch (e) {
+    // Response might be empty or not JSON
+  }
+
+  console.log('[Resend] Contact added to segment successfully');
   return { success: true, data };
 }
 
