@@ -1173,5 +1173,45 @@
   "reports.showingTagResults": {
     "message": "显示所有包含所选标签的报告",
     "description": "Message shown when displaying reports filtered by tag"
+  },
+  "newsletter.placeholder": {
+    "message": "输入您的电子邮件地址",
+    "description": "Placeholder text for the newsletter email input"
+  },
+  "newsletter.button": {
+    "message": "订阅",
+    "description": "Newsletter subscribe button text"
+  },
+  "newsletter.loading": {
+    "message": "订阅中...",
+    "description": "Newsletter loading state text"
+  },
+  "newsletter.success": {
+    "message": "感谢订阅！请查看您的邮箱确认。",
+    "description": "Newsletter success message"
+  },
+  "newsletter.error": {
+    "message": "发生错误，请重试。",
+    "description": "Newsletter error message"
+  },
+  "newsletter.invalidEmail": {
+    "message": "请输入有效的电子邮件地址",
+    "description": "Newsletter invalid email error message"
+  },
+  "newsletter.alreadySubscribed": {
+    "message": "此邮箱已订阅。",
+    "description": "Newsletter already subscribed message"
+  },
+  "newsletter.cta.label": {
+    "message": "保持更新",
+    "description": "Newsletter CTA section label"
+  },
+  "newsletter.cta.title": {
+    "message": "加入我们的通讯",
+    "description": "Newsletter CTA title"
+  },
+  "newsletter.cta.description": {
+    "message": "获取最新的女性健康科技洞察、研究报告和社区更新。",
+    "description": "Newsletter CTA description"
   }
 }

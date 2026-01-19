@@ -4,6 +4,7 @@ import { StatsSection } from './StatsSection';
 import { Features } from './Features';
 import { ShowcaseSection } from './ShowcaseSection';
 import { PartnershipSection } from './PartnershipSection';
+import { HomepageCTA } from './HomepageCTA';
 
 export const HomepageContent: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ export const HomepageContent: React.FC = () => {
       <Features />
       <ShowcaseSection />
       <PartnershipSection />
+      <HomepageCTA />
     </>
   );
 };

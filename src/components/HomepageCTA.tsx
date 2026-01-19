@@ -1,28 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Link from '@docusaurus/Link';
+import { AnimatedLine } from './ui/AnimatedLine';
+import { NewsletterSubscribe } from './ui/NewsletterSubscribe';
 import {
-  getInsightsCTATitle,
-  getInsightsCTADescription,
-  getLearnMoreAboutUsText,
-  getContactResearchTeamText
-} from '../../constants/insights-components';
-import { Button } from '../ui/button';
-import { AnimatedLine } from '../ui/AnimatedLine';
-import { NewsletterSubscribe } from '../ui/NewsletterSubscribe';
-import { translate } from '@docusaurus/Translate';
+  getNewsletterCTALabel,
+  getNewsletterCTATitle,
+  getNewsletterCTADescription,
+} from '../constants/newsletter';
 
-export function InsightsCTA(): React.ReactNode {
+export function HomepageCTA(): React.ReactNode {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  const title = getInsightsCTATitle();
-  const description = getInsightsCTADescription();
-  const learnMoreButtonText = getLearnMoreAboutUsText();
-
-  const sectionLabel = translate({
-    id: 'insights.cta.label',
-    message: 'Learn More',
-  });
+  const sectionLabel = getNewsletterCTALabel();
+  const title = getNewsletterCTATitle();
+  const description = getNewsletterCTADescription();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -43,7 +34,7 @@ export function InsightsCTA(): React.ReactNode {
   }, []);
 
   return (
-    <div ref={sectionRef} className="mt-20 bg-foreground text-background py-16 lg:py-20">
+    <div ref={sectionRef} className="bg-foreground text-background py-16 lg:py-20">
       <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
         {/* Animated label */}
         <div
@@ -94,27 +85,6 @@ export function InsightsCTA(): React.ReactNode {
           }}
         >
           <NewsletterSubscribe variant="dark" />
-        </div>
-
-        {/* CTA Button */}
-        <div
-          className="mt-8 transition-all duration-700"
-          style={{
-            opacity: isVisible ? 1 : 0,
-            transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-            transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
-            transitionDelay: '400ms',
-          }}
-        >
-          <Link to="/about-us" className="no-underline">
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-background/30 text-background hover:bg-background/10"
-            >
-              {learnMoreButtonText}
-            </Button>
-          </Link>
         </div>
       </div>
     </div>

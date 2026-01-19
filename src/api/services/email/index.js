@@ -14,6 +14,9 @@ const {
 const {
   getApprovalStatusEmail
 } = require('./templates/ecosystem-approval');
+const {
+  getNewsletterWelcomeEmail
+} = require('./templates/newsletter-welcome');
 
 /**
  * Send ecosystem application confirmation to applicant
@@ -141,6 +144,9 @@ module.exports = {
   sendPdfDownloadConfirmation,
   sendPdfAdminNotification,
   sendApprovalStatusEmail,
+
+  // Newsletter functions
+  getNewsletterWelcomeEmail,
 
   // Batch email functions
   sendEcosystemEmails,
