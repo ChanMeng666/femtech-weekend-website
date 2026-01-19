@@ -164,15 +164,27 @@ If you didn't subscribe, you can safely ignore this email.
 }
 
 /**
- * Add contact to Resend segment using REST API
- * Endpoint: POST /contacts/{email}/segments/{segment_id}
- * See: https://resend.com/docs/api-reference/contacts/add-contact-to-segment
+ * Create contact in Resend with segment assignment
+ * Endpoint: POST /contacts
+ * See: https://resend.com/docs/api-reference/contacts/create-contact
+ *
+ * The correct approach is to create the contact with segments array,
+ * not add to segment after creation.
  */
-async function addContactToSegment(apiKey, email, segmentId) {
-  const encodedEmail = encodeURIComponent(email);
-  const url = `https://api.resend.com/contacts/${encodedEmail}/segments/${segmentId}`;
+async function createContactWithSegment(apiKey, email, segmentId) {
+  const url = 'https://api.resend.com/contacts';
 
-  console.log('[Resend] Adding contact to segment, URL:', url);
+  console.log('[Resend] Creating contact with segment assignment');
+  console.log('[Resend] Email:', email);
+  console.log('[Resend] Segment ID:', segmentId);
+
+  const requestBody = {
+    email: email,
+    unsubscribed: false,
+    segments: [segmentId],
+  };
+
+  console.log('[Resend] Request body:', JSON.stringify(requestBody));
 
   const response = await fetch(url, {
     method: 'POST',
@@ -180,14 +192,20 @@ async function addContactToSegment(apiKey, email, segmentId) {
       'Authorization': `Bearer ${apiKey}`,
       'Content-Type': 'application/json',
     },
+    body: JSON.stringify(requestBody),
   });
 
   const responseText = await response.text();
-  console.log('[Resend] Segment add response status:', response.status);
-  console.log('[Resend] Segment add response:', responseText);
+  console.log('[Resend] Create contact response status:', response.status);
+  console.log('[Resend] Create contact response:', responseText);
 
   if (!response.ok) {
-    console.error('[Resend] Segment add error:', responseText);
+    // Check if contact already exists (might be 409 Conflict or similar)
+    if (response.status === 409 || responseText.includes('already exists')) {
+      console.log('[Resend] Contact already exists, trying to update segment...');
+      return await addExistingContactToSegment(apiKey, email, segmentId);
+    }
+    console.error('[Resend] Create contact error:', responseText);
     return { success: false, error: `Resend API error: ${response.status} - ${responseText}` };
   }
 
@@ -198,8 +216,39 @@ async function addContactToSegment(apiKey, email, segmentId) {
     // Response might be empty or not JSON
   }
 
-  console.log('[Resend] Contact added to segment successfully');
+  console.log('[Resend] Contact created successfully with segment');
   return { success: true, data };
+}
+
+/**
+ * Add existing contact to segment
+ * Used when contact already exists and we need to update their segment
+ */
+async function addExistingContactToSegment(apiKey, email, segmentId) {
+  const encodedEmail = encodeURIComponent(email);
+  const url = `https://api.resend.com/contacts/${encodedEmail}/segments/${segmentId}`;
+
+  console.log('[Resend] Adding existing contact to segment');
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+    },
+  });
+
+  const responseText = await response.text();
+  console.log('[Resend] Add to segment response status:', response.status);
+  console.log('[Resend] Add to segment response:', responseText);
+
+  if (!response.ok) {
+    console.error('[Resend] Add to segment error:', responseText);
+    return { success: false, error: `Resend API error: ${response.status} - ${responseText}` };
+  }
+
+  console.log('[Resend] Contact added to segment successfully');
+  return { success: true, data: {} };
 }
 
 /**
@@ -292,17 +341,19 @@ export async function onRequest(context) {
 
     const fromEmail = env.RESEND_FROM_EMAIL || 'noreply@femtechweekend.com';
 
-    // 1. Add contact to Resend segment
-    console.log('[Newsletter] Adding contact to segment:', NEWSLETTER_SEGMENT_ID);
+    // 1. Create contact in Resend with segment assignment
+    console.log('[Newsletter] Creating contact with segment:', NEWSLETTER_SEGMENT_ID);
     let segmentAddSuccess = false;
     try {
-      const segmentResult = await addContactToSegment(env.RESEND_API_KEY, email, NEWSLETTER_SEGMENT_ID);
-      segmentAddSuccess = segmentResult.success;
-      if (!segmentResult.success) {
-        console.warn('[Newsletter] Segment add failed:', segmentResult.error);
+      const contactResult = await createContactWithSegment(env.RESEND_API_KEY, email, NEWSLETTER_SEGMENT_ID);
+      segmentAddSuccess = contactResult.success;
+      if (!contactResult.success) {
+        console.warn('[Newsletter] Contact creation/segment add failed:', contactResult.error);
+      } else {
+        console.log('[Newsletter] Contact created/added to segment successfully');
       }
     } catch (segmentError) {
-      console.error('[Newsletter] Segment add exception:', segmentError.message);
+      console.error('[Newsletter] Contact/segment exception:', segmentError.message);
     }
 
     // 2. Send welcome email
