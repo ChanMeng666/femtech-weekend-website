@@ -67,6 +67,9 @@ export function NewsletterSubscribe({
 
       const data = await response.json();
 
+      // Debug: log full response to console
+      console.log('[Newsletter] API Response:', JSON.stringify(data, null, 2));
+
       if (response.ok && data.success) {
         setStatus('success');
         setEmail('');

@@ -344,9 +344,11 @@ export async function onRequest(context) {
     // 1. Create contact in Resend with segment assignment
     console.log('[Newsletter] Creating contact with segment:', NEWSLETTER_SEGMENT_ID);
     let segmentAddSuccess = false;
+    let contactApiResponse = null;
     try {
       const contactResult = await createContactWithSegment(env.RESEND_API_KEY, email, NEWSLETTER_SEGMENT_ID);
       segmentAddSuccess = contactResult.success;
+      contactApiResponse = contactResult;
       if (!contactResult.success) {
         console.warn('[Newsletter] Contact creation/segment add failed:', contactResult.error);
       } else {
@@ -354,6 +356,7 @@ export async function onRequest(context) {
       }
     } catch (segmentError) {
       console.error('[Newsletter] Contact/segment exception:', segmentError.message);
+      contactApiResponse = { error: segmentError.message };
     }
 
     // 2. Send welcome email
@@ -375,7 +378,13 @@ export async function onRequest(context) {
       success: true,
       message: 'Subscription successful',
       emailSent: emailResult.success,
-      segmentAdded: segmentAddSuccess
+      segmentAdded: segmentAddSuccess,
+      // Debug info - remove in production
+      debug: {
+        segmentId: NEWSLETTER_SEGMENT_ID,
+        emailUsed: email,
+        contactApiResponse: contactApiResponse
+      }
     }), {
       headers: { 'Content-Type': 'application/json', ...corsHeaders },
     });
