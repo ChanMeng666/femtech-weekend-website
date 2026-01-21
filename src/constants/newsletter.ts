@@ -18,7 +18,7 @@ export const getNewsletterLoadingText = () => translate({
 
 export const getNewsletterSuccessMessage = () => translate({
   id: 'newsletter.success',
-  message: 'Thank you for subscribing! Check your email for confirmation.',
+  message: 'Please check your email and click the confirmation link to complete your subscription.',
 });
 
 export const getNewsletterErrorMessage = () => translate({

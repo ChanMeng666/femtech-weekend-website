@@ -37,6 +37,11 @@ const config: Config = {
     locales: ['en', 'zh-Hans'],
   },
 
+  // Custom fields for passing environment variables to the frontend
+  customFields: {
+    turnstileSiteKey: process.env.TURNSTILE_SITE_KEY || '',
+  },
+
   markdown: {
     mermaid: true,
     mdx1Compat: {

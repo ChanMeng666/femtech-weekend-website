@@ -1,9 +1,11 @@
 /**
- * API route handler for newsletter subscription
- * This handler adds subscribers to the Resend segment and sends a welcome email
+ * API route handler for newsletter subscription (Step 1: Double Opt-in)
+ * This handler sends a confirmation email with a verification link
+ * The actual subscription happens in confirm-subscription.js after user clicks the link
  */
-const { getResendClient, sendEmail } = require('./services/email/resend-client');
-const { getNewsletterWelcomeEmail } = require('./services/email/templates/newsletter-welcome');
+const { sendEmail } = require('./services/email/resend-client');
+const { getNewsletterConfirmationEmail } = require('./services/email/templates/newsletter-confirmation');
+const { generateConfirmationToken } = require('./services/crypto/token-utils');
 
 // Colors for console output
 const colors = {
@@ -16,9 +18,6 @@ const colors = {
   reset: '\x1b[0m'
 };
 
-// FemTech Weekend Newsletter Segment ID
-const NEWSLETTER_SEGMENT_ID = '7ed0369b-5209-4a19-a99b-1decde318083';
-
 /**
  * Validate email format
  * @param {string} email - Email address to validate
@@ -30,13 +29,37 @@ function isValidEmail(email) {
 }
 
 /**
- * Newsletter subscription handler
+ * Verify Cloudflare Turnstile token
+ * @param {string} token - Turnstile token from frontend
+ * @returns {Promise<boolean>} Whether the token is valid
+ */
+async function verifyTurnstile(token) {
+  if (!token) return false;
+
+  try {
+    const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        secret: process.env.TURNSTILE_SECRET_KEY,
+        response: token,
+      }),
+    });
+    const data = await response.json();
+    return data.success === true;
+  } catch (error) {
+    console.error(`${colors.red}Turnstile verification error:${colors.reset}`, error.message);
+    return false;
+  }
+}
+
+/**
+ * Newsletter subscription handler (Double Opt-in Step 1)
  * @param {Object} req - HTTP request object
  * @param {Object} res - HTTP response object
  */
 async function handler(req, res) {
   console.log(`${colors.magenta}Newsletter subscription handler called${colors.reset}`);
-  console.log(`${colors.magenta}Request URL: ${req.url}${colors.reset}`);
   console.log(`${colors.magenta}Request Method: ${req.method}${colors.reset}`);
 
   // Only allow POST requests
@@ -46,16 +69,39 @@ async function handler(req, res) {
   }
 
   try {
-    const { email } = req.body;
-    console.log(`${colors.cyan}Newsletter subscription request for: ${email}${colors.reset}`);
+    const { email, website, turnstileToken } = req.body;
 
-    // Validate email
+    // 1. Honeypot check - if filled, it's a bot
+    if (website && website.trim() !== '') {
+      console.log(`${colors.yellow}[Honeypot] Bot detected, silently returning success${colors.reset}`);
+      // Return success to not alert the bot, but don't actually send any email
+      return res.status(200).json({
+        success: true,
+        message: 'Please check your email to confirm subscription',
+        requiresConfirmation: true
+      });
+    }
+
+    // 2. Validate email
     if (!email || !isValidEmail(email)) {
       console.log(`${colors.red}Invalid email provided: ${email}${colors.reset}`);
       return res.status(400).json({ error: 'Valid email is required' });
     }
 
-    // Check if we have the required environment variable
+    console.log(`${colors.cyan}Newsletter subscription request for: ${email}${colors.reset}`);
+
+    // 3. Turnstile verification (if configured)
+    if (process.env.TURNSTILE_SECRET_KEY) {
+      console.log(`${colors.cyan}Verifying Turnstile token...${colors.reset}`);
+      const turnstileValid = await verifyTurnstile(turnstileToken);
+      if (!turnstileValid) {
+        console.log(`${colors.red}Turnstile verification failed${colors.reset}`);
+        return res.status(400).json({ error: 'Security verification failed. Please try again.' });
+      }
+      console.log(`${colors.green}Turnstile verification passed${colors.reset}`);
+    }
+
+    // 4. Check if we have the required environment variable
     if (!process.env.RESEND_API_KEY) {
       console.log(`${colors.red}Missing RESEND_API_KEY environment variable${colors.reset}`);
       return res.status(500).json({
@@ -64,45 +110,15 @@ async function handler(req, res) {
       });
     }
 
-    const resend = getResendClient();
+    // 5. Generate confirmation token
+    const token = generateConfirmationToken(email);
+    const baseUrl = process.env.SITE_URL || 'https://femtechweekend.com';
+    const confirmUrl = `${baseUrl}/confirm-subscription?token=${token}`;
 
-    if (!resend) {
-      console.log(`${colors.red}Failed to initialize Resend client${colors.reset}`);
-      return res.status(500).json({
-        error: 'Server configuration error',
-        message: 'Email service not available'
-      });
-    }
+    console.log(`${colors.cyan}Generated confirmation URL for: ${email}${colors.reset}`);
 
-    // 1. Add contact to Resend segment
-    console.log(`${colors.cyan}Adding contact to segment: ${NEWSLETTER_SEGMENT_ID}${colors.reset}`);
-
-    let segmentAddSuccess = false;
-    try {
-      const { data: segmentData, error: segmentError } = await resend.contacts.segments.add({
-        email: email,
-        segmentId: NEWSLETTER_SEGMENT_ID,
-      });
-
-      if (segmentError) {
-        console.error(`${colors.yellow}Segment add error:${colors.reset}`, segmentError);
-        // Check if it's because contact already exists - this is not a fatal error
-        if (segmentError.message?.includes('already') || segmentError.name === 'validation_error') {
-          console.log(`${colors.yellow}Contact may already be subscribed${colors.reset}`);
-        }
-      } else {
-        console.log(`${colors.green}Contact added to segment successfully${colors.reset}`, segmentData);
-        segmentAddSuccess = true;
-      }
-    } catch (segmentErr) {
-      console.error(`${colors.yellow}Segment add exception:${colors.reset}`, segmentErr.message);
-      // Continue - we still want to send the welcome email if possible
-    }
-
-    // 2. Send welcome email
-    console.log(`${colors.cyan}Sending welcome email to: ${email}${colors.reset}`);
-
-    const { subject, html, text } = getNewsletterWelcomeEmail(email);
+    // 6. Send confirmation email (not welcome email yet)
+    const { subject, html, text } = getNewsletterConfirmationEmail(email, confirmUrl);
     const emailResult = await sendEmail({
       to: email,
       subject,
@@ -111,17 +127,20 @@ async function handler(req, res) {
     });
 
     if (!emailResult.success) {
-      console.error(`${colors.yellow}Welcome email failed:${colors.reset}`, emailResult.error);
-    } else {
-      console.log(`${colors.green}Welcome email sent successfully, id: ${emailResult.data?.id}${colors.reset}`);
+      console.error(`${colors.red}Confirmation email failed:${colors.reset}`, emailResult.error);
+      return res.status(500).json({
+        error: 'Failed to send confirmation email. Please try again.',
+        message: emailResult.error
+      });
     }
 
-    // Return success response
+    console.log(`${colors.green}Confirmation email sent successfully, id: ${emailResult.data?.id}${colors.reset}`);
+
+    // Return success response indicating confirmation is required
     return res.status(200).json({
       success: true,
-      message: 'Subscription successful',
-      emailSent: emailResult.success,
-      segmentAdded: segmentAddSuccess
+      message: 'Please check your email to confirm subscription',
+      requiresConfirmation: true
     });
   } catch (error) {
     console.error(`${colors.red}Error processing subscription:${colors.reset}`, error);
