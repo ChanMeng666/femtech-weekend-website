@@ -39,8 +39,9 @@ export function NewsletterSubscribe({
   variant = 'dark',
   className
 }: NewsletterSubscribeProps): React.ReactNode {
+  // Get Turnstile site key from Docusaurus context
   const { siteConfig } = useDocusaurusContext();
-  const turnstileSiteKey = (siteConfig.customFields?.turnstileSiteKey as string) || '';
+  const turnstileSiteKey = (siteConfig?.customFields?.turnstileSiteKey as string) ?? '';
 
   const [email, setEmail] = useState('');
   const [honeypot, setHoneypot] = useState(''); // Hidden field for bot detection
