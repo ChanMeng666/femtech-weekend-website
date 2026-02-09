@@ -68,7 +68,7 @@ One-click **FREE** deployment of your FemTech innovation platform.
  <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white"/>
  <img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwindcss&logoColor=white"/>
  <img src="https://img.shields.io/badge/notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white"/>
- <img src="https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white"/>
+ <img src="https://img.shields.io/badge/cloudflare-%23F38020.svg?style=for-the-badge&logo=cloudflare&logoColor=white"/>
 
 </div>
 
@@ -102,7 +102,7 @@ One-click **FREE** deployment of your FemTech innovation platform.
     - [Environment Setup](#environment-setup)
     - [Development Mode](#development-mode)
   - [🛳 Deployment](#-deployment)
-    - [`A` Vercel Deployment](#a-vercel-deployment)
+    - [`A` Cloudflare Pages Deployment](#a-cloudflare-pages-deployment)
     - [`B` Environment Variables](#b-environment-variables)
   - [📖 Usage Guide](#-usage-guide)
     - [Competition Management](#competition-management)
@@ -226,8 +226,8 @@ Beyond the core platform, FemTech Weekend includes:
         <br>Cloudinary
       </td>
       <td align="center" width="96">
-        <img src="https://cdn.simpleicons.org/vercel" width="48" height="48" alt="Vercel" />
-        <br>Vercel
+        <img src="https://cdn.simpleicons.org/cloudflare" width="48" height="48" alt="Cloudflare" />
+        <br>Cloudflare Pages
       </td>
     </tr>
   </table>
@@ -241,14 +241,14 @@ Beyond the core platform, FemTech Weekend includes:
 - **Animations**: GSAP + Framer Motion
 
 **Backend & Content:**
-- **API**: Serverless functions on Vercel
+- **API**: Serverless functions on Cloudflare Pages
 - **CMS**: Notion as headless content management
 - **Media**: Cloudinary for optimized image delivery
 - **Search**: Algolia for powerful site search
 - **Analytics**: Integrated tracking and insights
 
 **DevOps & Deployment:**
-- **Platform**: Vercel with global CDN
+- **Platform**: Cloudflare Pages with global CDN
 - **CI/CD**: GitHub Actions automation
 - **Monitoring**: Performance and error tracking
 - **Internationalization**: Built-in i18n support
@@ -294,7 +294,7 @@ graph TB
     A --> O
     
     subgraph "Deployment"
-        P[Vercel Platform]
+        P[Cloudflare Pages]
         Q[Global CDN]
         R[Auto Scaling]
     end
@@ -470,44 +470,28 @@ npm run typecheck
 ## 🛳 Deployment
 
 > [!IMPORTANT]
-> The platform is optimized for Vercel deployment with serverless functions and global CDN distribution.
+> The platform is deployed on Cloudflare Pages with global CDN distribution.
 
-### `A` Vercel Deployment
+### `A` Cloudflare Pages Deployment
 
-**One-Click Deploy:**
+**Deployment:**
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FChanMeng666%2Ffemtech-weekend-website)
+The site is automatically deployed via Cloudflare Pages when changes are pushed to the `main` branch.
 
-**Manual Deployment:**
+- **Production URL**: https://femtechweekend.com
+- **Cloudflare Pages URL**: https://femtech-weekend-website.pages.dev
+
+**Manual Build:**
 
 ```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Deploy to production
-vercel --prod
-```
-
-**Deployment Configuration:**
-```json
-// vercel.json
-{
-  "builds": [
-    { "src": "package.json", "use": "@vercel/static-build" },
-    { "src": "api/**/*.js", "use": "@vercel/node" }
-  ],
-  "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1" },
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/$1" }
-  ]
-}
+# Build for production
+npm run build
 ```
 
 ### `B` Environment Variables
 
 > [!WARNING]
-> Never commit sensitive environment variables to version control. Use Vercel's environment variables dashboard for production deployment.
+> Never commit sensitive environment variables to version control. Use Cloudflare Pages' environment variables settings for production deployment.
 
 | Variable | Description | Required | Example |
 |----------|-------------|----------|---------|
@@ -598,10 +582,10 @@ We support integration with leading platforms and services:
 | **Media Storage** | Cloudinary | ✅ Active | [Setup Guide](docs/cloudinary.md) |
 | **Search** | Algolia | ✅ Active | [Setup Guide](docs/algolia.md) |
 | **Analytics** | Google Analytics | ✅ Active | [Setup Guide](docs/analytics.md) |
-| **Deployment** | Vercel | ✅ Active | [Setup Guide](docs/vercel.md) |
+| **Deployment** | Cloudflare Pages | ✅ Active | [Setup Guide](docs/cloudflare.md) |
 | **Monitoring** | Sentry | 🔶 Optional | [Setup Guide](docs/sentry.md) |
 
-> 📊 Total integrations: [<kbd>**10+**</kbd>](https://femtech-weekend-website.vercel.app/docs)
+> 📊 Total integrations: [<kbd>**10+**</kbd>](https://femtechweekend.com/docs)
 
 ## ⌨️ Development
 
@@ -823,10 +807,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <!-- Project Links -->
 [official-site]: https://www.femtechweekend.com
-[project-link]: https://femtech-weekend-website.vercel.app
-[docs]: https://femtech-weekend-website.vercel.app/docs
-[competition]: https://femtech-weekend-website.vercel.app/competition
-[demo-link]: https://femtech-weekend-website.vercel.app
+[project-link]: https://femtechweekend.com
+[docs]: https://femtechweekend.com/docs
+[competition]: https://femtechweekend.com/competition
+[demo-link]: https://femtechweekend.com
 
 <!-- GitHub Links -->
 [github-issues-link]: https://github.com/ChanMeng666/femtech-weekend-website/issues
@@ -839,10 +823,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 <!-- Community Links -->
 [discord-link]: https://discord.gg/femtech-weekend
 [sponsor-link]: https://opencollective.com/femtech-weekend
+[vercel-link]: https://femtechweekend.com
 
 <!-- Shield Badges -->
 [github-release-shield]: https://img.shields.io/github/v/release/ChanMeng666/femtech-weekend-website?color=369eff&labelColor=black&logo=github&style=flat-square
-[vercel-shield]: https://img.shields.io/badge/vercel-online-55b467?labelColor=black&logo=vercel&style=flat-square
+[vercel-shield]: https://img.shields.io/badge/cloudflare-online-55b467?labelColor=black&logo=cloudflare&style=flat-square
 [discord-shield]: https://img.shields.io/discord/123456789?color=5865F2&label=discord&labelColor=black&logo=discord&logoColor=white&style=flat-square
 [github-action-test-shield]: https://img.shields.io/github/actions/workflow/status/ChanMeng666/femtech-weekend-website/test.yml?label=test&labelColor=black&logo=githubactions&logoColor=white&style=flat-square
 [github-releasedate-shield]: https://img.shields.io/github/release-date/ChanMeng666/femtech-weekend-website?labelColor=black&style=flat-square
@@ -855,7 +840,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 [github-trending-shield]: https://trendshift.io/api/badge/repositories/123456
 
 <!-- Badge Variants -->
-[demo-shield-badge]: https://img.shields.io/badge/TRY%20PLATFORM-LIVE-55b467?labelColor=black&logo=vercel&style=for-the-badge
+[demo-shield-badge]: https://img.shields.io/badge/TRY%20PLATFORM-LIVE-55b467?labelColor=black&logo=cloudflare&style=for-the-badge
 [discord-shield-badge]: https://img.shields.io/badge/JOIN%20COMMUNITY-DISCORD-5865F2?labelColor=black&logo=discord&logoColor=white&style=for-the-badge
 
 <!-- Social Share Links -->

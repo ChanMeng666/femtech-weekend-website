@@ -13,8 +13,8 @@ const OrganizationSchema: React.FC = () => {
     "name": "FemTech Weekend",
     "alternateName": ["FemTech Weekend China", "女性科技周末"],
     "description": "China's first organization focusing on women's health technology challenges, pioneering women's health innovation to drive worldwide impact.",
-    "url": "https://femtech-weekend-website.vercel.app",
-    "logo": "https://femtech-weekend-website.vercel.app/img/logo/femtech_weekend_logo_new.svg",
+    "url": "https://femtechweekend.com",
+    "logo": "https://femtechweekend.com/img/logo/femtech_weekend_logo_new.svg",
     "foundingDate": "2024",
     "sameAs": [
       "https://linkedin.com/company/femtech-weekend",

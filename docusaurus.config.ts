@@ -16,7 +16,7 @@ const config: Config = {
   favicon: 'img/logo/femtech_weekend_logo_new.ico',
 
   // Set the production url of your site here
-  url: 'https://femtech-weekend-website.vercel.app/',
+  url: 'https://femtechweekend.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
