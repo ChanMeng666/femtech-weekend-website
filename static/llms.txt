@@ -112,7 +112,7 @@ FemTech Weekend is China's first organization focusing on women's health technol
 ### Official Channels
 - **Email**: hello@femtechweekend.com
 - **Website**: https://www.femtechweekend.com
-- **Platform**: https://femtech-weekend-website.vercel.app
+- **Platform**: https://femtechweekend.com
 - **LinkedIn**: https://linkedin.com/company/femtech-weekend
 - **GitHub**: https://github.com/ChanMeng666/femtech-weekend-website
 

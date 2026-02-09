@@ -26,7 +26,7 @@ const EventSchema: React.FC<EventSchemaProps> = ({ eventData }) => {
     endDate: "2024-12-01",
     location: "Shanghai, China",
     prizeAmount: "500000",
-    registrationUrl: "https://femtech-weekend-website.vercel.app/competition"
+    registrationUrl: "https://femtechweekend.com/competition"
   };
 
   const event = eventData || defaultEvent;
@@ -52,7 +52,7 @@ const EventSchema: React.FC<EventSchemaProps> = ({ eventData }) => {
     "organizer": {
       "@type": "Organization",
       "name": "FemTech Weekend",
-      "url": "https://femtech-weekend-website.vercel.app",
+      "url": "https://femtechweekend.com",
       "sameAs": [
         "https://linkedin.com/company/femtech-weekend",
         "https://www.femtechweekend.com"

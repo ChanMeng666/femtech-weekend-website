@@ -11,7 +11,7 @@ This is the FemTech Weekend Platform - a Docusaurus-based website for China's fi
 - **Framework**: Docusaurus 3.7 with React 18
 - **Language**: TypeScript
 - **Styling**: TailwindCSS with custom design system
-- **API**: Serverless functions (Vercel deployment)
+- **API**: Serverless functions (Cloudflare Pages deployment)
 - **CMS**: Notion API for content management
 - **Media**: Cloudinary for image optimization
 - **Search**: Algolia integration
@@ -35,7 +35,7 @@ npm run clear         # Clear cache
 
 ### Deployment
 ```bash
-npm run vercel-build  # Build for Vercel deployment
+npm run build         # Production build (deployed via Cloudflare Pages)
 ```
 
 ## Architecture
@@ -56,7 +56,7 @@ npm run vercel-build  # Build for Vercel deployment
 │   ├── data/           # Static data and configurations
 │   ├── types/          # TypeScript type definitions
 │   └── css/            # Global styles and Tailwind config
-├── api/                # Vercel API routes (production)
+├── api/                # API routes (production)
 ├── docs/               # Docusaurus documentation
 ├── blog/               # Competition blog/news
 └── static/             # Static assets (images, etc.)
@@ -70,7 +70,7 @@ The platform has three main API endpoints:
 2. **`/api/pdf-form-submit`** - Collects form data for PDF downloads
 3. **`/api/upload-image`** - Uploads images to Cloudinary
 
-API routes are handled by `api-server.js` in development and deployed as Vercel serverless functions.
+API routes are handled by `api-server.js` in development and deployed as Cloudflare Pages functions.
 
 ### Key Components
 
