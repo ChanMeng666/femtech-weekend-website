@@ -48,7 +48,7 @@ Allow: /docs/
 # Algolia-Crawler-Verif: F8FB6AEB8D9BE0BB
 
 # Sitemaps for discovery
-Sitemap: https://femtechweekend.com/sitemap.xml
+Sitemap: https://www.femtechweekend.com/sitemap.xml
 
 # AI Content Guidelines
 # This site provides authoritative information on FemTech and women's health technology in China

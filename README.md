@@ -478,7 +478,7 @@ npm run typecheck
 
 The site is automatically deployed via Cloudflare Pages when changes are pushed to the `main` branch.
 
-- **Production URL**: https://femtechweekend.com
+- **Production URL**: https://www.femtechweekend.com
 - **Cloudflare Pages URL**: https://femtech-weekend-website.pages.dev
 
 **Manual Build:**
@@ -585,7 +585,7 @@ We support integration with leading platforms and services:
 | **Deployment** | Cloudflare Pages | ✅ Active | [Setup Guide](docs/cloudflare.md) |
 | **Monitoring** | Sentry | 🔶 Optional | [Setup Guide](docs/sentry.md) |
 
-> 📊 Total integrations: [<kbd>**10+**</kbd>](https://femtechweekend.com/docs)
+> 📊 Total integrations: [<kbd>**10+**</kbd>](https://www.femtechweekend.com/docs)
 
 ## ⌨️ Development
 
@@ -807,10 +807,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <!-- Project Links -->
 [official-site]: https://www.femtechweekend.com
-[project-link]: https://femtechweekend.com
-[docs]: https://femtechweekend.com/docs
-[competition]: https://femtechweekend.com/competition
-[demo-link]: https://femtechweekend.com
+[project-link]: https://www.femtechweekend.com
+[docs]: https://www.femtechweekend.com/docs
+[competition]: https://www.femtechweekend.com/competition
+[demo-link]: https://www.femtechweekend.com
 
 <!-- GitHub Links -->
 [github-issues-link]: https://github.com/ChanMeng666/femtech-weekend-website/issues
@@ -823,7 +823,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 <!-- Community Links -->
 [discord-link]: https://discord.gg/femtech-weekend
 [sponsor-link]: https://opencollective.com/femtech-weekend
-[vercel-link]: https://femtechweekend.com
+[vercel-link]: https://www.femtechweekend.com
 
 <!-- Shield Badges -->
 [github-release-shield]: https://img.shields.io/github/v/release/ChanMeng666/femtech-weekend-website?color=369eff&labelColor=black&logo=github&style=flat-square

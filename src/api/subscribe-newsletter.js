@@ -112,7 +112,7 @@ async function handler(req, res) {
 
     // 5. Generate confirmation token
     const token = generateConfirmationToken(email);
-    const baseUrl = process.env.SITE_URL || 'https://femtechweekend.com';
+    const baseUrl = process.env.SITE_URL || 'https://www.femtechweekend.com';
     const confirmUrl = `${baseUrl}/confirm-subscription?token=${token}`;
 
     console.log(`${colors.cyan}Generated confirmation URL for: ${email}${colors.reset}`);
