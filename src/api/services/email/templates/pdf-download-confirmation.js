@@ -90,9 +90,9 @@ function getPdfDownloadConfirmationEmail(formData) {
                   Explore More Resources
                 </h3>
                 <ul style="color: ${brandStyles.textColor}; font-size: 14px; line-height: 1.8; margin: 0; padding-left: 20px;">
-                  <li><a href="https://femtechweekend.com/reports" style="color: ${brandStyles.primaryColor};">View all research reports</a></li>
-                  <li><a href="https://femtechweekend.com/ecosystem" style="color: ${brandStyles.primaryColor};">Join our ecosystem</a></li>
-                  <li><a href="https://femtechweekend.com/competition" style="color: ${brandStyles.primaryColor};">Learn about our competition</a></li>
+                  <li><a href="https://www.femtechweekend.com/reports" style="color: ${brandStyles.primaryColor};">View all research reports</a></li>
+                  <li><a href="https://www.femtechweekend.com/ecosystem" style="color: ${brandStyles.primaryColor};">Join our ecosystem</a></li>
+                  <li><a href="https://www.femtechweekend.com/competition" style="color: ${brandStyles.primaryColor};">Learn about our competition</a></li>
                 </ul>
               </div>
 
@@ -109,7 +109,7 @@ function getPdfDownloadConfirmationEmail(formData) {
                 FemTech Weekend - China's First Women's Health Technology Innovation Organization
               </p>
               <p style="color: ${brandStyles.mutedColor}; font-size: 12px; margin: 0;">
-                <a href="https://femtechweekend.com" style="color: ${brandStyles.primaryColor}; text-decoration: none;">femtechweekend.com</a>
+                <a href="https://www.femtechweekend.com" style="color: ${brandStyles.primaryColor}; text-decoration: none;">femtechweekend.com</a>
               </p>
             </td>
           </tr>
@@ -130,15 +130,15 @@ If you missed it or need to access it again, you can download it here:
 ${pdfUrl}
 
 EXPLORE MORE RESOURCES:
-- View all research reports: https://femtechweekend.com/reports
-- Join our ecosystem: https://femtechweekend.com/ecosystem
-- Learn about our competition: https://femtechweekend.com/competition
+- View all research reports: https://www.femtechweekend.com/reports
+- Join our ecosystem: https://www.femtechweekend.com/ecosystem
+- Learn about our competition: https://www.femtechweekend.com/competition
 
 Questions about our research? Contact us at hello@femtechweekend.com
 
 ---
 FemTech Weekend - China's First Women's Health Technology Innovation Organization
-https://femtechweekend.com
+https://www.femtechweekend.com
   `.trim();
 
   return { subject, html, text };

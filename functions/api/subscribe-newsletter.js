@@ -91,16 +91,16 @@ function getNewsletterWelcomeEmail(email) {
                 <p style="color: ${brandStyles.textColor}; font-size: 16px; margin: 0 0 15px;">
                   While you wait for our next update, explore what we have to offer:
                 </p>
-                <a href="https://femtechweekend.com/insights" style="display: inline-block; background: linear-gradient(135deg, ${brandStyles.primaryColor} 0%, ${brandStyles.primaryDark} 100%); color: #ffffff; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px; margin: 5px;">
+                <a href="https://www.femtechweekend.com/insights" style="display: inline-block; background: linear-gradient(135deg, ${brandStyles.primaryColor} 0%, ${brandStyles.primaryDark} 100%); color: #ffffff; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px; margin: 5px;">
                   Explore Insights
                 </a>
               </div>
               <div style="background-color: ${brandStyles.backgroundColor}; border-radius: 8px; padding: 20px; margin: 30px 0;">
                 <h3 style="color: ${brandStyles.primaryColor}; margin: 0 0 15px; font-size: 18px;">Quick Links</h3>
                 <ul style="color: ${brandStyles.textColor}; font-size: 14px; line-height: 1.8; margin: 0; padding-left: 20px;">
-                  <li><a href="https://femtechweekend.com/about-us" style="color: ${brandStyles.primaryColor};">Learn about our mission</a></li>
-                  <li><a href="https://femtechweekend.com/stories" style="color: ${brandStyles.primaryColor};">Read inspiring stories</a></li>
-                  <li><a href="https://femtechweekend.com/opinions" style="color: ${brandStyles.primaryColor};">Expert opinions & perspectives</a></li>
+                  <li><a href="https://www.femtechweekend.com/about-us" style="color: ${brandStyles.primaryColor};">Learn about our mission</a></li>
+                  <li><a href="https://www.femtechweekend.com/stories" style="color: ${brandStyles.primaryColor};">Read inspiring stories</a></li>
+                  <li><a href="https://www.femtechweekend.com/opinions" style="color: ${brandStyles.primaryColor};">Expert opinions & perspectives</a></li>
                 </ul>
               </div>
               <p style="color: ${brandStyles.mutedColor}; font-size: 14px; line-height: 1.6; margin: 30px 0 0;">
@@ -114,7 +114,7 @@ function getNewsletterWelcomeEmail(email) {
                 FemTech Weekend - China's First Women's Health Technology Innovation Organization
               </p>
               <p style="color: ${brandStyles.mutedColor}; font-size: 12px; margin: 0 0 15px;">
-                <a href="https://femtechweekend.com" style="color: ${brandStyles.primaryColor}; text-decoration: none;">femtechweekend.com</a>
+                <a href="https://www.femtechweekend.com" style="color: ${brandStyles.primaryColor}; text-decoration: none;">femtechweekend.com</a>
               </p>
               <p style="color: ${brandStyles.mutedColor}; font-size: 11px; margin: 0;">
                 You're receiving this email because you subscribed at ${safeEmail}.<br>
@@ -145,16 +145,16 @@ HERE'S WHAT YOU CAN EXPECT FROM US:
 - Exclusive Resources - Access to reports, guides, and industry intelligence
 
 EXPLORE OUR RESOURCES:
-- Explore Insights: https://femtechweekend.com/insights
-- Learn about our mission: https://femtechweekend.com/about-us
-- Read inspiring stories: https://femtechweekend.com/stories
-- Expert opinions & perspectives: https://femtechweekend.com/opinions
+- Explore Insights: https://www.femtechweekend.com/insights
+- Learn about our mission: https://www.femtechweekend.com/about-us
+- Read inspiring stories: https://www.femtechweekend.com/stories
+- Expert opinions & perspectives: https://www.femtechweekend.com/opinions
 
 Questions or feedback? We'd love to hear from you at hello@femtechweekend.com
 
 ---
 FemTech Weekend - China's First Women's Health Technology Innovation Organization
-https://femtechweekend.com
+https://www.femtechweekend.com
 
 You're receiving this email because you subscribed at ${email}.
 If you didn't subscribe, you can safely ignore this email.

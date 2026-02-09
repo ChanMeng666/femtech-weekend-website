@@ -92,7 +92,7 @@ function getApprovalEmail(data) {
 
               <!-- CTA Button -->
               <div style="text-align: center; margin: 30px 0;">
-                <a href="https://femtechweekend.com/ecosystem" style="display: inline-block; background: linear-gradient(135deg, ${brandStyles.primaryColor} 0%, ${brandStyles.primaryDark} 100%); color: #ffffff; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px;">
+                <a href="https://www.femtechweekend.com/ecosystem" style="display: inline-block; background: linear-gradient(135deg, ${brandStyles.primaryColor} 0%, ${brandStyles.primaryDark} 100%); color: #ffffff; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px;">
                   View the Ecosystem Directory
                 </a>
               </div>
@@ -110,7 +110,7 @@ function getApprovalEmail(data) {
                 FemTech Weekend - China's First Women's Health Technology Innovation Organization
               </p>
               <p style="color: ${brandStyles.mutedColor}; font-size: 12px; margin: 0;">
-                <a href="https://femtechweekend.com" style="color: ${brandStyles.primaryColor}; text-decoration: none;">femtechweekend.com</a>
+                <a href="https://www.femtechweekend.com" style="color: ${brandStyles.primaryColor}; text-decoration: none;">femtechweekend.com</a>
               </p>
             </td>
           </tr>
@@ -136,13 +136,13 @@ WHAT YOU GET AS AN ECOSYSTEM MEMBER:
 - Connection with investors and mentors
 - Collaboration opportunities with other members
 
-View the Ecosystem Directory: https://femtechweekend.com/ecosystem
+View the Ecosystem Directory: https://www.femtechweekend.com/ecosystem
 
 If you have any questions or need assistance, feel free to contact us at hello@femtechweekend.com
 
 ---
 FemTech Weekend - China's First Women's Health Technology Innovation Organization
-https://femtechweekend.com
+https://www.femtechweekend.com
   `.trim();
 
   return { subject, html, text };
@@ -209,8 +209,8 @@ function getRejectionEmail(data) {
                   Stay Connected
                 </h3>
                 <ul style="color: ${brandStyles.textColor}; font-size: 14px; line-height: 1.8; margin: 0; padding-left: 20px;">
-                  <li><a href="https://femtechweekend.com/reports" style="color: ${brandStyles.primaryColor};">Access our research reports</a></li>
-                  <li><a href="https://femtechweekend.com/competition" style="color: ${brandStyles.primaryColor};">Participate in our competitions</a></li>
+                  <li><a href="https://www.femtechweekend.com/reports" style="color: ${brandStyles.primaryColor};">Access our research reports</a></li>
+                  <li><a href="https://www.femtechweekend.com/competition" style="color: ${brandStyles.primaryColor};">Participate in our competitions</a></li>
                   <li>Follow us on social media for updates</li>
                 </ul>
               </div>
@@ -228,7 +228,7 @@ function getRejectionEmail(data) {
                 FemTech Weekend - China's First Women's Health Technology Innovation Organization
               </p>
               <p style="color: ${brandStyles.mutedColor}; font-size: 12px; margin: 0;">
-                <a href="https://femtechweekend.com" style="color: ${brandStyles.primaryColor}; text-decoration: none;">femtechweekend.com</a>
+                <a href="https://www.femtechweekend.com" style="color: ${brandStyles.primaryColor}; text-decoration: none;">femtechweekend.com</a>
               </p>
             </td>
           </tr>
@@ -250,15 +250,15 @@ After careful review, we've determined that your application doesn't meet our cu
 We encourage you to continue developing your solution and consider reapplying in the future. Our community is always evolving, and we'd love to see how your company progresses.
 
 STAY CONNECTED:
-- Access our research reports: https://femtechweekend.com/reports
-- Participate in our competitions: https://femtechweekend.com/competition
+- Access our research reports: https://www.femtechweekend.com/reports
+- Participate in our competitions: https://www.femtechweekend.com/competition
 - Follow us on social media for updates
 
 If you have questions about this decision, feel free to reach out to us at hello@femtechweekend.com
 
 ---
 FemTech Weekend - China's First Women's Health Technology Innovation Organization
-https://femtechweekend.com
+https://www.femtechweekend.com
   `.trim();
 
   return { subject, html, text };

@@ -97,7 +97,7 @@ function getNewsletterConfirmationEmail(email, confirmUrl) {
                 FemTech Weekend - China's First Women's Health Technology Innovation Organization
               </p>
               <p style="color: ${brandStyles.mutedColor}; font-size: 12px; margin: 0;">
-                <a href="https://femtechweekend.com" style="color: ${brandStyles.primaryColor}; text-decoration: none;">femtechweekend.com</a>
+                <a href="https://www.femtechweekend.com" style="color: ${brandStyles.primaryColor}; text-decoration: none;">femtechweekend.com</a>
               </p>
             </td>
           </tr>
@@ -124,7 +124,7 @@ If you didn't request this subscription, you can safely ignore this email.
 
 ---
 FemTech Weekend - China's First Women's Health Technology Innovation Organization
-https://femtechweekend.com
+https://www.femtechweekend.com
   `.trim();
 
   return { subject, html, text };
