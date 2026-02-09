@@ -1,0 +1,46 @@
+{
+  "title": {
+    "message": "人物故事",
+    "description": "用于SEO的博客标题"
+  },
+  "description": {
+    "message": "来自女性科技社区的人物采访和励志故事",
+    "description": "用于SEO的博客描述"
+  },
+  "sidebar.title": {
+    "message": "最近故事",
+    "description": "左侧边栏的标签"
+  },
+  "archive.title": {
+    "message": "故事归档",
+    "description": "博客归档页面的标题"
+  },
+  "readingTime.plurals": {
+    "message": "阅读时间约 {readingTime} 分钟",
+    "description": "阅读时间文本"
+  },
+  "readMore": {
+    "message": "阅读更多",
+    "description": "阅读更多的链接标签"
+  },
+  "post.paginator.navAriaLabel": {
+    "message": "故事文章导航",
+    "description": "故事文章分页导航的aria标签"
+  },
+  "post.paginator.newerPost": {
+    "message": "较新的故事",
+    "description": "较新故事链接的标签"
+  },
+  "post.paginator.olderPost": {
+    "message": "较早的故事",
+    "description": "较早故事链接的标签"
+  },
+  "authors.title": {
+    "message": "作者",
+    "description": "作者页面的标题"
+  },
+  "tags.title": {
+    "message": "标签",
+    "description": "所有标签页面的标题"
+  }
+}

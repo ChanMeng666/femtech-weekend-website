@@ -1,0 +1,39 @@
+founder-story:
+  label: 创始人故事
+  permalink: /founder-story
+  description: 来自FemTech创始人的故事
+
+investor-perspective:
+  label: 投资者视角
+  permalink: /investor-perspective
+  description: 来自女性健康投资者的洞见
+
+career-journey:
+  label: 职业旅程
+  permalink: /career-journey
+  description: FemTech领域的职业发展之路
+
+innovation-story:
+  label: 创新故事
+  permalink: /innovation-story
+  description: 女性健康领域的创新故事
+
+interview:
+  label: 访谈
+  permalink: /interview
+  description: 人物专访与问答
+
+leadership:
+  label: 领导力
+  permalink: /leadership
+  description: 领导力故事与经验
+
+entrepreneurship:
+  label: 创业
+  permalink: /entrepreneurship
+  description: 创业历程与经验
+
+research-journey:
+  label: 研究之旅
+  permalink: /research-journey
+  description: 女性健康领域的研究经历

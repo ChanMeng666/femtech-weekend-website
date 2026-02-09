@@ -1,0 +1,39 @@
+industry-analysis:
+  label: 行业分析
+  permalink: /industry-analysis
+  description: FemTech行业分析
+
+market-trends:
+  label: 市场趋势
+  permalink: /market-trends
+  description: 女性健康科技领域的新兴趋势
+
+policy-perspective:
+  label: 政策视角
+  permalink: /policy-perspective
+  description: 政策与监管视角
+
+commentary:
+  label: 评论
+  permalink: /commentary
+  description: 观点文章与评论
+
+thought-leadership:
+  label: 思想领导力
+  permalink: /thought-leadership
+  description: 思想领导力文章
+
+investment-insights:
+  label: 投资洞见
+  permalink: /investment-insights
+  description: 投资视角与分析
+
+technology-trends:
+  label: 技术趋势
+  permalink: /technology-trends
+  description: 技术趋势与发展
+
+healthcare-innovation:
+  label: 医疗创新
+  permalink: /healthcare-innovation
+  description: 医疗保健与女性健康领域的创新

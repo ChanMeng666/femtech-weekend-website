@@ -50,3 +50,39 @@ empowerment:
   label: 'Empowerment'
   permalink: '/empowerment'
   description: 'Empowering women and underrepresented groups.'
+femtech-un:
+  label: 'FemTech UN'
+  permalink: '/femtech-un'
+  description: 'FemTech initiatives at the United Nations.'
+femtech:
+  label: 'FemTech'
+  permalink: '/femtech'
+  description: 'Content about the FemTech (Female Health Technology) industry.'
+ai:
+  label: 'AI'
+  permalink: '/ai'
+  description: 'Artificial intelligence applications in women''s health.'
+relationships:
+  label: 'Relationships'
+  permalink: '/relationships'
+  description: 'Relationship dynamics and technology.'
+market-analysis:
+  label: 'Market Analysis'
+  permalink: '/market-analysis'
+  description: 'Market research and analysis reports.'
+investment:
+  label: 'Investment'
+  permalink: '/investment'
+  description: 'Investment trends in women''s health technology.'
+women-health:
+  label: 'Women''s Health'
+  permalink: '/women-health'
+  description: 'Broad women''s health topics and research.'
+menopause:
+  label: 'Menopause'
+  permalink: '/menopause'
+  description: 'Menopause-related health and technology.'
+reproduction:
+  label: 'Reproduction'
+  permalink: '/reproduction'
+  description: 'Reproductive health technologies and research.'

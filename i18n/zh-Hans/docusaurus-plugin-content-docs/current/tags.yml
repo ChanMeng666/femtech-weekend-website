@@ -49,4 +49,40 @@ innovation:
 empowerment:
   label: '赋能'
   permalink: '/empowerment'
-  description: '赋能女性及弱势群体。' 
+  description: '赋能女性及弱势群体。'
+femtech-un:
+  label: 'FemTech 联合国'
+  permalink: '/femtech-un'
+  description: 'FemTech 在联合国的倡议与活动。'
+femtech:
+  label: '女性健康科技'
+  permalink: '/femtech'
+  description: '关于女性健康科技领域的内容。'
+ai:
+  label: '人工智能'
+  permalink: '/ai'
+  description: '人工智能在女性健康领域的应用。'
+relationships:
+  label: '关系'
+  permalink: '/relationships'
+  description: '关系动态与科技。'
+market-analysis:
+  label: '市场分析'
+  permalink: '/market-analysis'
+  description: '市场研究和分析报告。'
+investment:
+  label: '投资'
+  permalink: '/investment'
+  description: '女性健康科技领域的投资趋势。'
+women-health:
+  label: '女性健康'
+  permalink: '/women-health'
+  description: '广泛的女性健康话题与研究。'
+menopause:
+  label: '更年期'
+  permalink: '/menopause'
+  description: '更年期健康与科技。'
+reproduction:
+  label: '生殖健康'
+  permalink: '/reproduction'
+  description: '生殖健康技术与研究。'

@@ -63,6 +63,26 @@ featured-news:
   permalink: /featured-news
   description: Featured news and announcements
 
+femtech:
+  label: FemTech
+  permalink: /femtech
+  description: Content about the FemTech (Female Health Technology) industry
+
+market-analysis:
+  label: Market Analysis
+  permalink: /market-analysis
+  description: Market research and analysis reports
+
+china:
+  label: China
+  permalink: /china
+  description: Content about the Chinese women's health market
+
+hong-kong:
+  label: Hong Kong
+  permalink: /hong-kong
+  description: Content about the Hong Kong women's health market
+
 featured-report:
   label: Featured Report
   permalink: /featured-report
