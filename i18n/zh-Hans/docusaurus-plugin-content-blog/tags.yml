@@ -1,69 +1,89 @@
 womens-health:
   label: 女性健康
-  permalink: /tags/womens-health
+  permalink: /womens-health
   description: 与女性健康技术、研究和创新相关的文章
 
 technology:
   label: 技术
-  permalink: /tags/technology
+  permalink: /technology
   description: 关于技术发展和应用的帖子
 
 innovation:
   label: 创新
-  permalink: /tags/innovation
+  permalink: /innovation
   description: 专注于创新理念和解决方案的内容
 
 startup:
   label: 创业
-  permalink: /tags/startup
+  permalink: /startup
   description: 为初创企业和创业项目提供的信息
 
 competition:
   label: 竞赛
-  permalink: /tags/competition
+  permalink: /competition
   description: FemTech领域的活动和挑战
 
 hackathon:
   label: 黑客马拉松
-  permalink: /tags/hackathon
+  permalink: /hackathon
   description: 编码和开发活动
 
 research:
   label: 研究
-  permalink: /tags/research
+  permalink: /research
   description: 科学研究和学术内容
 
 coding:
   label: 编程
-  permalink: /tags/coding
+  permalink: /coding
   description: 与编程和软件开发相关的内容
 
 releases:
   label: 发布
-  permalink: /tags/releases
+  permalink: /releases
   description: 产品和功能发布公告
 
 femtech:
   label: 女性健康科技
-  permalink: /tags/femtech
+  permalink: /femtech
   description: 关于女性健康科技领域的内容
 
 market-analysis:
   label: 市场分析
-  permalink: /tags/market-analysis
+  permalink: /market-analysis
   description: 市场研究和分析报告
 
 china:
   label: 中国
-  permalink: /tags/china
+  permalink: /china
   description: 关于中国市场和创新的内容
 
 hong-kong:
   label: 香港
-  permalink: /tags/hong-kong
+  permalink: /hong-kong
   description: 关于香港市场和创新的内容
+
+partnership:
+  label: 合作伙伴
+  permalink: /partnership
+  description: 战略合作与伙伴关系
+
+investment:
+  label: 投资
+  permalink: /investment
+  description: 女性健康领域的投资新闻与资讯
+
+europe:
+  label: 欧洲
+  permalink: /europe
+  description: 关于欧洲女性健康市场的内容
+
+featured-news:
+  label: 重要新闻
+  permalink: /featured-news
+  description: 精选新闻与重要公告
 
 featured-report:
   label: 精选报告
-  permalink: /tags/featured-report
+  permalink: /featured-report
   description: 精选的深度分析和市场报告

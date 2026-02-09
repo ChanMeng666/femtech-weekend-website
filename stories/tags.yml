@@ -1,39 +1,39 @@
 founder-story:
   label: Founder Story
-  permalink: /tags/founder-story
+  permalink: /founder-story
   description: Stories from FemTech founders
 
 investor-perspective:
   label: Investor Perspective
-  permalink: /tags/investor-perspective
+  permalink: /investor-perspective
   description: Insights from women's health investors
 
 career-journey:
   label: Career Journey
-  permalink: /tags/career-journey
+  permalink: /career-journey
   description: Professional career paths in FemTech
 
 innovation-story:
   label: Innovation Story
-  permalink: /tags/innovation-story
+  permalink: /innovation-story
   description: Stories of innovation in women's health
 
 interview:
   label: Interview
-  permalink: /tags/interview
+  permalink: /interview
   description: Character interviews and Q&A sessions
 
 leadership:
   label: Leadership
-  permalink: /tags/leadership
+  permalink: /leadership
   description: Leadership stories and experiences
 
 entrepreneurship:
   label: Entrepreneurship
-  permalink: /tags/entrepreneurship
+  permalink: /entrepreneurship
   description: Entrepreneurship journeys and lessons
 
 research-journey:
   label: Research Journey
-  permalink: /tags/research-journey
+  permalink: /research-journey
   description: Research experiences in women's health

@@ -1,39 +1,39 @@
 industry-analysis:
   label: Industry Analysis
-  permalink: /tags/industry-analysis
+  permalink: /industry-analysis
   description: Analysis of the FemTech industry
 
 market-trends:
   label: Market Trends
-  permalink: /tags/market-trends
+  permalink: /market-trends
   description: Emerging trends in women's health technology
 
 policy-perspective:
   label: Policy Perspective
-  permalink: /tags/policy-perspective
+  permalink: /policy-perspective
   description: Policy and regulatory perspectives
 
 commentary:
   label: Commentary
-  permalink: /tags/commentary
+  permalink: /commentary
   description: Opinion pieces and commentary
 
 thought-leadership:
   label: Thought Leadership
-  permalink: /tags/thought-leadership
+  permalink: /thought-leadership
   description: Thought leadership articles
 
 investment-insights:
   label: Investment Insights
-  permalink: /tags/investment-insights
+  permalink: /investment-insights
   description: Investment perspectives and analysis
 
 technology-trends:
   label: Technology Trends
-  permalink: /tags/technology-trends
+  permalink: /technology-trends
   description: Technology trends and developments
 
 healthcare-innovation:
   label: Healthcare Innovation
-  permalink: /tags/healthcare-innovation
+  permalink: /healthcare-innovation
   description: Innovation in healthcare and women's health
