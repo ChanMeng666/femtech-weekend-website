@@ -161,6 +161,18 @@
   "competition.registration.investorAccessFeature": {
     "message": "Investor access guaranteed"
   },
+  "homepage.hero.rotating.word1": {
+    "message": "Rooted In China"
+  },
+  "homepage.hero.rotating.word2": {
+    "message": "Connecting"
+  },
+  "homepage.hero.rotating.word3": {
+    "message": "Globally"
+  },
+  "homepage.hero.subtitle": {
+    "message": "WE PIONEER WOMEN'S HEALTH INNOVATION IN CHINA TO DRIVE WORLDWIDE IMPACT"
+  },
   "homepage.competition.badge": {
     "message": "🏆 Competition Now Live"
   },
