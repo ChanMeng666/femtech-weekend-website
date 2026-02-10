@@ -26,3 +26,4 @@ static/docs/ftw-ai-chatbot.md
 .vercel
 .claude
 .env*.local
+nul
