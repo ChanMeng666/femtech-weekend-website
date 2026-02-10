@@ -10,8 +10,8 @@ export const HomepageContent: React.FC = () => {
   return (
     <>
       <Hero />
-      <StatsSection />
       <Features />
+      <StatsSection />
       <ShowcaseSection />
       <PartnershipSection />
       <HomepageCTA />
