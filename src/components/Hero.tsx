@@ -27,7 +27,10 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full h-screen overflow-hidden">
+    <section
+      className="relative w-full h-screen overflow-hidden"
+      style={{ marginTop: 'calc(-1 * var(--ifm-navbar-height))' }}
+    >
       {/* Fullscreen background video */}
       <video
         src="/img/bg/homepage-hero.mp4"
