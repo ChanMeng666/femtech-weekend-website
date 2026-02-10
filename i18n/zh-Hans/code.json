@@ -479,11 +479,11 @@
     "description": "The description of the second feature"
   },
   "homepage.features.feature3.title": {
-    "message": "Capital & Deals",
+    "message": "财务顾问",
     "description": "The title of the third feature"
   },
   "homepage.features.feature3.description": {
-    "message": "我们以成交为导向提供财务顾问服务，推进融资与战略交易进展。从投融资准备到交易结构设计，我们通过紧凑、闭环的执行流程，实质性推动资本配置与战略合作落地。",
+    "message": "我们以成交为导向提供财务顾问服务，推进融资与战略交易进展。从投融资准备到交易结构设计，我们通过紧凑、闭环的执行流程，实质性推动资本配置与战略合作落地",
     "description": "The description of the third feature"
   },
   "homepage.testimonials.title": {

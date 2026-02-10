@@ -36,7 +36,7 @@ export function Features() {
   // Feature 3
   const feature3Title = translate({
     id: 'homepage.features.feature3.title',
-    message: "Capital & Deals"
+    message: "Financial Advisory"
   });
 
   const feature3Description = translate({
