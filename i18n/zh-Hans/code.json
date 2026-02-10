@@ -427,7 +427,7 @@
     "description": "The title of the hero section"
   },
   "homepage.hero.subtitle": {
-    "message": "植根中国，连接全球。为女性健康创新和创业提供平台。",
+    "message": "我们在中国开创女性健康创新，推动全球影响",
     "description": "The subtitle of the hero section"
   },
   "homepage.hero.cta.start": {
@@ -443,15 +443,15 @@
     "description": "The join ecosystem button text"
   },
   "homepage.hero.rotating.word1": {
-    "message": "用科技推动女性健康创新",
+    "message": "植根中国",
     "description": "First rotating word in hero section"
   },
   "homepage.hero.rotating.word2": {
-    "message": "提升女性科技创业影响力",
+    "message": "连接",
     "description": "Second rotating word in hero section"
   },
   "homepage.hero.rotating.word3": {
-    "message": "建立全球协作生态系统",
+    "message": "全球化",
     "description": "Third rotating word in hero section"
   },
   "homepage.features.title": {

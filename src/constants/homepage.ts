@@ -15,7 +15,7 @@ export const HOMEPAGE_CONSTANTS = {
   DEFAULT_TITLE: 'FemTech Weekend',
   DEFAULT_DESCRIPTION: "FemTech Weekend - Rooted in China, Connecting globally. We pioneer Women's Health Innovation in China to drive worldwide impact.",
   DEFAULT_HERO_TITLE: 'FemTech Weekend',
-  DEFAULT_HERO_SUBTITLE: "Rooted in China, Connecting globally. We pioneer Women's Health Innovation in China to drive worldwide impact.",
+  DEFAULT_HERO_SUBTITLE: "WE PIONEER WOMEN'S HEALTH INNOVATION IN CHINA TO DRIVE WORLDWIDE IMPACT",
   DEFAULT_CTA_START: 'Explore Insights',
   DEFAULT_CTA_LEARN_MORE: 'Learn More',
   DEFAULT_FEATURES_TITLE: 'Empowering Women\'s Health Innovation',
@@ -85,15 +85,15 @@ export const getTestimonialsSubtitle = () => translate({
 // 添加轮播词获取函数
 export const getHeroRotatingWord1 = () => translate({
   id: HERO_ROTATING_WORDS.WORD1_ID,
-  message: "Drive women's health innovation with technology",
+  message: "Rooted In China",
 });
 
 export const getHeroRotatingWord2 = () => translate({
   id: HERO_ROTATING_WORDS.WORD2_ID,
-  message: "Amplify women in tech entrepreneurship",
+  message: "Connecting",
 });
 
 export const getHeroRotatingWord3 = () => translate({
   id: HERO_ROTATING_WORDS.WORD3_ID,
-  message: "Build a global collaborative ecosystem",
+  message: "Globally",
 }); 
