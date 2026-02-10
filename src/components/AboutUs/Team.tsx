@@ -1,11 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { TeamMember, TeamMemberProps } from './TeamMember';
+import { TeamMember } from './TeamMember';
+import { TeamMemberModal } from './TeamMemberModal';
+import { teamMembers } from '../../data/team-members';
+import type { TeamMemberData } from '../../data/team-members';
 import { getTeamMeetOurTeamTitle, getTeamDescription } from '../../constants/about-us-components';
 import { AnimatedLine } from '../ui/AnimatedLine';
 import { translate } from '@docusaurus/Translate';
 
 export function Team() {
   const [isVisible, setIsVisible] = useState(false);
+  const [selectedMember, setSelectedMember] = useState<TeamMemberData | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const title = getTeamMeetOurTeamTitle();
@@ -15,45 +19,6 @@ export function Team() {
     id: 'aboutUs.team.label',
     message: 'Our Team',
   });
-
-  const teamMembers: TeamMemberProps[] = [
-    {
-      name: "Zhu Yihan",
-      role: "Founder & CEO",
-      bio: "Data, Balance Sheet Management and a global citizen with expertise in driving women's health innovation across borders.",
-      image: "/img/team/zhu-yihan.jpg",
-    },
-    {
-      name: "Michelle Li",
-      role: "Head of Partnerships",
-      bio: "Expert in Private Equity investment and Due Diligence, specializing in connecting FemTech startups with strategic investors.",
-      image: "/img/team/michelle-li.jpg",
-    },
-    {
-      name: "Leaf He",
-      role: "Chief Operating Officer",
-      bio: "Expert in Financial Advisory and community building, focused on creating sustainable ecosystem growth and operational excellence.",
-      image: "/img/team/leaf-he.jpg",
-    },
-    {
-      name: "Joji Lee",
-      role: "Chief Marketing Officer",
-      bio: "Specializes in PR, consumer marketing and events organisation, driving global awareness for women's health innovation.",
-      image: "/img/team/joji-lee.jpg",
-    },
-    {
-      name: "Lingxi Zhang",
-      role: "Chief Design Officer",
-      bio: "Specializes in Animation, Video editing and story telling, creating compelling narratives for the FemTech community.",
-      image: "/img/team/lingxi-zhang.jpg",
-    },
-    {
-      name: "Chan Meng",
-      role: "Chief Technology Officer",
-      bio: "Senior AI/ML Infrastructure Engineer with expertise in architecting robust technical foundations that power AI-driven health insights. Passionate about increasing representation in STEM fields and creating inclusive AI systems for diverse populations in women's health.",
-      image: "/img/team/chan-meng.jpg",
-    }
-  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -118,7 +83,7 @@ export function Team() {
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {teamMembers.map((member, index) => (
             <div
-              key={index}
+              key={member.id}
               style={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
@@ -128,11 +93,13 @@ export function Team() {
                 transitionDelay: `${300 + index * 100}ms`,
               }}
             >
-              <TeamMember {...member} />
+              <TeamMember member={member} onClick={setSelectedMember} />
             </div>
           ))}
         </div>
       </div>
+
+      <TeamMemberModal member={selectedMember} onClose={() => setSelectedMember(null)} />
     </div>
   );
 }
