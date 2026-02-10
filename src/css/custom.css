@@ -426,6 +426,41 @@
   background: rgba(0, 0, 0, 0.4);
 }
 
+/* Mobile sidebar: opaque background, not frosted glass */
+.navbar-sidebar {
+  --ifm-navbar-background-color: hsl(var(--background));
+  background-color: hsl(var(--background)) !important;
+}
+
+.navbar-sidebar__brand {
+  background-color: hsl(var(--background)) !important;
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.navbar-sidebar__items {
+  background-color: hsl(var(--background)) !important;
+}
+
+.navbar-sidebar .menu__link,
+.navbar-sidebar .navbar__link {
+  color: hsl(var(--foreground));
+}
+
+[data-theme='dark'] .navbar-sidebar,
+[data-theme='dark'] .navbar-sidebar__brand,
+[data-theme='dark'] .navbar-sidebar__items {
+  background-color: hsl(var(--background)) !important;
+}
+
+[data-theme='dark'] .navbar-sidebar__brand {
+  border-bottom-color: hsl(var(--border));
+}
+
+[data-theme='dark'] .navbar-sidebar .menu__link,
+[data-theme='dark'] .navbar-sidebar .navbar__link {
+  color: hsl(var(--foreground));
+}
+
 .DocSearch-Button, .dropdown__menu  {
   border: 1px solid !important;
   @apply !border-border;
