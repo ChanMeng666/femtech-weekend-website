@@ -25,7 +25,7 @@ export function FeatureSpotlight({
   title,
   description,
   ctaText = 'Learn More',
-  href = '#',
+  href,
   icon,
   image,
   imageAlt,
@@ -35,11 +35,15 @@ export function FeatureSpotlight({
 
   const indexString = index.toString().padStart(2, '0');
 
+  const Tag = href ? 'a' : 'div';
+  const tagProps = href ? { href } : {};
+
   return (
-    <a
-      href={href}
+    <Tag
+      {...tagProps}
       className={cn(
-        'group relative block cursor-pointer',
+        'group relative block',
+        href && 'cursor-pointer',
         'border border-transparent  overflow-hidden',
         'transition-all duration-500',
         className
@@ -224,40 +228,42 @@ export function FeatureSpotlight({
         </p>
 
         {/* CTA */}
-        <div className="flex items-center gap-3">
-          <div
-            className="flex h-9 w-9 items-center justify-center  border transition-all duration-500"
-            style={{
-              borderColor: isHovered ? 'hsl(var(--primary))' : 'hsl(var(--muted-foreground) / 0.3)',
-              backgroundColor: isHovered ? 'hsl(var(--primary))' : 'transparent',
-              color: isHovered ? 'hsl(var(--primary-foreground))' : 'hsl(var(--foreground))',
-              transform: isHovered ? 'scale(1.05)' : 'scale(1)',
-              boxShadow: isHovered ? '0 8px 24px hsl(var(--primary) / 0.2)' : '0 0 0 transparent',
-              transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
-            }}
-          >
-            <ArrowUpRight
-              className="h-4 w-4 transition-transform duration-500"
+        {href && (
+          <div className="flex items-center gap-3">
+            <div
+              className="flex h-9 w-9 items-center justify-center  border transition-all duration-500"
               style={{
-                transform: isHovered ? 'rotate(45deg)' : 'rotate(0deg)',
+                borderColor: isHovered ? 'hsl(var(--primary))' : 'hsl(var(--muted-foreground) / 0.3)',
+                backgroundColor: isHovered ? 'hsl(var(--primary))' : 'transparent',
+                color: isHovered ? 'hsl(var(--primary-foreground))' : 'hsl(var(--foreground))',
+                transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+                boxShadow: isHovered ? '0 8px 24px hsl(var(--primary) / 0.2)' : '0 0 0 transparent',
                 transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
               }}
-            />
+            >
+              <ArrowUpRight
+                className="h-4 w-4 transition-transform duration-500"
+                style={{
+                  transform: isHovered ? 'rotate(45deg)' : 'rotate(0deg)',
+                  transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                }}
+              />
+            </div>
+            <span
+              className="mckinsey-label transition-all duration-700"
+              style={{
+                opacity: isHovered ? 1 : 0.6,
+                transform: isHovered ? 'translateX(0)' : 'translateX(-4px)',
+                transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                transitionDelay: isHovered ? '100ms' : '0ms',
+              }}
+            >
+              {ctaText}
+            </span>
           </div>
-          <span
-            className="mckinsey-label transition-all duration-700"
-            style={{
-              opacity: isHovered ? 1 : 0.6,
-              transform: isHovered ? 'translateX(0)' : 'translateX(-4px)',
-              transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
-              transitionDelay: isHovered ? '100ms' : '0ms',
-            }}
-          >
-            {ctaText}
-          </span>
-        </div>
+        )}
       </div>
-    </a>
+    </Tag>
   );
 }
 

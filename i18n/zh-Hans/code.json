@@ -463,27 +463,27 @@
     "description": "The subtitle of the features section"
   },
   "homepage.features.feature1.title": {
-    "message": "推动女性健康创新",
+    "message": "跨境生态",
     "description": "The title of the first feature"
   },
   "homepage.features.feature1.description": {
-    "message": "我们致力于女性健康领域的创新，倡导突破性技术，打破障碍，改善护理，赋能中国女性。",
+    "message": "我们以中国市场的真实语境为起点，链接全球女性健康生态，将跨境交流转化为具备决策价值的合作共识。通过明确分工与目标导向的合作设计，把跨境人脉沉淀为可执行、可落地的合作成果",
     "description": "The description of the first feature"
   },
   "homepage.features.feature2.title": {
-    "message": "提升女性科技创业影响力",
+    "message": "出海战略定制",
     "description": "The title of the second feature"
   },
   "homepage.features.feature2.description": {
-    "message": "我们重新定义谁来构建女性健康的未来 - 创建一个包容性生态系统，让每一位中国女性都能获得成功所需的知识、资本和支持。",
+    "message": "我们面向海外市场端口设计可落地的出海策略，打通定位、渠道、证据与合作伙伴，将进入计划转化为可规模化的执行",
     "description": "The description of the second feature"
   },
   "homepage.features.feature3.title": {
-    "message": "生态系统建设",
+    "message": "Capital & Deals",
     "description": "The title of the third feature"
   },
   "homepage.features.feature3.description": {
-    "message": "我们建立一个蓬勃发展的本土创新中心，同时促进跨境协作 - 加强当地产学研投联系，同时为全球知识交流打开大门。",
+    "message": "我们以成交为导向提供财务顾问服务，推进融资与战略交易进展。从投融资准备到交易结构设计，我们通过紧凑、闭环的执行流程，实质性推动资本配置与战略合作落地。",
     "description": "The description of the third feature"
   },
   "homepage.testimonials.title": {

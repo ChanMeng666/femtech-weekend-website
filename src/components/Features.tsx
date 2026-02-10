@@ -14,34 +14,34 @@ export function Features() {
   // Feature 1
   const feature1Title = translate({
     id: 'homepage.features.feature1.title',
-    message: "Drive Women's Health Innovation"
+    message: "Cross-Border Bridge"
   });
 
   const feature1Description = translate({
     id: 'homepage.features.feature1.description',
-    message: "We are dedicated to pioneering innovation in women's health, advocating for cutting-edge technology to break barriers, improve care, and empower women from China."
+    message: "We bridge China and global women's health ecosystems by bringing local market context and decision-grade insight to the table—so the right stakeholders align faster. We turn cross-border connections into structured collaborations with clear owners and outcomes."
   });
 
   // Feature 2
   const feature2Title = translate({
     id: 'homepage.features.feature2.title',
-    message: "Amplify Women in Tech Entrepreneurship"
+    message: "China GTM"
   });
 
   const feature2Description = translate({
     id: 'homepage.features.feature2.description',
-    message: "We redefine who builds the future of women's health – creating an inclusive ecosystem where every woman from China can access the knowledge, capital and support needed to succeed."
+    message: "We design China go-to-market strategies that are built to launch. From positioning and channels to evidence and partners, we help teams move from entry plans to scalable execution."
   });
 
   // Feature 3
   const feature3Title = translate({
     id: 'homepage.features.feature3.title',
-    message: "Ecosystem Building"
+    message: "Capital & Deals"
   });
 
   const feature3Description = translate({
     id: 'homepage.features.feature3.description',
-    message: "We build a thriving homegrown innovation hub while fostering cross-border collaboration - strengthening local industry-academia-investment-research ties while opening doors for worldwide knowledge exchange."
+    message: "We provide financial advisory to advance fundraising and strategic transactions. From investment readiness to deal structuring, we run a close-oriented process that moves capital and partnerships forward."
   });
 
   // Section label
@@ -54,23 +54,14 @@ export function Features() {
     {
       title: feature1Title,
       description: feature1Description,
-      // Placeholder image - Replace with actual image: Innovation/technology/healthcare themed
-      image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop&q=80",
-      imageAlt: "Healthcare innovation and technology",
     },
     {
       title: feature2Title,
       description: feature2Description,
-      // Placeholder image - Replace with actual image: Women entrepreneurs/leadership themed
-      image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600&h=400&fit=crop&q=80",
-      imageAlt: "Women in technology entrepreneurship",
     },
     {
       title: feature3Title,
       description: feature3Description,
-      // Placeholder image - Replace with actual image: Global network/collaboration themed
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop&q=80",
-      imageAlt: "Global ecosystem and collaboration",
     },
   ];
 
@@ -151,13 +142,6 @@ export function Features() {
               index={index + 1}
               title={feature.title}
               description={feature.description}
-              image={feature.image}
-              imageAlt={feature.imageAlt}
-              ctaText={translate({
-                id: 'homepage.features.cta',
-                message: 'Learn More',
-              })}
-              href="#"
             />
           ))}
         </div>
