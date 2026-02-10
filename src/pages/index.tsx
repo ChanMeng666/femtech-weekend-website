@@ -30,7 +30,7 @@ export default function Home(): React.ReactNode {
       <Layout
         title={title}
         description={description}>
-        <main>
+        <main style={{ marginTop: 'calc(-1 * var(--ifm-navbar-height))' }}>
           <GEOTracker 
             pageType="homepage"
             additionalMetrics={{

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { WordRotate } from './ui/word-rotate';
 import {
@@ -11,7 +11,6 @@ import {
 
 export function Hero() {
   const [isVisible, setIsVisible] = useState(false);
-  const heroRef = useRef<HTMLElement>(null);
 
   const subtitle = getHeroSubtitle();
   const ctaStart = getCtaStart();
@@ -27,65 +26,8 @@ export function Hero() {
     return () => clearTimeout(timer);
   }, []);
 
-  // DEBUG: log hero and ancestor layout info
-  useEffect(() => {
-    const el = heroRef.current;
-    if (!el) return;
-
-    const cs = getComputedStyle(el);
-    const rect = el.getBoundingClientRect();
-    console.log('=== HERO DEBUG ===');
-    console.log('--ifm-navbar-height:', getComputedStyle(document.documentElement).getPropertyValue('--ifm-navbar-height'));
-    console.log('Hero rect:', { top: rect.top, height: rect.height, bottom: rect.bottom });
-    console.log('Hero computed:', {
-      position: cs.position,
-      top: cs.top,
-      marginTop: cs.marginTop,
-      marginBottom: cs.marginBottom,
-      height: cs.height,
-      overflow: cs.overflow,
-    });
-
-    // Walk up ancestors
-    let ancestor: HTMLElement | null = el.parentElement;
-    let depth = 1;
-    while (ancestor && depth <= 8) {
-      const acs = getComputedStyle(ancestor);
-      const arect = ancestor.getBoundingClientRect();
-      console.log(`Ancestor ${depth}: <${ancestor.tagName.toLowerCase()}> class="${ancestor.className}"`, {
-        rect: { top: arect.top, height: arect.height },
-        paddingTop: acs.paddingTop,
-        marginTop: acs.marginTop,
-        overflow: acs.overflow,
-        position: acs.position,
-      });
-      ancestor = ancestor.parentElement;
-      depth++;
-    }
-
-    // Navbar info
-    const navbar = document.querySelector('.navbar');
-    if (navbar) {
-      const ncs = getComputedStyle(navbar);
-      const nrect = navbar.getBoundingClientRect();
-      console.log('Navbar:', {
-        rect: { top: nrect.top, height: nrect.height, bottom: nrect.bottom },
-        position: ncs.position,
-        background: ncs.backgroundColor,
-      });
-    }
-    console.log('=== END HERO DEBUG ===');
-  }, []);
-
   return (
-    <section
-      ref={heroRef}
-      className="relative w-full h-screen overflow-hidden"
-      style={{
-        top: 'calc(-1 * var(--ifm-navbar-height))',
-        marginBottom: 'calc(-1 * var(--ifm-navbar-height))',
-      }}
-    >
+    <section className="relative w-full h-screen overflow-hidden">
       {/* Fullscreen background video */}
       <video
         src="/img/bg/homepage-hero.mp4"
