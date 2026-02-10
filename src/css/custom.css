@@ -402,8 +402,16 @@
 }
 
 .navbar {
-  border-bottom: 1px solid var(--ifm-toc-border-color);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: none;
+}
+
+[data-theme='dark'] .navbar {
+  background: rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .DocSearch-Button, .dropdown__menu  {

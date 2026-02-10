@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowRight, ChevronRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { WordRotate } from './ui/word-rotate';
 import {
   getHeroSubtitle,
   getCtaStart,
-  getCtaLearnMore,
   getHeroRotatingWord1,
   getHeroRotatingWord2,
   getHeroRotatingWord3,
@@ -15,7 +14,6 @@ export function Hero() {
 
   const subtitle = getHeroSubtitle();
   const ctaStart = getCtaStart();
-  const ctaLearnMore = getCtaLearnMore();
 
   const words = [
     getHeroRotatingWord1(),
@@ -85,22 +83,12 @@ export function Hero() {
             transitionDelay: '400ms',
           }}
         >
-          {/* Primary CTA */}
           <a
             href="/insights"
             className="group inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-black font-medium transition-all duration-500 hover:bg-white/90 hover:text-black no-underline"
           >
             <span>{ctaStart}</span>
             <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
-          </a>
-
-          {/* Secondary CTA */}
-          <a
-            href="/insights"
-            className="group inline-flex items-center justify-center gap-2 px-6 py-3 border border-white/60 text-white font-medium transition-all duration-500 hover:bg-white hover:text-black no-underline"
-          >
-            <span>{ctaLearnMore}</span>
-            <ChevronRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
           </a>
         </div>
       </div>
