@@ -402,8 +402,8 @@
 }
 
 .navbar {
-  position: relative;
-  background: transparent;
+  --ifm-navbar-background-color: transparent;
+  background-color: transparent !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: none;
 }
