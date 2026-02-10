@@ -194,11 +194,14 @@ export function Hero() {
                   }}
                 />
 
-                {/* Placeholder Image - Replace with actual hero image */}
-                <img
-                  src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&h=600&fit=crop&q=80"
-                  alt="Women in health technology innovation"
-                  className="h-full w-full object-cover transition-all duration-1000"
+                <video
+                  src="/img/bg/homepage-hero.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                  className="h-full w-full object-cover transition-transform duration-1000"
                   style={{
                     transform: isImageHovered ? 'scale(1.03)' : 'scale(1)',
                     transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
