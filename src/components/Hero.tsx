@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { WordRotate } from './ui/word-rotate';
 import {
@@ -11,6 +11,8 @@ import {
 
 export function Hero() {
   const [isVisible, setIsVisible] = useState(false);
+  const [videoFailed, setVideoFailed] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const subtitle = getHeroSubtitle();
   const ctaStart = getCtaStart();
@@ -23,21 +25,44 @@ export function Hero() {
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 100);
+
+    // Programmatic play() is more reliable than autoPlay attribute on mobile
+    const video = videoRef.current;
+    if (video) {
+      video.play().catch(() => {
+        setVideoFailed(true);
+      });
+    }
+
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <section className="relative w-full h-screen overflow-hidden">
+      {/* Fallback background image - shown when video fails to play */}
+      {videoFailed && (
+        <img
+          src="/img/bg/abstract-flowing-lines-and-elegant-curves-represen1.png"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      )}
+
       {/* Fullscreen background video */}
-      <video
-        src="/img/bg/homepage-hero.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="metadata"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
+      {!videoFailed && (
+        <video
+          ref={videoRef}
+          src="/img/bg/homepage-hero.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          poster="/img/bg/abstract-flowing-lines-and-elegant-curves-represen1.png"
+          className="absolute inset-0 w-full h-full object-cover"
+          onError={() => setVideoFailed(true)}
+        />
+      )}
 
       {/* Dark overlay for text contrast */}
       <div className="absolute inset-0 bg-black/50" />
