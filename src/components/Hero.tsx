@@ -10,7 +10,7 @@ import {
 } from '../constants/homepage';
 
 const HERO_FALLBACK_IMAGE =
-  'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&h=1080&fit=crop&q=80';
+  'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1920&h=1080&fit=crop&q=80';
 
 export function Hero() {
   const [isVisible, setIsVisible] = useState(false);
