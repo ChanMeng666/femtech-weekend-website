@@ -9,6 +9,9 @@ import {
   getHeroRotatingWord3,
 } from '../constants/homepage';
 
+const HERO_FALLBACK_IMAGE =
+  'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&h=1080&fit=crop&q=80';
+
 export function Hero() {
   const [isVisible, setIsVisible] = useState(false);
   const [videoFailed, setVideoFailed] = useState(false);
@@ -42,7 +45,7 @@ export function Hero() {
       {/* Fallback background image - shown when video fails to play */}
       {videoFailed && (
         <img
-          src="/img/bg/abstract-flowing-lines-and-elegant-curves-represen1.png"
+          src={HERO_FALLBACK_IMAGE}
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -58,7 +61,7 @@ export function Hero() {
           muted
           playsInline
           preload="auto"
-          poster="/img/bg/abstract-flowing-lines-and-elegant-curves-represen1.png"
+          poster={HERO_FALLBACK_IMAGE}
           className="absolute inset-0 w-full h-full object-cover"
           onError={() => setVideoFailed(true)}
         />
