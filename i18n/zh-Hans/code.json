@@ -1213,5 +1213,13 @@
   "newsletter.cta.description": {
     "message": "获取最新的女性健康科技洞察、研究报告和社区更新。",
     "description": "Newsletter CTA description"
+  },
+  "stories.data.sylvia-kang.title": {
+    "message": "从钢琴少女到改变14万女性生育旅程的科技创业者：康曼曼的跨界人生交响曲",
+    "description": "Sylvia Kang story title"
+  },
+  "stories.data.sylvia-kang.description": {
+    "message": "康曼曼（Sylvia Kang）创立的 Mira 已为全球 120 多个国家的 14 万多名女性提供实验室级居家激素检测。从成都到硅谷，她的故事改写了女性在科技领域的可能。",
+    "description": "Sylvia Kang story description"
   }
 }
