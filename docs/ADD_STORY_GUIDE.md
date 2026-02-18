@@ -147,13 +147,36 @@ git push origin main
 
 ---
 
-## 六、图片与附件
+## 六、文章封面图
 
-- 图片可放在该文章自己的文件夹里，例如：  
+在文章列表（如 `/blog`）和社交分享时会显示**封面图**，通过 frontmatter 的 `image` 字段设置：
+
+1. **把封面图放在文章目录下**，例如：  
+   `blog/2026-02-18-new-partnership/img/cover.png`  
+   （中文版同理：`i18n/zh-Hans/docusaurus-plugin-content-blog/2026-02-18-new-partnership/img/cover.png`）
+
+2. **在 index.mdx 的 frontmatter 里加上一行**：
+
+```yaml
+---
+slug: new-partnership
+title: "你的文章标题"
+authors: [zhuyihan]
+tags: [femtech, womens-health]
+image: ./img/cover.png
+---
+```
+
+- 路径相对于该文章的 `index.mdx` 所在目录，建议用 `./img/封面文件名`。
+- 若只发英文，只改 `blog/` 下对应文章；若中英双语，英文和中文的 index.mdx 都要加 `image`，并各自在目录下放图（或共用同一相对路径如 `./img/cover.png`）。
+
+## 七、正文中的图片与附件
+
+- 正文配图可放在该文章自己的文件夹里，例如：  
   `blog/2026-02-18-new-partnership/img/photo.png`
 - 在 MDX 里引用（示例）：  
   `![描述](img/photo.png)` 或使用项目里的 `ZoomableImage` 等组件（参考现有带图文章）。
 
 ---
 
-**总结：** 在 `blog/`（和可选的 `i18n/zh-Hans/.../blog/`）里按日期+slug 建文件夹和 `index.mdx`，写好 frontmatter 和正文，然后 `git add` → `commit` → `push` 即可完成「在 Story 里上传新文章」。
+**总结：** 在 `blog/`（和可选的 `i18n/zh-Hans/.../blog/`）里按日期+slug 建文件夹和 `index.mdx`，写好 frontmatter（含可选 `image` 封面图）和正文，然后 `git add` → `commit` → `push` 即可完成「在 Story 里上传新文章」。
