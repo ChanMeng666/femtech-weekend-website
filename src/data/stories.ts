@@ -90,6 +90,37 @@ export const staticStoriesData: StoryItem[] = [
       STORY_TAGS.LEADERSHIP
     ],
     isFeatured: false
+  },
+  {
+    id: '3',
+    title: translateStoryField(
+      'stories.data.sylvia-kang.title',
+      "From Piano Prodigy to FemTech Founder: Sylvia Kang's Journey with Mira"
+    ),
+    description: translateStoryField(
+      'stories.data.sylvia-kang.description',
+      "Sylvia Kang (康曼曼), founder of Mira, has empowered over 140,000 women across 120+ countries with lab-grade at-home hormone testing. From Chengdu to Silicon Valley, her story rewrites what's possible for women in tech."
+    ),
+    category: getStoryCategoryFounders(),
+    date: 'February 18',
+    readTime: getStoryReadTime('12'),
+    author: 'Zhu Yihan',
+    interviewee: 'Sylvia Kang',
+    role: 'Founder & CEO of Mira',
+    link: '/stories/sylvia-kang-mira',
+    tags: [
+      translateTag(STORY_TAGS.FOUNDER_STORY),
+      translateTag(STORY_TAGS.INNOVATION_STORY),
+      translateTag(STORY_TAGS.ENTREPRENEURSHIP),
+      translateTag(STORY_TAGS.LEADERSHIP)
+    ],
+    tagKeys: [
+      STORY_TAGS.FOUNDER_STORY,
+      STORY_TAGS.INNOVATION_STORY,
+      STORY_TAGS.ENTREPRENEURSHIP,
+      STORY_TAGS.LEADERSHIP
+    ],
+    isFeatured: false
   }
 ];
 
@@ -133,7 +164,7 @@ export const filterStoriesByCategory = (stories: StoryItem[], category: string):
 // Function to sort stories by date (newest first)
 export const sortStoriesByDate = (stories: StoryItem[]): StoryItem[] => {
   const getYearFromDate = (dateStr: string): number => {
-    if (dateStr.includes('January')) {
+    if (dateStr.includes('January') || dateStr.includes('February')) {
       return 2026;
     }
     return 2025;
