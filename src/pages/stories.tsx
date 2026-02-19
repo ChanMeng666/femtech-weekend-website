@@ -28,50 +28,22 @@ import { translateStoryField } from '../constants/stories-components';
 export default function Stories(): React.ReactNode {
   const { siteConfig } = useDocusaurusContext();
   const [activeCategory, setActiveCategory] = useState<StoryCategory>(STORY_CATEGORY_KEYS.ALL_STORIES);
-  const [activeTag, setActiveTag] = useState<string | null>(null);
 
   // Get data using utility functions
   const storiesData = getStoriesData();
   const featuredStory = getFeaturedStory();
 
-  // Handle tag click
-  const handleTagClick = (tag: string) => {
-    setActiveTag(tag);
-    // Reset category when filtering by tag
-    setActiveCategory(STORY_CATEGORY_KEYS.ALL_STORIES);
-  };
-
-  // Filter by category first
+  // Filter by category
   const filteredByCategory = filterStoriesByCategory(storiesData, activeCategory);
 
-  // Then filter by tag if one is selected
-  const filteredStories = activeTag
-    ? filteredByCategory.filter(story => {
-        // First, check direct match in tags array
-        if (story.tags.includes(activeTag)) {
-          return true;
-        }
-
-        // Then, check for match across different translations of the same tag
-        return story.tags.some(tag => {
-          // Compare with other stories that have this tag
-          return storiesData.some(otherStory =>
-            otherStory.tags.includes(activeTag) && otherStory.tags.includes(tag)
-          );
-        });
-      })
-    : filteredByCategory;
-
   // Sort the filtered stories
-  const sortedStories = sortStoriesByDate(filteredStories);
+  const sortedStories = sortStoriesByDate(filteredByCategory);
 
   const title = getStoriesTitle();
   const description = getStoriesDescription();
 
   const handleCategoryChange = (category: StoryCategory) => {
     setActiveCategory(category);
-    // Reset tag filter when changing category
-    setActiveTag(null);
   };
 
   // Translate "No stories found" message
@@ -79,15 +51,6 @@ export default function Stories(): React.ReactNode {
     'stories.noStoriesFound',
     'No stories found in this category. Check back soon for new content!'
   );
-
-  // Get tag results title
-  const getTagResultsTitle = () => {
-    if (activeTag) {
-      const tagPrefix = translateStoryField('stories.tagResultsPrefix', 'Results for tag:');
-      return `${tagPrefix} ${activeTag}`;
-    }
-    return '';
-  };
 
   return (
     <>
@@ -131,31 +94,12 @@ export default function Stories(): React.ReactNode {
       <div className="bg-background py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
-          {/* Active Tag Display */}
-          {activeTag && (
-            <div className="mb-8 flex items-center">
-              <div className="mr-3 mckinsey-label text-muted-foreground">
-                {translateStoryField('stories.filteringByTag', 'Filtering by tag:')}
-              </div>
-              <div className="flex items-center border border-primary/30 px-4 py-2">
-                <span className="mckinsey-label text-primary mr-3">{activeTag}</span>
-                <button
-                  onClick={() => setActiveTag(null)}
-                  className="text-primary hover:text-primary/70 transition-colors text-lg leading-none"
-                  aria-label={translateStoryField('stories.clearFilter', 'Clear filter')}
-                >
-                  ×
-                </button>
-              </div>
-            </div>
-          )}
-
-          {/* Featured Story - only show if no tag filter is active */}
-          {featuredStory && activeCategory === STORY_CATEGORY_KEYS.ALL_STORIES && !activeTag && (
+          {/* Featured Story */}
+          {featuredStory && activeCategory === STORY_CATEGORY_KEYS.ALL_STORIES && (
             <div className="mb-16">
               <FeaturedStory
                 story={featuredStory}
-                onTagClick={handleTagClick}
+                onTagClick={() => {}}
               />
             </div>
           )}
@@ -165,38 +109,31 @@ export default function Stories(): React.ReactNode {
             <>
               <div className="mb-12">
                 <h2 className="font-display text-2xl sm:text-3xl font-normal tracking-tight text-foreground mb-3">
-                  {activeTag
-                    ? getTagResultsTitle()
-                    : activeCategory === STORY_CATEGORY_KEYS.ALL_STORIES
-                      ? translateStoryField('stories.section.title', 'Latest Stories')
-                      : `${getTranslatedCategory(activeCategory)} ${translateStoryField('stories.categoryStoriesSuffix', 'Stories')}`
+                  {activeCategory === STORY_CATEGORY_KEYS.ALL_STORIES
+                    ? translateStoryField('stories.section.title', 'Latest Stories')
+                    : `${getTranslatedCategory(activeCategory)} ${translateStoryField('stories.categoryStoriesSuffix', 'Stories')}`
                   }
                 </h2>
                 <p className="text-muted-foreground text-lg">
-                  {activeTag
+                  {activeCategory === STORY_CATEGORY_KEYS.ALL_STORIES
                     ? translateStoryField(
-                        'stories.showingTagResults',
-                        'Showing all stories with the selected tag'
+                        'stories.section.subtitle',
+                        'Discover the journeys of women shaping the future of health technology'
                       )
-                    : activeCategory === STORY_CATEGORY_KEYS.ALL_STORIES
-                      ? translateStoryField(
-                          'stories.section.subtitle',
-                          'Discover the journeys of women shaping the future of health technology'
-                        )
-                      : `${translateStoryField('stories.browsePrefix', 'Browse our')} ${getTranslatedCategory(activeCategory).toLowerCase()} ${translateStoryField('stories.browseSuffix', 'stories and interviews')}`
+                    : `${translateStoryField('stories.browsePrefix', 'Browse our')} ${getTranslatedCategory(activeCategory).toLowerCase()} ${translateStoryField('stories.browseSuffix', 'stories and interviews')}`
                   }
                 </p>
               </div>
 
-              {/* 2-column grid for horizontal story cards */}
+              {/* 2-column grid for story cards */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {sortedStories
-                  .filter(story => !story.isFeatured || activeCategory !== STORY_CATEGORY_KEYS.ALL_STORIES || activeTag)
+                  .filter(story => !story.isFeatured || activeCategory !== STORY_CATEGORY_KEYS.ALL_STORIES)
                   .map((story) => (
                     <StoryCard
                       key={story.id}
                       story={story}
-                      onTagClick={handleTagClick}
+                      onTagClick={() => {}}
                     />
                   ))
                 }
