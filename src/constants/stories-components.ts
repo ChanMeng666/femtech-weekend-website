@@ -78,7 +78,11 @@ export const getStoryCategoryInnovators = () => translate({
 
 // Format read time with minutes
 export const getStoryReadTime = (minutes: string) => {
-  return `${minutes} min read`;
+  const suffix = translate({
+    id: 'stories.readTimeSuffix',
+    message: 'min read',
+  });
+  return `${minutes} ${suffix}`;
 };
 
 // Define tag translation mapping for filtering

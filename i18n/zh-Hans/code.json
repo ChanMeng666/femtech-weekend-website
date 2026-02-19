@@ -1221,5 +1221,157 @@
   "stories.data.sylvia-kang.description": {
     "message": "康曼曼（Sylvia Kang）创立的 Mira 已为全球 120 多个国家的 14 万多名女性提供实验室级居家激素检测。从成都到硅谷，她的故事改写了女性在科技领域的可能。",
     "description": "Sylvia Kang story description"
+  },
+  "stories.data.jane-chen.title": {
+    "message": "从实验室到创业：Jane Chen 在中国创建生育科技公司的旅程",
+    "description": "Jane Chen story title"
+  },
+  "stories.data.jane-chen.description": {
+    "message": "独家专访 FertilityAI 创始人 Jane Chen，讲述她从生物医学研究到创建中国最具前景的生育科技初创企业的历程。",
+    "description": "Jane Chen story description"
+  },
+  "stories.data.lisa-wang.title": {
+    "message": "为什么我押注女性健康：Lisa Wang 的投资哲学",
+    "description": "Lisa Wang story title"
+  },
+  "stories.data.lisa-wang.description": {
+    "message": "Lisa Wang，Horizon Ventures 合伙人，亚洲最活跃的 FemTech 投资人之一，分享她对女性健康为何是医疗投资下一个前沿领域的见解。",
+    "description": "Lisa Wang story description"
+  },
+  "stories.hero.title": {
+    "message": "FemTech 故事",
+    "description": "Stories hero section title"
+  },
+  "stories.hero.subtitle": {
+    "message": "女性健康创新者、创始人和领导者的人物专访与励志故事",
+    "description": "Stories hero section subtitle"
+  },
+  "stories.section.title": {
+    "message": "最新故事",
+    "description": "Latest stories section title"
+  },
+  "stories.section.subtitle": {
+    "message": "探索正在塑造健康科技未来的女性们的旅程",
+    "description": "Latest stories section subtitle"
+  },
+  "stories.cta.title": {
+    "message": "分享你的故事",
+    "description": "Stories CTA title"
+  },
+  "stories.cta.description": {
+    "message": "你是女性健康领域的创始人、投资者或创新者吗？我们很乐意分享你的旅程和见解。",
+    "description": "Stories CTA description"
+  },
+  "stories.cta.learnMoreButton": {
+    "message": "了解更多关于我们",
+    "description": "Stories CTA learn more button"
+  },
+  "stories.cta.contactButton": {
+    "message": "联系我们",
+    "description": "Stories CTA contact button"
+  },
+  "stories.featured.label": {
+    "message": "精选故事",
+    "description": "Featured story label"
+  },
+  "stories.category.allStories": {
+    "message": "所有故事",
+    "description": "All stories category"
+  },
+  "stories.category.founders": {
+    "message": "创始人",
+    "description": "Founders category"
+  },
+  "stories.category.investors": {
+    "message": "投资者",
+    "description": "Investors category"
+  },
+  "stories.category.researchers": {
+    "message": "研究者",
+    "description": "Researchers category"
+  },
+  "stories.category.innovators": {
+    "message": "创新者",
+    "description": "Innovators category"
+  },
+  "stories.tag.founderStory": {
+    "message": "创始人故事",
+    "description": "Founder Story tag"
+  },
+  "stories.tag.investorPerspective": {
+    "message": "投资者视角",
+    "description": "Investor Perspective tag"
+  },
+  "stories.tag.careerJourney": {
+    "message": "职业旅程",
+    "description": "Career Journey tag"
+  },
+  "stories.tag.innovationStory": {
+    "message": "创新故事",
+    "description": "Innovation Story tag"
+  },
+  "stories.tag.interview": {
+    "message": "访谈",
+    "description": "Interview tag"
+  },
+  "stories.tag.leadership": {
+    "message": "领导力",
+    "description": "Leadership tag"
+  },
+  "stories.tag.entrepreneurship": {
+    "message": "创业",
+    "description": "Entrepreneurship tag"
+  },
+  "stories.tag.researchJourney": {
+    "message": "研究之旅",
+    "description": "Research Journey tag"
+  },
+  "stories.title": {
+    "message": "故事",
+    "description": "Stories page title"
+  },
+  "stories.description": {
+    "message": "FemTech 社区的人物专访与励志故事",
+    "description": "Stories page description"
+  },
+  "stories.noStoriesFound": {
+    "message": "该分类下暂无故事，请稍后再来查看新内容！",
+    "description": "No stories found message"
+  },
+  "stories.tagResultsPrefix": {
+    "message": "标签筛选结果：",
+    "description": "Tag results prefix"
+  },
+  "stories.filteringByTag": {
+    "message": "按标签筛选：",
+    "description": "Filtering by tag label"
+  },
+  "stories.clearFilter": {
+    "message": "清除筛选",
+    "description": "Clear filter label"
+  },
+  "stories.categoryStoriesSuffix": {
+    "message": "故事",
+    "description": "Category stories suffix"
+  },
+  "stories.showingTagResults": {
+    "message": "显示所有包含所选标签的故事",
+    "description": "Showing tag results description"
+  },
+  "stories.browsePrefix": {
+    "message": "浏览我们的",
+    "description": "Browse prefix"
+  },
+  "stories.browseSuffix": {
+    "message": "故事与访谈",
+    "description": "Browse suffix"
+  },
+  "stories.readFullStory": {
+    "message": "阅读完整故事",
+    "description": "Read full story link text"
+  },
+  "stories.readTimeSuffix": {
+    "message": "分钟阅读",
+    "description": "Read time suffix (e.g. '8 min read')"
   }
 }

@@ -87,12 +87,7 @@ export function OpinionCard({ opinion, onTagClick }: OpinionCardProps): React.Re
             <div
               className="flex items-center gap-2 text-foreground text-sm font-medium mt-auto"
             >
-              <span
-                className="transition-all duration-300"
-                style={{
-                  borderBottom: isHovered ? '1px solid currentColor' : '1px solid transparent'
-                }}
-              >
+              <span className="transition-all duration-300">
                 Continue Reading
               </span>
               <ArrowRight

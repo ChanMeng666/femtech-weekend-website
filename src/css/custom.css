@@ -486,6 +486,14 @@ article h2 a {
   @apply text-foreground hover:no-underline;
 }
 
+/* Remove link underline hover effects on stories, opinions, and insights pages */
+a.no-underline,
+a.no-underline:hover,
+a.no-underline:focus,
+a.no-underline:active {
+  text-decoration: none !important;
+}
+
 .image img {
   @apply border border-border;
 }
