@@ -86,7 +86,7 @@ export function FeaturedOpinion({ opinion, onTagClick }: FeaturedOpinionProps): 
             <div
               className="flex items-center gap-2 text-foreground font-semibold group/cta"
             >
-              <span className="border-b-2 border-foreground">Read Full Article</span>
+              <span>Read Full Article</span>
               <ArrowRight
                 className="w-5 h-5 transition-transform duration-300"
                 style={{
