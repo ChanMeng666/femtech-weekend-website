@@ -14,6 +14,7 @@ export interface StoryItem {
   tags: string[];
   tagKeys?: string[];
   isFeatured?: boolean;
+  hidden?: boolean;
 }
 
 // Story category type

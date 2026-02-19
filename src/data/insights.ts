@@ -66,7 +66,7 @@ export const staticInsightsData: InsightItem[] = [
       INSIGHT_TAGS.EUROPE,
       INSIGHT_TAGS.WOMENS_HEALTH
     ],
-    isFeatured: true
+    isFeatured: false
   },
   {
     id: '5',
@@ -96,7 +96,7 @@ export const staticInsightsData: InsightItem[] = [
       INSIGHT_TAGS.CHINA,
       INSIGHT_TAGS.HONG_KONG
     ],
-    isFeatured: false
+    isFeatured: true
   }
 ];
 

@@ -29,7 +29,7 @@ const translateTag = (tagKey: string) => {
   );
 };
 
-// Static stories data
+// Static stories data (hidden: true = not shown on Stories page, both EN & ZH)
 export const staticStoriesData: StoryItem[] = [
   {
     id: '1',
@@ -60,7 +60,8 @@ export const staticStoriesData: StoryItem[] = [
       STORY_TAGS.ENTREPRENEURSHIP,
       STORY_TAGS.INNOVATION_STORY
     ],
-    isFeatured: false
+    isFeatured: false,
+    hidden: true
   },
   {
     id: '2',
@@ -89,7 +90,8 @@ export const staticStoriesData: StoryItem[] = [
       STORY_TAGS.INTERVIEW,
       STORY_TAGS.LEADERSHIP
     ],
-    isFeatured: false
+    isFeatured: false,
+    hidden: true
   },
   {
     id: '3',
@@ -125,14 +127,14 @@ export const staticStoriesData: StoryItem[] = [
   }
 ];
 
-// Function to get stories data (can be extended to fetch from API)
+// Function to get stories data (can be extended to fetch from API; hidden items excluded for both EN & ZH)
 export const getStoriesData = (): StoryItem[] => {
-  return staticStoriesData;
+  return staticStoriesData.filter(story => !story.hidden);
 };
 
 // Function to get featured story
 export const getFeaturedStory = (): StoryItem | undefined => {
-  return staticStoriesData.find(story => story.isFeatured);
+  return staticStoriesData.find(story => story.isFeatured && !story.hidden);
 };
 
 // Function to filter stories by category
