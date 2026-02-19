@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Link from '@docusaurus/Link';
 import { FeaturedStoryProps } from '../../types/stories';
-import { getFeaturedStoryLabel } from '../../constants/stories-components';
+import { getFeaturedStoryLabel, translateStoryField } from '../../constants/stories-components';
 import { ArrowUpRight } from 'lucide-react';
 
 interface StoryTagProps {
@@ -151,7 +151,7 @@ export function FeaturedStory({ story, onTagClick }: FeaturedStoryProps): React.
 
             {/* CTA with arrow */}
             <div className="flex items-center gap-2 text-primary mckinsey-label">
-              <span>Read Full Story</span>
+              <span>{translateStoryField('stories.readFullStory', 'Read Full Story')}</span>
               <ArrowUpRight
                 className="h-4 w-4 transition-transform duration-300"
                 style={{

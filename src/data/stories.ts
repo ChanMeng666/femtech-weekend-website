@@ -107,6 +107,7 @@ export const staticStoriesData: StoryItem[] = [
     author: 'Zhu Yihan',
     interviewee: 'Sylvia Kang',
     role: 'Founder & CEO of Mira',
+    image: '/img/stories/sylvia-kang-cover.png',
     link: '/stories/sylvia-kang-mira',
     tags: [
       translateTag(STORY_TAGS.FOUNDER_STORY),
