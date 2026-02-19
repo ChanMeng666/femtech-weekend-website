@@ -60,7 +60,7 @@ export const staticStoriesData: StoryItem[] = [
       STORY_TAGS.ENTREPRENEURSHIP,
       STORY_TAGS.INNOVATION_STORY
     ],
-    isFeatured: true
+    isFeatured: false
   },
   {
     id: '2',
@@ -121,7 +121,7 @@ export const staticStoriesData: StoryItem[] = [
       STORY_TAGS.ENTREPRENEURSHIP,
       STORY_TAGS.LEADERSHIP
     ],
-    isFeatured: false
+    isFeatured: true
   }
 ];
 
