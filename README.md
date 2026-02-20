@@ -49,11 +49,6 @@ One-click **FREE** deployment of your FemTech innovation platform.
 > Experience the power of our comprehensive FemTech platform designed for innovation, community, and research.
 
 <div align="center">
-  <img src="./static/img/bg/stylized-illustration-of-confident-asian-women.png" alt="Main Dashboard" width="800"/>
-  <p><em>Homepage - Connecting FemTech Innovation Across China and Globally</em></p>
-</div>
-
-<div align="center">
   <img src="./static/img/reports/FemTech-Map-in-Greater-China-report-cover.svg" alt="Research Reports" width="400"/>
   <img src="./static/img/reports/femmehealth-alliance-partnership.png" alt="Ecosystem Directory" width="400"/>
   <p><em>Research Reports Hub and Strategic Partnerships</em></p>
