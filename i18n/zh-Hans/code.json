@@ -1373,5 +1373,13 @@
   "stories.readTimeSuffix": {
     "message": "分钟阅读",
     "description": "Read time suffix (e.g. '8 min read')"
+  },
+  "opinions.data.hims-hers-eucalyptus.title": {
+    "message": "看到这笔 11.5 亿美元收购，我的第一反应不是兴奋",
+    "description": "Hims & Hers 收购 Eucalyptus 观点文标题"
+  },
+  "opinions.data.hims-hers-eucalyptus.description": {
+    "message": "2026 年 2 月 19 日，Hims & Hers 宣布以最高 11.5 亿美元收购 Eucalyptus。一笔值得细读的资本故事，以及它对女性健康意味着什么。",
+    "description": "Hims & Hers 收购 Eucalyptus 观点文摘要"
   }
 }

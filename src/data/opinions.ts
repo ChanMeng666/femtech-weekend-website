@@ -29,61 +29,36 @@ const translateTag = (tagKey: string) => {
   );
 };
 
-// Static opinions data
+// Static opinions data (only listed items appear on /opinions; others are hidden)
 export const staticOpinionsData: OpinionItem[] = [
   {
     id: '1',
     title: translateOpinionField(
-      'opinions.data.ai-revolution.title',
-      "The AI Revolution in Women's Health: What 2025 Will Bring"
+      'opinions.data.hims-hers-eucalyptus.title',
+      "When I Saw This $1.15bn Acquisition, My First Reaction Wasn't Excitement"
     ),
     description: translateOpinionField(
-      'opinions.data.ai-revolution.description',
-      "As artificial intelligence transforms healthcare, women's health stands to benefit most—but only if we get the implementation right."
+      'opinions.data.hims-hers-eucalyptus.description',
+      "On February 19, 2026, Hims & Hers announced the acquisition of Eucalyptus for up to $1.15 billion. A capital story worth reading carefully—and what it means for women's health."
     ),
     category: getOpinionCategoryAnalysis(),
-    date: 'January 12',
-    readTime: getOpinionReadTime('6'),
+    date: 'February 19',
+    readTime: getOpinionReadTime('8'),
     author: 'Zhu Yihan',
-    link: '/opinions/ai-revolution-womens-health-2025',
+    link: '/opinions/hims-hers-eucalyptus-deal',
     tags: [
       translateTag(OPINION_TAGS.INDUSTRY_ANALYSIS),
-      translateTag(OPINION_TAGS.TECHNOLOGY_TRENDS),
-      translateTag(OPINION_TAGS.THOUGHT_LEADERSHIP)
+      translateTag(OPINION_TAGS.MARKET_TRENDS),
+      translateTag(OPINION_TAGS.COMMENTARY),
+      translateTag(OPINION_TAGS.INVESTMENT_INSIGHTS)
     ],
     tagKeys: [
       OPINION_TAGS.INDUSTRY_ANALYSIS,
-      OPINION_TAGS.TECHNOLOGY_TRENDS,
-      OPINION_TAGS.THOUGHT_LEADERSHIP
+      OPINION_TAGS.MARKET_TRENDS,
+      OPINION_TAGS.COMMENTARY,
+      OPINION_TAGS.INVESTMENT_INSIGHTS
     ],
     isFeatured: true
-  },
-  {
-    id: '2',
-    title: translateOpinionField(
-      'opinions.data.china-policy.title',
-      "Policy Tailwinds: How China's New Healthcare Reforms Will Shape FemTech"
-    ),
-    description: translateOpinionField(
-      'opinions.data.china-policy.description',
-      "Recent policy shifts in China are creating unprecedented opportunities for women's health innovation. Here's what entrepreneurs and investors need to know."
-    ),
-    category: getOpinionCategoryPolicy(),
-    date: 'January 8',
-    readTime: getOpinionReadTime('7'),
-    author: 'Maaike Steinebach',
-    link: '/opinions/china-femtech-policy-outlook-2025',
-    tags: [
-      translateTag(OPINION_TAGS.POLICY_PERSPECTIVE),
-      translateTag(OPINION_TAGS.MARKET_TRENDS),
-      translateTag(OPINION_TAGS.COMMENTARY)
-    ],
-    tagKeys: [
-      OPINION_TAGS.POLICY_PERSPECTIVE,
-      OPINION_TAGS.MARKET_TRENDS,
-      OPINION_TAGS.COMMENTARY
-    ],
-    isFeatured: false
   }
 ];
 
@@ -127,7 +102,7 @@ export const filterOpinionsByCategory = (opinions: OpinionItem[], category: stri
 // Function to sort opinions by date (newest first)
 export const sortOpinionsByDate = (opinions: OpinionItem[]): OpinionItem[] => {
   const getYearFromDate = (dateStr: string): number => {
-    if (dateStr.includes('January')) {
+    if (dateStr.includes('January') || dateStr.includes('February')) {
       return 2026;
     }
     return 2025;
