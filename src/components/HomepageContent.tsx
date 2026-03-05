@@ -11,8 +11,8 @@ export const HomepageContent: React.FC = () => {
     <>
       <Hero />
       <Features />
-      <StatsSection />
-      <ShowcaseSection />
+      {/* <StatsSection /> */}
+      {/* <ShowcaseSection /> */}
       <PartnershipSection />
       <HomepageCTA />
     </>
