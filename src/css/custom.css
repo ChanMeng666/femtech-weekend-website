@@ -749,8 +749,9 @@ div[class*="docMainContainer"] .markdown > * {
   line-height: 1.5;
 }
 
-
-
-
+/* Hide Docusaurus heading anchor links */
+.hash-link {
+  display: none !important;
+}
 
 
