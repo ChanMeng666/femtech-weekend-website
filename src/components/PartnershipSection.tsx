@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { AnimatedLine } from './ui/AnimatedLine';
+import { LogoCloud } from './ui/logo-cloud';
 import { translate } from '@docusaurus/Translate';
 
 export const PartnershipSection: React.FC = () => {
@@ -18,16 +19,16 @@ export const PartnershipSection: React.FC = () => {
 
   const partners = [
     {
-      name: 'C2C',
-      logo: '/img/partnership-logo/c2c-logo.svg',
+      src: '/img/partnership-logo/c2c-logo.svg',
+      alt: 'C2C',
     },
     {
-      name: 'She Rewires',
-      logo: '/img/partnership-logo/she-rewires-logo.svg',
+      src: '/img/partnership-logo/she-rewires-logo.svg',
+      alt: 'She Rewires',
     },
     {
-      name: 'Yue Ji Yi Mu',
-      logo: '/img/partnership-logo/yue-ji-yi-mu-logo.svg',
+      src: '/img/partnership-logo/yue-ji-yi-mu-logo.svg',
+      alt: 'Yue Ji Yi Mu',
     },
   ];
 
@@ -92,9 +93,9 @@ export const PartnershipSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Partners Grid */}
+        {/* Partners Logo Cloud */}
         <div
-          className="flex flex-wrap justify-center items-center gap-8 sm:gap-12 lg:gap-16 transition-all duration-700"
+          className="transition-all duration-700"
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
@@ -102,24 +103,7 @@ export const PartnershipSection: React.FC = () => {
             transitionDelay: '200ms',
           }}
         >
-          {partners.map((partner, idx) => (
-            <div
-              key={idx}
-              className="group relative flex items-center justify-center"
-              style={{
-                transitionDelay: `${200 + idx * 100}ms`,
-              }}
-            >
-              <img
-                src={partner.logo}
-                alt={`${partner.name} logo`}
-                className="h-12 sm:h-14 lg:h-16 w-auto object-contain grayscale-hover transition-all duration-500"
-                style={{
-                  transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
-                }}
-              />
-            </div>
-          ))}
+          <LogoCloud logos={partners} />
         </div>
 
         {/* Bottom divider line */}
