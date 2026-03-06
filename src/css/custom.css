@@ -341,6 +341,98 @@
   opacity: 1;
 }
 
+/* ============================================
+   Shanghai Summit Premium Effects
+   ============================================ */
+
+/* Noise/grain texture overlay */
+.summit-grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Animated gradient border */
+@keyframes summit-border-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.summit-border-glow {
+  position: relative;
+}
+
+.summit-border-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: linear-gradient(135deg, #AA7C52, transparent 40%, transparent 60%, #AA7C52);
+  background-size: 200% 200%;
+  animation: summit-border-flow 6s ease infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Counting animation for stats */
+@keyframes summit-count-reveal {
+  0% { opacity: 0; transform: translateY(16px) scale(0.95); }
+  60% { opacity: 1; transform: translateY(-2px) scale(1.02); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Geometric accent line animation */
+@keyframes summit-line-draw {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* Success checkmark draw */
+@keyframes summit-check-draw {
+  0% { stroke-dashoffset: 100; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes summit-check-circle {
+  0% { stroke-dashoffset: 314; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes summit-success-glow {
+  0% { box-shadow: 0 0 0 0 rgba(170, 124, 82, 0.4); }
+  50% { box-shadow: 0 0 40px 10px rgba(170, 124, 82, 0.15); }
+  100% { box-shadow: 0 0 0 0 rgba(170, 124, 82, 0); }
+}
+
+/* Floating particle dots */
+@keyframes summit-float-particle {
+  0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  50% { transform: translateY(-60px) translateX(20px); }
+}
+
+/* Speaker card shimmer */
+@keyframes summit-shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Timeline pulse */
+@keyframes summit-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.8); opacity: 0; }
+}
+
 [data-theme='dark'] {
   --ifm-color-primary: #DBBB9A;
   --ifm-color-primary-dark: #D0A883;

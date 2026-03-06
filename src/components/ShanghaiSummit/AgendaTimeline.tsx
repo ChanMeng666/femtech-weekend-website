@@ -5,11 +5,142 @@ import { agendaDays } from '../../data/shanghai-summit';
 import { ArrowRight } from 'lucide-react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
+function DayCard({
+  day,
+  index,
+  isVisible,
+}: {
+  day: (typeof agendaDays)[0];
+  index: number;
+  isVisible: boolean;
+}) {
+  const [isHovered, setIsHovered] = useState(false);
+  const { i18n: { currentLocale } } = useDocusaurusContext();
+  const locale = currentLocale === 'zh-Hans' ? 'zh' : 'en';
+
+  const entryDelay = 200 + index * 180;
+
+  return (
+    <div
+      className="relative flex gap-6 lg:gap-10"
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+        transition: `all 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${entryDelay}ms`,
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Timeline spine */}
+      <div className="hidden sm:flex flex-col items-center flex-shrink-0 w-20 lg:w-28">
+        {/* Pulsing dot */}
+        <div className="relative">
+          <div className="w-3 h-3 bg-[#AA7C52] rounded-full relative z-10" />
+          <div
+            className="absolute inset-0 w-3 h-3 bg-[#AA7C52] rounded-full"
+            style={{
+              animation: isHovered ? 'summit-pulse 1.5s ease infinite' : 'none',
+            }}
+          />
+        </div>
+        {/* Vertical line */}
+        {index < agendaDays.length - 1 && (
+          <div
+            className="w-px flex-1 mt-3"
+            style={{
+              background: 'linear-gradient(to bottom, #AA7C52, transparent)',
+              opacity: 0.2,
+            }}
+          />
+        )}
+      </div>
+
+      {/* Day content card */}
+      <div
+        className="flex-1 group pb-14 lg:pb-20"
+      >
+        {/* Day header row */}
+        <div className="flex items-baseline gap-4 mb-4">
+          <span
+            className="font-display text-5xl lg:text-7xl tracking-tight transition-colors duration-500"
+            style={{ color: isHovered ? '#AA7C52' : 'rgba(170, 124, 82, 0.2)' }}
+          >
+            {String(day.day).padStart(2, '0')}
+          </span>
+          <div>
+            <p className="text-muted-foreground text-xs tracking-[0.15em] uppercase">
+              {day.date}
+            </p>
+            <h3
+              className="font-display text-xl sm:text-2xl lg:text-3xl font-normal tracking-tight text-foreground mt-1 transition-all duration-500"
+              style={{ transform: isHovered ? 'translateX(4px)' : 'translateX(0)' }}
+            >
+              {day.title[locale]}
+            </h3>
+          </div>
+        </div>
+
+        {/* Description */}
+        <p className="text-muted-foreground leading-relaxed mb-6 max-w-2xl text-sm sm:text-base">
+          {day.description[locale]}
+        </p>
+
+        {/* Highlights — horizontal chips */}
+        <div className="flex flex-wrap gap-2 mb-6">
+          {day.highlights[locale].map((highlight, j) => (
+            <span
+              key={j}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs text-muted-foreground border border-border/60 hover:border-[#AA7C52]/30 hover:text-foreground transition-all duration-300"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'translateY(0)' : 'translateY(8px)',
+                transition: `all 0.5s cubic-bezier(0.16, 1, 0.3, 1) ${entryDelay + 300 + j * 50}ms`,
+              }}
+            >
+              <span className="w-1 h-1 bg-[#AA7C52]/50 rounded-full flex-shrink-0" />
+              {highlight}
+            </span>
+          ))}
+        </div>
+
+        {/* CTA */}
+        {day.cta && (
+          <div
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transition: `opacity 0.5s ease ${entryDelay + 500}ms`,
+            }}
+          >
+            {day.cta.external ? (
+              <a
+                href={day.cta.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/btn relative inline-flex items-center gap-2.5 bg-[#AA7C52] text-white px-6 py-3 text-sm font-medium overflow-hidden no-underline hover:no-underline transition-all duration-300 hover:shadow-[0_0_24px_rgba(170,124,82,0.25)]"
+              >
+                <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                <span className="relative">{day.cta.label[locale]}</span>
+                <ArrowRight className="w-4 h-4 relative transition-transform duration-300 group-hover/btn:translate-x-0.5" />
+              </a>
+            ) : (
+              <Link
+                to={day.cta.href}
+                className="group/btn relative inline-flex items-center gap-2.5 border border-[#AA7C52]/50 text-[#AA7C52] px-6 py-3 text-sm font-medium hover:bg-[#AA7C52]/5 hover:border-[#AA7C52] transition-all duration-300 no-underline hover:no-underline"
+              >
+                {day.cta.label[locale]}
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-0.5" />
+              </Link>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export function AgendaTimeline() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const { i18n: { currentLocale } } = useDocusaurusContext();
-  const locale = currentLocale === 'zh-Hans' ? 'zh' : 'en';
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -19,7 +150,7 @@ export function AgendaTimeline() {
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.05 }
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
@@ -28,8 +159,9 @@ export function AgendaTimeline() {
   return (
     <div ref={sectionRef} className="relative bg-background py-20 sm:py-28 lg:py-32 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        {/* Section header */}
         <div
-          className="mb-16 transition-all duration-700"
+          className="mb-16 lg:mb-20 transition-all duration-700"
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
@@ -37,74 +169,20 @@ export function AgendaTimeline() {
           }}
         >
           <AnimatedLine variant="label" label="AGENDA" />
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-foreground mt-6">
-            4 Days of Innovation
-          </h2>
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mt-6 gap-4">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-foreground">
+              4 Days of Innovation
+            </h2>
+            <p className="text-muted-foreground text-sm tracking-wider uppercase">
+              June 22-25, 2026 &mdash; Shanghai Qiantan
+            </p>
+          </div>
         </div>
 
-        <div className="space-y-12 lg:space-y-16">
+        {/* Timeline entries */}
+        <div className="relative">
           {agendaDays.map((day, i) => (
-            <div
-              key={day.day}
-              className="flex flex-col lg:flex-row gap-6 lg:gap-12 transition-all duration-700"
-              style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-                transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
-                transitionDelay: `${(i + 1) * 150}ms`,
-              }}
-            >
-              {/* Day number */}
-              <div className="flex-shrink-0 lg:w-32">
-                <span className="font-display text-5xl lg:text-6xl text-[#AA7C52]/30">
-                  {String(day.day).padStart(2, '0')}
-                </span>
-                <p className="text-muted-foreground text-sm mt-1">{day.date}</p>
-              </div>
-
-              {/* Content */}
-              <div className="flex-1 border-l border-border pl-6 lg:pl-10">
-                <h3 className="font-display text-2xl sm:text-3xl font-normal tracking-tight text-foreground mb-3">
-                  {day.title[locale]}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed mb-4">
-                  {day.description[locale]}
-                </p>
-
-                {/* Highlights */}
-                <ul className="space-y-2 mb-6">
-                  {day.highlights[locale].map((highlight, j) => (
-                    <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <span className="text-[#AA7C52] mt-1 flex-shrink-0">&bull;</span>
-                      {highlight}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Day-specific CTA */}
-                {day.cta && (
-                  day.cta.external ? (
-                    <a
-                      href={day.cta.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-[#AA7C52] text-white px-5 py-2.5 text-sm font-medium hover:bg-[#996F49] transition-colors no-underline hover:no-underline"
-                    >
-                      {day.cta.label[locale]}
-                      <ArrowRight className="w-4 h-4" />
-                    </a>
-                  ) : (
-                    <Link
-                      to={day.cta.href}
-                      className="inline-flex items-center gap-2 bg-[#AA7C52] text-white px-5 py-2.5 text-sm font-medium hover:bg-[#996F49] transition-colors no-underline hover:no-underline"
-                    >
-                      {day.cta.label[locale]}
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  )
-                )}
-              </div>
-            </div>
+            <DayCard key={day.day} day={day} index={i} isVisible={isVisible} />
           ))}
         </div>
       </div>

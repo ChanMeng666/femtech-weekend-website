@@ -9,7 +9,6 @@ export function TeamSection() {
   const { i18n: { currentLocale } } = useDocusaurusContext();
   const locale = currentLocale === 'zh-Hans' ? 'zh' : 'en';
 
-  // Show first 4 team members (co-founders)
   const founders = teamMembers.slice(0, 4);
 
   useEffect(() => {
@@ -27,8 +26,14 @@ export function TeamSection() {
   }, []);
 
   return (
-    <div ref={sectionRef} className="relative bg-[#0a0a0a] py-20 sm:py-28 lg:py-32 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <div
+      ref={sectionRef}
+      className="relative py-20 sm:py-28 lg:py-32 overflow-hidden"
+      style={{ background: 'linear-gradient(170deg, #0a0a0a 0%, #0c0a08 50%, #080808 100%)' }}
+    >
+      <div className="summit-grain absolute inset-0" />
+
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <div
           className="mb-16 transition-all duration-700"
           style={{
@@ -40,39 +45,54 @@ export function TeamSection() {
           <AnimatedLine
             variant="label"
             label="THE TEAM"
-            className="[&_span]:text-white [&_div]:bg-white"
+            className="[&_span]:text-white/80 [&_div]:bg-[#AA7C52]"
           />
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-white mt-6">
             FemTech Weekend
           </h2>
-          <p className="text-white/70 text-lg max-w-2xl mt-4 leading-relaxed">
-            Founded in September 2024, our team brings together professionals from finance, banking,
-            and consulting, with members across Europe and China — combining global vision with
-            local insight.
+          <p className="text-white/45 text-base max-w-2xl mt-4 leading-relaxed">
+            Founded in September 2024, our team brings together professionals from
+            finance, banking, and consulting, with members across Europe and China.
           </p>
         </div>
 
         <div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 transition-all duration-700"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/[0.04]"
           style={{
             opacity: isVisible ? 1 : 0,
-            transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
-            transitionDelay: '200ms',
+            transition: 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s',
           }}
         >
-          {founders.map((member) => (
-            <div key={member.id} className="text-center">
-              <div className="mx-auto mb-4 h-28 w-28 overflow-hidden bg-gradient-to-br from-primary/20 to-primary/40">
+          {founders.map((member, i) => (
+            <div
+              key={member.id}
+              className="group bg-[#0a0a0a] p-6 sm:p-8 transition-all duration-500 hover:bg-[#0e0c0a]"
+              style={{
+                animation: isVisible
+                  ? `summit-count-reveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${300 + i * 100}ms both`
+                  : 'none',
+              }}
+            >
+              {/* Photo with clipped shape */}
+              <div
+                className="mb-5 w-24 h-24 sm:w-28 sm:h-28 overflow-hidden bg-gradient-to-br from-[#AA7C52]/15 to-transparent"
+                style={{
+                  clipPath: 'polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%)',
+                }}
+              >
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="h-full w-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />
               </div>
-              <h4 className="font-display text-lg text-white">{member.name}</h4>
-              <p className="text-[#AA7C52] text-sm mt-1">{member.role[locale]}</p>
-              <p className="text-white/50 text-xs mt-2 leading-relaxed line-clamp-3">
+
+              <h4 className="font-display text-lg text-white group-hover:text-[#AA7C52] transition-colors duration-300">
+                {member.name}
+              </h4>
+              <p className="text-[#AA7C52]/70 text-sm mt-1">{member.role[locale]}</p>
+              <p className="text-white/30 text-xs mt-3 leading-relaxed line-clamp-3">
                 {member.bio[locale]}
               </p>
             </div>

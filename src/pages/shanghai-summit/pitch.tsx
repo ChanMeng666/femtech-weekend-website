@@ -7,6 +7,7 @@ import {
   BUSINESS_MODEL_OPTIONS,
   REVENUE_OPTIONS,
 } from '../../data/shanghai-summit';
+import { FormSuccess } from '../../components/ShanghaiSummit';
 
 const inputClass =
   'w-full border border-border rounded-lg px-4 py-3 bg-background text-foreground focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition';
@@ -104,18 +105,15 @@ export default function PitchApplication() {
   if (submitted) {
     return (
       <Layout title="Pitch Application Submitted" description="Your pitch application has been submitted.">
-        <div className="bg-background min-h-[60vh] flex items-center justify-center px-4 py-20">
-          <div className="max-w-lg text-center">
-            <div className="text-5xl mb-6">&#10003;</div>
-            <h1 className="text-3xl font-bold text-foreground mb-4">Application Submitted!</h1>
-            <p className="text-muted-foreground text-lg mb-8">
-              Thank you for applying to pitch at the Shanghai Summit. We'll review your application and be in touch soon.
-            </p>
-            <a href="/shanghai-summit" className={btnPrimary}>
-              Back to Summit
-            </a>
-          </div>
-        </div>
+        <FormSuccess
+          title="Application Submitted"
+          message="Thank you for applying to pitch at the Shanghai Summit 2026. We're excited to review your submission."
+          nextSteps={[
+            'Our team reviews your application (1-2 weeks)',
+            'Selected companies receive an invitation to pitch',
+            'Confirm your spot with a £199 participation fee',
+          ]}
+        />
       </Layout>
     );
   }

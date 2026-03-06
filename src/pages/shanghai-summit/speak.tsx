@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '@theme/Layout';
+import { FormSuccess } from '../../components/ShanghaiSummit';
 
 const inputClass =
   'w-full border border-border rounded-lg px-4 py-3 bg-background text-foreground focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition';
@@ -64,18 +65,15 @@ export default function SpeakerApplication() {
   if (submitted) {
     return (
       <Layout title="Speaker Interest Submitted" description="Your speaker interest has been submitted.">
-        <div className="bg-background min-h-[60vh] flex items-center justify-center px-4 py-20">
-          <div className="max-w-lg text-center">
-            <div className="text-5xl mb-6">&#10003;</div>
-            <h1 className="text-3xl font-bold text-foreground mb-4">Thank You!</h1>
-            <p className="text-muted-foreground text-lg mb-8">
-              We've received your speaker interest. Our team will review and reach out if there's a match.
-            </p>
-            <a href="/shanghai-summit" className={btnPrimary}>
-              Back to Summit
-            </a>
-          </div>
-        </div>
+        <FormSuccess
+          title="Thank You"
+          message="We've received your speaker interest. Our programme team will review and reach out if there's a match."
+          nextSteps={[
+            'Our programme committee reviews your profile',
+            "We'll reach out to discuss session format and topics",
+            'Confirmed speakers receive full event access',
+          ]}
+        />
       </Layout>
     );
   }

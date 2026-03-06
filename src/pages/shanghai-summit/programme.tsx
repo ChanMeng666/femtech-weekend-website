@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Layout from '@theme/Layout';
 import { PROGRAMME_COHORTS } from '../../data/shanghai-summit';
+import { FormSuccess } from '../../components/ShanghaiSummit';
 
 const inputClass =
   'w-full border border-border rounded-lg px-4 py-3 bg-background text-foreground focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition';
@@ -106,18 +107,15 @@ export default function ProgrammeApplication() {
   if (submitted) {
     return (
       <Layout title="Programme Application Submitted" description="Your programme application has been submitted.">
-        <div className="bg-background min-h-[60vh] flex items-center justify-center px-4 py-20">
-          <div className="max-w-lg text-center">
-            <div className="text-5xl mb-6">&#10003;</div>
-            <h1 className="text-3xl font-bold text-foreground mb-4">Application Submitted!</h1>
-            <p className="text-muted-foreground text-lg mb-8">
-              Thank you for applying to the China Programme. We'll review your application and schedule an intro call.
-            </p>
-            <a href="/shanghai-summit" className={btnPrimary}>
-              Back to Summit
-            </a>
-          </div>
-        </div>
+        <FormSuccess
+          title="Application Submitted"
+          message="Thank you for applying to the FemTech Weekend China Programme. We're looking forward to learning more about you."
+          nextSteps={[
+            'Our team reviews your application',
+            "We'll schedule an intro call to explore your objectives",
+            'Selected participants receive a confirmation pack (2,800 EUR)',
+          ]}
+        />
       </Layout>
     );
   }

@@ -50,7 +50,7 @@ export function WhyThisMatters() {
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.05 }
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
@@ -59,8 +59,9 @@ export function WhyThisMatters() {
   return (
     <div ref={sectionRef} className="relative bg-background py-20 sm:py-28 lg:py-32 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        {/* Section header */}
         <div
-          className="mb-16 transition-all duration-700"
+          className="mb-20 lg:mb-28 transition-all duration-700"
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
@@ -68,48 +69,71 @@ export function WhyThisMatters() {
           }}
         >
           <AnimatedLine variant="label" label="WHY THIS MATTERS" />
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-foreground mt-6">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-foreground mt-6 max-w-3xl">
             The Convergence of Capital, Policy &amp; Innovation
           </h2>
         </div>
 
-        <div className="space-y-20 lg:space-y-28">
+        {/* Narrative blocks */}
+        <div className="space-y-24 lg:space-y-32">
           {narrativeBlocks.map((block, i) => (
             <div
               key={block.label}
-              className={`flex flex-col ${i % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-8 lg:gap-16 items-start transition-all duration-700`}
+              className={`flex flex-col ${i % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-10 lg:gap-20 items-start`}
               style={{
                 opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-                transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
-                transitionDelay: `${(i + 1) * 150}ms`,
+                transform: isVisible ? 'translateY(0)' : 'translateY(24px)',
+                transition: `all 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${(i + 1) * 180}ms`,
               }}
             >
-              {/* Content */}
+              {/* Content side */}
               <div className="flex-1">
-                <span className="mckinsey-label text-[#AA7C52] mb-3 block">
-                  {block.label}
-                </span>
-                <h3 className="font-display text-2xl sm:text-3xl font-normal tracking-tight text-foreground mb-4">
+                {/* Label with index */}
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="font-mono text-xs text-muted-foreground/40">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div className="h-px w-6 bg-[#AA7C52]/40" />
+                  <span className="text-[#AA7C52] text-xs tracking-[0.2em] font-medium">
+                    {block.label}
+                  </span>
+                </div>
+
+                <h3 className="font-display text-2xl sm:text-3xl font-normal tracking-tight text-foreground mb-5 leading-tight">
                   {block.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed text-base sm:text-lg">
+
+                <p className="text-muted-foreground leading-relaxed text-base">
                   {block.content}
                 </p>
               </div>
 
-              {/* Stat card */}
+              {/* Stat card — elevated design */}
               {block.stat && (
-                <div className="flex-shrink-0 w-full lg:w-80">
-                  <div className="border border-border p-8 bg-card">
-                    <span className="font-display text-4xl sm:text-5xl text-[#AA7C52] block mb-3">
+                <div className="flex-shrink-0 w-full lg:w-72">
+                  <div
+                    className="relative border border-border p-8 bg-card overflow-hidden group hover:border-[#AA7C52]/30 transition-colors duration-500"
+                  >
+                    {/* Decorative corner */}
+                    <div className="absolute top-0 right-0 w-12 h-12">
+                      <div className="absolute top-0 right-0 w-full h-px bg-[#AA7C52]/30" />
+                      <div className="absolute top-0 right-0 h-full w-px bg-[#AA7C52]/30" />
+                    </div>
+
+                    <span className="font-display text-4xl sm:text-5xl text-[#AA7C52] block mb-3 tracking-tight">
                       {block.stat.value}
                     </span>
+                    <div className="h-px w-8 bg-border mb-3" />
                     <p className="text-muted-foreground text-sm leading-relaxed">
                       {block.stat.description}
                     </p>
                   </div>
                 </div>
+              )}
+
+              {/* Spacer for blocks without stats — keep visual rhythm */}
+              {!block.stat && (
+                <div className="hidden lg:block flex-shrink-0 w-72" />
               )}
             </div>
           ))}

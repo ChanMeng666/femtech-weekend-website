@@ -5,3 +5,4 @@ export { SpeakersGrid } from './SpeakersGrid';
 export { AgendaTimeline } from './AgendaTimeline';
 export { TeamSection } from './TeamSection';
 export { SummitCTA } from './SummitCTA';
+export { FormSuccess } from './FormSuccess';
