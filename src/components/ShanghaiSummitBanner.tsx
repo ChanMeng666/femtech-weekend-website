@@ -61,7 +61,7 @@ export function ShanghaiSummitBanner() {
             <div className="flex flex-wrap gap-4">
               <Link
                 to="/shanghai-summit/pitch"
-                className="group relative inline-flex items-center gap-2.5 bg-[#AA7C52] text-white px-7 py-3.5 text-sm font-medium overflow-hidden no-underline hover:no-underline transition-all duration-300 hover:shadow-[0_0_24px_rgba(170,124,82,0.25)]"
+                className="group relative inline-flex items-center gap-2.5 bg-[#AA7C52] text-white hover:text-white px-7 py-3.5 text-sm font-medium overflow-hidden no-underline hover:no-underline transition-all duration-300 hover:shadow-[0_0_24px_rgba(170,124,82,0.25)]"
               >
                 <span className="relative">Apply to Pitch</span>
                 <ArrowRight className="w-4 h-4 relative transition-transform duration-300 group-hover:translate-x-0.5" />

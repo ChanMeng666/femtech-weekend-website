@@ -92,7 +92,7 @@ function DayCard({
                 href={day.cta.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group/btn relative inline-flex items-center gap-2.5 bg-[#AA7C52] text-white px-6 py-3 text-sm font-medium overflow-hidden no-underline hover:no-underline transition-all duration-300 hover:shadow-[0_0_24px_rgba(170,124,82,0.25)]"
+                className="group/btn relative inline-flex items-center gap-2.5 bg-[#AA7C52] text-white hover:text-white px-6 py-3 text-sm font-medium overflow-hidden no-underline hover:no-underline transition-all duration-300 hover:shadow-[0_0_24px_rgba(170,124,82,0.25)]"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
                 <span className="relative">{day.cta.label[locale]}</span>

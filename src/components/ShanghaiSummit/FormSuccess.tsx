@@ -141,7 +141,7 @@ export function FormSuccess({
         >
           <Link
             to={ctaHref}
-            className="group inline-flex items-center gap-2.5 bg-[#AA7C52] text-white px-8 py-3.5 text-sm font-medium no-underline hover:no-underline transition-all duration-300 hover:shadow-[0_0_24px_rgba(170,124,82,0.25)]"
+            className="group inline-flex items-center gap-2.5 bg-[#AA7C52] text-white hover:text-white px-8 py-3.5 text-sm font-medium no-underline hover:no-underline transition-all duration-300 hover:shadow-[0_0_24px_rgba(170,124,82,0.25)]"
           >
             <span>{ctaLabel}</span>
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />

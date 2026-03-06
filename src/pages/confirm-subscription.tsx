@@ -91,7 +91,7 @@ export default function ConfirmSubscriptionPage(): React.ReactNode {
               </p>
               <a
                 href="/"
-                className="inline-block bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors font-medium"
+                className="inline-block bg-primary text-white hover:text-white px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors font-medium no-underline hover:no-underline"
               >
                 {backToHome}
               </a>
@@ -123,7 +123,7 @@ export default function ConfirmSubscriptionPage(): React.ReactNode {
               </p>
               <a
                 href="/"
-                className="inline-block bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors font-medium"
+                className="inline-block bg-primary text-white hover:text-white px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors font-medium no-underline hover:no-underline"
               >
                 {backToHome}
               </a>
