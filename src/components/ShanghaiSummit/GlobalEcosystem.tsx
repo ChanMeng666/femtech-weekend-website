@@ -79,7 +79,6 @@ export function GlobalEcosystem() {
           <div className="hidden lg:block lg:col-span-4 relative group">
             <div
               className="relative overflow-hidden h-full min-h-[240px] summit-image-overlay"
-              style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 92%, 8% 85%)' }}
             >
               <img
                 src="/img/shanghai/shanghai-skyline.jpg"
@@ -114,7 +113,7 @@ export function GlobalEcosystem() {
                 key={logo.alt}
                 className={`flex items-center justify-center px-8 py-5 border border-border transition-all duration-300 hover:border-[#AA7C52]/30 ${
                   logo.alt === 'Clincase'
-                    ? 'bg-[#1a1a2e]'
+                    ? 'bg-[#165e58]'
                     : 'bg-card'
                 }`}
               >

@@ -23,8 +23,8 @@ export default function ShanghaiSummitPage() {
         <SummitHero />
         <WhyThisMatters />
         <CityImageStrip
-          image="/img/shanghai/shanghai-cityscape.jpg"
-          alt="Shanghai Pudong skyline at dusk"
+          image="/img/shanghai/shanghai-lujiazui.jpg"
+          alt="Shanghai Lujiazui skyline at dusk"
           caption="Shanghai, China"
         />
         <GlobalEcosystem />

@@ -83,8 +83,8 @@ export function ShanghaiSummitBanner() {
               style={{ clipPath: 'polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%)' }}
             >
               <img
-                src="/img/shanghai/shanghai-cityscape.jpg"
-                alt="Shanghai Pudong skyline at dusk"
+                src="/img/shanghai/shanghai-conference.jpg"
+                alt="Conference event audience"
                 className="w-full h-80 object-cover"
                 loading="lazy"
               />
