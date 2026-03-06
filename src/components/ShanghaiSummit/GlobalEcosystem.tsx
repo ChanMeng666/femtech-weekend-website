@@ -99,23 +99,34 @@ export function GlobalEcosystem() {
 
         {/* Partner logos */}
         <div
-          className="flex items-center gap-8"
           style={{
             opacity: isVisible ? 1 : 0,
             transition: 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s',
           }}
         >
-          <span className="text-muted-foreground text-[10px] tracking-[0.2em] uppercase">Partners</span>
-          <div className="h-px w-6 bg-border" />
-          {SUMMIT_META.partnerLogos.map((logo) => (
-            <img
-              key={logo.alt}
-              src={logo.src}
-              alt={logo.alt}
-              className="h-8 sm:h-10 opacity-40 hover:opacity-80 transition-opacity duration-300"
-              loading="lazy"
-            />
-          ))}
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-muted-foreground text-[10px] tracking-[0.2em] uppercase">Partners</span>
+            <div className="h-px flex-1 bg-border" />
+          </div>
+          <div className="flex flex-wrap items-center gap-6">
+            {SUMMIT_META.partnerLogos.map((logo) => (
+              <div
+                key={logo.alt}
+                className={`flex items-center justify-center px-8 py-5 border border-border transition-all duration-300 hover:border-[#AA7C52]/30 ${
+                  logo.alt === 'Clincase'
+                    ? 'bg-[#1a1a2e]'
+                    : 'bg-card'
+                }`}
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="h-10 sm:h-14 w-auto max-w-[200px] object-contain"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

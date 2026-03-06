@@ -18,87 +18,63 @@ function SpeakerCard({ speaker, index }: { speaker: SpeakerData; index: number }
 
   return (
     <div
-      className="group relative overflow-hidden transition-all duration-500"
+      className="group relative border border-border bg-card transition-all duration-500 hover:border-[#AA7C52]/30"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      style={{
-        background: isHovered
-          ? 'linear-gradient(165deg, rgba(170,124,82,0.06) 0%, transparent 50%)'
-          : 'transparent',
-      }}
     >
-      {/* Gold accent line at top */}
-      <div
-        className="absolute top-0 left-0 right-0 h-px border-t border-transparent transition-colors duration-300"
-        style={{
-          borderColor: isHovered ? 'rgba(170, 124, 82, 0.3)' : 'transparent',
-        }}
-      />
-
       <div className="p-6 sm:p-8">
-        {/* Photo area */}
-        <div className="relative mb-6">
-          <div
-            className="relative w-28 h-28 sm:w-32 sm:h-32 overflow-hidden"
-            style={{
-              clipPath: 'polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%)',
-            }}
-          >
-            {speaker.image ? (
-              <img
-                src={speaker.image}
-                alt={speaker.name}
-                className="w-full h-full object-cover transition-transform duration-700"
-                style={{ transform: isHovered ? 'scale(1.08)' : 'scale(1)' }}
-                loading="lazy"
-              />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#AA7C52]/15 to-[#AA7C52]/5">
-                <span className="font-display text-3xl text-[#AA7C52]/60">{initials}</span>
-              </div>
-            )}
+        {/* Top row: photo + name/title side by side */}
+        <div className="flex gap-5 mb-5">
+          {/* Photo */}
+          <div className="flex-shrink-0">
+            <div
+              className="relative w-20 h-20 sm:w-24 sm:h-24 overflow-hidden"
+              style={{
+                clipPath: 'polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%)',
+              }}
+            >
+              {speaker.image ? (
+                <img
+                  src={speaker.image}
+                  alt={speaker.name}
+                  className="w-full h-full object-cover transition-transform duration-700"
+                  style={{ transform: isHovered ? 'scale(1.08)' : 'scale(1)' }}
+                  loading="lazy"
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#AA7C52]/15 to-[#AA7C52]/5">
+                  <span className="font-display text-2xl text-[#AA7C52]/60">{initials}</span>
+                </div>
+              )}
+            </div>
           </div>
 
-          {/* Small index number */}
-          <span
-            className="absolute -right-1 top-0 font-mono text-[10px] text-muted-foreground/30 tracking-wider"
-          >
-            {String(index + 1).padStart(2, '0')}
-          </span>
+          {/* Name, title, org */}
+          <div className="flex-1 min-w-0 pt-1">
+            <div className="flex items-start justify-between gap-2">
+              <h4 className="font-display text-lg text-foreground leading-tight">
+                {speaker.name}
+              </h4>
+              <span className="font-mono text-[10px] text-muted-foreground/30 tracking-wider flex-shrink-0">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+            </div>
+            <p className="text-[#AA7C52] mt-1 text-sm leading-snug">
+              {speaker.title[locale]}
+            </p>
+            <p className="text-muted-foreground mt-0.5 text-xs tracking-wide uppercase">
+              {speaker.organization}
+            </p>
+          </div>
         </div>
 
-        {/* Name */}
-        <h4 className="font-display text-xl text-foreground">
-          {speaker.name}
-        </h4>
-
-        {/* Title */}
-        <p className="text-[#AA7C52] mt-1.5 text-sm leading-snug">
-          {speaker.title[locale]}
-        </p>
-
-        {/* Organization */}
-        <p className="text-muted-foreground mt-1 text-xs tracking-wide uppercase">
-          {speaker.organization}
-        </p>
-
-        {/* Bio — reveal on hover */}
-        <div
-          className="overflow-hidden transition-all duration-500"
-          style={{
-            maxHeight: isHovered ? '80px' : '0px',
-            opacity: isHovered ? 1 : 0,
-            marginTop: isHovered ? '12px' : '0px',
-          }}
-        >
-          <p className="text-muted-foreground text-xs leading-relaxed line-clamp-3">
+        {/* Bio — always visible, full text */}
+        <div className="border-t border-border pt-4">
+          <p className="text-muted-foreground text-sm leading-relaxed">
             {speaker.bio[locale]}
           </p>
         </div>
       </div>
-
-      {/* Bottom border */}
-      <div className="absolute bottom-0 left-6 right-6 h-px bg-border" />
     </div>
   );
 }
@@ -153,8 +129,8 @@ export function SpeakersGrid() {
           </p>
         </div>
 
-        {/* Grid with staggered reveal */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {/* 2-column grid for speaker cards with full bios */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {speakers.map((speaker, i) => (
             <SpeakerCard key={speaker.id} speaker={speaker} index={i} />
           ))}
