@@ -7,6 +7,7 @@ import {
   GlobalEcosystem,
   SpeakersGrid,
   AgendaTimeline,
+  VenueShowcase,
   TeamSection,
   SummitCTA,
 } from '../components/ShanghaiSummit';
@@ -23,6 +24,7 @@ export default function ShanghaiSummitPage() {
         <GlobalEcosystem />
         <SpeakersGrid />
         <AgendaTimeline />
+        <VenueShowcase />
         <TeamSection />
         <SummitCTA />
       </main>
