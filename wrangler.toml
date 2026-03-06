@@ -3,3 +3,9 @@ name = "femtech-weekend-website"
 pages_build_output_dir = "build"
 compatibility_date = "2025-01-15"
 compatibility_flags = ["nodejs_compat"]
+
+# Environment variables for Shanghai Summit forms (set via Cloudflare Pages dashboard)
+# DATABASE_URL - Neon PostgreSQL connection string
+# RESEND_API_KEY - Already configured
+# RESEND_FROM_EMAIL - Already configured
+# ADMIN_EMAILS - Already configured
