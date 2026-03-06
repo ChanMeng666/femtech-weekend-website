@@ -68,7 +68,7 @@ export function Hero() {
       )}
 
       {/* Dark overlay for text contrast */}
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-black/30" />
 
       {/* Centered content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
