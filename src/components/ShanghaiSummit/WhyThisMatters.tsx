@@ -134,8 +134,8 @@ export function WhyThisMatters() {
                     style={{ clipPath: 'polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%)' }}
                   >
                     <img
-                      src="/img/shanghai/shanghai-lujiazui.jpg"
-                      alt="Shanghai Lujiazui Financial District"
+                      src="/img/shanghai/shanghai-pudong-day.jpg"
+                      alt="Shanghai Pudong skyline with Oriental Pearl Tower"
                       className="w-full h-48 object-cover"
                       loading="lazy"
                     />
