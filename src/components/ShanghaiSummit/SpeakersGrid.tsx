@@ -37,7 +37,7 @@ function SpeakerCard({ speaker, index }: { speaker: SpeakerData; index: number }
                 <img
                   src={speaker.image}
                   alt={speaker.name}
-                  className="w-full h-full object-cover transition-transform duration-700"
+                  className="w-full h-full object-cover object-top transition-transform duration-700"
                   style={{ transform: isHovered ? 'scale(1.08)' : 'scale(1)' }}
                   loading="lazy"
                 />

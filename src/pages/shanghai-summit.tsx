@@ -9,7 +9,6 @@ import {
   SpeakersGrid,
   AgendaTimeline,
   VenueShowcase,
-  TeamSection,
   SummitCTA,
 } from '../components/ShanghaiSummit';
 
@@ -36,7 +35,6 @@ export default function ShanghaiSummitPage() {
         />
         <AgendaTimeline />
         <VenueShowcase />
-        <TeamSection />
         <SummitCTA />
       </main>
     </Layout>
