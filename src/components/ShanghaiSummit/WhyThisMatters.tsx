@@ -80,11 +80,6 @@ export function WhyThisMatters() {
             <div
               key={block.label}
               className={`flex flex-col ${i % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-10 lg:gap-20 items-start`}
-              style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'translateY(0)' : 'translateY(24px)',
-                transition: `all 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${(i + 1) * 180}ms`,
-              }}
             >
               {/* Content side */}
               <div className="flex-1">
@@ -131,9 +126,21 @@ export function WhyThisMatters() {
                 </div>
               )}
 
-              {/* Spacer for blocks without stats — keep visual rhythm */}
+              {/* Shanghai image for block without stat — visual accent */}
               {!block.stat && (
-                <div className="hidden lg:block flex-shrink-0 w-72" />
+                <div className="flex-shrink-0 w-full lg:w-72">
+                  <div
+                    className="overflow-hidden summit-image-overlay"
+                    style={{ clipPath: 'polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%)' }}
+                  >
+                    <img
+                      src="/img/shanghai/shanghai-lujiazui.jpg"
+                      alt="Shanghai Lujiazui Financial District"
+                      className="w-full h-48 object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
               )}
             </div>
           ))}

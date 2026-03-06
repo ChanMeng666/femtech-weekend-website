@@ -10,19 +10,6 @@ interface FormSuccessProps {
   ctaHref?: string;
 }
 
-function FloatingParticle({ delay, x, y }: { delay: number; x: number; y: number }) {
-  return (
-    <div
-      className="absolute w-1 h-1 rounded-full bg-[#AA7C52]"
-      style={{
-        left: `${x}%`,
-        top: `${y}%`,
-        animation: `summit-float-particle 3s ease-in-out ${delay}s infinite`,
-      }}
-    />
-  );
-}
-
 export function FormSuccess({
   title,
   message,
@@ -39,27 +26,8 @@ export function FormSuccess({
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, []);
 
-  const particles = Array.from({ length: 12 }, (_, i) => ({
-    delay: 0.8 + i * 0.2,
-    x: 50 + Math.cos((i * Math.PI * 2) / 12) * 30,
-    y: 35 + Math.sin((i * Math.PI * 2) / 12) * 25,
-  }));
-
   return (
     <div className="relative min-h-[80vh] flex items-center justify-center px-4 py-20 overflow-hidden bg-background">
-      {/* Subtle radial gradient */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: 'radial-gradient(ellipse at 50% 30%, rgba(170, 124, 82, 0.04) 0%, transparent 60%)',
-        }}
-      />
-
-      {/* Floating particles */}
-      {particles.map((p, i) => (
-        <FloatingParticle key={i} {...p} />
-      ))}
-
       <div className="relative z-10 max-w-lg w-full text-center">
         {/* Animated checkmark */}
         <div
@@ -72,14 +40,6 @@ export function FormSuccess({
             transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
           }}
         >
-          {/* Glow ring */}
-          <div
-            className="absolute inset-0 rounded-full"
-            style={{
-              animation: phase >= 1 ? 'summit-success-glow 2s ease-in-out infinite' : 'none',
-            }}
-          />
-
           <svg
             viewBox="0 0 100 100"
             fill="none"
@@ -142,7 +102,7 @@ export function FormSuccess({
         {/* Next steps */}
         {nextSteps && nextSteps.length > 0 && (
           <div
-            className="text-left border border-border p-6 sm:p-8 mb-10 bg-card"
+            className="text-left border border-border p-6 sm:p-8 mb-10 bg-card relative"
             style={{
               opacity: phase >= 3 ? 1 : 0,
               transform: phase >= 3 ? 'translateY(0)' : 'translateY(16px)',
@@ -181,11 +141,10 @@ export function FormSuccess({
         >
           <Link
             to={ctaHref}
-            className="group inline-flex items-center gap-2.5 bg-[#AA7C52] text-white px-8 py-3.5 text-sm font-medium overflow-hidden no-underline hover:no-underline transition-all duration-300 hover:shadow-[0_0_24px_rgba(170,124,82,0.25)]"
+            className="group inline-flex items-center gap-2.5 bg-[#AA7C52] text-white px-8 py-3.5 text-sm font-medium no-underline hover:no-underline transition-all duration-300 hover:shadow-[0_0_24px_rgba(170,124,82,0.25)]"
           >
-            <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-            <span className="relative">{ctaLabel}</span>
-            <ArrowRight className="w-4 h-4 relative transition-transform duration-300 group-hover:translate-x-0.5" />
+            <span>{ctaLabel}</span>
+            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
           </Link>
         </div>
 

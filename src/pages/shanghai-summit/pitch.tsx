@@ -10,12 +10,12 @@ import {
 import { FormSuccess } from '../../components/ShanghaiSummit';
 
 const inputClass =
-  'w-full border border-border rounded-lg px-4 py-3 bg-background text-foreground focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition';
+  'w-full border border-border px-4 py-3 bg-background text-foreground focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition';
 const labelClass = 'block text-sm font-medium text-foreground mb-1.5';
 const btnPrimary =
-  'bg-primary text-white hover:bg-primary/90 px-8 py-3 rounded-lg font-medium transition';
+  'bg-primary text-white hover:bg-primary/90 px-8 py-3 font-medium transition hover:shadow-[0_0_16px_rgba(170,124,82,0.15)]';
 const btnSecondary =
-  'border border-border text-foreground hover:bg-muted px-8 py-3 rounded-lg font-medium transition';
+  'border border-border text-foreground hover:bg-muted px-8 py-3 font-medium transition';
 
 const STEPS = ['Basic Info', 'Company Details', 'Pitch Deck'];
 
@@ -126,7 +126,7 @@ export default function PitchApplication() {
           <div className="text-center mb-10">
             <h1 className="text-3xl font-bold text-foreground mb-3">Pitch Application</h1>
             <p className="text-muted-foreground text-sm">
-              1. Apply (free) &rarr; 2. Selection &rarr; 3. Confirm spot (&pound;199)
+              1. Apply (free) <span className="text-[#AA7C52]">&rarr;</span> 2. Selection <span className="text-[#AA7C52]">&rarr;</span> 3. Confirm spot (&pound;199)
             </p>
           </div>
 
@@ -138,9 +138,9 @@ export default function PitchApplication() {
                 <button
                   type="button"
                   onClick={() => i < step && setStep(i)}
-                  className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium transition ${
+                  className={`flex items-center gap-2 px-3 py-1.5 text-sm font-medium transition ${
                     i === step
-                      ? 'bg-primary text-white'
+                      ? 'bg-primary text-white shadow-[0_0_8px_rgba(170,124,82,0.15)]'
                       : i < step
                         ? 'bg-primary/10 text-primary cursor-pointer'
                         : 'bg-muted text-muted-foreground'
@@ -155,6 +155,8 @@ export default function PitchApplication() {
             ))}
           </div>
 
+          {/* Form card wrapper */}
+          <div className="border border-border bg-card p-6 sm:p-8 border-t-2 border-t-[#AA7C52]/20">
           {/* Step 1: Basic Info */}
           {step === 0 && (
             <div className="space-y-5">
@@ -273,7 +275,12 @@ export default function PitchApplication() {
                 </p>
               </div>
 
-              <div className="bg-muted/50 rounded-lg p-6 mt-8">
+              <div className="relative border border-border bg-card p-6 mt-8">
+                {/* Corner accent */}
+                <div className="absolute top-0 right-0 w-6 h-6">
+                  <div className="absolute top-0 right-0 w-full h-px bg-[#AA7C52]/30" />
+                  <div className="absolute top-0 right-0 h-full w-px bg-[#AA7C52]/30" />
+                </div>
                 <h3 className="font-semibold text-foreground mb-3">Review Your Application</h3>
                 <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-sm">
                   <div><dt className="text-muted-foreground">Name</dt><dd className="text-foreground">{form.firstName} {form.lastName}</dd></div>
@@ -292,6 +299,8 @@ export default function PitchApplication() {
               )}
             </div>
           )}
+
+          </div>{/* End form card wrapper */}
 
           {/* Navigation */}
           <div className="flex justify-between mt-10">

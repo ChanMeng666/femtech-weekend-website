@@ -28,11 +28,8 @@ export function TeamSection() {
   return (
     <div
       ref={sectionRef}
-      className="relative py-20 sm:py-28 lg:py-32 overflow-hidden"
-      style={{ background: 'linear-gradient(170deg, #0a0a0a 0%, #0c0a08 50%, #080808 100%)' }}
+      className="relative py-20 sm:py-28 lg:py-32 overflow-hidden bg-background"
     >
-      <div className="summit-grain absolute inset-0" />
-
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <div
           className="mb-16 transition-all duration-700"
@@ -45,33 +42,27 @@ export function TeamSection() {
           <AnimatedLine
             variant="label"
             label="THE TEAM"
-            className="[&_span]:text-white/80 [&_div]:bg-[#AA7C52]"
           />
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-white mt-6">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-foreground mt-6">
             FemTech Weekend
           </h2>
-          <p className="text-white/45 text-base max-w-2xl mt-4 leading-relaxed">
+          <p className="text-muted-foreground text-base max-w-2xl mt-4 leading-relaxed">
             Founded in September 2024, our team brings together professionals from
             finance, banking, and consulting, with members across Europe and China.
           </p>
         </div>
 
         <div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/[0.04]"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
           style={{
             opacity: isVisible ? 1 : 0,
             transition: 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s',
           }}
         >
-          {founders.map((member, i) => (
+          {founders.map((member) => (
             <div
               key={member.id}
-              className="group bg-[#0a0a0a] p-6 sm:p-8 transition-all duration-500 hover:bg-[#0e0c0a]"
-              style={{
-                animation: isVisible
-                  ? `summit-count-reveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${300 + i * 100}ms both`
-                  : 'none',
-              }}
+              className="group border border-border bg-card p-6 sm:p-8 transition-all duration-500 hover:border-[#AA7C52]/30"
             >
               {/* Photo with clipped shape */}
               <div
@@ -88,11 +79,11 @@ export function TeamSection() {
                 />
               </div>
 
-              <h4 className="font-display text-lg text-white group-hover:text-[#AA7C52] transition-colors duration-300">
+              <h4 className="font-display text-lg text-foreground group-hover:text-[#AA7C52] transition-colors duration-300">
                 {member.name}
               </h4>
               <p className="text-[#AA7C52]/70 text-sm mt-1">{member.role[locale]}</p>
-              <p className="text-white/30 text-xs mt-3 leading-relaxed line-clamp-3">
+              <p className="text-muted-foreground text-xs mt-3 leading-relaxed line-clamp-3">
                 {member.bio[locale]}
               </p>
             </div>

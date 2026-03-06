@@ -29,11 +29,9 @@ function SpeakerCard({ speaker, index }: { speaker: SpeakerData; index: number }
     >
       {/* Gold accent line at top */}
       <div
-        className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-[#AA7C52] via-[#AA7C52]/50 to-transparent"
+        className="absolute top-0 left-0 right-0 h-px border-t border-transparent transition-colors duration-300"
         style={{
-          transform: isHovered ? 'scaleX(1)' : 'scaleX(0)',
-          transformOrigin: 'left',
-          transition: 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
+          borderColor: isHovered ? 'rgba(170, 124, 82, 0.3)' : 'transparent',
         }}
       />
 
@@ -47,23 +45,13 @@ function SpeakerCard({ speaker, index }: { speaker: SpeakerData; index: number }
             }}
           >
             {speaker.image ? (
-              <>
-                <img
-                  src={speaker.image}
-                  alt={speaker.name}
-                  className="w-full h-full object-cover transition-transform duration-700"
-                  style={{ transform: isHovered ? 'scale(1.08)' : 'scale(1)' }}
-                  loading="lazy"
-                />
-                {/* Shimmer on hover */}
-                <div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
-                  style={{
-                    transform: isHovered ? 'translateX(100%)' : 'translateX(-100%)',
-                    transition: 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-                  }}
-                />
-              </>
+              <img
+                src={speaker.image}
+                alt={speaker.name}
+                className="w-full h-full object-cover transition-transform duration-700"
+                style={{ transform: isHovered ? 'scale(1.08)' : 'scale(1)' }}
+                loading="lazy"
+              />
             ) : (
               <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#AA7C52]/15 to-[#AA7C52]/5">
                 <span className="font-display text-3xl text-[#AA7C52]/60">{initials}</span>
@@ -79,22 +67,13 @@ function SpeakerCard({ speaker, index }: { speaker: SpeakerData; index: number }
           </span>
         </div>
 
-        {/* Name — with hover shift */}
-        <h4
-          className="font-display text-xl text-foreground transition-all duration-500"
-          style={{ transform: isHovered ? 'translateX(4px)' : 'translateX(0)' }}
-        >
+        {/* Name */}
+        <h4 className="font-display text-xl text-foreground">
           {speaker.name}
         </h4>
 
         {/* Title */}
-        <p
-          className="text-[#AA7C52] mt-1.5 text-sm leading-snug transition-all duration-500"
-          style={{
-            transform: isHovered ? 'translateX(4px)' : 'translateX(0)',
-            transitionDelay: '30ms',
-          }}
-        >
+        <p className="text-[#AA7C52] mt-1.5 text-sm leading-snug">
           {speaker.title[locale]}
         </p>
 
@@ -144,19 +123,6 @@ export function SpeakersGrid() {
 
   return (
     <div ref={sectionRef} className="relative bg-background py-20 sm:py-28 lg:py-32 overflow-hidden">
-      {/* Subtle diagonal lines background */}
-      <div
-        className="absolute inset-0 opacity-[0.015] pointer-events-none"
-        style={{
-          backgroundImage: `repeating-linear-gradient(
-            -45deg,
-            transparent,
-            transparent 80px,
-            currentColor 80px,
-            currentColor 81px
-          )`,
-        }}
-      />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative">
         {/* Section header */}
@@ -190,16 +156,7 @@ export function SpeakersGrid() {
         {/* Grid with staggered reveal */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {speakers.map((speaker, i) => (
-            <div
-              key={speaker.id}
-              style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'translateY(0)' : 'translateY(24px)',
-                transition: `all 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${250 + i * 80}ms`,
-              }}
-            >
-              <SpeakerCard speaker={speaker} index={i} />
-            </div>
+            <SpeakerCard key={speaker.id} speaker={speaker} index={i} />
           ))}
         </div>
       </div>

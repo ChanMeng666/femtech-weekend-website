@@ -18,16 +18,9 @@ function DayCard({
   const { i18n: { currentLocale } } = useDocusaurusContext();
   const locale = currentLocale === 'zh-Hans' ? 'zh' : 'en';
 
-  const entryDelay = 200 + index * 180;
-
   return (
     <div
       className="relative flex gap-6 lg:gap-10"
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-        transition: `all 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${entryDelay}ms`,
-      }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -36,12 +29,6 @@ function DayCard({
         {/* Pulsing dot */}
         <div className="relative">
           <div className="w-3 h-3 bg-[#AA7C52] rounded-full relative z-10" />
-          <div
-            className="absolute inset-0 w-3 h-3 bg-[#AA7C52] rounded-full"
-            style={{
-              animation: isHovered ? 'summit-pulse 1.5s ease infinite' : 'none',
-            }}
-          />
         </div>
         {/* Vertical line */}
         {index < agendaDays.length - 1 && (
@@ -72,8 +59,7 @@ function DayCard({
               {day.date}
             </p>
             <h3
-              className="font-display text-xl sm:text-2xl lg:text-3xl font-normal tracking-tight text-foreground mt-1 transition-all duration-500"
-              style={{ transform: isHovered ? 'translateX(4px)' : 'translateX(0)' }}
+              className="font-display text-xl sm:text-2xl lg:text-3xl font-normal tracking-tight text-foreground mt-1"
             >
               {day.title[locale]}
             </h3>
@@ -90,12 +76,7 @@ function DayCard({
           {day.highlights[locale].map((highlight, j) => (
             <span
               key={j}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs text-muted-foreground border border-border/60 hover:border-[#AA7C52]/30 hover:text-foreground transition-all duration-300"
-              style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'translateY(0)' : 'translateY(8px)',
-                transition: `all 0.5s cubic-bezier(0.16, 1, 0.3, 1) ${entryDelay + 300 + j * 50}ms`,
-              }}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs text-muted-foreground border border-border/60 hover:border-[#AA7C52]/30 hover:text-foreground transition-colors duration-300"
             >
               <span className="w-1 h-1 bg-[#AA7C52]/50 rounded-full flex-shrink-0" />
               {highlight}
@@ -105,12 +86,7 @@ function DayCard({
 
         {/* CTA */}
         {day.cta && (
-          <div
-            style={{
-              opacity: isVisible ? 1 : 0,
-              transition: `opacity 0.5s ease ${entryDelay + 500}ms`,
-            }}
-          >
+          <div>
             {day.cta.external ? (
               <a
                 href={day.cta.href}

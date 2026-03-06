@@ -48,20 +48,13 @@ export function SummitCTA() {
   return (
     <div
       ref={sectionRef}
-      className="relative py-24 sm:py-32 lg:py-40 overflow-hidden"
-      style={{ background: 'linear-gradient(170deg, #080808 0%, #0d0b09 50%, #0a0a0a 100%)' }}
+      className="relative py-24 sm:py-32 lg:py-40 overflow-hidden bg-background"
     >
-      {/* Grain overlay */}
-      <div className="summit-grain absolute inset-0" />
-
-      {/* Decorative geometric lines */}
-      <div
-        className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#AA7C52]/20 to-transparent"
-        style={{
-          transform: isVisible ? 'scaleX(1)' : 'scaleX(0)',
-          transition: 'transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s',
-          transformOrigin: 'center',
-        }}
+      {/* Shanghai conference image as subtle background */}
+      <img
+        src="/img/shanghai/shanghai-conference.jpg"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover opacity-[0.04]"
       />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
@@ -74,48 +67,31 @@ export function SummitCTA() {
             transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
           }}
         >
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-white mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-foreground mb-4">
             Join the Summit
           </h2>
-          <p className="text-white/40 text-base max-w-lg mx-auto leading-relaxed">
+          <p className="text-muted-foreground text-base max-w-lg mx-auto leading-relaxed">
             Multiple ways to participate in shaping the future of women&apos;s health in China and beyond.
           </p>
         </div>
 
         {/* CTA cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/[0.06] mb-16">
-          {ctaPaths.map((path, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          {ctaPaths.map((path) => (
             <Link
               key={path.title}
               to={path.href}
-              className="group relative bg-[#0a0a0a] p-8 sm:p-10 no-underline hover:no-underline transition-all duration-500 hover:bg-[#0e0c0a]"
-              style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-                transition: `all 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${200 + i * 120}ms`,
-              }}
+              className="group relative border border-border bg-card p-8 sm:p-10 no-underline hover:no-underline transition-all duration-500 hover:border-[#AA7C52]/30 border-t-2 border-t-transparent hover:border-t-[#AA7C52]"
             >
-              {/* Top accent line on hover */}
-              <div
-                className="absolute top-0 left-0 right-0 h-px bg-[#AA7C52] transition-all duration-500"
-                style={{
-                  transform: 'scaleX(0)',
-                  transformOrigin: 'left',
-                }}
-              />
-              <style>{`
-                .group:hover > div:first-child { transform: scaleX(1) !important; }
-              `}</style>
-
-              <span className="text-white/20 text-[10px] tracking-[0.2em] uppercase block mb-6">
+              <span className="text-muted-foreground text-[10px] tracking-[0.2em] uppercase block mb-6">
                 {path.subtitle}
               </span>
 
-              <h3 className="font-display text-xl sm:text-2xl text-white mb-3 group-hover:text-[#AA7C52] transition-colors duration-300">
+              <h3 className="font-display text-xl sm:text-2xl text-foreground mb-3 group-hover:text-[#AA7C52] transition-colors duration-300">
                 {path.title}
               </h3>
 
-              <p className="text-white/40 text-sm leading-relaxed mb-8">
+              <p className="text-muted-foreground text-sm leading-relaxed mb-8">
                 {path.description}
               </p>
 
@@ -132,20 +108,19 @@ export function SummitCTA() {
           className="text-center"
           style={{
             opacity: isVisible ? 1 : 0,
-            transition: 'opacity 0.7s ease 0.8s',
+            transition: 'opacity 0.7s ease 0.3s',
           }}
         >
           <a
             href={SUMMIT_META.ticketUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative inline-flex items-center gap-3 bg-[#AA7C52] text-white px-10 py-4 text-sm font-medium overflow-hidden no-underline hover:no-underline transition-all duration-300 hover:shadow-[0_0_40px_rgba(170,124,82,0.3)]"
+            className="group relative inline-flex items-center gap-3 bg-[#AA7C52] text-white px-10 py-4 text-sm font-medium overflow-hidden no-underline hover:no-underline transition-all duration-300 hover:shadow-[0_0_24px_rgba(170,124,82,0.25)]"
           >
-            <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
             <span className="relative">Get Conference Tickets</span>
             <ArrowRight className="w-4 h-4 relative transition-transform duration-300 group-hover:translate-x-0.5" />
           </a>
-          <p className="text-white/25 text-xs mt-4 tracking-wider">
+          <p className="text-muted-foreground text-xs mt-4 tracking-wider">
             JUNE 22, 2026 &mdash; GLOBAL LEADERS SUMMIT
           </p>
         </div>
