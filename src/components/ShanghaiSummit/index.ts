@@ -1,5 +1,6 @@
 export { SummitHero } from './SummitHero';
 export { WhyThisMatters } from './WhyThisMatters';
+export { CityImageStrip } from './CityImageStrip';
 export { GlobalEcosystem } from './GlobalEcosystem';
 export { SpeakersGrid } from './SpeakersGrid';
 export { AgendaTimeline } from './AgendaTimeline';

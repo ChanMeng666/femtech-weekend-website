@@ -50,29 +50,41 @@ export function SummitCTA() {
       ref={sectionRef}
       className="relative py-24 sm:py-32 lg:py-40 overflow-hidden bg-background"
     >
-      {/* Shanghai conference image as subtle background */}
-      <img
-        src="/img/shanghai/shanghai-conference.jpg"
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover opacity-[0.04]"
-      />
-
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-        {/* Header */}
-        <div
-          className="text-center mb-16 lg:mb-20"
-          style={{
-            opacity: isVisible ? 1 : 0,
-            transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-            transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-          }}
-        >
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-foreground mb-4">
-            Join the Summit
-          </h2>
-          <p className="text-muted-foreground text-base max-w-lg mx-auto leading-relaxed">
-            Multiple ways to participate in shaping the future of women&apos;s health in China and beyond.
-          </p>
+        {/* Header + image side by side */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16 lg:mb-20 items-end">
+          <div
+            className="lg:col-span-7"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+              transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+            }}
+          >
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-foreground mb-4">
+              Join the Summit
+            </h2>
+            <p className="text-muted-foreground text-base max-w-lg leading-relaxed">
+              Multiple ways to participate in shaping the future of women&apos;s health in China and beyond.
+            </p>
+          </div>
+
+          {/* Aerial skyscrapers accent image */}
+          <div className="hidden lg:block lg:col-span-5 relative group">
+            <div
+              className="relative overflow-hidden h-40 summit-image-overlay"
+              style={{ clipPath: 'polygon(8% 0, 100% 0, 100% 100%, 0 100%)' }}
+            >
+              <img
+                src="/img/shanghai/shanghai-aerial.jpg"
+                alt="Shanghai skyscrapers from below"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#AA7C52]/10" />
+            </div>
+            <div className="absolute -top-2 -right-2 w-6 h-6 border-t border-r border-[#AA7C52]/40" />
+          </div>
         </div>
 
         {/* CTA cards */}

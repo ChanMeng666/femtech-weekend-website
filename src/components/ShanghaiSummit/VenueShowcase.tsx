@@ -80,7 +80,7 @@ export function VenueShowcase() {
           <div className="lg:col-span-5 flex flex-col gap-4 lg:gap-5">
             {/* Auditorium image */}
             <div className="relative group flex-1">
-              <div className="relative overflow-hidden h-full" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%, 8% 88%)' }}>
+              <div className="relative overflow-hidden h-full" style={{ clipPath: 'polygon(0 0, 92% 0, 100% 8%, 100% 100%, 0 100%)' }}>
                 <img
                   src="/img/shanghai/pwc-auditorium.png"
                   alt="PwC Shanghai auditorium with curved LED screen and modern seating"

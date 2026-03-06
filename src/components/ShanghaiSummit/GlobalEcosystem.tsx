@@ -57,20 +57,44 @@ export function GlobalEcosystem() {
           </p>
         </div>
 
-        {/* Stats cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
-          {ecosystemStats.map((stat) => (
+        {/* Stats + Image layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-14">
+          {/* Stats grid — 8 columns */}
+          <div className="lg:col-span-8 grid grid-cols-2 gap-6">
+            {ecosystemStats.map((stat) => (
+              <div
+                key={stat.label}
+                className="group border border-border bg-card p-6 sm:p-8 transition-all duration-500 hover:border-[#AA7C52]/30 cursor-default"
+              >
+                <span className="font-display text-3xl sm:text-4xl lg:text-5xl text-[#AA7C52] block mb-1 tracking-tight">
+                  {stat.value}
+                </span>
+                <span className="text-foreground text-sm block mb-0.5">{stat.label}</span>
+                <span className="text-muted-foreground text-[10px] tracking-wider uppercase">{stat.detail}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Shanghai skyline accent — 4 columns */}
+          <div className="hidden lg:block lg:col-span-4 relative group">
             <div
-              key={stat.label}
-              className="group border border-border bg-card p-6 sm:p-8 transition-all duration-500 hover:border-[#AA7C52]/30 cursor-default"
+              className="relative overflow-hidden h-full min-h-[240px] summit-image-overlay"
+              style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 92%, 8% 85%)' }}
             >
-              <span className="font-display text-3xl sm:text-4xl lg:text-5xl text-[#AA7C52] block mb-1 tracking-tight">
-                {stat.value}
-              </span>
-              <span className="text-foreground text-sm block mb-0.5">{stat.label}</span>
-              <span className="text-muted-foreground text-[10px] tracking-wider uppercase">{stat.detail}</span>
+              <img
+                src="/img/shanghai/shanghai-skyline.jpg"
+                alt="Shanghai Pudong skyline"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 p-5">
+                <span className="text-white/50 text-[10px] tracking-[0.2em] uppercase block mb-0.5">Connecting</span>
+                <span className="text-white font-display text-base">40+ Countries</span>
+              </div>
             </div>
-          ))}
+            <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b border-r border-[#AA7C52]/40" />
+          </div>
         </div>
 
         {/* Partner logos */}
