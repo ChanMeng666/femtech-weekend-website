@@ -1,0 +1,57 @@
+import { pgTable, serial, text, timestamp, boolean } from 'drizzle-orm/pg-core';
+
+export const pitchApplications = pgTable('pitch_applications', {
+  id: serial('id').primaryKey(),
+  firstName: text('first_name').notNull(),
+  lastName: text('last_name').notNull(),
+  email: text('email').notNull(),
+  linkedin: text('linkedin'),
+  headquarters: text('headquarters'),
+  ecosystem: text('ecosystem'),
+  companyName: text('company_name').notNull(),
+  companyWebsite: text('company_website'),
+  roleTitle: text('role_title'),
+  companyType: text('company_type'),
+  healthFocus: text('health_focus'),
+  workAreas: text('work_areas'),
+  businessModel: text('business_model'),
+  annualRevenue: text('annual_revenue'),
+  pitchDeckUrl: text('pitch_deck_url'),
+  createdAt: timestamp('created_at').defaultNow(),
+});
+
+export const programmeApplications = pgTable('programme_applications', {
+  id: serial('id').primaryKey(),
+  firstName: text('first_name').notNull(),
+  lastName: text('last_name').notNull(),
+  linkedin: text('linkedin').notNull(),
+  email: text('email').notNull(),
+  whatsapp: text('whatsapp'),
+  basedIn: text('based_in'),
+  gender: text('gender'),
+  age: text('age'),
+  university: text('university'),
+  major: text('major'),
+  primaryOrganization: text('primary_organization'),
+  jobTitle: text('job_title'),
+  companyOrProject: text('company_or_project'),
+  industry: text('industry'),
+  whyJoin: text('why_join'),
+  cohort: text('cohort'),
+  deckUrl: text('deck_url'),
+  referral: text('referral'),
+  consentData: boolean('consent_data').default(false),
+  createdAt: timestamp('created_at').defaultNow(),
+});
+
+export const speakerApplications = pgTable('speaker_applications', {
+  id: serial('id').primaryKey(),
+  firstName: text('first_name').notNull(),
+  lastName: text('last_name').notNull(),
+  email: text('email').notNull(),
+  title: text('title').notNull(),
+  company: text('company').notNull(),
+  interestedEvents: text('interested_events'),
+  message: text('message'),
+  createdAt: timestamp('created_at').defaultNow(),
+});

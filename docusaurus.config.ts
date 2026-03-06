@@ -7,8 +7,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // 广告宣传位配置
 // 当需要显示新的重要公告时，更新这个日期和事件名称
 // 这样即使用户之前关闭了广告，新的重要事件公告仍会显示
-const ANNOUNCEMENT_EVENT = 'general-2025';
-const ANNOUNCEMENT_DATE = '2025-01-01'; // 格式: YYYY-MM-DD
+const ANNOUNCEMENT_EVENT = 'shanghai-summit-2026';
+const ANNOUNCEMENT_DATE = '2026-03-01'; // 格式: YYYY-MM-DD
 
 const config: Config = {
   title: 'Femtech Weekend',
@@ -217,15 +217,13 @@ const config: Config = {
       disableSwitch: false,
       respectPrefersColorScheme: true,
     },
-    /* Temporarily commented out - uncomment when needed
     announcementBar: {
       id: `${ANNOUNCEMENT_EVENT}-${ANNOUNCEMENT_DATE}`,
-      content: '🎉 <b><a target="_blank" href="/competition">FemTech Weekend 2024 Competition</a> is now open for registration!</b> 🚀',
-      backgroundColor: '#fdf2f8',
-      textColor: '#be185d',
+      content: '<b><a href="/shanghai-summit">Shanghai Summit 2026</a></b> — Cross-Border Capital & Partnerships in Women\'s Health | June 22-25, Shanghai',
+      backgroundColor: '#0a0a0a',
+      textColor: '#ffffff',
       isCloseable: true,
     },
-    */
     algolia: {
       // The application ID provided by Algolia - Application ID
       appId: 'VNBIILHFAK',
