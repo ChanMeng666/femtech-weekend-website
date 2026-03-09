@@ -644,6 +644,8 @@ export default function PitchApplication() {
         try { localStorage.removeItem(DRAFT_KEY); } catch { /* ignore */ }
       } else {
         setError(data.message || 'Submission failed. Please try again.');
+        if (data.debug) logs.push(`[submit] debug=${data.debug}`);
+        if (data.stack) logs.push(`[submit] stack=${data.stack}`);
         setDebugLog(logs.join('\n'));
       }
     } catch (err) {

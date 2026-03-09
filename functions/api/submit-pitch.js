@@ -245,7 +245,12 @@ export async function onRequest(context) {
 
     if (!env.DATABASE_URL) {
       console.error('[Pitch] Missing DATABASE_URL');
-      return new Response(JSON.stringify({ success: false, message: 'Server configuration error' }), {
+      const availableKeys = Object.keys(env).filter(k => !k.startsWith('__'));
+      return new Response(JSON.stringify({
+        success: false,
+        message: 'Server configuration error',
+        debug: `DATABASE_URL is not set. Available env keys: [${availableKeys.join(', ')}]`,
+      }), {
         status: 500,
         headers: { 'Content-Type': 'application/json', ...corsHeaders },
       });
@@ -344,7 +349,12 @@ export async function onRequest(context) {
     });
   } catch (error) {
     console.error('[Pitch] Error:', error);
-    return new Response(JSON.stringify({ success: false, message: 'Submission failed', error: error.message }), {
+    return new Response(JSON.stringify({
+      success: false,
+      message: 'Submission failed',
+      debug: `${error.name}: ${error.message}`,
+      stack: error.stack?.split('\n').slice(0, 5).join(' | '),
+    }), {
       status: 500,
       headers: { 'Content-Type': 'application/json', ...corsHeaders },
     });
