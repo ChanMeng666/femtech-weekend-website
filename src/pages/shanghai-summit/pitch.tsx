@@ -1020,8 +1020,12 @@ export default function PitchApplication() {
               <img
                 src="/img/summit-partners/bayer-womens-healthcare-logo.svg"
                 alt="Bayer Women's Healthcare China"
-                className="h-5"
-                style={{ color: 'var(--ifm-font-color-base)' }}
+                className="h-5 dark:hidden"
+              />
+              <img
+                src="/img/summit-partners/bayer-womens-healthcare-logo-white.svg"
+                alt="Bayer Women's Healthcare China"
+                className="h-5 hidden dark:block"
               />
             </div>
           </div>
