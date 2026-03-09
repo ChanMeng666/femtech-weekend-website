@@ -31,6 +31,15 @@ const tracks = [
     href: '/shanghai-summit/pitch',
     external: false,
   },
+  {
+    title: 'Apply to Speak',
+    description:
+      'Share your expertise on stage — whether in clinical research, investment, policy, or cross-border innovation in women\'s health.',
+    note: 'By invitation & application',
+    cta: 'Apply to Speak',
+    href: '/shanghai-summit/speak',
+    external: false,
+  },
 ];
 
 export function SummitCTA() {
@@ -70,12 +79,12 @@ export function SummitCTA() {
             Choose Your Way In
           </h2>
           <p className="text-muted-foreground text-base max-w-lg leading-relaxed">
-            Three distinct tracks to participate — whether you want to attend, apply for the full programme, or pitch.
+            Four distinct tracks to participate — whether you want to attend, apply for the full programme, pitch, or speak.
           </p>
         </div>
 
         {/* Track cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {tracks.map((track, i) => (
             <div
               key={track.title}

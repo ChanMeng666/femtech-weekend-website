@@ -98,6 +98,13 @@ export function SummitHero() {
             Submit Pitch Application
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
           </Link>
+          <Link
+            to="/shanghai-summit/speak"
+            className="group inline-flex items-center gap-2.5 border border-border text-muted-foreground px-7 py-3.5 text-sm font-medium hover:border-[#AA7C52]/30 hover:text-foreground transition-all duration-300 no-underline hover:no-underline"
+          >
+            Apply to Speak
+            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+          </Link>
         </div>
       </div>
     </div>
