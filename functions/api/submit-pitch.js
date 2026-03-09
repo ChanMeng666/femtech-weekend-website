@@ -310,7 +310,7 @@ export async function onRequest(context) {
         const fromEmail = env.RESEND_FROM_EMAIL || 'noreply@femtechweekend.com';
         const adminEmails = [
           'chanftw2025@gmail.com',
-          // 'zhu@femtechweekend.com', // TODO: re-enable after confirming everything works
+          'zhu@femtechweekend.com',
           ...(env.ADMIN_EMAILS ? env.ADMIN_EMAILS.split(',').map(e => e.trim()).filter(Boolean) : []),
         ];
 
