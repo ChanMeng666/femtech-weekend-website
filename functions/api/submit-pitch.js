@@ -243,13 +243,20 @@ export async function onRequest(context) {
     const formData = await request.json();
     console.log('[Pitch] Received submission:', JSON.stringify(formData, null, 2));
 
-    if (!env.DATABASE_URL) {
+    const dbUrl = env.DATABASE_URL;
+    const dbType = typeof dbUrl;
+    const dbTruthy = !!dbUrl;
+    const dbIsString = dbType === 'string';
+    const dbLen = dbIsString ? dbUrl.length : -1;
+    const dbPreview = dbIsString && dbUrl.length > 0 ? `${dbUrl.substring(0, 15)}...` : String(dbUrl);
+
+    if (!dbUrl || (dbIsString && dbUrl.trim().length === 0)) {
       console.error('[Pitch] Missing DATABASE_URL');
       const availableKeys = Object.keys(env).filter(k => !k.startsWith('__'));
       return new Response(JSON.stringify({
         success: false,
         message: 'Server configuration error',
-        debug: `DATABASE_URL is not set. Available env keys: [${availableKeys.join(', ')}]`,
+        debug: `DATABASE_URL check failed. type=${dbType}, truthy=${dbTruthy}, len=${dbLen}, preview=${dbPreview}, keys=[${availableKeys.join(', ')}]`,
       }), {
         status: 500,
         headers: { 'Content-Type': 'application/json', ...corsHeaders },
@@ -269,7 +276,7 @@ export async function onRequest(context) {
       });
     }
 
-    const sql = neon(env.DATABASE_URL);
+    const sql = neon(dbUrl);
 
     // Duplicate detection
     const existing = await sql`SELECT id FROM pitch_applications WHERE email = ${email} AND company_name = ${companyName}`;
