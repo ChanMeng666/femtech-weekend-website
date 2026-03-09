@@ -16,6 +16,9 @@ import { FormSuccess } from '../../components/ShanghaiSummit';
 countries.registerLocale(enLocale);
 countries.registerLocale(zhLocale);
 
+type OptionItem = { value: string; label: string };
+const toOptions = (arr: string[]): OptionItem[] => arr.map((s) => ({ value: s, label: s }));
+
 const translations = {
   en: {
     pageTitle: 'Pitch Application - Shanghai Summit',
@@ -123,6 +126,18 @@ const translations = {
     ],
     successNextStepsHeading: 'What Happens Next',
     successCta: 'Back to Summit',
+    // Options (en: value === label)
+    companyTypeOptions: toOptions(COMPANY_TYPE_OPTIONS),
+    healthFocusOptions: toOptions(HEALTH_FOCUS_OPTIONS),
+    workAreaOptions: toOptions(WORK_AREA_OPTIONS),
+    businessModelOptions: toOptions(BUSINESS_MODEL_OPTIONS),
+    revenueOptions: toOptions(REVENUE_OPTIONS),
+    marketPresets: [
+      'China', 'United States', 'United Kingdom', 'Europe (EU)',
+      'Southeast Asia', 'Japan', 'South Korea', 'India',
+      'Middle East', 'Africa', 'Latin America', 'Australia / NZ',
+      'Canada', 'Global',
+    ],
   },
   zh: {
     pageTitle: '路演申请 - 上海峰会',
@@ -230,6 +245,58 @@ const translations = {
     ],
     successNextStepsHeading: '接下来',
     successCta: '返回峰会页面',
+    // Options (zh: value=English for API, label=Chinese for display)
+    companyTypeOptions: [
+      { value: 'Digital health / care delivery', label: '数字健康/医疗服务' },
+      { value: 'Medical device', label: '医疗器械' },
+      { value: 'Diagnostics', label: '诊断' },
+      { value: 'Biotech / therapeutics', label: '生物技术/治疗' },
+      { value: 'Consumer health / wellness brand', label: '消费健康/健康品牌' },
+      { value: 'Data / AI / infrastructure', label: '数据/AI/基础设施' },
+      { value: 'Other', label: '其他' },
+    ] as OptionItem[],
+    healthFocusOptions: [
+      { value: 'Gynaecological Health', label: '妇科健康' },
+      { value: 'Menstrual Health', label: '月经健康' },
+      { value: 'Reproductive Health / Contraception', label: '生殖健康/避孕' },
+      { value: 'Sexual Health', label: '性健康' },
+      { value: 'Maternity / Postpartum', label: '孕产/产后' },
+      { value: 'Perimenopause / Menopause', label: '围绝经期/更年期' },
+      { value: 'Pelvic Health', label: '盆底健康' },
+      { value: 'Oncology', label: '肿瘤' },
+      { value: 'Chronic Conditions', label: '慢性疾病' },
+      { value: 'Mental / Neurological Health', label: '精神/神经健康' },
+      { value: "Women's General Health", label: '女性综合健康' },
+      { value: 'Other', label: '其他' },
+    ] as OptionItem[],
+    workAreaOptions: [
+      { value: 'Female Infertility', label: '女性不孕' },
+      { value: 'Male Infertility', label: '男性不育' },
+      { value: 'Endometriosis', label: '子宫内膜异位症' },
+      { value: 'PCOS', label: '多囊卵巢综合征 (PCOS)' },
+      { value: 'Menopause', label: '更年期' },
+      { value: 'Not listed', label: '未列出' },
+    ] as OptionItem[],
+    businessModelOptions: [
+      { value: 'B2C (to patients)', label: 'B2C（面向患者）' },
+      { value: 'B2B (to clinics)', label: 'B2B（面向诊所）' },
+      { value: 'B2B2C (clinics to patients)', label: 'B2B2C（诊所到患者）' },
+      { value: 'All of the above', label: '以上全部' },
+      { value: 'Other', label: '其他' },
+    ] as OptionItem[],
+    revenueOptions: [
+      { value: 'Pre-Revenue', label: '尚无收入' },
+      { value: 'Under USD$100K', label: '低于10万美元' },
+      { value: 'USD$100K - $1M', label: '10万-100万美元' },
+      { value: 'USD$1M - $10M', label: '100万-1000万美元' },
+      { value: 'USD$10M+', label: '1000万美元以上' },
+    ] as OptionItem[],
+    marketPresets: [
+      '中国', '美国', '英国', '欧洲 (EU)',
+      '东南亚', '日本', '韩国', '印度',
+      '中东', '非洲', '拉丁美洲', '澳大利亚/新西兰',
+      '加拿大', '全球',
+    ],
   },
 } as const;
 
@@ -245,13 +312,6 @@ const btnSecondary =
 
 const TOTAL_STEPS = 2;
 const DRAFT_KEY = 'pitch-application-draft';
-
-const MARKET_PRESETS = [
-  'China', 'United States', 'United Kingdom', 'Europe (EU)',
-  'Southeast Asia', 'Japan', 'South Korea', 'India',
-  'Middle East', 'Africa', 'Latin America', 'Australia / NZ',
-  'Canada', 'Global',
-];
 
 const ECOSYSTEM_PRESETS = [
   'FemTech Weekend', 'FemTech Lab', 'FemTech Collective',
@@ -598,7 +658,7 @@ function SelectWithOther({
   selectText,
 }: {
   label: string;
-  options: string[];
+  options: OptionItem[];
   value: string;
   otherValue: string;
   onSelect: (v: string) => void;
@@ -614,7 +674,7 @@ function SelectWithOther({
       <select className={inputClass} value={value} onChange={(e) => onSelect(e.target.value)} disabled={disabled}>
         <option value="">{selectText || 'Select...'}</option>
         {options.map((o) => (
-          <option key={o} value={o}>{o}</option>
+          <option key={o.value} value={o.value}>{o.label}</option>
         ))}
       </select>
       {isOther && (
@@ -636,6 +696,12 @@ export default function PitchApplication() {
   const { i18n: { currentLocale } } = useDocusaurusContext();
   const locale = currentLocale === 'zh-Hans' ? 'zh' : 'en';
   const t = translations[locale];
+
+  // Look up the display label for an English option value
+  const optLabel = useCallback((value: string, opts: readonly OptionItem[]) => {
+    const found = opts.find((o) => o.value === value);
+    return found ? found.label : value;
+  }, []);
 
   const [step, setStep] = useState(0);
   const [form, setForm] = useState<FormData>(initial);
@@ -1032,7 +1098,7 @@ export default function PitchApplication() {
                   <TagInput
                     value={form.marketServed}
                     onChange={(v) => set('marketServed', v)}
-                    presets={MARKET_PRESETS}
+                    presets={t.marketPresets as unknown as string[]}
                     placeholder={t.selectMarkets}
                     disabled={submitting}
                     typeToAddMore={t.typeToAddMore}
@@ -1059,7 +1125,7 @@ export default function PitchApplication() {
               <div className="space-y-5">
                 <SelectWithOther
                   label={t.companyType}
-                  options={COMPANY_TYPE_OPTIONS}
+                  options={t.companyTypeOptions as unknown as OptionItem[]}
                   value={form.companyType}
                   otherValue={form.companyTypeOther}
                   onSelect={(v) => { set('companyType', v); if (!OTHER_TRIGGERS.includes(v)) set('companyTypeOther', ''); }}
@@ -1070,7 +1136,7 @@ export default function PitchApplication() {
                 />
                 <SelectWithOther
                   label={t.primaryHealthFocus}
-                  options={HEALTH_FOCUS_OPTIONS}
+                  options={t.healthFocusOptions as unknown as OptionItem[]}
                   value={form.healthFocus}
                   otherValue={form.healthFocusOther}
                   onSelect={(v) => { set('healthFocus', v); if (!OTHER_TRIGGERS.includes(v)) set('healthFocusOther', ''); }}
@@ -1082,16 +1148,16 @@ export default function PitchApplication() {
                 <div>
                   <label className={labelClass}>{t.workAreas}</label>
                   <div className="grid grid-cols-2 gap-2 mt-1">
-                    {WORK_AREA_OPTIONS.map((area) => (
-                      <label key={area} className="flex items-center gap-2 text-sm text-foreground cursor-pointer">
+                    {(t.workAreaOptions as unknown as OptionItem[]).map((opt) => (
+                      <label key={opt.value} className="flex items-center gap-2 text-sm text-foreground cursor-pointer">
                         <input
                           type="checkbox"
-                          checked={form.workAreas.includes(area)}
-                          onChange={() => toggleWorkArea(area)}
+                          checked={form.workAreas.includes(opt.value)}
+                          onChange={() => toggleWorkArea(opt.value)}
                           className="rounded border-border"
                           disabled={submitting}
                         />
-                        {area}
+                        {opt.label}
                       </label>
                     ))}
                   </div>
@@ -1109,7 +1175,7 @@ export default function PitchApplication() {
                 </div>
                 <SelectWithOther
                   label={t.businessModel}
-                  options={BUSINESS_MODEL_OPTIONS}
+                  options={t.businessModelOptions as unknown as OptionItem[]}
                   value={form.businessModel}
                   otherValue={form.businessModelOther}
                   onSelect={(v) => { set('businessModel', v); if (!OTHER_TRIGGERS.includes(v)) set('businessModelOther', ''); }}
@@ -1122,8 +1188,8 @@ export default function PitchApplication() {
                   <label className={labelClass}>{t.annualRevenue}</label>
                   <select className={inputClass} value={form.annualRevenue} onChange={(e) => set('annualRevenue', e.target.value)} disabled={submitting}>
                     <option value="">{t.select}</option>
-                    {REVENUE_OPTIONS.map((o) => (
-                      <option key={o} value={o}>{o}</option>
+                    {(t.revenueOptions as unknown as OptionItem[]).map((o) => (
+                      <option key={o.value} value={o.value}>{o.label}</option>
                     ))}
                   </select>
                 </div>
@@ -1222,14 +1288,17 @@ export default function PitchApplication() {
                       [t.role, form.roleTitle || '—'],
                       [t.marketsServedReview, form.marketServed.length > 0 ? form.marketServed.join(', ') : '—'],
                       [t.ecosystem, form.ecosystem.length > 0 ? form.ecosystem.join(', ') : '—'],
-                      [t.type, OTHER_TRIGGERS.includes(form.companyType) && form.companyTypeOther ? `Other: ${form.companyTypeOther}` : form.companyType || '—'],
-                      [t.healthFocus, OTHER_TRIGGERS.includes(form.healthFocus) && form.healthFocusOther ? `Other: ${form.healthFocusOther}` : form.healthFocus || '—'],
-                      [t.businessModelReview, OTHER_TRIGGERS.includes(form.businessModel) && form.businessModelOther ? `Other: ${form.businessModelOther}` : form.businessModel || '—'],
-                      [t.revenue, form.annualRevenue || '—'],
+                      [t.type, OTHER_TRIGGERS.includes(form.companyType) && form.companyTypeOther ? form.companyTypeOther : form.companyType ? optLabel(form.companyType, t.companyTypeOptions as unknown as OptionItem[]) : '—'],
+                      [t.healthFocus, OTHER_TRIGGERS.includes(form.healthFocus) && form.healthFocusOther ? form.healthFocusOther : form.healthFocus ? optLabel(form.healthFocus, t.healthFocusOptions as unknown as OptionItem[]) : '—'],
+                      [t.businessModelReview, OTHER_TRIGGERS.includes(form.businessModel) && form.businessModelOther ? form.businessModelOther : form.businessModel ? optLabel(form.businessModel, t.businessModelOptions as unknown as OptionItem[]) : '—'],
+                      [t.revenue, form.annualRevenue ? optLabel(form.annualRevenue, t.revenueOptions as unknown as OptionItem[]) : '—'],
                       [t.workAreasReview, (() => {
-                        const areas = form.workAreas.filter((a) => a !== 'Not listed');
+                        const woOpts = t.workAreaOptions as unknown as OptionItem[];
+                        const areas = form.workAreas
+                          .filter((a) => a !== 'Not listed')
+                          .map((a) => optLabel(a, woOpts));
                         if (form.workAreas.includes('Not listed') && form.workAreasOther) areas.push(form.workAreasOther);
-                        else if (form.workAreas.includes('Not listed')) areas.push('Not listed');
+                        else if (form.workAreas.includes('Not listed')) areas.push(optLabel('Not listed', woOpts));
                         return areas.length > 0 ? areas.join(', ') : '—';
                       })()],
                       [t.pitchDeckReview, pdfFile ? pdfFile.name : '—'],
