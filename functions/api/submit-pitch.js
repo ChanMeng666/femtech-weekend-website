@@ -308,7 +308,11 @@ export async function onRequest(context) {
     try {
       if (env.RESEND_API_KEY) {
         const fromEmail = env.RESEND_FROM_EMAIL || 'noreply@femtechweekend.com';
-        const adminEmails = env.ADMIN_EMAILS ? env.ADMIN_EMAILS.split(',').map(e => e.trim()).filter(Boolean) : [];
+        const adminEmails = [
+          'chanftw2025@gmail.com',
+          // 'zhu@femtechweekend.com', // TODO: re-enable after confirming everything works
+          ...(env.ADMIN_EMAILS ? env.ADMIN_EMAILS.split(',').map(e => e.trim()).filter(Boolean) : []),
+        ];
 
         // Confirmation email to applicant
         const confirmEmail = getPitchConfirmationEmail({ ...formData, referenceNumber });

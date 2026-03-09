@@ -582,7 +582,7 @@ export default function PitchApplication() {
           const uploadRes = await fetch('/api/upload-pitch-deck', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ file: base64 }),
+            body: JSON.stringify({ file: base64, email: form.email }),
           });
           const uploadData = await uploadRes.json();
           if (uploadData.success) {

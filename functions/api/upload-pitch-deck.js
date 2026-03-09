@@ -11,7 +11,7 @@ const corsHeaders = {
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
 
-async function uploadToCloudinary(fileData, env) {
+async function uploadToCloudinary(fileData, env, email) {
   const cloudName = env.CLOUDINARY_CLOUD_NAME;
   const apiKey = env.CLOUDINARY_API_KEY;
   const apiSecret = env.CLOUDINARY_API_SECRET;
@@ -23,8 +23,12 @@ async function uploadToCloudinary(fileData, env) {
   const timestamp = Math.floor(Date.now() / 1000);
   const folder = 'femtech-pitch-decks';
 
+  // Generate a descriptive public_id with .pdf extension so Cloudinary preserves the format
+  const sanitizedEmail = (email || 'unknown').replace(/[^a-zA-Z0-9]/g, '_');
+  const publicId = `pitch_${sanitizedEmail}_${timestamp}.pdf`;
+
   // Create signature string (parameters in alphabetical order)
-  const signatureString = `folder=${folder}&timestamp=${timestamp}${apiSecret}`;
+  const signatureString = `folder=${folder}&public_id=${publicId}&timestamp=${timestamp}${apiSecret}`;
 
   // Generate SHA-1 signature
   const encoder = new TextEncoder();
@@ -39,6 +43,7 @@ async function uploadToCloudinary(fileData, env) {
   formData.append('timestamp', timestamp.toString());
   formData.append('signature', signature);
   formData.append('folder', folder);
+  formData.append('public_id', publicId);
 
   try {
     const response = await fetch(
@@ -79,7 +84,7 @@ export async function onRequest(context) {
     console.log('[Upload Pitch Deck] Received upload request');
 
     const body = await request.json();
-    const { file } = body;
+    const { file, email } = body;
 
     if (!file || !file.startsWith('data:application/pdf')) {
       return new Response(JSON.stringify({
@@ -115,7 +120,7 @@ export async function onRequest(context) {
       });
     }
 
-    const result = await uploadToCloudinary(file, env);
+    const result = await uploadToCloudinary(file, env, email);
 
     if (!result.success) {
       return new Response(JSON.stringify({
