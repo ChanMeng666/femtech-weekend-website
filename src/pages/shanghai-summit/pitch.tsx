@@ -24,7 +24,9 @@ const translations = {
     pageTitle: 'Pitch Application - Shanghai Summit',
     pageDescription: 'Apply for the Women\'s Health Capital Spotlight at FemTech Weekend Shanghai Summit 2026.',
     heading: 'Pitch Application',
-    subtitle: 'Apply for the Women\'s Health Capital Spotlight\nPitch Theme: Beyond Gender, Beyond Borders — Women\'s Health for a Shared Future\nIn collaboration with Bayer Women\'s Healthcare China',
+    subtitleLine1: 'Apply for the Women\'s Health Capital Spotlight',
+    subtitleTheme: 'Beyond Gender, Beyond Borders — Women\'s Health for a Shared Future',
+    subtitleCollab: 'In collaboration with',
     howItWorks: 'How It Works',
     steps: ['Contact Information', 'Company Profile'],
     howItWorksCards: [
@@ -143,7 +145,9 @@ const translations = {
     pageTitle: '路演申请 - 上海峰会',
     pageDescription: '申请参加FemTech Weekend 2026上海峰会"女性健康资本聚焦"路演。',
     heading: '路演申请',
-    subtitle: '申请参加"女性健康资本聚焦"路演\n路演主题：超越性别，跨越边界——共筑女性健康共同未来\n联合发起：拜耳中国女性健康事业部',
+    subtitleLine1: '申请参加"女性健康资本聚焦"路演',
+    subtitleTheme: '超越性别，跨越边界——共筑女性健康共同未来',
+    subtitleCollab: '联合发起',
     howItWorks: '申请流程',
     steps: ['联系方式', '公司信息'],
     howItWorksCards: [
@@ -1004,15 +1008,22 @@ export default function PitchApplication() {
         <div className="max-w-3xl mx-auto">
           {/* Page header */}
           <div className="text-center mb-10">
-            <h1 className="text-3xl font-bold text-foreground mb-3">{t.heading}</h1>
-            <p className="text-muted-foreground text-sm max-w-lg mx-auto whitespace-pre-line">
-              {t.subtitle}
+            <h1 className="text-3xl font-bold text-foreground mb-4">{t.heading}</h1>
+            <p className="text-muted-foreground text-sm max-w-lg mx-auto">
+              {t.subtitleLine1}
             </p>
-            <img
-              src="/img/summit-partners/bayer-womens-healthcare-logo.svg"
-              alt="Bayer Women's Healthcare China"
-              className="mx-auto mt-4 h-8"
-            />
+            <p className="text-muted-foreground/70 text-xs italic mt-2 max-w-lg mx-auto">
+              {t.subtitleTheme}
+            </p>
+            <div className="flex items-center justify-center gap-2.5 mt-4">
+              <span className="text-muted-foreground/60 text-xs">{t.subtitleCollab}</span>
+              <img
+                src="/img/summit-partners/bayer-womens-healthcare-logo.svg"
+                alt="Bayer Women's Healthcare China"
+                className="h-5"
+                style={{ color: 'var(--ifm-font-color-base)' }}
+              />
+            </div>
           </div>
 
           {/* How It Works */}
