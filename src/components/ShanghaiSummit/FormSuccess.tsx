@@ -6,6 +6,7 @@ interface FormSuccessProps {
   title: string;
   message: string;
   nextSteps?: string[];
+  nextStepsHeading?: string;
   ctaLabel?: string;
   ctaHref?: string;
 }
@@ -14,6 +15,7 @@ export function FormSuccess({
   title,
   message,
   nextSteps,
+  nextStepsHeading = 'What Happens Next',
   ctaLabel = 'Back to Summit',
   ctaHref = '/shanghai-summit',
 }: FormSuccessProps) {
@@ -116,7 +118,7 @@ export function FormSuccess({
             </div>
 
             <h3 className="text-xs tracking-[0.15em] uppercase text-[#AA7C52] mb-4 font-medium">
-              What Happens Next
+              {nextStepsHeading}
             </h3>
             <ol className="space-y-3">
               {nextSteps.map((step, i) => (

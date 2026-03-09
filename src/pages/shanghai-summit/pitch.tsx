@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import Layout from '@theme/Layout';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import countries from 'i18n-iso-countries';
 import enLocale from 'i18n-iso-countries/langs/en.json';
+import zhLocale from 'i18n-iso-countries/langs/zh.json';
 import {
   COMPANY_TYPE_OPTIONS,
   HEALTH_FOCUS_OPTIONS,
@@ -12,6 +14,224 @@ import {
 import { FormSuccess } from '../../components/ShanghaiSummit';
 
 countries.registerLocale(enLocale);
+countries.registerLocale(zhLocale);
+
+const translations = {
+  en: {
+    pageTitle: 'Pitch Application - Shanghai Summit',
+    pageDescription: 'Apply to pitch at the FemTech Weekend Shanghai Summit 2026.',
+    heading: 'Pitch Application',
+    subtitle: 'Apply to pitch at the FemTech Weekend Shanghai Summit 2026. Free to apply — selected companies confirm with a £199 pitch package.',
+    howItWorks: 'How It Works',
+    steps: ['Contact Information', 'Company Profile'],
+    howItWorksCards: [
+      {
+        title: 'Apply for free',
+        desc: 'Complete the application form below and share your company details, traction, and China relevance.',
+      },
+      {
+        title: 'Curated selection',
+        desc: 'Selected startups will be invited to join the Women\u2019s Health Capital Spotlight based on innovation quality, strategic fit, and relevance to the session.',
+      },
+      {
+        title: 'Confirm your place',
+        desc: 'Invited companies can secure their participation through the Pitch Package (\u00A3199), which includes one Day 1 conference pass.',
+      },
+    ],
+    draftRestored: 'Draft restored from your previous session.',
+    // Step 1: Contact Information
+    firstName: 'First Name',
+    lastName: 'Last Name',
+    email: 'Email',
+    linkedinProfile: 'LinkedIn Profile',
+    companyHeadquarters: 'Company Headquarters',
+    companyName: 'Company Name',
+    companyWebsite: 'Company Website',
+    roleTitle: 'Your Role / Title',
+    marketsServed: 'Markets Currently Served',
+    ecosystemLabel: 'FemTech Ecosystem / Community',
+    // Step 2: Company Profile
+    companyType: 'Company Type',
+    primaryHealthFocus: 'Primary Health Focus',
+    workAreas: 'Work Areas (select all that apply)',
+    businessModel: 'Business Model',
+    annualRevenue: 'Annual Revenue',
+    pitchDeck: 'Pitch Deck (PDF)',
+    // Placeholders
+    searchCountry: 'Search or select a country...',
+    noCountriesFound: 'No countries found',
+    selectMarkets: 'Select or type markets...',
+    selectEcosystems: 'Select or type ecosystems...',
+    select: 'Select...',
+    pleaseSpecify: 'Please specify...',
+    describeCompanyType: 'Describe your company type...',
+    describeHealthFocus: 'Describe your health focus area...',
+    describeWorkArea: 'Describe your work area...',
+    describeBusinessModel: 'Describe your business model...',
+    typeToAddMore: 'Type to add more...',
+    tagHint: 'Select from suggestions or type a custom value and press Enter',
+    // PDF upload
+    dropPdf: 'Drop your PDF here or',
+    browse: 'browse',
+    pdfOnly: 'PDF only, max 10MB',
+    onlyPdfAccepted: 'Only PDF files are accepted.',
+    fileTooLarge: 'File is too large. Maximum size is 10MB.',
+    // Review
+    reviewTitle: 'Review Your Application',
+    editContactInfo: 'Edit contact info',
+    name: 'Name',
+    company: 'Company',
+    website: 'Website',
+    headquarters: 'Headquarters',
+    role: 'Role',
+    marketsServedReview: 'Markets Served',
+    ecosystem: 'Ecosystem',
+    type: 'Type',
+    healthFocus: 'Health Focus',
+    businessModelReview: 'Business Model',
+    revenue: 'Revenue',
+    workAreasReview: 'Work Areas',
+    pitchDeckReview: 'Pitch Deck',
+    // Buttons
+    back: 'Back',
+    next: 'Next',
+    submitApplication: 'Submit Application',
+    submitting: 'Submitting...',
+    // Submit phases
+    uploadingDeck: 'Uploading pitch deck...',
+    submittingApp: 'Submitting application...',
+    // Errors
+    firstNameRequired: 'First name is required',
+    lastNameRequired: 'Last name is required',
+    emailRequired: 'Email is required',
+    invalidEmail: 'Please enter a valid email address',
+    companyNameRequired: 'Company name is required',
+    uploadFailed: 'Failed to upload pitch deck. Please try again.',
+    uploadNetworkError: 'Failed to upload pitch deck. Please check your connection and try again.',
+    submitFailed: 'Submission failed. Please try again.',
+    networkError: 'Network error. Please try again.',
+    // Success
+    successPageTitle: 'Pitch Application Submitted',
+    successPageDescription: 'Your pitch application has been submitted.',
+    successTitle: 'Application Submitted',
+    successMessageWithRef: (ref: string) => `Your reference number is ${ref}. We're excited to review your submission.`,
+    successMessage: "Thank you for applying to pitch at the Shanghai Summit 2026. We're excited to review your submission.",
+    successSteps: [
+      'Our team reviews your application (1–2 weeks)',
+      'Selected companies receive an invitation to pitch',
+      'Confirm your spot with a £199 participation fee (includes Day 1 conference pass)',
+    ],
+    successNextStepsHeading: 'What Happens Next',
+    successCta: 'Back to Summit',
+  },
+  zh: {
+    pageTitle: '路演申请 - 上海峰会',
+    pageDescription: '申请在FemTech Weekend 2026上海峰会上进行路演。',
+    heading: '路演申请',
+    subtitle: '申请在FemTech Weekend 2026上海峰会上路演。免费申请——入选企业需支付£199路演套餐确认参与。',
+    howItWorks: '申请流程',
+    steps: ['联系方式', '公司信息'],
+    howItWorksCards: [
+      {
+        title: '免费申请',
+        desc: '填写以下申请表，提供您的公司详情、业务进展和中国市场相关性。',
+      },
+      {
+        title: '择优筛选',
+        desc: '入选初创企业将受邀加入"女性健康资本聚焦"环节，评选标准包括创新质量、战略匹配度及与峰会议题的相关性。',
+      },
+      {
+        title: '确认名额',
+        desc: '受邀企业可通过路演套餐（£199）确认参与，包含一张第一天峰会门票。',
+      },
+    ],
+    draftRestored: '已从上次会话中恢复草稿。',
+    // Step 1
+    firstName: '名',
+    lastName: '姓',
+    email: '电子邮箱',
+    linkedinProfile: 'LinkedIn 主页',
+    companyHeadquarters: '公司总部所在地',
+    companyName: '公司名称',
+    companyWebsite: '公司网站',
+    roleTitle: '您的职位',
+    marketsServed: '当前服务市场',
+    ecosystemLabel: 'FemTech 生态/社区',
+    // Step 2
+    companyType: '公司类型',
+    primaryHealthFocus: '主要健康领域',
+    workAreas: '工作领域（可多选）',
+    businessModel: '商业模式',
+    annualRevenue: '年收入',
+    pitchDeck: '路演文稿 (PDF)',
+    // Placeholders
+    searchCountry: '搜索或选择国家/地区...',
+    noCountriesFound: '未找到匹配的国家/地区',
+    selectMarkets: '选择或输入市场...',
+    selectEcosystems: '选择或输入生态/社区...',
+    select: '请选择...',
+    pleaseSpecify: '请说明...',
+    describeCompanyType: '请描述您的公司类型...',
+    describeHealthFocus: '请描述您的健康领域...',
+    describeWorkArea: '请描述您的工作领域...',
+    describeBusinessModel: '请描述您的商业模式...',
+    typeToAddMore: '输入以添加更多...',
+    tagHint: '从建议中选择，或输入自定义内容后按回车确认',
+    // PDF upload
+    dropPdf: '将PDF文件拖放到此处或',
+    browse: '浏览',
+    pdfOnly: '仅支持PDF格式，最大10MB',
+    onlyPdfAccepted: '仅接受PDF格式文件。',
+    fileTooLarge: '文件过大，最大不超过10MB。',
+    // Review
+    reviewTitle: '审核您的申请',
+    editContactInfo: '编辑联系方式',
+    name: '姓名',
+    company: '公司',
+    website: '网站',
+    headquarters: '总部',
+    role: '职位',
+    marketsServedReview: '服务市场',
+    ecosystem: '生态/社区',
+    type: '类型',
+    healthFocus: '健康领域',
+    businessModelReview: '商业模式',
+    revenue: '收入',
+    workAreasReview: '工作领域',
+    pitchDeckReview: '路演文稿',
+    // Buttons
+    back: '返回',
+    next: '下一步',
+    submitApplication: '提交申请',
+    submitting: '提交中...',
+    // Submit phases
+    uploadingDeck: '正在上传路演文稿...',
+    submittingApp: '正在提交申请...',
+    // Errors
+    firstNameRequired: '请填写名字',
+    lastNameRequired: '请填写姓氏',
+    emailRequired: '请填写电子邮箱',
+    invalidEmail: '请输入有效的电子邮箱地址',
+    companyNameRequired: '请填写公司名称',
+    uploadFailed: '路演文稿上传失败，请重试。',
+    uploadNetworkError: '路演文稿上传失败，请检查网络连接后重试。',
+    submitFailed: '提交失败，请重试。',
+    networkError: '网络错误，请重试。',
+    // Success
+    successPageTitle: '路演申请已提交',
+    successPageDescription: '您的路演申请已提交。',
+    successTitle: '申请已提交',
+    successMessageWithRef: (ref: string) => `您的参考编号为 ${ref}。我们非常期待审阅您的申请。`,
+    successMessage: '感谢您申请在2026上海峰会上路演。我们非常期待审阅您的申请。',
+    successSteps: [
+      '我们的团队将审核您的申请（1-2周）',
+      '入选企业将收到路演邀请',
+      '支付£199参与费确认名额（含第一天峰会门票）',
+    ],
+    successNextStepsHeading: '接下来',
+    successCta: '返回峰会页面',
+  },
+} as const;
 
 const inputClass =
   'w-full border border-border px-4 py-3 bg-background text-foreground focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition';
@@ -23,7 +243,7 @@ const btnPrimary =
 const btnSecondary =
   'border border-border text-foreground hover:bg-muted px-8 py-3 font-medium transition';
 
-const STEPS = ['Contact Information', 'Company Profile'];
+const TOTAL_STEPS = 2;
 const DRAFT_KEY = 'pitch-application-draft';
 
 const MARKET_PRESETS = [
@@ -96,20 +316,27 @@ function CountryCombobox({
   value,
   onChange,
   disabled,
+  locale = 'en',
+  placeholderText,
+  noResultsText,
 }: {
   value: string;
   onChange: (v: string) => void;
   disabled?: boolean;
+  locale?: string;
+  placeholderText?: string;
+  noResultsText?: string;
 }) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
   const wrapperRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const countryLocale = locale === 'zh' ? 'zh' : 'en';
   const allCountries = useMemo(() => {
-    const obj = countries.getNames('en', { select: 'official' });
-    return Object.values(obj).sort((a, b) => a.localeCompare(b));
-  }, []);
+    const obj = countries.getNames(countryLocale, { select: 'official' });
+    return Object.values(obj).sort((a, b) => a.localeCompare(b, countryLocale));
+  }, [countryLocale]);
 
   const filtered = useMemo(() => {
     if (!query) return allCountries;
@@ -145,7 +372,7 @@ function CountryCombobox({
           type="text"
           className={inputClass}
           value={open ? query : value || query}
-          placeholder="Search or select a country..."
+          placeholder={placeholderText || 'Search or select a country...'}
           disabled={disabled}
           onChange={(e) => {
             setQuery(e.target.value);
@@ -194,7 +421,7 @@ function CountryCombobox({
           role="listbox"
         >
           {filtered.length === 0 ? (
-            <li className="px-4 py-3 text-muted-foreground text-center">No countries found</li>
+            <li className="px-4 py-3 text-muted-foreground text-center">{noResultsText || 'No countries found'}</li>
           ) : (
             filtered.map((c) => (
               <li
@@ -227,12 +454,16 @@ function TagInput({
   presets,
   placeholder,
   disabled,
+  typeToAddMore,
+  hint,
 }: {
   value: string[];
   onChange: (v: string[]) => void;
   presets: string[];
   placeholder?: string;
   disabled?: boolean;
+  typeToAddMore?: string;
+  hint?: string;
 }) {
   const [inputValue, setInputValue] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -320,7 +551,7 @@ function TagInput({
           }}
           onFocus={() => setShowSuggestions(true)}
           onKeyDown={handleKeyDown}
-          placeholder={value.length === 0 ? placeholder : 'Type to add more...'}
+          placeholder={value.length === 0 ? placeholder : (typeToAddMore || 'Type to add more...')}
           disabled={disabled}
           autoComplete="off"
         />
@@ -347,7 +578,7 @@ function TagInput({
 
       {/* Hint */}
       <p className="text-[11px] text-muted-foreground/60 mt-1">
-        Select from suggestions or type a custom value and press Enter
+        {hint || 'Select from suggestions or type a custom value and press Enter'}
       </p>
     </div>
   );
@@ -364,6 +595,7 @@ function SelectWithOther({
   onOtherChange,
   otherPlaceholder,
   disabled,
+  selectText,
 }: {
   label: string;
   options: string[];
@@ -373,13 +605,14 @@ function SelectWithOther({
   onOtherChange: (v: string) => void;
   otherPlaceholder?: string;
   disabled?: boolean;
+  selectText?: string;
 }) {
   const isOther = OTHER_TRIGGERS.includes(value);
   return (
     <div>
       <label className={labelClass}>{label}</label>
       <select className={inputClass} value={value} onChange={(e) => onSelect(e.target.value)} disabled={disabled}>
-        <option value="">Select...</option>
+        <option value="">{selectText || 'Select...'}</option>
         {options.map((o) => (
           <option key={o} value={o}>{o}</option>
         ))}
@@ -390,7 +623,7 @@ function SelectWithOther({
           type="text"
           value={otherValue}
           onChange={(e) => onOtherChange(e.target.value)}
-          placeholder={otherPlaceholder || 'Please specify...'}
+          placeholder={otherPlaceholder}
           disabled={disabled}
           autoFocus
         />
@@ -400,6 +633,10 @@ function SelectWithOther({
 }
 
 export default function PitchApplication() {
+  const { i18n: { currentLocale } } = useDocusaurusContext();
+  const locale = currentLocale === 'zh-Hans' ? 'zh' : 'en';
+  const t = translations[locale];
+
   const [step, setStep] = useState(0);
   const [form, setForm] = useState<FormData>(initial);
   const [submitting, setSubmitting] = useState(false);
@@ -493,13 +730,13 @@ export default function PitchApplication() {
 
   const validateField = (field: keyof FormData) => {
     const errors: Partial<Record<keyof FormData, string>> = {};
-    if (field === 'firstName' && !form.firstName.trim()) errors.firstName = 'First name is required';
-    if (field === 'lastName' && !form.lastName.trim()) errors.lastName = 'Last name is required';
+    if (field === 'firstName' && !form.firstName.trim()) errors.firstName = t.firstNameRequired;
+    if (field === 'lastName' && !form.lastName.trim()) errors.lastName = t.lastNameRequired;
     if (field === 'email') {
-      if (!form.email.trim()) errors.email = 'Email is required';
-      else if (!isValidEmail(form.email)) errors.email = 'Please enter a valid email address';
+      if (!form.email.trim()) errors.email = t.emailRequired;
+      else if (!isValidEmail(form.email)) errors.email = t.invalidEmail;
     }
-    if (field === 'companyName' && !form.companyName.trim()) errors.companyName = 'Company name is required';
+    if (field === 'companyName' && !form.companyName.trim()) errors.companyName = t.companyNameRequired;
 
     setFieldErrors((prev) => {
       const next = { ...prev };
@@ -512,11 +749,11 @@ export default function PitchApplication() {
   const validateStep = (s: number): boolean => {
     if (s === 0) {
       const errors: Partial<Record<keyof FormData, string>> = {};
-      if (!form.firstName.trim()) errors.firstName = 'First name is required';
-      if (!form.lastName.trim()) errors.lastName = 'Last name is required';
-      if (!form.email.trim()) errors.email = 'Email is required';
-      else if (!isValidEmail(form.email)) errors.email = 'Please enter a valid email address';
-      if (!form.companyName.trim()) errors.companyName = 'Company name is required';
+      if (!form.firstName.trim()) errors.firstName = t.firstNameRequired;
+      if (!form.lastName.trim()) errors.lastName = t.lastNameRequired;
+      if (!form.email.trim()) errors.email = t.emailRequired;
+      else if (!isValidEmail(form.email)) errors.email = t.invalidEmail;
+      if (!form.companyName.trim()) errors.companyName = t.companyNameRequired;
       setFieldErrors(errors);
       return Object.keys(errors).length === 0;
     }
@@ -544,11 +781,11 @@ export default function PitchApplication() {
     if (!file) return;
 
     if (file.type !== 'application/pdf') {
-      setPdfError('Only PDF files are accepted.');
+      setPdfError(t.onlyPdfAccepted);
       return;
     }
     if (file.size > 10 * 1024 * 1024) {
-      setPdfError('File is too large. Maximum size is 10MB.');
+      setPdfError(t.fileTooLarge);
       return;
     }
     setPdfFile(file);
@@ -575,7 +812,7 @@ export default function PitchApplication() {
 
       // Upload PDF if selected
       if (pdfFile && !deckUrl) {
-        setSubmitPhase('Uploading pitch deck...');
+        setSubmitPhase(t.uploadingDeck);
         setPdfUploading(true);
         try {
           const base64 = await readFileAsBase64(pdfFile);
@@ -588,14 +825,14 @@ export default function PitchApplication() {
           if (uploadData.success) {
             deckUrl = uploadData.url;
           } else {
-            setError(uploadData.message || 'Failed to upload pitch deck. Please try again.');
+            setError(uploadData.message || t.uploadFailed);
             setSubmitting(false);
             setPdfUploading(false);
             setSubmitPhase('');
             return;
           }
         } catch {
-          setError('Failed to upload pitch deck. Please check your connection and try again.');
+          setError(t.uploadNetworkError);
           setSubmitting(false);
           setPdfUploading(false);
           setSubmitPhase('');
@@ -604,7 +841,7 @@ export default function PitchApplication() {
         setPdfUploading(false);
       }
 
-      setSubmitPhase('Submitting application...');
+      setSubmitPhase(t.submittingApp);
       // Merge "Other" custom values into the main fields for submission
       const resolveOther = (val: string, other: string) =>
         OTHER_TRIGGERS.includes(val) && other ? `Other: ${other}` : val;
@@ -631,10 +868,10 @@ export default function PitchApplication() {
         window.scrollTo({ top: 0 });
         try { localStorage.removeItem(DRAFT_KEY); } catch { /* ignore */ }
       } else {
-        setError(data.message || 'Submission failed. Please try again.');
+        setError(data.message || t.submitFailed);
       }
     } catch {
-      setError('Network error. Please try again.');
+      setError(t.networkError);
     } finally {
       setSubmitting(false);
       setSubmitPhase('');
@@ -643,19 +880,17 @@ export default function PitchApplication() {
 
   if (submitted) {
     return (
-      <Layout title="Pitch Application Submitted" description="Your pitch application has been submitted.">
+      <Layout title={t.successPageTitle} description={t.successPageDescription}>
         <FormSuccess
-          title="Application Submitted"
+          title={t.successTitle}
           message={
             referenceNumber
-              ? `Your reference number is ${referenceNumber}. We're excited to review your submission.`
-              : "Thank you for applying to pitch at the Shanghai Summit 2026. We're excited to review your submission."
+              ? t.successMessageWithRef(referenceNumber)
+              : t.successMessage
           }
-          nextSteps={[
-            'Our team reviews your application (1–2 weeks)',
-            'Selected companies receive an invitation to pitch',
-            'Confirm your spot with a £199 participation fee (includes Day 1 conference pass)',
-          ]}
+          nextSteps={t.successSteps as unknown as string[]}
+          nextStepsHeading={t.successNextStepsHeading}
+          ctaLabel={t.successCta}
         />
       </Layout>
     );
@@ -698,35 +933,22 @@ export default function PitchApplication() {
   };
 
   return (
-    <Layout title="Pitch Application - Shanghai Summit" description="Apply to pitch at the FemTech Weekend Shanghai Summit 2026.">
+    <Layout title={t.pageTitle} description={t.pageDescription}>
       <div className="bg-background min-h-screen px-4 py-12">
         <div className="max-w-3xl mx-auto">
           {/* Page header */}
           <div className="text-center mb-10">
-            <h1 className="text-3xl font-bold text-foreground mb-3">Pitch Application</h1>
+            <h1 className="text-3xl font-bold text-foreground mb-3">{t.heading}</h1>
             <p className="text-muted-foreground text-sm max-w-lg mx-auto">
-              Apply to pitch at the FemTech Weekend Shanghai Summit 2026. Free to apply — selected companies confirm with a £199 pitch package.
+              {t.subtitle}
             </p>
           </div>
 
           {/* How It Works */}
           <div className="mb-14">
-            <p className="text-xs tracking-[0.2em] uppercase text-[#AA7C52] text-center mb-8 font-medium">How It Works</p>
+            <p className="text-xs tracking-[0.2em] uppercase text-[#AA7C52] text-center mb-8 font-medium">{t.howItWorks}</p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 sm:gap-0">
-              {[
-                {
-                  title: 'Apply for free',
-                  desc: 'Complete the application form below and share your company details, traction, and China relevance.',
-                },
-                {
-                  title: 'Curated selection',
-                  desc: 'Selected startups will be invited to join the Women\u2019s Health Capital Spotlight based on innovation quality, strategic fit, and relevance to the session.',
-                },
-                {
-                  title: 'Confirm your place',
-                  desc: 'Invited companies can secure their participation through the Pitch Package (\u00A3199), which includes one Day 1 conference pass.',
-                },
-              ].map((card, i) => (
+              {t.howItWorksCards.map((card, i) => (
                 <div
                   key={i}
                   className={`relative p-6 sm:p-7 ${
@@ -750,13 +972,13 @@ export default function PitchApplication() {
           {/* Draft restored toast */}
           {draftRestored && (
             <div className="mb-4 px-4 py-2.5 bg-primary/5 border border-primary/20 text-sm text-primary text-center transition-opacity">
-              Draft restored from your previous session.
+              {t.draftRestored}
             </div>
           )}
 
           {/* Step indicator */}
           <div className="flex items-center justify-center gap-2 mb-8">
-            {STEPS.map((label, i) => (
+            {t.steps.map((label, i) => (
               <React.Fragment key={label}>
                 {i > 0 && <div className="w-8 h-px bg-border" />}
                 <button
@@ -786,40 +1008,47 @@ export default function PitchApplication() {
             {step === 0 && (
               <div className="space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  {fieldInput('firstName', 'First Name', { required: true })}
-                  {fieldInput('lastName', 'Last Name', { required: true })}
+                  {fieldInput('firstName', t.firstName, { required: true })}
+                  {fieldInput('lastName', t.lastName, { required: true })}
                 </div>
-                {fieldInput('email', 'Email', { required: true, type: 'email' })}
-                {fieldInput('linkedin', 'LinkedIn Profile', { placeholder: 'https://linkedin.com/in/...' })}
+                {fieldInput('email', t.email, { required: true, type: 'email' })}
+                {fieldInput('linkedin', t.linkedinProfile, { placeholder: 'https://linkedin.com/in/...' })}
                 <div>
-                  <label className={labelClass}>Company Headquarters</label>
+                  <label className={labelClass}>{t.companyHeadquarters}</label>
                   <CountryCombobox
                     value={form.headquarters}
                     onChange={(v) => set('headquarters', v)}
                     disabled={submitting}
+                    locale={locale}
+                    placeholderText={t.searchCountry}
+                    noResultsText={t.noCountriesFound}
                   />
                 </div>
-                {fieldInput('companyName', 'Company Name', { required: true })}
-                {fieldInput('companyWebsite', 'Company Website', { placeholder: 'https://...' })}
-                {fieldInput('roleTitle', 'Your Role / Title')}
+                {fieldInput('companyName', t.companyName, { required: true })}
+                {fieldInput('companyWebsite', t.companyWebsite, { placeholder: 'https://...' })}
+                {fieldInput('roleTitle', t.roleTitle)}
                 <div>
-                  <label className={labelClass}>Markets Currently Served</label>
+                  <label className={labelClass}>{t.marketsServed}</label>
                   <TagInput
                     value={form.marketServed}
                     onChange={(v) => set('marketServed', v)}
                     presets={MARKET_PRESETS}
-                    placeholder="Select or type markets..."
+                    placeholder={t.selectMarkets}
                     disabled={submitting}
+                    typeToAddMore={t.typeToAddMore}
+                    hint={t.tagHint}
                   />
                 </div>
                 <div>
-                  <label className={labelClass}>FemTech Ecosystem / Community</label>
+                  <label className={labelClass}>{t.ecosystemLabel}</label>
                   <TagInput
                     value={form.ecosystem}
                     onChange={(v) => set('ecosystem', v)}
                     presets={ECOSYSTEM_PRESETS}
-                    placeholder="Select or type ecosystems..."
+                    placeholder={t.selectEcosystems}
                     disabled={submitting}
+                    typeToAddMore={t.typeToAddMore}
+                    hint={t.tagHint}
                   />
                 </div>
               </div>
@@ -829,27 +1058,29 @@ export default function PitchApplication() {
             {step === 1 && (
               <div className="space-y-5">
                 <SelectWithOther
-                  label="Company Type"
+                  label={t.companyType}
                   options={COMPANY_TYPE_OPTIONS}
                   value={form.companyType}
                   otherValue={form.companyTypeOther}
                   onSelect={(v) => { set('companyType', v); if (!OTHER_TRIGGERS.includes(v)) set('companyTypeOther', ''); }}
                   onOtherChange={(v) => set('companyTypeOther', v)}
-                  otherPlaceholder="Describe your company type..."
+                  otherPlaceholder={t.describeCompanyType}
                   disabled={submitting}
+                  selectText={t.select}
                 />
                 <SelectWithOther
-                  label="Primary Health Focus"
+                  label={t.primaryHealthFocus}
                   options={HEALTH_FOCUS_OPTIONS}
                   value={form.healthFocus}
                   otherValue={form.healthFocusOther}
                   onSelect={(v) => { set('healthFocus', v); if (!OTHER_TRIGGERS.includes(v)) set('healthFocusOther', ''); }}
                   onOtherChange={(v) => set('healthFocusOther', v)}
-                  otherPlaceholder="Describe your health focus area..."
+                  otherPlaceholder={t.describeHealthFocus}
                   disabled={submitting}
+                  selectText={t.select}
                 />
                 <div>
-                  <label className={labelClass}>Work Areas (select all that apply)</label>
+                  <label className={labelClass}>{t.workAreas}</label>
                   <div className="grid grid-cols-2 gap-2 mt-1">
                     {WORK_AREA_OPTIONS.map((area) => (
                       <label key={area} className="flex items-center gap-2 text-sm text-foreground cursor-pointer">
@@ -870,26 +1101,27 @@ export default function PitchApplication() {
                       type="text"
                       value={form.workAreasOther}
                       onChange={(e) => set('workAreasOther', e.target.value)}
-                      placeholder="Describe your work area..."
+                      placeholder={t.describeWorkArea}
                       disabled={submitting}
                       autoFocus
                     />
                   )}
                 </div>
                 <SelectWithOther
-                  label="Business Model"
+                  label={t.businessModel}
                   options={BUSINESS_MODEL_OPTIONS}
                   value={form.businessModel}
                   otherValue={form.businessModelOther}
                   onSelect={(v) => { set('businessModel', v); if (!OTHER_TRIGGERS.includes(v)) set('businessModelOther', ''); }}
                   onOtherChange={(v) => set('businessModelOther', v)}
-                  otherPlaceholder="Describe your business model..."
+                  otherPlaceholder={t.describeBusinessModel}
                   disabled={submitting}
+                  selectText={t.select}
                 />
                 <div>
-                  <label className={labelClass}>Annual Revenue</label>
+                  <label className={labelClass}>{t.annualRevenue}</label>
                   <select className={inputClass} value={form.annualRevenue} onChange={(e) => set('annualRevenue', e.target.value)} disabled={submitting}>
-                    <option value="">Select...</option>
+                    <option value="">{t.select}</option>
                     {REVENUE_OPTIONS.map((o) => (
                       <option key={o} value={o}>{o}</option>
                     ))}
@@ -898,7 +1130,7 @@ export default function PitchApplication() {
 
                 {/* PDF Upload */}
                 <div>
-                  <label className={labelClass}>Pitch Deck (PDF)</label>
+                  <label className={labelClass}>{t.pitchDeck}</label>
                   {!pdfFile ? (
                     <div
                       className={`border-2 border-dashed ${pdfError ? 'border-red-400 bg-red-50/50' : 'border-border'} p-8 text-center cursor-pointer transition hover:border-primary/50 hover:bg-primary/5`}
@@ -924,9 +1156,9 @@ export default function PitchApplication() {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m6.75 12-3-3m0 0-3 3m3-3v6m-1.5-15H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
                       </svg>
                       <p className="text-sm text-muted-foreground mb-1">
-                        Drop your PDF here or <span className="text-primary font-medium">browse</span>
+                        {t.dropPdf} <span className="text-primary font-medium">{t.browse}</span>
                       </p>
-                      <p className="text-xs text-muted-foreground/60">PDF only, max 10MB</p>
+                      <p className="text-xs text-muted-foreground/60">{t.pdfOnly}</p>
                     </div>
                   ) : (
                     <div className="border border-green-200 bg-green-50/50 p-4 flex items-center gap-3">
@@ -970,37 +1202,37 @@ export default function PitchApplication() {
                     <div className="absolute top-0 right-0 h-full w-px bg-[#AA7C52]/30" />
                   </div>
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-semibold text-foreground">Review Your Application</h3>
+                    <h3 className="font-semibold text-foreground">{t.reviewTitle}</h3>
                     <button
                       type="button"
                       onClick={() => setStep(0)}
                       className="text-xs text-primary hover:underline"
                       disabled={submitting}
                     >
-                      Edit contact info
+                      {t.editContactInfo}
                     </button>
                   </div>
                   <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-sm">
                     {([
-                      ['Name', `${form.firstName} ${form.lastName}`],
-                      ['Email', form.email],
-                      ['Company', form.companyName],
-                      ['Website', form.companyWebsite || '—'],
-                      ['Headquarters', form.headquarters || '—'],
-                      ['Role', form.roleTitle || '—'],
-                      ['Markets Served', form.marketServed.length > 0 ? form.marketServed.join(', ') : '—'],
-                      ['Ecosystem', form.ecosystem.length > 0 ? form.ecosystem.join(', ') : '—'],
-                      ['Type', OTHER_TRIGGERS.includes(form.companyType) && form.companyTypeOther ? `Other: ${form.companyTypeOther}` : form.companyType || '—'],
-                      ['Health Focus', OTHER_TRIGGERS.includes(form.healthFocus) && form.healthFocusOther ? `Other: ${form.healthFocusOther}` : form.healthFocus || '—'],
-                      ['Business Model', OTHER_TRIGGERS.includes(form.businessModel) && form.businessModelOther ? `Other: ${form.businessModelOther}` : form.businessModel || '—'],
-                      ['Revenue', form.annualRevenue || '—'],
-                      ['Work Areas', (() => {
+                      [t.name, `${form.firstName} ${form.lastName}`],
+                      [t.email, form.email],
+                      [t.company, form.companyName],
+                      [t.website, form.companyWebsite || '—'],
+                      [t.headquarters, form.headquarters || '—'],
+                      [t.role, form.roleTitle || '—'],
+                      [t.marketsServedReview, form.marketServed.length > 0 ? form.marketServed.join(', ') : '—'],
+                      [t.ecosystem, form.ecosystem.length > 0 ? form.ecosystem.join(', ') : '—'],
+                      [t.type, OTHER_TRIGGERS.includes(form.companyType) && form.companyTypeOther ? `Other: ${form.companyTypeOther}` : form.companyType || '—'],
+                      [t.healthFocus, OTHER_TRIGGERS.includes(form.healthFocus) && form.healthFocusOther ? `Other: ${form.healthFocusOther}` : form.healthFocus || '—'],
+                      [t.businessModelReview, OTHER_TRIGGERS.includes(form.businessModel) && form.businessModelOther ? `Other: ${form.businessModelOther}` : form.businessModel || '—'],
+                      [t.revenue, form.annualRevenue || '—'],
+                      [t.workAreasReview, (() => {
                         const areas = form.workAreas.filter((a) => a !== 'Not listed');
                         if (form.workAreas.includes('Not listed') && form.workAreasOther) areas.push(form.workAreasOther);
                         else if (form.workAreas.includes('Not listed')) areas.push('Not listed');
                         return areas.length > 0 ? areas.join(', ') : '—';
                       })()],
-                      ['Pitch Deck', pdfFile ? pdfFile.name : '—'],
+                      [t.pitchDeckReview, pdfFile ? pdfFile.name : '—'],
                     ] as [string, string][]).map(([label, value]) => (
                       <div key={label}>
                         <dt className="text-muted-foreground">{label}</dt>
@@ -1023,14 +1255,14 @@ export default function PitchApplication() {
           <div className="flex justify-between mt-10">
             {step > 0 ? (
               <button type="button" className={btnSecondary} onClick={() => setStep(step - 1)} disabled={submitting}>
-                Back
+                {t.back}
               </button>
             ) : (
               <div />
             )}
-            {step < STEPS.length - 1 ? (
+            {step < TOTAL_STEPS - 1 ? (
               <button type="button" className={btnPrimary} onClick={handleNext} disabled={submitting}>
-                Next
+                {t.next}
               </button>
             ) : (
               <button
@@ -1045,7 +1277,7 @@ export default function PitchApplication() {
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                   </svg>
                 )}
-                {submitting ? submitPhase || 'Submitting...' : 'Submit Application'}
+                {submitting ? submitPhase || t.submitting : t.submitApplication}
               </button>
             )}
           </div>
