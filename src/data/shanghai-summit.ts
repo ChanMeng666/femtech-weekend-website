@@ -340,6 +340,14 @@ export const REVENUE_OPTIONS = [
   'USD$10M+',
 ];
 
+export const HEADQUARTERS_OPTIONS = [
+  'China', 'United States', 'United Kingdom', 'Germany', 'France',
+  'Netherlands', 'Switzerland', 'Japan', 'South Korea', 'Singapore',
+  'Australia', 'Canada', 'India', 'Israel', 'Sweden', 'Denmark',
+  'Finland', 'Norway', 'Brazil', 'Spain', 'Italy', 'Ireland',
+  'Belgium', 'Austria', 'New Zealand', 'Other',
+];
+
 export const PROGRAMME_COHORTS = [
   { id: 'A', label: 'A: 19-23 Jan 2026 Shanghai', disabled: true, note: 'Fully Booked' },
   { id: 'B', label: 'B: 23-27 March 2026 Shanghai', disabled: false },

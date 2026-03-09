@@ -1,0 +1,60 @@
+CREATE TABLE "pitch_applications" (
+	"id" serial PRIMARY KEY NOT NULL,
+	"first_name" text NOT NULL,
+	"last_name" text NOT NULL,
+	"email" text NOT NULL,
+	"linkedin" text,
+	"headquarters" text,
+	"ecosystem" text,
+	"company_name" text NOT NULL,
+	"company_website" text,
+	"role_title" text,
+	"company_type" text,
+	"health_focus" text,
+	"work_areas" text,
+	"business_model" text,
+	"annual_revenue" text,
+	"pitch_deck_url" text,
+	"market_served" text,
+	"status" text DEFAULT 'submitted',
+	"status_updated_at" timestamp,
+	"admin_notes" text,
+	"reference_number" text,
+	"created_at" timestamp DEFAULT now()
+);
+--> statement-breakpoint
+CREATE TABLE "programme_applications" (
+	"id" serial PRIMARY KEY NOT NULL,
+	"first_name" text NOT NULL,
+	"last_name" text NOT NULL,
+	"linkedin" text NOT NULL,
+	"email" text NOT NULL,
+	"whatsapp" text,
+	"based_in" text,
+	"gender" text,
+	"age" text,
+	"university" text,
+	"major" text,
+	"primary_organization" text,
+	"job_title" text,
+	"company_or_project" text,
+	"industry" text,
+	"why_join" text,
+	"cohort" text,
+	"deck_url" text,
+	"referral" text,
+	"consent_data" boolean DEFAULT false,
+	"created_at" timestamp DEFAULT now()
+);
+--> statement-breakpoint
+CREATE TABLE "speaker_applications" (
+	"id" serial PRIMARY KEY NOT NULL,
+	"first_name" text NOT NULL,
+	"last_name" text NOT NULL,
+	"email" text NOT NULL,
+	"title" text NOT NULL,
+	"company" text NOT NULL,
+	"interested_events" text,
+	"message" text,
+	"created_at" timestamp DEFAULT now()
+);

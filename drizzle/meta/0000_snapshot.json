@@ -1,0 +1,375 @@
+{
+  "id": "da6622fd-c64a-4c41-84c2-02229e417b73",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.pitch_applications": {
+      "name": "pitch_applications",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "first_name": {
+          "name": "first_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "last_name": {
+          "name": "last_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "linkedin": {
+          "name": "linkedin",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "headquarters": {
+          "name": "headquarters",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ecosystem": {
+          "name": "ecosystem",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "company_name": {
+          "name": "company_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "company_website": {
+          "name": "company_website",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "role_title": {
+          "name": "role_title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "company_type": {
+          "name": "company_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "health_focus": {
+          "name": "health_focus",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "work_areas": {
+          "name": "work_areas",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "business_model": {
+          "name": "business_model",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "annual_revenue": {
+          "name": "annual_revenue",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "pitch_deck_url": {
+          "name": "pitch_deck_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "market_served": {
+          "name": "market_served",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'submitted'"
+        },
+        "status_updated_at": {
+          "name": "status_updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "admin_notes": {
+          "name": "admin_notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "reference_number": {
+          "name": "reference_number",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.programme_applications": {
+      "name": "programme_applications",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "first_name": {
+          "name": "first_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "last_name": {
+          "name": "last_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "linkedin": {
+          "name": "linkedin",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "whatsapp": {
+          "name": "whatsapp",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "based_in": {
+          "name": "based_in",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "gender": {
+          "name": "gender",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "age": {
+          "name": "age",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "university": {
+          "name": "university",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "major": {
+          "name": "major",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "primary_organization": {
+          "name": "primary_organization",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "job_title": {
+          "name": "job_title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "company_or_project": {
+          "name": "company_or_project",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "industry": {
+          "name": "industry",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "why_join": {
+          "name": "why_join",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cohort": {
+          "name": "cohort",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "deck_url": {
+          "name": "deck_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "referral": {
+          "name": "referral",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "consent_data": {
+          "name": "consent_data",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.speaker_applications": {
+      "name": "speaker_applications",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "first_name": {
+          "name": "first_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "last_name": {
+          "name": "last_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "company": {
+          "name": "company",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "interested_events": {
+          "name": "interested_events",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "message": {
+          "name": "message",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

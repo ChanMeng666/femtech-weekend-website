@@ -17,6 +17,11 @@ export const pitchApplications = pgTable('pitch_applications', {
   businessModel: text('business_model'),
   annualRevenue: text('annual_revenue'),
   pitchDeckUrl: text('pitch_deck_url'),
+  marketServed: text('market_served'),
+  status: text('status').default('submitted'),
+  statusUpdatedAt: timestamp('status_updated_at'),
+  adminNotes: text('admin_notes'),
+  referenceNumber: text('reference_number'),
   createdAt: timestamp('created_at').defaultNow(),
 });
 
