@@ -1,12 +1,15 @@
 import Link from '@docusaurus/Link';
 import { AnimatedLine } from './ui/AnimatedLine';
-import { getBannerLabel, getBannerHeadline, getBannerDescription } from '../constants/shanghai-summit';
+import { getBannerLabel, getBannerHeadline, getBannerDescription, getBannerDate, getBannerLocation, getBannerCta } from '../constants/shanghai-summit';
 import { ArrowRight, Calendar, MapPin } from 'lucide-react';
 
 export function ShanghaiSummitBanner() {
   const label = getBannerLabel();
   const headline = getBannerHeadline();
   const description = getBannerDescription();
+  const date = getBannerDate();
+  const location = getBannerLocation();
+  const cta = getBannerCta();
 
   return (
     <div className="relative py-20 sm:py-28 lg:py-32 overflow-hidden bg-background">
@@ -24,12 +27,12 @@ export function ShanghaiSummitBanner() {
             <div className="flex flex-wrap items-center gap-4 mb-5">
               <span className="inline-flex items-center gap-2 text-[#AA7C52] text-base sm:text-lg font-semibold tracking-wider">
                 <Calendar className="w-4 h-4" />
-                JUNE 22–25, 2026
+                {date}
               </span>
               <span className="h-4 w-px bg-[#AA7C52]/40 hidden sm:block" />
               <span className="inline-flex items-center gap-2 text-foreground text-base sm:text-lg font-semibold tracking-wider">
                 <MapPin className="w-4 h-4" />
-                SHANGHAI, CHINA
+                {location}
               </span>
             </div>
 
@@ -49,7 +52,7 @@ export function ShanghaiSummitBanner() {
                 to="/shanghai-summit"
                 className="group relative inline-flex items-center gap-2.5 bg-[#AA7C52] text-white hover:text-white px-7 py-3.5 text-sm font-medium overflow-hidden no-underline hover:no-underline transition-all duration-300 hover:shadow-[0_0_24px_rgba(170,124,82,0.25)]"
               >
-                <span className="relative">View Full Programme</span>
+                <span className="relative">{cta}</span>
                 <ArrowRight className="w-4 h-4 relative transition-transform duration-300 group-hover:translate-x-0.5" />
               </Link>
             </div>

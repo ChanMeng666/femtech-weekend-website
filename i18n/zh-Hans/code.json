@@ -1381,5 +1381,29 @@
   "opinions.data.hims-hers-eucalyptus.description": {
     "message": "2026 年 2 月 19 日，Hims & Hers 宣布以最高 11.5 亿美元收购 Eucalyptus。一笔值得细读的资本故事，以及它对女性健康意味着什么。",
     "description": "Hims & Hers 收购 Eucalyptus 观点文摘要"
+  },
+  "summit.banner.label": {
+    "message": "重磅活动",
+    "description": "Summit banner section label"
+  },
+  "summit.banner.headline": {
+    "message": "当全球女性健康遇见中国",
+    "description": "Summit banner headline"
+  },
+  "summit.banner.description": {
+    "message": "参加为期四天的上海项目，汇聚全球与中国女性健康领域的领军者——包含一场旗舰峰会、一天专属资本与路演日，以及精心策划的实地参访，助您深入了解中国市场、建立合作伙伴关系，并探索创新生态。",
+    "description": "Summit banner description"
+  },
+  "summit.banner.date": {
+    "message": "2026年6月22–25日",
+    "description": "Summit banner date"
+  },
+  "summit.banner.location": {
+    "message": "中国·上海",
+    "description": "Summit banner location"
+  },
+  "summit.banner.cta": {
+    "message": "查看完整日程",
+    "description": "Summit banner CTA button text"
   }
 }
