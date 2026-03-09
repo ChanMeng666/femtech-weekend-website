@@ -317,5 +317,6 @@ export const PROGRAMME_CHINA_CONCERNS = [
   'Pricing',
   'GTM',
   'Culture',
+  'Finding the right partners',
   'Other',
 ];
