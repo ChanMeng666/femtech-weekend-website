@@ -1015,17 +1015,17 @@ export default function PitchApplication() {
             <p className="text-muted-foreground/70 text-xs italic mt-2 max-w-lg mx-auto">
               {t.subtitleTheme}
             </p>
-            <div className="flex items-center justify-center gap-2.5 mt-4">
+            <div className="flex flex-col items-center mt-4 gap-2">
               <span className="text-muted-foreground/60 text-xs">{t.subtitleCollab}</span>
               <img
                 src="/img/summit-partners/bayer-womens-healthcare-logo.svg"
                 alt="Bayer Women's Healthcare China"
-                className="h-5 dark:hidden"
+                className="h-8 dark:hidden"
               />
               <img
                 src="/img/summit-partners/bayer-womens-healthcare-logo-white.svg"
                 alt="Bayer Women's Healthcare China"
-                className="h-5 hidden dark:block"
+                className="h-8 hidden dark:block"
               />
             </div>
           </div>
