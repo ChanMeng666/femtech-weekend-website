@@ -243,25 +243,15 @@ export async function onRequest(context) {
     const formData = await request.json();
     console.log('[Pitch] Received submission:', JSON.stringify(formData, null, 2));
 
-    const dbUrl = env.DATABASE_URL;
-    const dbType = typeof dbUrl;
-    const dbTruthy = !!dbUrl;
-    const dbIsString = dbType === 'string';
-    const dbLen = dbIsString ? dbUrl.length : -1;
-    const dbPreview = dbIsString && dbUrl.length > 0 ? `${dbUrl.substring(0, 15)}...` : String(dbUrl);
-
-    if (!dbUrl || (dbIsString && dbUrl.trim().length === 0)) {
+    if (!env.DATABASE_URL) {
       console.error('[Pitch] Missing DATABASE_URL');
-      const availableKeys = Object.keys(env).filter(k => !k.startsWith('__'));
-      return new Response(JSON.stringify({
-        success: false,
-        message: 'Server configuration error',
-        debug: `DATABASE_URL check failed. type=${dbType}, truthy=${dbTruthy}, len=${dbLen}, preview=${dbPreview}, keys=[${availableKeys.join(', ')}]`,
-      }), {
+      return new Response(JSON.stringify({ success: false, message: 'Server configuration error' }), {
         status: 500,
         headers: { 'Content-Type': 'application/json', ...corsHeaders },
       });
     }
+
+    const dbUrl = env.DATABASE_URL;
 
     const {
       firstName, lastName, email, linkedin, headquarters, ecosystem,
@@ -356,12 +346,7 @@ export async function onRequest(context) {
     });
   } catch (error) {
     console.error('[Pitch] Error:', error);
-    return new Response(JSON.stringify({
-      success: false,
-      message: 'Submission failed',
-      debug: `${error.name}: ${error.message}`,
-      stack: error.stack?.split('\n').slice(0, 5).join(' | '),
-    }), {
+    return new Response(JSON.stringify({ success: false, message: 'Submission failed', error: error.message }), {
       status: 500,
       headers: { 'Content-Type': 'application/json', ...corsHeaders },
     });
