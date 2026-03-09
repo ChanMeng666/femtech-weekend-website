@@ -313,6 +313,7 @@ export const HEALTH_FOCUS_OPTIONS = [
   'Chronic Conditions',
   'Mental / Neurological Health',
   "Women's General Health",
+  'Other',
 ];
 
 export const WORK_AREA_OPTIONS = [

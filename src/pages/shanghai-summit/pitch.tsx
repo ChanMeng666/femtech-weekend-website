@@ -54,9 +54,13 @@ type FormData = {
   roleTitle: string;
   marketServed: string[];
   companyType: string;
+  companyTypeOther: string;
   healthFocus: string;
+  healthFocusOther: string;
   workAreas: string[];
+  workAreasOther: string;
   businessModel: string;
+  businessModelOther: string;
   annualRevenue: string;
   pitchDeckUrl: string;
 };
@@ -73,9 +77,13 @@ const initial: FormData = {
   roleTitle: '',
   marketServed: [],
   companyType: '',
+  companyTypeOther: '',
   healthFocus: '',
+  healthFocusOther: '',
   workAreas: [],
+  workAreasOther: '',
   businessModel: '',
+  businessModelOther: '',
   annualRevenue: '',
   pitchDeckUrl: '',
 };
@@ -346,6 +354,52 @@ function TagInput({
   );
 }
 
+const OTHER_TRIGGERS = ['Other', 'Not listed'];
+
+function SelectWithOther({
+  label,
+  options,
+  value,
+  otherValue,
+  onSelect,
+  onOtherChange,
+  otherPlaceholder,
+  disabled,
+}: {
+  label: string;
+  options: string[];
+  value: string;
+  otherValue: string;
+  onSelect: (v: string) => void;
+  onOtherChange: (v: string) => void;
+  otherPlaceholder?: string;
+  disabled?: boolean;
+}) {
+  const isOther = OTHER_TRIGGERS.includes(value);
+  return (
+    <div>
+      <label className={labelClass}>{label}</label>
+      <select className={inputClass} value={value} onChange={(e) => onSelect(e.target.value)} disabled={disabled}>
+        <option value="">Select...</option>
+        {options.map((o) => (
+          <option key={o} value={o}>{o}</option>
+        ))}
+      </select>
+      {isOther && (
+        <input
+          className={`${inputClass} mt-2`}
+          type="text"
+          value={otherValue}
+          onChange={(e) => onOtherChange(e.target.value)}
+          placeholder={otherPlaceholder || 'Please specify...'}
+          disabled={disabled}
+          autoFocus
+        />
+      )}
+    </div>
+  );
+}
+
 export default function PitchApplication() {
   const [step, setStep] = useState(0);
   const [form, setForm] = useState<FormData>(initial);
@@ -540,7 +594,20 @@ export default function PitchApplication() {
       }
 
       setSubmitPhase('Submitting application...');
-      const payload = { ...form, pitchDeckUrl: deckUrl };
+      // Merge "Other" custom values into the main fields for submission
+      const resolveOther = (val: string, other: string) =>
+        OTHER_TRIGGERS.includes(val) && other ? `Other: ${other}` : val;
+      const resolvedWorkAreas = form.workAreas.map((a) =>
+        a === 'Not listed' && form.workAreasOther ? form.workAreasOther : a,
+      );
+      const payload = {
+        ...form,
+        pitchDeckUrl: deckUrl,
+        companyType: resolveOther(form.companyType, form.companyTypeOther),
+        healthFocus: resolveOther(form.healthFocus, form.healthFocusOther),
+        businessModel: resolveOther(form.businessModel, form.businessModelOther),
+        workAreas: resolvedWorkAreas,
+      };
       const res = await fetch('/api/submit-pitch', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -749,24 +816,26 @@ export default function PitchApplication() {
             {/* Section 2: Company Profile */}
             {step === 1 && (
               <div className="space-y-5">
-                <div>
-                  <label className={labelClass}>Company Type</label>
-                  <select className={inputClass} value={form.companyType} onChange={(e) => set('companyType', e.target.value)} disabled={submitting}>
-                    <option value="">Select...</option>
-                    {COMPANY_TYPE_OPTIONS.map((o) => (
-                      <option key={o} value={o}>{o}</option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label className={labelClass}>Primary Health Focus</label>
-                  <select className={inputClass} value={form.healthFocus} onChange={(e) => set('healthFocus', e.target.value)} disabled={submitting}>
-                    <option value="">Select...</option>
-                    {HEALTH_FOCUS_OPTIONS.map((o) => (
-                      <option key={o} value={o}>{o}</option>
-                    ))}
-                  </select>
-                </div>
+                <SelectWithOther
+                  label="Company Type"
+                  options={COMPANY_TYPE_OPTIONS}
+                  value={form.companyType}
+                  otherValue={form.companyTypeOther}
+                  onSelect={(v) => { set('companyType', v); if (!OTHER_TRIGGERS.includes(v)) set('companyTypeOther', ''); }}
+                  onOtherChange={(v) => set('companyTypeOther', v)}
+                  otherPlaceholder="Describe your company type..."
+                  disabled={submitting}
+                />
+                <SelectWithOther
+                  label="Primary Health Focus"
+                  options={HEALTH_FOCUS_OPTIONS}
+                  value={form.healthFocus}
+                  otherValue={form.healthFocusOther}
+                  onSelect={(v) => { set('healthFocus', v); if (!OTHER_TRIGGERS.includes(v)) set('healthFocusOther', ''); }}
+                  onOtherChange={(v) => set('healthFocusOther', v)}
+                  otherPlaceholder="Describe your health focus area..."
+                  disabled={submitting}
+                />
                 <div>
                   <label className={labelClass}>Work Areas (select all that apply)</label>
                   <div className="grid grid-cols-2 gap-2 mt-1">
@@ -783,16 +852,28 @@ export default function PitchApplication() {
                       </label>
                     ))}
                   </div>
+                  {form.workAreas.includes('Not listed') && (
+                    <input
+                      className={`${inputClass} mt-2`}
+                      type="text"
+                      value={form.workAreasOther}
+                      onChange={(e) => set('workAreasOther', e.target.value)}
+                      placeholder="Describe your work area..."
+                      disabled={submitting}
+                      autoFocus
+                    />
+                  )}
                 </div>
-                <div>
-                  <label className={labelClass}>Business Model</label>
-                  <select className={inputClass} value={form.businessModel} onChange={(e) => set('businessModel', e.target.value)} disabled={submitting}>
-                    <option value="">Select...</option>
-                    {BUSINESS_MODEL_OPTIONS.map((o) => (
-                      <option key={o} value={o}>{o}</option>
-                    ))}
-                  </select>
-                </div>
+                <SelectWithOther
+                  label="Business Model"
+                  options={BUSINESS_MODEL_OPTIONS}
+                  value={form.businessModel}
+                  otherValue={form.businessModelOther}
+                  onSelect={(v) => { set('businessModel', v); if (!OTHER_TRIGGERS.includes(v)) set('businessModelOther', ''); }}
+                  onOtherChange={(v) => set('businessModelOther', v)}
+                  otherPlaceholder="Describe your business model..."
+                  disabled={submitting}
+                />
                 <div>
                   <label className={labelClass}>Annual Revenue</label>
                   <select className={inputClass} value={form.annualRevenue} onChange={(e) => set('annualRevenue', e.target.value)} disabled={submitting}>
@@ -897,10 +978,16 @@ export default function PitchApplication() {
                       ['Role', form.roleTitle || '—'],
                       ['Markets Served', form.marketServed.length > 0 ? form.marketServed.join(', ') : '—'],
                       ['Ecosystem', form.ecosystem.length > 0 ? form.ecosystem.join(', ') : '—'],
-                      ['Type', form.companyType || '—'],
-                      ['Health Focus', form.healthFocus || '—'],
+                      ['Type', OTHER_TRIGGERS.includes(form.companyType) && form.companyTypeOther ? `Other: ${form.companyTypeOther}` : form.companyType || '—'],
+                      ['Health Focus', OTHER_TRIGGERS.includes(form.healthFocus) && form.healthFocusOther ? `Other: ${form.healthFocusOther}` : form.healthFocus || '—'],
+                      ['Business Model', OTHER_TRIGGERS.includes(form.businessModel) && form.businessModelOther ? `Other: ${form.businessModelOther}` : form.businessModel || '—'],
                       ['Revenue', form.annualRevenue || '—'],
-                      ['Work Areas', form.workAreas.length > 0 ? form.workAreas.join(', ') : '—'],
+                      ['Work Areas', (() => {
+                        const areas = form.workAreas.filter((a) => a !== 'Not listed');
+                        if (form.workAreas.includes('Not listed') && form.workAreasOther) areas.push(form.workAreasOther);
+                        else if (form.workAreas.includes('Not listed')) areas.push('Not listed');
+                        return areas.length > 0 ? areas.join(', ') : '—';
+                      })()],
                       ['Pitch Deck', pdfFile ? pdfFile.name : '—'],
                     ] as [string, string][]).map(([label, value]) => (
                       <div key={label}>
