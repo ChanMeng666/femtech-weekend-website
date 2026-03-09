@@ -6,7 +6,7 @@ import styles from './styles.module.css';
 
 const announcementContent = {
   en: '<b><a href="/shanghai-summit">Shanghai Summit 2026</a></b> — Cross-Border Capital & Partnerships in Women\'s Health | June 22-25, Shanghai',
-  zh: '<b><a href="/shanghai-summit">2026上海峰会</a></b> — 女性健康跨境资本与合作 | 6月22-25日，上海',
+  zh: '<b><a href="/zh-Hans/shanghai-summit">2026上海峰会</a></b> — 女性健康跨境资本与合作 | 6月22-25日，上海',
 };
 
 export default function AnnouncementBarContent(
