@@ -61,7 +61,7 @@ export const speakers: SpeakerData[] = [
       en: 'Early-stage investor in women\'s health (Foreground Capital / formerly RH Capital). Former McKinsey San Francisco women\'s health investment research lead, combining clinical medicine and capital operations to support women\'s health innovation from research to commercialization.',
       zh: '女性健康领域早期投资人（Foreground Capital/前RH Capital），前麦肯锡旧金山女性健康投资研究带头人，兼具临床医学与资本运作双重背景。',
     },
-    image: '/img/speakers/alice-zheng.png',
+    image: '/img/speakers/alice-zheng.jpeg',
   },
   {
     id: 'amina-sugimoto',
