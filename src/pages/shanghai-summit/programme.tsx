@@ -749,7 +749,6 @@ export default function ProgrammeApplication() {
   const [submitted, setSubmitted] = useState(false);
   const [referenceNumber, setReferenceNumber] = useState('');
   const [error, setError] = useState('');
-  const [debugLog, setDebugLog] = useState('');
   const [fieldErrors, setFieldErrors] = useState<Partial<Record<keyof FormData, string>>>({});
   const [touchedFields, setTouchedFields] = useState<Set<string>>(new Set());
   const [draftRestored, setDraftRestored] = useState(false);
@@ -917,9 +916,6 @@ export default function ProgrammeApplication() {
 
     setSubmitting(true);
     setError('');
-    setDebugLog('');
-    const logs: string[] = [];
-    const log = (msg: string) => { logs.push(`[${new Date().toISOString()}] ${msg}`); };
 
     try {
       let overviewUrl = form.companyOverviewUrl;
@@ -929,36 +925,24 @@ export default function ProgrammeApplication() {
         setSubmitPhase(t.uploadingOverview);
         setPdfUploading(true);
         try {
-          log('Starting PDF upload...');
           const base64 = await readFileAsBase64(pdfFile);
-          log(`PDF base64 length: ${base64.length}`);
           const uploadRes = await fetch('/api/upload-company-overview', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ file: base64, email: form.email }),
           });
-          log(`Upload response status: ${uploadRes.status}`);
-          const uploadText = await uploadRes.text();
-          log(`Upload response body: ${uploadText}`);
-          let uploadData: Record<string, unknown>;
-          try { uploadData = JSON.parse(uploadText); } catch { uploadData = { raw: uploadText }; }
+          const uploadData = await uploadRes.json();
           if (uploadData.success) {
-            overviewUrl = uploadData.url as string;
-            log(`Upload success, URL: ${overviewUrl}`);
+            overviewUrl = uploadData.url;
           } else {
-            log('Upload failed');
-            setError((uploadData.message as string) || t.uploadFailed);
-            setDebugLog(logs.join('\n'));
+            setError(uploadData.message || t.uploadFailed);
             setSubmitting(false);
             setPdfUploading(false);
             setSubmitPhase('');
             return;
           }
-        } catch (uploadErr: unknown) {
-          const msg = uploadErr instanceof Error ? uploadErr.message : String(uploadErr);
-          log(`Upload exception: ${msg}`);
+        } catch {
           setError(t.uploadNetworkError);
-          setDebugLog(logs.join('\n'));
           setSubmitting(false);
           setPdfUploading(false);
           setSubmitPhase('');
@@ -972,32 +956,22 @@ export default function ProgrammeApplication() {
         ...form,
         companyOverviewUrl: overviewUrl,
       };
-      log('Submitting payload...');
-      log(`Payload: ${JSON.stringify(payload, null, 2)}`);
       const res = await fetch('/api/submit-programme', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
-      log(`Submit response status: ${res.status}`);
-      const resText = await res.text();
-      log(`Submit response body: ${resText}`);
-      let data: Record<string, unknown>;
-      try { data = JSON.parse(resText); } catch { data = { raw: resText }; }
+      const data = await res.json();
       if (data.success) {
-        setReferenceNumber((data.referenceNumber as string) || '');
+        setReferenceNumber(data.referenceNumber || '');
         setSubmitted(true);
         window.scrollTo({ top: 0 });
         try { localStorage.removeItem(DRAFT_KEY); } catch { /* ignore */ }
       } else {
-        setError((data.message as string) || t.submitFailed);
-        setDebugLog(logs.join('\n'));
+        setError(data.message || t.submitFailed);
       }
-    } catch (err: unknown) {
-      const msg = err instanceof Error ? `${err.message}\n${err.stack}` : String(err);
-      log(`Exception: ${msg}`);
+    } catch {
       setError(t.networkError);
-      setDebugLog(logs.join('\n'));
     } finally {
       setSubmitting(false);
       setSubmitPhase('');
@@ -1504,23 +1478,6 @@ export default function ProgrammeApplication() {
                 {error && (
                   <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 text-sm">
                     {error}
-                  </div>
-                )}
-                {debugLog && (
-                  <div className="mt-4">
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="text-xs font-mono text-muted-foreground">Debug Log</span>
-                      <button
-                        type="button"
-                        className="text-xs text-primary hover:underline"
-                        onClick={() => { navigator.clipboard.writeText(debugLog); }}
-                      >
-                        Copy All
-                      </button>
-                    </div>
-                    <pre className="bg-gray-900 text-green-400 text-xs p-4 overflow-auto max-h-96 whitespace-pre-wrap break-all select-all">
-                      {debugLog}
-                    </pre>
                   </div>
                 )}
               </div>
