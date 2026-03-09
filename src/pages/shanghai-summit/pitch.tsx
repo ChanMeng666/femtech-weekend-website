@@ -336,8 +336,7 @@ function TagInput({
               onMouseDown={(e) => {
                 e.preventDefault();
                 addTag(p);
-                setShowSuggestions(true);
-                inputRef.current?.focus();
+                setShowSuggestions(false);
               }}
             >
               {p}
@@ -461,9 +460,11 @@ export default function PitchApplication() {
   }, []);
 
   const set = (field: keyof FormData, value: string | string[]) => {
-    const updated = { ...form, [field]: value };
-    setForm(updated);
-    saveDraft(updated);
+    setForm((prev) => {
+      const updated = { ...prev, [field]: value };
+      saveDraft(updated);
+      return updated;
+    });
     // Clear error on change
     if (fieldErrors[field]) {
       setFieldErrors((prev) => {
