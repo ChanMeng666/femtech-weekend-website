@@ -133,6 +133,7 @@ export const speakers: SpeakerData[] = [
       en: 'Harvard Medical School graduate, trained in OB/GYN at Johns Hopkins Hospital and urogynecology at Mayo Clinic. Focuses on pelvic floor health and peripartum risk management.',
       zh: '哈佛医学院毕业，历经约翰·霍普金斯医院妇产科培训及梅奥诊所泌尿妇科专科训练，聚焦盆底健康与围产期风险管理。',
     },
+    image: '/img/speakers/abraham-morse.jpg',
   },
   {
     id: 'amina-sugimoto',
@@ -146,6 +147,7 @@ export const speakers: SpeakerData[] = [
       en: 'Cofounder and CEO of Fermata, Japan\'s leading FemTech platform. Also serves as UN Women Asia-Pacific Youth Advisor, driving strategic commercialization of women\'s health innovation across Japan and Asia.',
       zh: '日本FemTech平台Fermata联合创始人兼CEO，联合国妇女署亚太区青年顾问，驱动女性健康创新在日本及泛亚洲市场的战略商业化。',
     },
+    image: '/img/speakers/amina-sugimoto.jpg',
   },
   {
     id: 'maryann-selfe',
