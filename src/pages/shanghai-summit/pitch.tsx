@@ -428,7 +428,17 @@ export default function PitchApplication() {
       if (saved) {
         const parsed = JSON.parse(saved);
         if (parsed && typeof parsed === 'object' && parsed.firstName) {
-          setForm({ ...initial, ...parsed });
+          // Migrate old drafts: ensure array fields are arrays
+          const ensureArray = (v: unknown): string[] =>
+            Array.isArray(v) ? v : typeof v === 'string' && v ? [v] : [];
+          const migrated = {
+            ...initial,
+            ...parsed,
+            ecosystem: ensureArray(parsed.ecosystem),
+            marketServed: ensureArray(parsed.marketServed),
+            workAreas: ensureArray(parsed.workAreas),
+          };
+          setForm(migrated);
           setDraftRestored(true);
           setTimeout(() => setDraftRestored(false), 3000);
         }
