@@ -1,14 +1,17 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import Layout from '@theme/Layout';
+import countries from 'i18n-iso-countries';
+import enLocale from 'i18n-iso-countries/langs/en.json';
 import {
   COMPANY_TYPE_OPTIONS,
   HEALTH_FOCUS_OPTIONS,
   WORK_AREA_OPTIONS,
   BUSINESS_MODEL_OPTIONS,
   REVENUE_OPTIONS,
-  HEADQUARTERS_OPTIONS,
 } from '../../data/shanghai-summit';
 import { FormSuccess } from '../../components/ShanghaiSummit';
+
+countries.registerLocale(enLocale);
 
 const inputClass =
   'w-full border border-border px-4 py-3 bg-background text-foreground focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition';
@@ -63,6 +66,135 @@ const initial: FormData = {
 
 function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function CountryCombobox({
+  value,
+  onChange,
+  disabled,
+}: {
+  value: string;
+  onChange: (v: string) => void;
+  disabled?: boolean;
+}) {
+  const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState('');
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const allCountries = useMemo(() => {
+    const obj = countries.getNames('en', { select: 'official' });
+    return Object.values(obj).sort((a, b) => a.localeCompare(b));
+  }, []);
+
+  const filtered = useMemo(() => {
+    if (!query) return allCountries;
+    const q = query.toLowerCase();
+    return allCountries.filter((c) => c.toLowerCase().includes(q));
+  }, [query, allCountries]);
+
+  // Close on outside click
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
+        setOpen(false);
+        // Reset query to selected value when closing
+        if (value) setQuery(value);
+        else setQuery('');
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, [value]);
+
+  const handleSelect = (country: string) => {
+    onChange(country);
+    setQuery(country);
+    setOpen(false);
+  };
+
+  return (
+    <div ref={wrapperRef} className="relative">
+      <div className="relative">
+        <input
+          ref={inputRef}
+          type="text"
+          className={inputClass}
+          value={open ? query : value || query}
+          placeholder="Search or select a country..."
+          disabled={disabled}
+          onChange={(e) => {
+            setQuery(e.target.value);
+            if (!open) setOpen(true);
+            if (value && e.target.value !== value) onChange('');
+          }}
+          onFocus={() => {
+            setOpen(true);
+            setQuery(value || '');
+          }}
+          onKeyDown={(e) => {
+            if (e.key === 'Escape') {
+              setOpen(false);
+              inputRef.current?.blur();
+            }
+            if (e.key === 'Enter' && filtered.length > 0) {
+              e.preventDefault();
+              handleSelect(filtered[0]);
+            }
+          }}
+          role="combobox"
+          aria-expanded={open}
+          aria-autocomplete="list"
+          autoComplete="off"
+        />
+        <button
+          type="button"
+          tabIndex={-1}
+          className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground/50 hover:text-muted-foreground transition"
+          onClick={() => {
+            if (!disabled) {
+              setOpen(!open);
+              if (!open) inputRef.current?.focus();
+            }
+          }}
+          aria-label="Toggle country list"
+        >
+          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d={open ? 'M18 15l-6-6-6 6' : 'M6 9l6 6 6-6'} />
+          </svg>
+        </button>
+      </div>
+      {open && (
+        <ul
+          className="absolute z-50 mt-1 w-full max-h-56 overflow-auto border border-border bg-card shadow-lg text-sm"
+          role="listbox"
+        >
+          {filtered.length === 0 ? (
+            <li className="px-4 py-3 text-muted-foreground text-center">No countries found</li>
+          ) : (
+            filtered.map((c) => (
+              <li
+                key={c}
+                role="option"
+                aria-selected={c === value}
+                className={`px-4 py-2.5 cursor-pointer transition-colors ${
+                  c === value
+                    ? 'bg-primary/10 text-primary font-medium'
+                    : 'text-foreground hover:bg-muted'
+                }`}
+                onMouseDown={(e) => {
+                  e.preventDefault();
+                  handleSelect(c);
+                }}
+              >
+                {c}
+              </li>
+            ))
+          )}
+        </ul>
+      )}
+    </div>
+  );
 }
 
 export default function PitchApplication() {
@@ -349,27 +481,42 @@ export default function PitchApplication() {
             </p>
           </div>
 
-          {/* How It Works cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
-            {[
-              { num: '1', title: 'Apply Free', desc: 'Complete the form below to submit your application' },
-              { num: '2', title: 'Selection', desc: 'Curated based on innovation, market fit, and strategic alignment' },
-              { num: '3', title: 'Confirm Spot', desc: '£199 Pitch Package incl. Day 1 conference pass' },
-            ].map((card, i) => (
-              <div key={i} className="relative border border-border bg-card p-5 text-center group">
-                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#AA7C52]/30 to-transparent" />
-                <div className="inline-flex items-center justify-center w-10 h-10 rounded-full border-2 border-[#AA7C52]/30 text-[#AA7C52] font-bold text-lg mb-3">
-                  {card.num}
+          {/* How It Works */}
+          <div className="mb-14">
+            <p className="text-xs tracking-[0.2em] uppercase text-[#AA7C52] text-center mb-8 font-medium">How It Works</p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 sm:gap-0">
+              {[
+                {
+                  title: 'Apply for free',
+                  desc: 'Complete the application form below and share your company details, traction, and China relevance.',
+                },
+                {
+                  title: 'Curated selection',
+                  desc: 'Selected startups will be invited to join the Women\u2019s Health Capital Spotlight based on innovation quality, strategic fit, and relevance to the session.',
+                },
+                {
+                  title: 'Confirm your place',
+                  desc: 'Invited companies can secure their participation through the Pitch Package (\u00A3199), which includes one Day 1 conference pass.',
+                },
+              ].map((card, i) => (
+                <div
+                  key={i}
+                  className={`relative p-6 sm:p-7 ${
+                    i === 0
+                      ? 'border border-border sm:border-r-0'
+                      : i === 1
+                        ? 'border border-border sm:border-r-0'
+                        : 'border border-border'
+                  } ${i > 0 ? 'border-t-0 sm:border-t' : ''}`}
+                >
+                  <span className="text-[11px] font-mono text-[#AA7C52]/50 tracking-wider">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <h3 className="font-semibold text-foreground text-sm mt-2 mb-2.5">{card.title}</h3>
+                  <p className="text-[13px] text-muted-foreground leading-relaxed">{card.desc}</p>
                 </div>
-                <h3 className="font-semibold text-foreground text-sm mb-1.5">{card.title}</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">{card.desc}</p>
-                {i < 2 && (
-                  <div className="hidden sm:block absolute top-1/2 -right-3 text-[#AA7C52]/40 text-lg font-light" style={{ transform: 'translateY(-50%)' }}>
-                    &rarr;
-                  </div>
-                )}
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
           {/* Draft restored toast */}
@@ -418,17 +565,11 @@ export default function PitchApplication() {
                 {fieldInput('linkedin', 'LinkedIn Profile', { placeholder: 'https://linkedin.com/in/...' })}
                 <div>
                   <label className={labelClass}>Company Headquarters</label>
-                  <select
-                    className={inputClass}
+                  <CountryCombobox
                     value={form.headquarters}
-                    onChange={(e) => set('headquarters', e.target.value)}
+                    onChange={(v) => set('headquarters', v)}
                     disabled={submitting}
-                  >
-                    <option value="">Select country...</option>
-                    {HEADQUARTERS_OPTIONS.map((o) => (
-                      <option key={o} value={o}>{o}</option>
-                    ))}
-                  </select>
+                  />
                 </div>
                 {fieldInput('companyName', 'Company Name', { required: true })}
                 {fieldInput('companyWebsite', 'Company Website', { placeholder: 'https://...' })}
