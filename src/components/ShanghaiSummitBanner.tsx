@@ -1,8 +1,6 @@
-import React from 'react';
 import Link from '@docusaurus/Link';
 import { AnimatedLine } from './ui/AnimatedLine';
 import { getBannerLabel, getBannerHeadline, getBannerDescription } from '../constants/shanghai-summit';
-import { SUMMIT_META } from '../data/shanghai-summit';
 import { ArrowRight, Calendar, MapPin } from 'lucide-react';
 
 export function ShanghaiSummitBanner() {
@@ -24,13 +22,13 @@ export function ShanghaiSummitBanner() {
 
             {/* Date + Location */}
             <div className="flex flex-wrap items-center gap-4 mb-5">
-              <span className="inline-flex items-center gap-2 text-[#AA7C52] text-sm tracking-wider">
-                <Calendar className="w-3.5 h-3.5" />
-                JUNE 22-25, 2026
+              <span className="inline-flex items-center gap-2 text-[#AA7C52] text-base sm:text-lg font-semibold tracking-wider">
+                <Calendar className="w-4 h-4" />
+                JUNE 22–25, 2026
               </span>
-              <span className="h-3 w-px bg-border hidden sm:block" />
-              <span className="inline-flex items-center gap-2 text-muted-foreground text-sm tracking-wider">
-                <MapPin className="w-3.5 h-3.5" />
+              <span className="h-4 w-px bg-[#AA7C52]/40 hidden sm:block" />
+              <span className="inline-flex items-center gap-2 text-foreground text-base sm:text-lg font-semibold tracking-wider">
+                <MapPin className="w-4 h-4" />
                 SHANGHAI, CHINA
               </span>
             </div>
@@ -45,33 +43,14 @@ export function ShanghaiSummitBanner() {
               {description}
             </p>
 
-            {/* Stats */}
-            <div className="flex flex-wrap items-center gap-3 sm:gap-0 mb-12">
-              {SUMMIT_META.stats.map((stat, i) => (
-                <React.Fragment key={i}>
-                  {i > 0 && <div className="hidden sm:block h-8 w-px bg-border mx-5 lg:mx-7" />}
-                  <div className="cursor-default">
-                    <span className="mckinsey-label text-foreground text-sm">{stat.label.en}</span>
-                  </div>
-                </React.Fragment>
-              ))}
-            </div>
-
-            {/* CTAs */}
+            {/* CTA */}
             <div className="flex flex-wrap gap-4">
               <Link
-                to="/shanghai-summit/pitch"
+                to="/shanghai-summit"
                 className="group relative inline-flex items-center gap-2.5 bg-[#AA7C52] text-white hover:text-white px-7 py-3.5 text-sm font-medium overflow-hidden no-underline hover:no-underline transition-all duration-300 hover:shadow-[0_0_24px_rgba(170,124,82,0.25)]"
               >
-                <span className="relative">Apply to Pitch</span>
+                <span className="relative">View Full Programme</span>
                 <ArrowRight className="w-4 h-4 relative transition-transform duration-300 group-hover:translate-x-0.5" />
-              </Link>
-              <Link
-                to="/shanghai-summit"
-                className="group inline-flex items-center gap-2.5 border border-[#AA7C52]/30 text-[#AA7C52] px-7 py-3.5 text-sm font-medium hover:border-[#AA7C52]/60 hover:bg-[#AA7C52]/5 transition-all duration-300 no-underline hover:no-underline"
-              >
-                View Full Programme
-                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
               </Link>
             </div>
           </div>

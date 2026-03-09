@@ -7,8 +7,8 @@ export const SUMMIT_CONSTANTS = {
   PAGE_TITLE_ID: 'summit.page.title',
   PAGE_DESCRIPTION_ID: 'summit.page.description',
   DEFAULT_BANNER_LABEL: 'FEATURED EVENT',
-  DEFAULT_BANNER_HEADLINE: 'Cross-Border Capital & Partnerships in Women\'s Health',
-  DEFAULT_BANNER_DESCRIPTION: 'A 4-day international summit bringing together global leaders, investors, and innovators in women\'s health technology. June 22-25, 2026 in Shanghai, China.',
+  DEFAULT_BANNER_HEADLINE: 'Where Global Women\'s Health Meets China',
+  DEFAULT_BANNER_DESCRIPTION: 'Join a 4-day Shanghai programme that brings together global and Chinese leaders across women\'s health — with a flagship conference, a dedicated capital and pitch day, and curated site visits designed to unlock real insight into China\'s market, partnerships, and innovation ecosystem.',
   DEFAULT_PAGE_TITLE: 'Shanghai Summit 2026',
   DEFAULT_PAGE_DESCRIPTION: 'Cross-Border Capital & Partnerships in Women\'s Health - Shanghai, June 22-25, 2026',
 } as const;
