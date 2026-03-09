@@ -76,7 +76,7 @@ export function VenueShowcase() {
             <div className="absolute -top-2 -left-2 w-6 h-6 border-t border-l border-[#AA7C52]/40" />
           </div>
 
-          {/* Right column — auditorium + info card */}
+          {/* Right column — auditorium + description card */}
           <div className="lg:col-span-5 flex flex-col gap-4 lg:gap-5">
             {/* Auditorium image */}
             <div className="relative group flex-1">
@@ -99,30 +99,13 @@ export function VenueShowcase() {
               <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b border-r border-[#AA7C52]/40" />
             </div>
 
-            {/* Venue info card */}
+            {/* Venue description card */}
             <div className="border border-border bg-card p-6 sm:p-8 relative">
               {/* Corner accent */}
               <div className="absolute top-0 right-0 w-8 h-8">
                 <div className="absolute top-0 right-0 w-full h-px bg-[#AA7C52]/30" />
                 <div className="absolute top-0 right-0 h-full w-px bg-[#AA7C52]/30" />
               </div>
-
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                <div>
-                  <span className="font-display text-2xl text-[#AA7C52] block tracking-tight">4</span>
-                  <span className="text-muted-foreground text-xs uppercase tracking-wider">Days</span>
-                </div>
-                <div>
-                  <span className="font-display text-2xl text-[#AA7C52] block tracking-tight">200+</span>
-                  <span className="text-muted-foreground text-xs uppercase tracking-wider">Seats</span>
-                </div>
-                <div className="col-span-2 sm:col-span-1">
-                  <span className="font-display text-2xl text-[#AA7C52] block tracking-tight">LED</span>
-                  <span className="text-muted-foreground text-xs uppercase tracking-wider">Curved Stage</span>
-                </div>
-              </div>
-
-              <div className="h-px bg-border my-5" />
 
               <p className="text-muted-foreground text-sm leading-relaxed">
                 A world-class venue in the heart of Shanghai&apos;s new financial hub,

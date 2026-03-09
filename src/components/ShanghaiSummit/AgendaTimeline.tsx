@@ -18,6 +18,10 @@ function DayCard({
   const { i18n: { currentLocale } } = useDocusaurusContext();
   const locale = currentLocale === 'zh-Hans' ? 'zh' : 'en';
 
+  // Display label for merged Day 3&4
+  const dayLabel = day.day === 3 ? '3&4' : String(day.day);
+  const dayNumber = day.day === 3 ? '03-04' : String(day.day).padStart(2, '0');
+
   return (
     <div
       className="relative flex gap-6 lg:gap-10"
@@ -43,25 +47,21 @@ function DayCard({
       </div>
 
       {/* Day content card */}
-      <div
-        className="flex-1 group pb-14 lg:pb-20"
-      >
+      <div className="flex-1 group pb-14 lg:pb-20">
         {/* Day header row */}
         <div className="flex items-baseline gap-4 mb-4">
           <span
             className="font-display text-5xl lg:text-7xl tracking-tight transition-colors duration-500"
             style={{ color: isHovered ? '#AA7C52' : 'rgba(170, 124, 82, 0.2)' }}
           >
-            {String(day.day).padStart(2, '0')}
+            {dayNumber}
           </span>
           <div>
             <p className="text-muted-foreground text-xs tracking-[0.15em] uppercase">
               {day.date}
             </p>
-            <h3
-              className="font-display text-xl sm:text-2xl lg:text-3xl font-normal tracking-tight text-foreground mt-1"
-            >
-              {day.title[locale]}
+            <h3 className="font-display text-xl sm:text-2xl lg:text-3xl font-normal tracking-tight text-foreground mt-1">
+              Day {dayLabel}: {day.title[locale]}
             </h3>
           </div>
         </div>
@@ -70,19 +70,6 @@ function DayCard({
         <p className="text-muted-foreground leading-relaxed mb-6 max-w-2xl text-sm sm:text-base">
           {day.description[locale]}
         </p>
-
-        {/* Highlights — horizontal chips */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          {day.highlights[locale].map((highlight, j) => (
-            <span
-              key={j}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs text-muted-foreground border border-border/60 hover:border-[#AA7C52]/30 hover:text-foreground transition-colors duration-300"
-            >
-              <span className="w-1 h-1 bg-[#AA7C52]/50 rounded-full flex-shrink-0" />
-              {highlight}
-            </span>
-          ))}
-        </div>
 
         {/* CTA */}
         {day.cta && (
@@ -144,10 +131,10 @@ export function AgendaTimeline() {
             transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
           }}
         >
-          <AnimatedLine variant="label" label="AGENDA" />
+          <AnimatedLine variant="label" label="PROGRAMME" />
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mt-6 gap-4">
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-foreground">
-              4 Days of Innovation
+              What the 4-Day Programme Includes
             </h2>
             <p className="text-muted-foreground text-sm tracking-wider uppercase">
               June 22-25, 2026 &mdash; Shanghai Qiantan

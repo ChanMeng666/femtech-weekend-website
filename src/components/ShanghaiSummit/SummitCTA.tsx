@@ -3,27 +3,33 @@ import Link from '@docusaurus/Link';
 import { SUMMIT_META } from '../../data/shanghai-summit';
 import { ArrowRight } from 'lucide-react';
 
-const ctaPaths = [
+const tracks = [
+  {
+    title: 'Attend the Conference',
+    description:
+      'Join the flagship one-day international conference on Day 1, featuring keynotes, panels, and networking with global leaders in women\'s health.',
+    note: null,
+    cta: 'Get Conference Tickets',
+    href: SUMMIT_META.ticketUrl,
+    external: true,
+  },
+  {
+    title: 'Apply for the Full Programme',
+    description:
+      'A curated 4-day experience including the conference, Capital & Pitch Day, and ecosystem visits — designed for companies serious about the China market.',
+    note: 'Curated access | Limited places',
+    cta: 'Request Full Programme Access',
+    href: '/shanghai-summit/programme',
+    external: false,
+  },
   {
     title: 'Apply to Pitch',
-    subtitle: 'Day 2',
-    description: 'Showcase your startup to global investors and industry leaders.',
+    description:
+      'A selective pitch opportunity on Day 2, led by Bayer, connecting founders with global investors and corporate partners in a closed-door setting.',
+    note: 'Selected companies only | Application required',
+    cta: 'Submit Pitch Application',
     href: '/shanghai-summit/pitch',
-    accent: '#AA7C52',
-  },
-  {
-    title: 'Apply for the Programme',
-    subtitle: 'Day 3',
-    description: 'Join the curated China programme for global women\'s health companies.',
-    href: '/shanghai-summit/programme',
-    accent: '#AA7C52',
-  },
-  {
-    title: 'Apply to Speak',
-    subtitle: 'Summit',
-    description: 'Share your expertise and insights at the summit stage.',
-    href: '/shanghai-summit/speak',
-    accent: '#AA7C52',
+    external: false,
   },
 ];
 
@@ -61,61 +67,64 @@ export function SummitCTA() {
           }}
         >
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-foreground mb-4">
-            Join the Summit
+            Choose Your Way In
           </h2>
           <p className="text-muted-foreground text-base max-w-lg leading-relaxed">
-            Multiple ways to participate in shaping the future of women&apos;s health in China and beyond.
+            Three distinct tracks to participate — whether you want to attend, apply for the full programme, or pitch.
           </p>
         </div>
 
-        {/* CTA cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          {ctaPaths.map((path) => (
-            <Link
-              key={path.title}
-              to={path.href}
-              className="group relative border border-border bg-card p-8 sm:p-10 no-underline hover:no-underline transition-all duration-500 hover:border-[#AA7C52]/30 border-t-2 border-t-transparent hover:border-t-[#AA7C52]"
+        {/* Track cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {tracks.map((track, i) => (
+            <div
+              key={track.title}
+              className="group relative border border-border bg-card p-8 sm:p-10 transition-all duration-500 hover:border-[#AA7C52]/30 border-t-2 border-t-transparent hover:border-t-[#AA7C52] flex flex-col"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+                transition: `all 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${i * 100}ms`,
+              }}
             >
               <span className="text-muted-foreground text-[10px] tracking-[0.2em] uppercase block mb-6">
-                {path.subtitle}
+                Track {i + 1}
               </span>
 
               <h3 className="font-display text-xl sm:text-2xl text-foreground mb-3 group-hover:text-[#AA7C52] transition-colors duration-300">
-                {path.title}
+                {track.title}
               </h3>
 
-              <p className="text-muted-foreground text-sm leading-relaxed mb-8">
-                {path.description}
+              <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">
+                {track.description}
               </p>
 
-              <span className="inline-flex items-center gap-2 text-[#AA7C52] text-sm font-medium">
-                Apply now
-                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </span>
-            </Link>
-          ))}
-        </div>
+              {track.note && (
+                <p className="text-[#AA7C52] text-xs tracking-wide mb-6">
+                  {track.note}
+                </p>
+              )}
 
-        {/* Conference ticket CTA */}
-        <div
-          className="text-center"
-          style={{
-            opacity: isVisible ? 1 : 0,
-            transition: 'opacity 0.7s ease 0.3s',
-          }}
-        >
-          <a
-            href={SUMMIT_META.ticketUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative inline-flex items-center gap-3 bg-[#AA7C52] text-white hover:text-white px-10 py-4 text-sm font-medium overflow-hidden no-underline hover:no-underline transition-all duration-300 hover:shadow-[0_0_24px_rgba(170,124,82,0.25)]"
-          >
-            <span className="relative">Get Conference Tickets</span>
-            <ArrowRight className="w-4 h-4 relative transition-transform duration-300 group-hover:translate-x-0.5" />
-          </a>
-          <p className="text-muted-foreground text-xs mt-4 tracking-wider">
-            JUNE 22, 2026 &mdash; GLOBAL LEADERS SUMMIT
-          </p>
+              {track.external ? (
+                <a
+                  href={track.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-[#AA7C52] text-sm font-medium no-underline hover:no-underline"
+                >
+                  {track.cta}
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </a>
+              ) : (
+                <Link
+                  to={track.href}
+                  className="inline-flex items-center gap-2 text-[#AA7C52] text-sm font-medium no-underline hover:no-underline"
+                >
+                  {track.cta}
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </div>

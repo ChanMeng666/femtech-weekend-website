@@ -4,76 +4,31 @@ import { speakers } from '../../data/shanghai-summit';
 import type { SpeakerData } from '../../data/shanghai-summit';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
-function SpeakerCard({ speaker, index }: { speaker: SpeakerData; index: number }) {
-  const [isHovered, setIsHovered] = useState(false);
+function SpeakerCard({ speaker }: { speaker: SpeakerData }) {
   const { i18n: { currentLocale } } = useDocusaurusContext();
   const locale = currentLocale === 'zh-Hans' ? 'zh' : 'en';
 
-  const initials = speaker.name
-    .split(' ')
-    .map((n) => n[0])
-    .join('')
-    .slice(0, 2)
-    .toUpperCase();
-
   return (
-    <div
-      className="group relative border border-border bg-card transition-all duration-500 hover:border-[#AA7C52]/30"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className="p-6 sm:p-8">
-        {/* Top row: photo + name/title side by side */}
-        <div className="flex gap-5 mb-5">
-          {/* Photo */}
-          <div className="flex-shrink-0">
-            <div
-              className="relative w-20 h-20 sm:w-24 sm:h-24 overflow-hidden"
-              style={{
-                clipPath: 'polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%)',
-              }}
-            >
-              {speaker.image ? (
-                <img
-                  src={speaker.image}
-                  alt={speaker.name}
-                  className="w-full h-full object-cover object-top transition-transform duration-700"
-                  style={{ transform: isHovered ? 'scale(1.08)' : 'scale(1)' }}
-                  loading="lazy"
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#AA7C52]/15 to-[#AA7C52]/5">
-                  <span className="font-display text-2xl text-[#AA7C52]/60">{initials}</span>
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Name, title, org */}
-          <div className="flex-1 min-w-0 pt-1">
-            <div className="flex items-start justify-between gap-2">
-              <h4 className="font-display text-lg text-foreground leading-tight">
-                {speaker.name}
-              </h4>
-              <span className="font-mono text-[10px] text-muted-foreground/30 tracking-wider flex-shrink-0">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-            </div>
-            <p className="text-[#AA7C52] mt-1 text-sm leading-snug">
-              {speaker.title[locale]}
-            </p>
-            <p className="text-muted-foreground mt-0.5 text-xs tracking-wide uppercase">
-              {speaker.organization}
-            </p>
-          </div>
-        </div>
-
-        {/* Bio — always visible, full text */}
-        <div className="border-t border-border pt-4">
-          <p className="text-muted-foreground text-sm leading-relaxed">
-            {speaker.bio[locale]}
-          </p>
-        </div>
+    <div className="group relative overflow-hidden bg-neutral-900 aspect-[3/4]">
+      <img
+        src={speaker.image}
+        alt={speaker.name}
+        className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.05]"
+        loading="lazy"
+      />
+      {/* Dark gradient at bottom */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+      {/* Text overlay */}
+      <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
+        <h4 className="font-display text-lg sm:text-xl text-white leading-tight mb-1">
+          {speaker.name}
+        </h4>
+        <p className="text-white/70 text-sm leading-snug">
+          {speaker.title[locale]}
+        </p>
+        <p className="text-white/50 text-xs tracking-wide uppercase mt-1">
+          {speaker.organization}
+        </p>
       </div>
     </div>
   );
@@ -82,6 +37,7 @@ function SpeakerCard({ speaker, index }: { speaker: SpeakerData; index: number }
 export function SpeakersGrid() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const speakersWithImages = speakers.filter((s) => s.image);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -99,7 +55,6 @@ export function SpeakersGrid() {
 
   return (
     <div ref={sectionRef} className="relative bg-background py-20 sm:py-28 lg:py-32 overflow-hidden">
-
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative">
         {/* Section header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 gap-6">
@@ -129,10 +84,10 @@ export function SpeakersGrid() {
           </p>
         </div>
 
-        {/* 2-column grid for speaker cards with full bios */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {speakers.map((speaker, i) => (
-            <SpeakerCard key={speaker.id} speaker={speaker} index={i} />
+        {/* 4-column grid of large rectangular cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {speakersWithImages.map((speaker) => (
+            <SpeakerCard key={speaker.id} speaker={speaker} />
           ))}
         </div>
       </div>
