@@ -407,6 +407,7 @@ export default function PitchApplication() {
   const [submitted, setSubmitted] = useState(false);
   const [referenceNumber, setReferenceNumber] = useState('');
   const [error, setError] = useState('');
+  const [debugLog, setDebugLog] = useState('');
   const [fieldErrors, setFieldErrors] = useState<Partial<Record<keyof FormData, string>>>({});
   const [touchedFields, setTouchedFields] = useState<Set<string>>(new Set());
   const [draftRestored, setDraftRestored] = useState(false);
@@ -569,6 +570,8 @@ export default function PitchApplication() {
 
     setSubmitting(true);
     setError('');
+    setDebugLog('');
+    const logs: string[] = [];
 
     try {
       let deckUrl = form.pitchDeckUrl;
@@ -579,23 +582,29 @@ export default function PitchApplication() {
         setPdfUploading(true);
         try {
           const base64 = await readFileAsBase64(pdfFile);
+          logs.push(`[upload] POST /api/upload-pitch-deck (${Math.round(base64.length / 1024)}KB base64)`);
           const uploadRes = await fetch('/api/upload-pitch-deck', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ file: base64 }),
           });
-          const uploadData = await uploadRes.json();
+          const uploadText = await uploadRes.text();
+          logs.push(`[upload] status=${uploadRes.status} body=${uploadText}`);
+          const uploadData = JSON.parse(uploadText);
           if (uploadData.success) {
             deckUrl = uploadData.url;
           } else {
-            setError(uploadData.message || 'Failed to upload pitch deck. Please try again.');
+            setError(uploadData.message || 'Failed to upload pitch deck.');
+            setDebugLog(logs.join('\n'));
             setSubmitting(false);
             setPdfUploading(false);
             setSubmitPhase('');
             return;
           }
-        } catch {
-          setError('Failed to upload pitch deck. Please check your connection and try again.');
+        } catch (uploadErr) {
+          logs.push(`[upload] EXCEPTION: ${uploadErr instanceof Error ? uploadErr.message : String(uploadErr)}`);
+          setError('Failed to upload pitch deck.');
+          setDebugLog(logs.join('\n'));
           setSubmitting(false);
           setPdfUploading(false);
           setSubmitPhase('');
@@ -619,21 +628,28 @@ export default function PitchApplication() {
         businessModel: resolveOther(form.businessModel, form.businessModelOther),
         workAreas: resolvedWorkAreas,
       };
+      logs.push(`[submit] POST /api/submit-pitch`);
+      logs.push(`[submit] payload=${JSON.stringify(payload, null, 2)}`);
       const res = await fetch('/api/submit-pitch', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
-      const data = await res.json();
+      const resText = await res.text();
+      logs.push(`[submit] status=${res.status} body=${resText}`);
+      const data = JSON.parse(resText);
       if (data.success) {
         setReferenceNumber(data.referenceNumber || '');
         setSubmitted(true);
         try { localStorage.removeItem(DRAFT_KEY); } catch { /* ignore */ }
       } else {
         setError(data.message || 'Submission failed. Please try again.');
+        setDebugLog(logs.join('\n'));
       }
-    } catch {
+    } catch (err) {
+      logs.push(`[fatal] EXCEPTION: ${err instanceof Error ? err.message : String(err)}`);
       setError('Network error. Please try again.');
+      setDebugLog(logs.join('\n'));
     } finally {
       setSubmitting(false);
       setSubmitPhase('');
@@ -1012,6 +1028,25 @@ export default function PitchApplication() {
                 {error && (
                   <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 text-sm">
                     {error}
+                  </div>
+                )}
+                {debugLog && (
+                  <div className="mt-3 border border-amber-300 bg-amber-50 p-4">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-xs font-semibold text-amber-800 uppercase tracking-wider">Debug Log</span>
+                      <button
+                        type="button"
+                        className="text-xs bg-amber-200 hover:bg-amber-300 text-amber-900 px-3 py-1 font-medium transition"
+                        onClick={() => {
+                          navigator.clipboard.writeText(debugLog);
+                        }}
+                      >
+                        Copy All
+                      </button>
+                    </div>
+                    <pre className="text-xs text-amber-900 whitespace-pre-wrap break-all font-mono max-h-96 overflow-auto select-all">
+                      {debugLog}
+                    </pre>
                   </div>
                 )}
               </div>
