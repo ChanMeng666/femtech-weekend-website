@@ -41,14 +41,15 @@ export function TeamSection() {
         >
           <AnimatedLine
             variant="label"
-            label="THE TEAM"
+            label={locale === 'zh' ? '核心团队' : 'THE TEAM'}
           />
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-foreground mt-6">
             FemTech Weekend
           </h2>
           <p className="text-muted-foreground text-base max-w-2xl mt-4 leading-relaxed">
-            Founded in September 2024, our team brings together professionals from
-            finance, banking, and consulting, with members across Europe and China.
+            {locale === 'zh'
+              ? '成立于2024年9月，我们的团队汇聚了金融、银行和咨询领域的专业人士，成员遍布欧洲和中国。'
+              : 'Founded in September 2024, our team brings together professionals from finance, banking, and consulting, with members across Europe and China.'}
           </p>
         </div>
 

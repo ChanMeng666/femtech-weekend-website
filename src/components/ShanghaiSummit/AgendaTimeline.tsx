@@ -5,6 +5,14 @@ import { agendaDays } from '../../data/shanghai-summit';
 import { ArrowRight } from 'lucide-react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
+const sectionText = {
+  label: { en: 'PROGRAMME', zh: '项目日程' },
+  heading: { en: 'What the 4-Day Programme Includes', zh: '四天项目包含哪些内容' },
+  subline: { en: 'June 22-25, 2026 \u2014 Shanghai Qiantan', zh: '2026年6月22-25日 \u2014 上海前滩' },
+  dayPrefix: { en: 'Day', zh: '第' },
+  daySuffix: { en: '', zh: '天' },
+};
+
 function DayCard({
   day,
   index,
@@ -61,7 +69,9 @@ function DayCard({
               {day.date}
             </p>
             <h3 className="font-display text-xl sm:text-2xl lg:text-3xl font-normal tracking-tight text-foreground mt-1">
-              Day {dayLabel}: {day.title[locale]}
+              {locale === 'zh'
+                ? `${sectionText.dayPrefix.zh}${dayLabel}${sectionText.daySuffix.zh}：${day.title[locale]}`
+                : `Day ${dayLabel}: ${day.title[locale]}`}
             </h3>
           </div>
         </div>
@@ -104,6 +114,8 @@ function DayCard({
 export function AgendaTimeline() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { i18n: { currentLocale } } = useDocusaurusContext();
+  const agendaLocale = currentLocale === 'zh-Hans' ? 'zh' : 'en';
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -131,13 +143,13 @@ export function AgendaTimeline() {
             transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
           }}
         >
-          <AnimatedLine variant="label" label="PROGRAMME" />
+          <AnimatedLine variant="label" label={sectionText.label[agendaLocale]} />
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mt-6 gap-4">
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-foreground">
-              What the 4-Day Programme Includes
+              {sectionText.heading[agendaLocale]}
             </h2>
             <p className="text-muted-foreground text-sm tracking-wider uppercase">
-              June 22-25, 2026 &mdash; Shanghai Qiantan
+              {sectionText.subline[agendaLocale]}
             </p>
           </div>
         </div>

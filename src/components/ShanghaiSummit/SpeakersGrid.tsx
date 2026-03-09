@@ -4,6 +4,15 @@ import { speakers } from '../../data/shanghai-summit';
 import type { SpeakerData } from '../../data/shanghai-summit';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
+const sectionText = {
+  label: { en: 'SPEAKERS', zh: '演讲嘉宾' },
+  heading: { en: 'Global Thought Leaders', zh: '全球思想领袖' },
+  description: {
+    en: "Pioneers in women's health science, investment, and cross-border innovation.",
+    zh: '女性健康科学、投资与跨境创新领域的先行者。',
+  },
+};
+
 function SpeakerCard({
   speaker,
   onSelect,
@@ -142,6 +151,8 @@ export function SpeakersGrid() {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedSpeaker, setSelectedSpeaker] = useState<SpeakerData | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { i18n: { currentLocale } } = useDocusaurusContext();
+  const gridLocale = currentLocale === 'zh-Hans' ? 'zh' : 'en';
   const speakersWithImages = speakers.filter((s) => s.image);
 
   useEffect(() => {
@@ -171,9 +182,9 @@ export function SpeakersGrid() {
               transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
             }}
           >
-            <AnimatedLine variant="label" label="SPEAKERS" />
+            <AnimatedLine variant="label" label={sectionText.label[gridLocale]} />
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-foreground mt-6">
-              Global Thought Leaders
+              {sectionText.heading[gridLocale]}
             </h2>
           </div>
           <p
@@ -184,8 +195,7 @@ export function SpeakersGrid() {
               transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
             }}
           >
-            Pioneers in women&apos;s health science, investment, and cross-border
-            innovation.
+            {sectionText.description[gridLocale]}
           </p>
         </div>
 

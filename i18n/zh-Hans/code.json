@@ -1405,5 +1405,13 @@
   "summit.banner.cta": {
     "message": "查看完整日程",
     "description": "Summit banner CTA button text"
+  },
+  "summit.page.title": {
+    "message": "2026上海峰会",
+    "description": "Summit page title"
+  },
+  "summit.page.description": {
+    "message": "跨境资本与女性健康合作——上海，2026年6月22-25日",
+    "description": "Summit page meta description"
   }
 }

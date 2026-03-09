@@ -1,6 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { AnimatedLine } from '../ui/AnimatedLine';
 import { MapPin } from 'lucide-react';
+
+const t = {
+  label: { en: 'THE VENUE', zh: '峰会场地' },
+  address: { en: 'Shanghai Qiantan International Business District', zh: '上海前滩国际商务区' },
+  lobbyLabel: { en: 'Lobby', zh: '大厅' },
+  lobbyName: { en: 'PwC Experience Center', zh: '普华永道体验中心' },
+  stageLabel: { en: 'Main Stage', zh: '主会场' },
+  stageName: { en: 'Immersive Auditorium', zh: '沉浸式礼堂' },
+  description: {
+    en: 'A world-class venue in the heart of Shanghai\u2019s new financial hub, featuring an immersive curved-screen auditorium, premium networking spaces, and panoramic river views.',
+    zh: '坐落于上海新金融中心核心地带的世界级场地，配备沉浸式曲面屏礼堂、高端社交空间和全景江景。',
+  },
+};
 
 export function VenueShowcase() {
   const [isVisible, setIsVisible] = useState(false);
@@ -20,6 +34,9 @@ export function VenueShowcase() {
     return () => observer.disconnect();
   }, []);
 
+  const { i18n: { currentLocale } } = useDocusaurusContext();
+  const locale = currentLocale === 'zh-Hans' ? 'zh' : 'en';
+
   return (
     <div
       ref={sectionRef}
@@ -35,14 +52,14 @@ export function VenueShowcase() {
             transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
           }}
         >
-          <AnimatedLine variant="label" label="THE VENUE" />
+          <AnimatedLine variant="label" label={t.label[locale]} />
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mt-6 gap-4">
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-foreground">
               PwC, Shanghai
             </h2>
             <div className="flex items-center gap-2 text-muted-foreground text-sm">
               <MapPin className="w-4 h-4 text-[#AA7C52]" />
-              <span>Shanghai Qiantan International Business District</span>
+              <span>{t.address[locale]}</span>
             </div>
           </div>
         </div>
@@ -68,8 +85,8 @@ export function VenueShowcase() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               {/* Label overlay */}
               <div className="absolute bottom-0 left-0 p-6 sm:p-8">
-                <span className="text-white/60 text-[10px] tracking-[0.2em] uppercase block mb-1">Lobby</span>
-                <span className="text-white font-display text-lg sm:text-xl">PwC Experience Center</span>
+                <span className="text-white/60 text-[10px] tracking-[0.2em] uppercase block mb-1">{t.lobbyLabel[locale]}</span>
+                <span className="text-white font-display text-lg sm:text-xl">{t.lobbyName[locale]}</span>
               </div>
             </div>
             {/* Frame corner accents */}
@@ -91,8 +108,8 @@ export function VenueShowcase() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                 {/* Label overlay */}
                 <div className="absolute bottom-0 left-0 p-6 sm:p-8">
-                  <span className="text-white/60 text-[10px] tracking-[0.2em] uppercase block mb-1">Main Stage</span>
-                  <span className="text-white font-display text-lg sm:text-xl">Immersive Auditorium</span>
+                  <span className="text-white/60 text-[10px] tracking-[0.2em] uppercase block mb-1">{t.stageLabel[locale]}</span>
+                  <span className="text-white font-display text-lg sm:text-xl">{t.stageName[locale]}</span>
                 </div>
               </div>
               {/* Frame corner accent */}
@@ -108,9 +125,7 @@ export function VenueShowcase() {
               </div>
 
               <p className="text-muted-foreground text-sm leading-relaxed">
-                A world-class venue in the heart of Shanghai&apos;s new financial hub,
-                featuring an immersive curved-screen auditorium, premium networking
-                spaces, and panoramic river views.
+                {t.description[locale]}
               </p>
             </div>
           </div>
