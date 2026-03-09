@@ -22,9 +22,9 @@ const toOptions = (arr: string[]): OptionItem[] => arr.map((s) => ({ value: s, l
 const translations = {
   en: {
     pageTitle: 'Pitch Application - Shanghai Summit',
-    pageDescription: 'Apply to pitch at the FemTech Weekend Shanghai Summit 2026.',
+    pageDescription: 'Apply for the Women\'s Health Capital Spotlight at FemTech Weekend Shanghai Summit 2026.',
     heading: 'Pitch Application',
-    subtitle: 'Apply to pitch at the FemTech Weekend Shanghai Summit 2026. Free to apply — selected companies confirm with a £199 pitch package.',
+    subtitle: 'Apply for the Women\'s Health Capital Spotlight\nPitch Theme: Beyond Gender, Beyond Borders — Women\'s Health for a Shared Future\nIn collaboration with Bayer Women\'s Healthcare China',
     howItWorks: 'How It Works',
     steps: ['Contact Information', 'Company Profile'],
     howItWorksCards: [
@@ -141,9 +141,9 @@ const translations = {
   },
   zh: {
     pageTitle: '路演申请 - 上海峰会',
-    pageDescription: '申请在FemTech Weekend 2026上海峰会上进行路演。',
+    pageDescription: '申请参加FemTech Weekend 2026上海峰会"女性健康资本聚焦"路演。',
     heading: '路演申请',
-    subtitle: '申请在FemTech Weekend 2026上海峰会上路演。免费申请——入选企业需支付£199路演套餐确认参与。',
+    subtitle: '申请参加"女性健康资本聚焦"路演\n路演主题：超越性别，跨越边界——共筑女性健康共同未来\n联合发起：拜耳中国女性健康事业部',
     howItWorks: '申请流程',
     steps: ['联系方式', '公司信息'],
     howItWorksCards: [
@@ -1005,9 +1005,14 @@ export default function PitchApplication() {
           {/* Page header */}
           <div className="text-center mb-10">
             <h1 className="text-3xl font-bold text-foreground mb-3">{t.heading}</h1>
-            <p className="text-muted-foreground text-sm max-w-lg mx-auto">
+            <p className="text-muted-foreground text-sm max-w-lg mx-auto whitespace-pre-line">
               {t.subtitle}
             </p>
+            <img
+              src="/img/summit-partners/bayer-womens-healthcare-logo.svg"
+              alt="Bayer Women's Healthcare China"
+              className="mx-auto mt-4 h-8"
+            />
           </div>
 
           {/* How It Works */}
