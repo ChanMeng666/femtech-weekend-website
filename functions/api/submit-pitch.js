@@ -139,8 +139,13 @@ FemTech Weekend — Shanghai Summit 2026`;
   return { subject, html, text };
 }
 
+function joinArray(v) {
+  if (Array.isArray(v)) return v.join(', ');
+  return v || '';
+}
+
 function getAdminNotificationEmail(formData, referenceNumber) {
-  const s = (v) => escapeHtml(v) || '—';
+  const s = (v) => escapeHtml(Array.isArray(v) ? v.join(', ') : v) || '—';
   const workAreas = Array.isArray(formData.workAreas) ? formData.workAreas.join(', ') : (formData.workAreas || '—');
   const deckLink = formData.pitchDeckUrl
     ? `<a href="${escapeHtml(formData.pitchDeckUrl)}" style="color:${brandStyles.primaryColor};">View Pitch Deck</a>`
@@ -209,8 +214,8 @@ Company: ${formData.companyName}
 Website: ${formData.companyWebsite || '—'}
 Type: ${formData.companyType || '—'}
 Health Focus: ${formData.healthFocus || '—'}
-Markets: ${formData.marketServed || '—'}
-Ecosystem: ${formData.ecosystem || '—'}
+Markets: ${joinArray(formData.marketServed) || '—'}
+Ecosystem: ${joinArray(formData.ecosystem) || '—'}
 
 Business Model: ${formData.businessModel || '—'}
 Revenue: ${formData.annualRevenue || '—'}
@@ -280,10 +285,12 @@ export async function onRequest(context) {
       work_areas, business_model, annual_revenue, pitch_deck_url, market_served,
       status
     ) VALUES (
-      ${firstName}, ${lastName}, ${email}, ${linkedin || null}, ${headquarters || null}, ${ecosystem || null},
+      ${firstName}, ${lastName}, ${email}, ${linkedin || null}, ${headquarters || null},
+      ${Array.isArray(ecosystem) ? ecosystem.join(', ') : ecosystem || null},
       ${companyName}, ${companyWebsite || null}, ${roleTitle || null}, ${companyType || null}, ${healthFocus || null},
       ${Array.isArray(workAreas) ? JSON.stringify(workAreas) : workAreas || null},
-      ${businessModel || null}, ${annualRevenue || null}, ${pitchDeckUrl || null}, ${marketServed || null},
+      ${businessModel || null}, ${annualRevenue || null}, ${pitchDeckUrl || null},
+      ${Array.isArray(marketServed) ? marketServed.join(', ') : marketServed || null},
       'submitted'
     ) RETURNING id`;
 

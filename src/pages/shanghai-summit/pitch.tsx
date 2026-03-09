@@ -26,17 +26,33 @@ const btnSecondary =
 const STEPS = ['Contact Information', 'Company Profile'];
 const DRAFT_KEY = 'pitch-application-draft';
 
+const MARKET_PRESETS = [
+  'China', 'United States', 'United Kingdom', 'Europe (EU)',
+  'Southeast Asia', 'Japan', 'South Korea', 'India',
+  'Middle East', 'Africa', 'Latin America', 'Australia / NZ',
+  'Canada', 'Global',
+];
+
+const ECOSYSTEM_PRESETS = [
+  'FemTech Weekend', 'FemTech Lab', 'FemTech Collective',
+  'FemTech Association Asia', 'FemTech Future / FemTech NL',
+  'Nordic Women\'s Health Hub', 'FemmeHealth Alliance',
+  'Hatch (by Bayer)', 'Plug and Play', 'Y Combinator',
+  'Techstars', '500 Global', 'HAX', 'IndieBio',
+  'StartX', 'Rock Health', 'SOSV', 'Entrepreneur First',
+];
+
 type FormData = {
   firstName: string;
   lastName: string;
   email: string;
   linkedin: string;
   headquarters: string;
-  ecosystem: string;
+  ecosystem: string[];
   companyName: string;
   companyWebsite: string;
   roleTitle: string;
-  marketServed: string;
+  marketServed: string[];
   companyType: string;
   healthFocus: string;
   workAreas: string[];
@@ -51,11 +67,11 @@ const initial: FormData = {
   email: '',
   linkedin: '',
   headquarters: '',
-  ecosystem: '',
+  ecosystem: [],
   companyName: '',
   companyWebsite: '',
   roleTitle: '',
-  marketServed: '',
+  marketServed: [],
   companyType: '',
   healthFocus: '',
   workAreas: [],
@@ -193,6 +209,139 @@ function CountryCombobox({
           )}
         </ul>
       )}
+    </div>
+  );
+}
+
+function TagInput({
+  value,
+  onChange,
+  presets,
+  placeholder,
+  disabled,
+}: {
+  value: string[];
+  onChange: (v: string[]) => void;
+  presets: string[];
+  placeholder?: string;
+  disabled?: boolean;
+}) {
+  const [inputValue, setInputValue] = useState('');
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const filteredPresets = useMemo(() => {
+    const q = inputValue.toLowerCase();
+    return presets.filter(
+      (p) => !value.includes(p) && (!q || p.toLowerCase().includes(q)),
+    );
+  }, [inputValue, presets, value]);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
+        setShowSuggestions(false);
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
+
+  const addTag = (tag: string) => {
+    const trimmed = tag.trim();
+    if (trimmed && !value.includes(trimmed)) {
+      onChange([...value, trimmed]);
+    }
+    setInputValue('');
+  };
+
+  const removeTag = (tag: string) => {
+    onChange(value.filter((v) => v !== tag));
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if ((e.key === 'Enter' || e.key === ',') && inputValue.trim()) {
+      e.preventDefault();
+      addTag(inputValue);
+    }
+    if (e.key === 'Backspace' && !inputValue && value.length > 0) {
+      removeTag(value[value.length - 1]);
+    }
+    if (e.key === 'Escape') {
+      setShowSuggestions(false);
+      inputRef.current?.blur();
+    }
+  };
+
+  return (
+    <div ref={wrapperRef} className="relative">
+      {/* Selected tags + input */}
+      <div
+        className={`${inputClass} flex flex-wrap gap-1.5 min-h-[46px] cursor-text !py-2`}
+        onClick={() => !disabled && inputRef.current?.focus()}
+      >
+        {value.map((tag) => (
+          <span
+            key={tag}
+            className="inline-flex items-center gap-1 bg-primary/10 text-primary text-xs font-medium pl-2.5 pr-1 py-1 max-w-full"
+          >
+            <span className="truncate">{tag}</span>
+            {!disabled && (
+              <button
+                type="button"
+                onClick={(e) => { e.stopPropagation(); removeTag(tag); }}
+                className="p-0.5 hover:bg-primary/20 rounded-sm transition flex-shrink-0"
+                aria-label={`Remove ${tag}`}
+              >
+                <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            )}
+          </span>
+        ))}
+        <input
+          ref={inputRef}
+          type="text"
+          className="flex-1 min-w-[120px] bg-transparent outline-none text-sm text-foreground placeholder:text-muted-foreground/60"
+          value={inputValue}
+          onChange={(e) => {
+            setInputValue(e.target.value);
+            setShowSuggestions(true);
+          }}
+          onFocus={() => setShowSuggestions(true)}
+          onKeyDown={handleKeyDown}
+          placeholder={value.length === 0 ? placeholder : 'Type to add more...'}
+          disabled={disabled}
+          autoComplete="off"
+        />
+      </div>
+
+      {/* Suggestion dropdown */}
+      {showSuggestions && filteredPresets.length > 0 && (
+        <ul className="absolute z-50 mt-1 w-full max-h-48 overflow-auto border border-border bg-card shadow-lg text-sm">
+          {filteredPresets.map((p) => (
+            <li
+              key={p}
+              className="px-4 py-2 cursor-pointer text-foreground hover:bg-muted transition-colors"
+              onMouseDown={(e) => {
+                e.preventDefault();
+                addTag(p);
+                setShowSuggestions(true);
+                inputRef.current?.focus();
+              }}
+            >
+              {p}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {/* Hint */}
+      <p className="text-[11px] text-muted-foreground/60 mt-1">
+        Select from suggestions or type a custom value and press Enter
+      </p>
     </div>
   );
 }
@@ -574,12 +723,26 @@ export default function PitchApplication() {
                 {fieldInput('companyName', 'Company Name', { required: true })}
                 {fieldInput('companyWebsite', 'Company Website', { placeholder: 'https://...' })}
                 {fieldInput('roleTitle', 'Your Role / Title')}
-                {fieldInput('marketServed', 'Markets Currently Served', {
-                  placeholder: 'e.g. US, UK, China, Southeast Asia',
-                })}
-                {fieldInput('ecosystem', 'FemTech Ecosystem / Community', {
-                  placeholder: 'e.g. FemTech Weekend, other accelerator...',
-                })}
+                <div>
+                  <label className={labelClass}>Markets Currently Served</label>
+                  <TagInput
+                    value={form.marketServed}
+                    onChange={(v) => set('marketServed', v)}
+                    presets={MARKET_PRESETS}
+                    placeholder="Select or type markets..."
+                    disabled={submitting}
+                  />
+                </div>
+                <div>
+                  <label className={labelClass}>FemTech Ecosystem / Community</label>
+                  <TagInput
+                    value={form.ecosystem}
+                    onChange={(v) => set('ecosystem', v)}
+                    presets={ECOSYSTEM_PRESETS}
+                    placeholder="Select or type ecosystems..."
+                    disabled={submitting}
+                  />
+                </div>
               </div>
             )}
 
@@ -732,7 +895,8 @@ export default function PitchApplication() {
                       ['Website', form.companyWebsite || '—'],
                       ['Headquarters', form.headquarters || '—'],
                       ['Role', form.roleTitle || '—'],
-                      ['Markets Served', form.marketServed || '—'],
+                      ['Markets Served', form.marketServed.length > 0 ? form.marketServed.join(', ') : '—'],
+                      ['Ecosystem', form.ecosystem.length > 0 ? form.ecosystem.join(', ') : '—'],
                       ['Type', form.companyType || '—'],
                       ['Health Focus', form.healthFocus || '—'],
                       ['Revenue', form.annualRevenue || '—'],
