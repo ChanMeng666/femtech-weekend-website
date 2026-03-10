@@ -77,34 +77,35 @@ export const speakers: SpeakerData[] = [
     },
     image: '/img/speakers/amina-sugimoto.jpg',
   },
-  {
-    id: 'maaike-steinebach',
-    name: 'Maaike Steinebach',
-    title: {
-      en: 'Founder, FemTech Future / FemTech NL',
-      zh: '创始人，FemTech Future / FemTech NL',
-    },
-    organization: 'FemTech Future',
-    bio: {
-      en: 'Former Visa VP for Greater China and Executive Director for Hong Kong & Macau. Leveraging extensive networks from international finance hubs, she drives cross-border innovation and strategic resource integration in women\'s health.',
-      zh: '前Visa大中华区副总裁兼香港及澳门执行董事，凭借广泛高端网络，全力推动女性健康领域的跨国创新合作与战略资源整合。',
-    },
-    image: '/img/speakers/maaike-steinebach.png',
-  },
-  {
-    id: 'lindsay-davis',
-    name: 'Lindsay Davis',
-    title: {
-      en: 'Founder, FemTech Association Asia',
-      zh: '创始人，亚洲女性健康科技协会',
-    },
-    organization: 'FemTech Association Asia',
-    bio: {
-      en: 'Founder of FemTech Association Asia. Led strategic initiatives at UNESCAP, UN Women, and other agencies. Milken Institute Women\'s Health Asia-Pacific invited speaker and columnist, driving Asian women\'s health innovation and international multilateral collaboration.',
-      zh: 'FemTech Association Asia创始人，曾于联合国亚太经社会、妇女署等机构主导多项战略倡议，米尔肯研究所女性健康亚太区特邀演讲嘉宾。',
-    },
-    image: '/img/speakers/lindsay-davis.png',
-  },
+  // Temporarily hidden speakers - Maaike and Lindsay
+  // {
+  //   id: 'maaike-steinebach',
+  //   name: 'Maaike Steinebach',
+  //   title: {
+  //     en: 'Founder, FemTech Future / FemTech NL',
+  //     zh: '创始人，FemTech Future / FemTech NL',
+  //   },
+  //   organization: 'FemTech Future',
+  //   bio: {
+  //     en: 'Former Visa VP for Greater China and Executive Director for Hong Kong & Macau. Leveraging extensive networks from international finance hubs, she drives cross-border innovation and strategic resource integration in women\'s health.',
+  //     zh: '前Visa大中华区副总裁兼香港及澳门执行董事，凭借广泛高端网络，全力推动女性健康领域的跨国创新合作与战略资源整合。',
+  //   },
+  //   image: '/img/speakers/maaike-steinebach.png',
+  // },
+  // {
+  //   id: 'lindsay-davis',
+  //   name: 'Lindsay Davis',
+  //   title: {
+  //     en: 'Founder, FemTech Association Asia',
+  //     zh: '创始人，亚洲女性健康科技协会',
+  //   },
+  //   organization: 'FemTech Association Asia',
+  //   bio: {
+  //     en: 'Founder of FemTech Association Asia. Led strategic initiatives at UNESCAP, UN Women, and other agencies. Milken Institute Women\'s Health Asia-Pacific invited speaker and columnist, driving Asian women\'s health innovation and international multilateral collaboration.',
+  //     zh: 'FemTech Association Asia创始人，曾于联合国亚太经社会、妇女署等机构主导多项战略倡议，米尔肯研究所女性健康亚太区特邀演讲嘉宾。',
+  //   },
+  //   image: '/img/speakers/lindsay-davis.png',
+  // },
   {
     id: 'vanessa-carpenter',
     name: 'Vanessa Julia Carpenter',
