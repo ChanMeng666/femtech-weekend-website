@@ -722,6 +722,12 @@ export default function PitchApplication() {
   const [pdfFile, setPdfFile] = useState<File | null>(null);
   const [pdfUploading, setPdfUploading] = useState(false);
   const [pdfError, setPdfError] = useState('');
+  const [isHeroVisible, setIsHeroVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsHeroVisible(true), 200);
+    return () => clearTimeout(timer);
+  }, []);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Draft auto-save debounce ref
@@ -1004,57 +1010,103 @@ export default function PitchApplication() {
 
   return (
     <Layout title={t.pageTitle} description={t.pageDescription}>
-      <div className="bg-background min-h-screen px-4 py-12">
-        <div className="max-w-3xl mx-auto">
-          {/* Page header */}
-          <div className="text-center mb-10">
-            <h1 className="text-3xl font-bold text-foreground mb-4">{t.heading}</h1>
-            <p className="text-muted-foreground text-sm max-w-lg mx-auto">
-              {t.subtitleLine1}
-            </p>
-            <p className="text-muted-foreground/70 text-xs italic mt-2 max-w-lg mx-auto">
-              {t.subtitleTheme}
-            </p>
-            <div className="flex flex-col items-center mt-4 gap-2">
-              <span className="text-muted-foreground/60 text-xs">{t.subtitleCollab}</span>
-              <img
-                src="/img/summit-partners/bayer-womens-healthcare-logo.svg"
-                alt="Bayer Women's Healthcare China"
-                className="h-8 dark:hidden"
-              />
+      {/* HERO: full viewport dark section */}
+      <div className="relative h-screen bg-black overflow-hidden">
+        <img
+          src="/img/shanghai/pitch-hero.jpg"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        {/* Gradient overlay: dark left, transparent right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
+
+        {/* Hero content */}
+        <div
+          className="relative z-10 h-full flex flex-col justify-center px-6 sm:px-10 lg:px-16 pt-20 sm:pt-24 pb-12 max-w-2xl"
+          style={{
+            opacity: isHeroVisible ? 1 : 0,
+            transform: isHeroVisible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+          }}
+        >
+          {/* Label with decorative line */}
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-8 h-px bg-[#AA7C52]" />
+            <span className="text-[#AA7C52] text-xs tracking-[0.2em] uppercase font-medium">
+              {t.heading}
+            </span>
+          </div>
+
+          {/* Heading */}
+          <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-5 leading-[1.1]">
+            {t.subtitleLine1}
+          </h1>
+
+          {/* Subtitle */}
+          <p className="text-white/80 text-base sm:text-lg mb-3 leading-relaxed max-w-xl">
+            {t.pageDescription}
+          </p>
+
+          {/* Theme tagline */}
+          <p className="text-white/50 text-sm italic mb-8">
+            {t.subtitleTheme}
+          </p>
+
+          {/* Partner logos */}
+          <div className="mb-10">
+            <span className="text-white/40 text-xs uppercase tracking-wider block mb-3">
+              {t.subtitleCollab}
+            </span>
+            <div className="flex items-center gap-5">
               <img
                 src="/img/summit-partners/bayer-womens-healthcare-logo-white.svg"
                 alt="Bayer Women's Healthcare China"
-                className="h-8 hidden dark:block"
+                className="h-7 sm:h-8 opacity-80"
+              />
+              <img
+                src="/img/summit-partners/femtech-across-borders-logo-white.svg"
+                alt="FemTech Across Borders"
+                className="h-7 sm:h-8 opacity-80"
               />
             </div>
           </div>
 
           {/* How It Works */}
-          <div className="mb-14">
-            <p className="text-xs tracking-[0.2em] uppercase text-[#AA7C52] text-center mb-8 font-medium">{t.howItWorks}</p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 sm:gap-0">
+          <div>
+            <p className="text-[#AA7C52] text-xs tracking-[0.2em] uppercase font-medium mb-5">
+              {t.howItWorks}
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-0">
               {t.howItWorksCards.map((card, i) => (
                 <div
                   key={i}
-                  className={`relative p-6 sm:p-7 ${
+                  className={`relative p-5 sm:p-6 border border-white/10 ${
                     i === 0
-                      ? 'border border-border sm:border-r-0'
+                      ? 'sm:border-r-0'
                       : i === 1
-                        ? 'border border-border sm:border-r-0'
-                        : 'border border-border'
-                  } ${i > 0 ? 'border-t-0 sm:border-t' : ''}`}
+                        ? 'sm:border-r-0 border-t-0 sm:border-t'
+                        : 'border-t-0 sm:border-t'
+                  }`}
                 >
-                  <span className="text-[11px] font-mono text-[#AA7C52]/50 tracking-wider">
+                  <span className="text-[11px] font-mono text-[#AA7C52]/70 tracking-wider">
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <h3 className="font-semibold text-foreground text-sm mt-2 mb-2.5">{card.title}</h3>
-                  <p className="text-[13px] text-muted-foreground leading-relaxed">{card.desc}</p>
+                  <h3 className="text-white text-sm font-semibold mt-2 mb-2">
+                    {card.title}
+                  </h3>
+                  <p className="text-white/60 text-[13px] leading-relaxed">
+                    {card.desc}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
+        </div>
+      </div>
 
+      {/* FORM section */}
+      <div className="bg-background px-4 py-12">
+        <div className="max-w-3xl mx-auto">
           {/* Draft restored toast */}
           {draftRestored && (
             <div className="mb-4 px-4 py-2.5 bg-primary/5 border border-primary/20 text-sm text-primary text-center transition-opacity">
