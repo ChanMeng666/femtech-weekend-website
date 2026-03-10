@@ -34,7 +34,7 @@ const translations = {
     howItWorksCards: [
       {
         title: 'Apply for free',
-        desc: 'Complete the application form below and share your company details, traction, and China relevance.',
+        desc: 'Complete the application form below and share your company details.',
       },
       {
         title: 'Curated selection',
@@ -42,7 +42,7 @@ const translations = {
       },
       {
         title: 'Confirm your place',
-        desc: 'Invited companies can secure their participation through the Pitch Package (\u00A3199), which includes one Day 1 conference pass.',
+        desc: 'Invited companies can secure their participation through the Pitch Package, which includes one Day 1 conference pass.',
       },
     ],
     draftRestored: 'Draft restored from your previous session.',
@@ -59,8 +59,8 @@ const translations = {
     ecosystemLabel: 'FemTech Ecosystem / Community',
     // Step 2: Company Profile
     companyType: 'Company Type',
-    primaryHealthFocus: 'Primary Health Focus',
-    workAreas: 'Work Areas (select all that apply)',
+    primaryHealthFocus: "Primary Women's Health Focus",
+    workAreas: 'Do you work in any of the following areas (select all that apply)',
     businessModel: 'Business Model',
     annualRevenue: 'Annual Revenue',
     pitchDeck: 'Pitch Deck (PDF)',
@@ -113,6 +113,14 @@ const translations = {
     emailRequired: 'Email is required',
     invalidEmail: 'Please enter a valid email address',
     companyNameRequired: 'Company name is required',
+    headquartersRequired: 'Company headquarters is required',
+    companyWebsiteRequired: 'Company website is required',
+    marketsRequired: 'At least one market is required',
+    companyTypeRequired: 'Company type is required',
+    healthFocusRequired: 'Health focus is required',
+    workAreasRequired: 'At least one work area is required',
+    businessModelRequired: 'Business model is required',
+    revenueRequired: 'Annual revenue is required',
     uploadFailed: 'Failed to upload pitch deck. Please try again.',
     uploadNetworkError: 'Failed to upload pitch deck. Please check your connection and try again.',
     submitFailed: 'Submission failed. Please try again.',
@@ -157,7 +165,7 @@ const translations = {
     howItWorksCards: [
       {
         title: '免费申请',
-        desc: '填写以下申请表，提供您的公司详情、业务进展和中国市场相关性。',
+        desc: '填写以下申请表，提供您的公司详情。',
       },
       {
         title: '择优筛选',
@@ -165,7 +173,7 @@ const translations = {
       },
       {
         title: '确认名额',
-        desc: '受邀企业可通过路演套餐（£199）确认参与，包含一张第一天峰会门票。',
+        desc: '受邀企业可通过路演套餐确认参与，包含一张第一天峰会门票。',
       },
     ],
     draftRestored: '已从上次会话中恢复草稿。',
@@ -182,8 +190,8 @@ const translations = {
     ecosystemLabel: 'FemTech 生态/社区',
     // Step 2
     companyType: '公司类型',
-    primaryHealthFocus: '主要健康领域',
-    workAreas: '工作领域（可多选）',
+    primaryHealthFocus: '主要女性健康领域',
+    workAreas: '您是否从事以下领域（可多选）',
     businessModel: '商业模式',
     annualRevenue: '年收入',
     pitchDeck: '路演文稿 (PDF)',
@@ -236,6 +244,14 @@ const translations = {
     emailRequired: '请填写电子邮箱',
     invalidEmail: '请输入有效的电子邮箱地址',
     companyNameRequired: '请填写公司名称',
+    headquartersRequired: '请填写公司总部所在地',
+    companyWebsiteRequired: '请填写公司网站',
+    marketsRequired: '请至少选择一个服务市场',
+    companyTypeRequired: '请选择公司类型',
+    healthFocusRequired: '请选择健康领域',
+    workAreasRequired: '请至少选择一个工作领域',
+    businessModelRequired: '请选择商业模式',
+    revenueRequired: '请选择年收入',
     uploadFailed: '路演文稿上传失败，请重试。',
     uploadNetworkError: '路演文稿上传失败，请检查网络连接后重试。',
     submitFailed: '提交失败，请重试。',
@@ -322,12 +338,10 @@ const TOTAL_STEPS = 2;
 const DRAFT_KEY = 'pitch-application-draft';
 
 const ECOSYSTEM_PRESETS = [
-  'FemTech Weekend', 'FemTech Lab', 'FemTech Collective',
-  'FemTech Association Asia', 'FemTech Future / FemTech NL',
-  'Nordic Women\'s Health Hub', 'FemmeHealth Alliance',
-  'Hatch (by Bayer)', 'Plug and Play', 'Y Combinator',
-  'Techstars', '500 Global', 'HAX', 'IndieBio',
-  'StartX', 'Rock Health', 'SOSV', 'Entrepreneur First',
+  'FemTech Caribbean', 'FemTech Portugal', 'FemTech Association Asia',
+  'FemTech Italy', 'Tech4Fem', 'FemTech Spain', 'FemTech France',
+  'Nordic Women\'s Health Hub', 'Fermata', 'FemTech NL', 'FemTech Future',
+  'FemTech Mexico', 'Other',
 ];
 
 type FormData = {
@@ -817,6 +831,14 @@ export default function PitchApplication() {
       else if (!isValidEmail(form.email)) errors.email = t.invalidEmail;
     }
     if (field === 'companyName' && !form.companyName.trim()) errors.companyName = t.companyNameRequired;
+    if (field === 'headquarters' && !form.headquarters.trim()) errors.headquarters = t.headquartersRequired;
+    if (field === 'companyWebsite' && !form.companyWebsite.trim()) errors.companyWebsite = t.companyWebsiteRequired;
+    if (field === 'marketServed' && form.marketServed.length === 0) errors.marketServed = t.marketsRequired;
+    if (field === 'companyType' && !form.companyType.trim()) errors.companyType = t.companyTypeRequired;
+    if (field === 'healthFocus' && !form.healthFocus.trim()) errors.healthFocus = t.healthFocusRequired;
+    if (field === 'workAreas' && form.workAreas.length === 0) errors.workAreas = t.workAreasRequired;
+    if (field === 'businessModel' && !form.businessModel.trim()) errors.businessModel = t.businessModelRequired;
+    if (field === 'annualRevenue' && !form.annualRevenue.trim()) errors.annualRevenue = t.revenueRequired;
 
     setFieldErrors((prev) => {
       const next = { ...prev };
@@ -834,6 +856,19 @@ export default function PitchApplication() {
       if (!form.email.trim()) errors.email = t.emailRequired;
       else if (!isValidEmail(form.email)) errors.email = t.invalidEmail;
       if (!form.companyName.trim()) errors.companyName = t.companyNameRequired;
+      if (!form.headquarters.trim()) errors.headquarters = t.headquartersRequired;
+      if (!form.companyWebsite.trim()) errors.companyWebsite = t.companyWebsiteRequired;
+      if (form.marketServed.length === 0) errors.marketServed = t.marketsRequired;
+      setFieldErrors(errors);
+      return Object.keys(errors).length === 0;
+    }
+    if (s === 1) {
+      const errors: Partial<Record<keyof FormData, string>> = {};
+      if (!form.companyType.trim()) errors.companyType = t.companyTypeRequired;
+      if (!form.healthFocus.trim()) errors.healthFocus = t.healthFocusRequired;
+      if (form.workAreas.length === 0) errors.workAreas = t.workAreasRequired;
+      if (!form.businessModel.trim()) errors.businessModel = t.businessModelRequired;
+      if (!form.annualRevenue.trim()) errors.annualRevenue = t.revenueRequired;
       setFieldErrors(errors);
       return Object.keys(errors).length === 0;
     }
@@ -881,6 +916,9 @@ export default function PitchApplication() {
     // Validate all sections
     if (!validateStep(0)) {
       setStep(0);
+      return;
+    }
+    if (!validateStep(1)) {
       return;
     }
 
@@ -1157,7 +1195,7 @@ export default function PitchApplication() {
                 {fieldInput('email', t.email, { required: true, type: 'email' })}
                 {fieldInput('linkedin', t.linkedinProfile, { placeholder: 'https://linkedin.com/in/...' })}
                 <div>
-                  <label className={labelClass}>{t.companyHeadquarters}</label>
+                  <label className={labelClass}>{t.companyHeadquarters} *</label>
                   <CountryCombobox
                     value={form.headquarters}
                     onChange={(v) => set('headquarters', v)}
@@ -1166,12 +1204,15 @@ export default function PitchApplication() {
                     placeholderText={t.searchCountry}
                     noResultsText={t.noCountriesFound}
                   />
+                  {fieldErrors.headquarters && (
+                    <p className="text-xs text-red-500 mt-1">{fieldErrors.headquarters}</p>
+                  )}
                 </div>
                 {fieldInput('companyName', t.companyName, { required: true })}
-                {fieldInput('companyWebsite', t.companyWebsite, { placeholder: 'https://...' })}
+                {fieldInput('companyWebsite', t.companyWebsite, { required: true, placeholder: 'https://...' })}
                 {fieldInput('roleTitle', t.roleTitle)}
                 <div>
-                  <label className={labelClass}>{t.marketsServed}</label>
+                  <label className={labelClass}>{t.marketsServed} *</label>
                   <TagInput
                     value={form.marketServed}
                     onChange={(v) => set('marketServed', v)}
@@ -1181,6 +1222,9 @@ export default function PitchApplication() {
                     typeToAddMore={t.typeToAddMore}
                     hint={t.tagHint}
                   />
+                  {fieldErrors.marketServed && (
+                    <p className="text-xs text-red-500 mt-1">{fieldErrors.marketServed}</p>
+                  )}
                 </div>
                 <div>
                   <label className={labelClass}>{t.ecosystemLabel}</label>
@@ -1200,30 +1244,40 @@ export default function PitchApplication() {
             {/* Section 2: Company Profile */}
             {step === 1 && (
               <div className="space-y-5">
-                <SelectWithOther
-                  label={t.companyType}
-                  options={t.companyTypeOptions as unknown as OptionItem[]}
-                  value={form.companyType}
-                  otherValue={form.companyTypeOther}
-                  onSelect={(v) => { set('companyType', v); if (!OTHER_TRIGGERS.includes(v)) set('companyTypeOther', ''); }}
-                  onOtherChange={(v) => set('companyTypeOther', v)}
-                  otherPlaceholder={t.describeCompanyType}
-                  disabled={submitting}
-                  selectText={t.select}
-                />
-                <SelectWithOther
-                  label={t.primaryHealthFocus}
-                  options={t.healthFocusOptions as unknown as OptionItem[]}
-                  value={form.healthFocus}
-                  otherValue={form.healthFocusOther}
-                  onSelect={(v) => { set('healthFocus', v); if (!OTHER_TRIGGERS.includes(v)) set('healthFocusOther', ''); }}
-                  onOtherChange={(v) => set('healthFocusOther', v)}
-                  otherPlaceholder={t.describeHealthFocus}
-                  disabled={submitting}
-                  selectText={t.select}
-                />
                 <div>
-                  <label className={labelClass}>{t.workAreas}</label>
+                  <SelectWithOther
+                    label={`${t.companyType} *`}
+                    options={t.companyTypeOptions as unknown as OptionItem[]}
+                    value={form.companyType}
+                    otherValue={form.companyTypeOther}
+                    onSelect={(v) => { set('companyType', v); if (!OTHER_TRIGGERS.includes(v)) set('companyTypeOther', ''); }}
+                    onOtherChange={(v) => set('companyTypeOther', v)}
+                    otherPlaceholder={t.describeCompanyType}
+                    disabled={submitting}
+                    selectText={t.select}
+                  />
+                  {fieldErrors.companyType && (
+                    <p className="text-xs text-red-500 mt-1">{fieldErrors.companyType}</p>
+                  )}
+                </div>
+                <div>
+                  <SelectWithOther
+                    label={`${t.primaryHealthFocus} *`}
+                    options={t.healthFocusOptions as unknown as OptionItem[]}
+                    value={form.healthFocus}
+                    otherValue={form.healthFocusOther}
+                    onSelect={(v) => { set('healthFocus', v); if (!OTHER_TRIGGERS.includes(v)) set('healthFocusOther', ''); }}
+                    onOtherChange={(v) => set('healthFocusOther', v)}
+                    otherPlaceholder={t.describeHealthFocus}
+                    disabled={submitting}
+                    selectText={t.select}
+                  />
+                  {fieldErrors.healthFocus && (
+                    <p className="text-xs text-red-500 mt-1">{fieldErrors.healthFocus}</p>
+                  )}
+                </div>
+                <div>
+                  <label className={labelClass}>{t.workAreas} *</label>
                   <div className="grid grid-cols-2 gap-2 mt-1">
                     {(t.workAreaOptions as unknown as OptionItem[]).map((opt) => (
                       <label key={opt.value} className="flex items-center gap-2 text-sm text-foreground cursor-pointer">
@@ -1249,26 +1303,37 @@ export default function PitchApplication() {
                       autoFocus
                     />
                   )}
+                  {fieldErrors.workAreas && (
+                    <p className="text-xs text-red-500 mt-1">{fieldErrors.workAreas}</p>
+                  )}
                 </div>
-                <SelectWithOther
-                  label={t.businessModel}
-                  options={t.businessModelOptions as unknown as OptionItem[]}
-                  value={form.businessModel}
-                  otherValue={form.businessModelOther}
-                  onSelect={(v) => { set('businessModel', v); if (!OTHER_TRIGGERS.includes(v)) set('businessModelOther', ''); }}
-                  onOtherChange={(v) => set('businessModelOther', v)}
-                  otherPlaceholder={t.describeBusinessModel}
-                  disabled={submitting}
-                  selectText={t.select}
-                />
                 <div>
-                  <label className={labelClass}>{t.annualRevenue}</label>
+                  <SelectWithOther
+                    label={`${t.businessModel} *`}
+                    options={t.businessModelOptions as unknown as OptionItem[]}
+                    value={form.businessModel}
+                    otherValue={form.businessModelOther}
+                    onSelect={(v) => { set('businessModel', v); if (!OTHER_TRIGGERS.includes(v)) set('businessModelOther', ''); }}
+                    onOtherChange={(v) => set('businessModelOther', v)}
+                    otherPlaceholder={t.describeBusinessModel}
+                    disabled={submitting}
+                    selectText={t.select}
+                  />
+                  {fieldErrors.businessModel && (
+                    <p className="text-xs text-red-500 mt-1">{fieldErrors.businessModel}</p>
+                  )}
+                </div>
+                <div>
+                  <label className={labelClass}>{t.annualRevenue} *</label>
                   <select className={inputClass} value={form.annualRevenue} onChange={(e) => set('annualRevenue', e.target.value)} disabled={submitting}>
                     <option value="">{t.select}</option>
                     {(t.revenueOptions as unknown as OptionItem[]).map((o) => (
                       <option key={o.value} value={o.value}>{o.label}</option>
                     ))}
                   </select>
+                  {fieldErrors.annualRevenue && (
+                    <p className="text-xs text-red-500 mt-1">{fieldErrors.annualRevenue}</p>
+                  )}
                 </div>
 
                 {/* PDF Upload */}
