@@ -24,8 +24,10 @@ const translations = {
     pageTitle: 'Pitch Application - Shanghai Summit',
     pageDescription: 'Apply for the Women\'s Health Capital Spotlight at FemTech Weekend Shanghai Summit 2026.',
     heading: 'Pitch Application',
-    subtitleLine1: 'Apply for the Women\'s Health Capital Spotlight',
-    subtitleTheme: 'Beyond Gender, Beyond Borders — Women\'s Health for a Shared Future',
+    heroLine1: "Women's Health",
+    heroLine2: 'Capital Spotlight',
+    heroTagline1: 'Beyond Gender, Beyond Borders:',
+    heroTagline2: "Women's Health for a Shared Future",
     subtitleCollab: 'In collaboration with',
     howItWorks: 'How It Works',
     steps: ['Contact Information', 'Company Profile'],
@@ -145,8 +147,10 @@ const translations = {
     pageTitle: '路演申请 - 上海峰会',
     pageDescription: '申请参加FemTech Weekend 2026上海峰会"女性健康资本聚焦"路演。',
     heading: '路演申请',
-    subtitleLine1: '申请参加"女性健康资本聚焦"路演',
-    subtitleTheme: '超越性别，跨越边界——共筑女性健康共同未来',
+    heroLine1: '女性健康',
+    heroLine2: '资本聚焦',
+    heroTagline1: '超越性别，跨越边界',
+    heroTagline2: '共筑女性健康共同未来',
     subtitleCollab: '联合发起',
     howItWorks: '申请流程',
     steps: ['联系方式', '公司信息'],
@@ -1017,12 +1021,12 @@ export default function PitchApplication() {
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
         />
-        {/* Gradient overlay: dark left, transparent right */}
+        {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
 
         {/* Hero content */}
         <div
-          className="relative z-10 h-full flex flex-col justify-center px-6 sm:px-10 lg:px-16 pt-20 sm:pt-24 pb-12 max-w-2xl"
+          className="relative z-10 h-full flex flex-col justify-end px-6 sm:px-10 lg:px-16 pb-16 sm:pb-20 lg:pb-24 max-w-2xl"
           style={{
             opacity: isHeroVisible ? 1 : 0,
             transform: isHeroVisible ? 'translateY(0)' : 'translateY(20px)',
@@ -1030,7 +1034,7 @@ export default function PitchApplication() {
           }}
         >
           {/* Label with decorative line */}
-          <div className="flex items-center gap-3 mb-8">
+          <div className="flex items-center gap-3 mb-6">
             <div className="w-8 h-px bg-[#AA7C52]" />
             <span className="text-[#AA7C52] text-xs tracking-[0.2em] uppercase font-medium">
               {t.heading}
@@ -1038,22 +1042,21 @@ export default function PitchApplication() {
           </div>
 
           {/* Heading */}
-          <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-5 leading-[1.1]">
-            {t.subtitleLine1}
+          <h1 className="text-white text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.05]">
+            {t.heroLine1}
+            <br />
+            {t.heroLine2}
           </h1>
 
-          {/* Subtitle */}
-          <p className="text-white/80 text-base sm:text-lg mb-3 leading-relaxed max-w-xl">
-            {t.pageDescription}
-          </p>
-
-          {/* Theme tagline */}
-          <p className="text-white/50 text-sm italic mb-8">
-            {t.subtitleTheme}
+          {/* Tagline */}
+          <p className="text-white/60 text-sm sm:text-base font-semibold tracking-wide mb-8 leading-relaxed">
+            {t.heroTagline1}
+            <br />
+            {t.heroTagline2}
           </p>
 
           {/* Partner logos */}
-          <div className="mb-10">
+          <div>
             <span className="text-white/40 text-xs uppercase tracking-wider block mb-3">
               {t.subtitleCollab}
             </span>
@@ -1070,36 +1073,38 @@ export default function PitchApplication() {
               />
             </div>
           </div>
+        </div>
+      </div>
 
-          {/* How It Works */}
-          <div>
-            <p className="text-[#AA7C52] text-xs tracking-[0.2em] uppercase font-medium mb-5">
-              {t.howItWorks}
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-0">
-              {t.howItWorksCards.map((card, i) => (
-                <div
-                  key={i}
-                  className={`relative p-5 sm:p-6 border border-white/10 ${
-                    i === 0
-                      ? 'sm:border-r-0'
-                      : i === 1
-                        ? 'sm:border-r-0 border-t-0 sm:border-t'
-                        : 'border-t-0 sm:border-t'
-                  }`}
-                >
-                  <span className="text-[11px] font-mono text-[#AA7C52]/70 tracking-wider">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <h3 className="text-white text-sm font-semibold mt-2 mb-2">
-                    {card.title}
-                  </h3>
-                  <p className="text-white/60 text-[13px] leading-relaxed">
-                    {card.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
+      {/* How It Works section */}
+      <div className="bg-background border-b border-border">
+        <div className="max-w-3xl mx-auto px-4 py-14">
+          <p className="text-xs tracking-[0.2em] uppercase text-[#AA7C52] text-center mb-8 font-medium">
+            {t.howItWorks}
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-0">
+            {t.howItWorksCards.map((card, i) => (
+              <div
+                key={i}
+                className={`relative p-6 sm:p-7 ${
+                  i === 0
+                    ? 'border border-border sm:border-r-0'
+                    : i === 1
+                      ? 'border border-border sm:border-r-0 border-t-0 sm:border-t'
+                      : 'border border-border border-t-0 sm:border-t'
+                }`}
+              >
+                <span className="text-[11px] font-mono text-[#AA7C52]/50 tracking-wider">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h3 className="font-semibold text-foreground text-sm mt-2 mb-2.5">
+                  {card.title}
+                </h3>
+                <p className="text-[13px] text-muted-foreground leading-relaxed">
+                  {card.desc}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
