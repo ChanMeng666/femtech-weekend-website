@@ -6,16 +6,16 @@ import { ArrowRight } from 'lucide-react';
 
 const whyApplyPoints = {
   en: [
-    'Pitch directly to global investors and corporate partners in a curated, closed-door setting.',
-    'Gain visibility with Bayer and other leading players actively sourcing in women\'s health.',
-    'Access follow-on introductions, mentorship, and strategic support beyond the event.',
-    'Join a select cohort of 20-30 companies chosen from a global applicant pool.',
+    'Pitch in a private, curated setting with global investors and strategic corporate stakeholders.',
+    'Gain visibility with Bayer and other senior decision-makers actively shaping women\'s health innovation.',
+    'Access follow-on introductions and strategic conversations designed to extend beyond the event itself.',
+    'Join a highly selective group of companies chosen from an international applicant pool.',
   ],
   zh: [
-    '在精心策划的闭门场景中，直接向全球投资人和企业合作伙伴路演。',
-    '获得拜耳及其他正在积极寻找女性健康标的的行业领军者的关注。',
-    '获取活动后续的介绍对接、导师指导和战略支持。',
-    '加入从全球申请者中精选的20-30家企业的路演队列。',
+    '在私密、精心策划的场景中，与全球投资人和战略企业利益相关者进行路演。',
+    '获得拜耳及其他正在积极引领女性健康创新的高层决策者的关注。',
+    '获取后续介绍对接和战略对话机会，影响力延伸至活动之外。',
+    '加入从国际申请者中严格筛选的企业群体。',
   ],
 };
 

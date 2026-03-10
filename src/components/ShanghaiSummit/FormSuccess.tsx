@@ -2,10 +2,15 @@ import React, { useEffect, useState } from 'react';
 import Link from '@docusaurus/Link';
 import { ArrowRight } from 'lucide-react';
 
+export interface SuccessStep {
+  title: string;
+  description: string;
+}
+
 interface FormSuccessProps {
   title: string;
   message: string;
-  nextSteps?: string[];
+  nextSteps?: (string | SuccessStep)[];
   nextStepsHeading?: string;
   ctaLabel?: string;
   ctaHref?: string;
@@ -120,15 +125,26 @@ export function FormSuccess({
             <h3 className="text-xs tracking-[0.15em] uppercase text-[#AA7C52] mb-4 font-medium">
               {nextStepsHeading}
             </h3>
-            <ol className="space-y-3">
-              {nextSteps.map((step, i) => (
-                <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
-                  <span className="font-mono text-[10px] text-[#AA7C52]/50 mt-0.5 flex-shrink-0">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <span className="leading-relaxed">{step}</span>
-                </li>
-              ))}
+            <ol className="space-y-4">
+              {nextSteps.map((step, i) => {
+                const isStructured = typeof step === 'object';
+                return (
+                  <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
+                    <span className="font-mono text-[10px] text-[#AA7C52]/50 mt-0.5 flex-shrink-0">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    {isStructured ? (
+                      <div className="leading-relaxed">
+                        <span className="font-medium text-foreground">{step.title}</span>
+                        <br />
+                        <span>{step.description}</span>
+                      </div>
+                    ) : (
+                      <span className="leading-relaxed">{step}</span>
+                    )}
+                  </li>
+                );
+              })}
             </ol>
           </div>
         )}

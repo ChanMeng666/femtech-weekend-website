@@ -132,9 +132,18 @@ const translations = {
     successMessageWithRef: (ref: string) => `Your reference number is ${ref}. We're excited to review your submission.`,
     successMessage: "Thank you for applying to pitch at the Shanghai Summit 2026. We're excited to review your submission.",
     successSteps: [
-      'Our team reviews your application (1–2 weeks)',
-      'Selected companies receive an invitation to pitch',
-      'Confirm your spot with a £199 participation fee (includes Day 1 conference pass)',
+      {
+        title: 'Application Review',
+        description: 'Our team will review your submission within 1–2 weeks.',
+      },
+      {
+        title: 'Invitation to Pitch',
+        description: 'Selected companies will be invited to the Women\'s Health Capital Spotlight in Shanghai, a private closed-door session convened with Bayer Women\'s Healthcare China.',
+      },
+      {
+        title: 'Participation Confirmation',
+        description: 'Invited companies may confirm their participation through the £199 Pitch Package, including one Day 1 conference pass and curated 1:1 stakeholder meetings.',
+      },
     ],
     successNextStepsHeading: 'What Happens Next',
     successCta: 'Back to Summit',
@@ -263,9 +272,18 @@ const translations = {
     successMessageWithRef: (ref: string) => `您的参考编号为 ${ref}。我们非常期待审阅您的申请。`,
     successMessage: '感谢您申请在2026上海峰会上路演。我们非常期待审阅您的申请。',
     successSteps: [
-      '我们的团队将审核您的申请（1-2周）',
-      '入选企业将收到路演邀请',
-      '支付£199参与费确认名额（含第一天峰会门票）',
+      {
+        title: '申请审核',
+        description: '我们的团队将在1-2周内审核您的提交。',
+      },
+      {
+        title: '路演邀请',
+        description: '入选企业将受邀参加在上海举办的女性健康资本聚焦专场——由拜耳中国女性健康事业部召集的闭门会议。',
+      },
+      {
+        title: '参与确认',
+        description: '受邀企业可通过£199路演套餐确认参与，包含一张第一天峰会门票及定制的1对1利益相关者会议。',
+      },
     ],
     successNextStepsHeading: '接下来',
     successCta: '返回峰会页面',
@@ -1006,7 +1024,7 @@ export default function PitchApplication() {
               ? t.successMessageWithRef(referenceNumber)
               : t.successMessage
           }
-          nextSteps={t.successSteps as unknown as string[]}
+          nextSteps={t.successSteps as unknown as (string | import('../../components/ShanghaiSummit/FormSuccess').SuccessStep)[]}
           nextStepsHeading={t.successNextStepsHeading}
           ctaLabel={t.successCta}
         />

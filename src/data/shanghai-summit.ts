@@ -177,8 +177,8 @@ export const agendaDays: AgendaDayData[] = [
       zh: '资本与路演日',
     },
     description: {
-      en: 'Led by Bayer, a dedicated day of closed-door pitch sessions connecting 20-30 of the most promising early and growth-stage women\'s health companies with global investors and corporate partners.',
-      zh: '由拜耳主导，闭门路演日汇聚20-30家最具潜力的早期及成长期女性健康企业，对接全球投资人与企业合作伙伴。',
+      en: 'Led by Bayer, a dedicated day of closed-door pitch sessions connecting the most promising early and growth-stage women\'s health companies with global investors and corporate partners.',
+      zh: '由拜耳主导，闭门路演日汇聚最具潜力的早期及成长期女性健康企业，对接全球投资人与企业合作伙伴。',
     },
     highlights: { en: [], zh: [] },
     cta: {
