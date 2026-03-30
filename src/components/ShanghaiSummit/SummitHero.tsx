@@ -21,7 +21,6 @@ const t = {
   ctaTickets: { en: 'Get Conference Tickets', zh: '获取峰会门票' },
   ctaProgramme: { en: 'Request Full Programme Access', zh: '申请完整项目' },
   ctaPitch: { en: 'Submit Pitch Application', zh: '提交路演申请' },
-  ctaSpeak: { en: 'Apply to Speak', zh: '申请演讲' },
 };
 
 export function SummitHero() {
@@ -116,13 +115,6 @@ export function SummitHero() {
             className="group inline-flex items-center gap-2.5 border border-border text-muted-foreground px-7 py-3.5 text-sm font-medium hover:border-[#AA7C52]/30 hover:text-foreground transition-all duration-300 no-underline hover:no-underline"
           >
             {t.ctaPitch[locale]}
-            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-          </Link>
-          <Link
-            to="/shanghai-summit/speak"
-            className="group inline-flex items-center gap-2.5 border border-border text-muted-foreground px-7 py-3.5 text-sm font-medium hover:border-[#AA7C52]/30 hover:text-foreground transition-all duration-300 no-underline hover:no-underline"
-          >
-            {t.ctaSpeak[locale]}
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
           </Link>
         </div>

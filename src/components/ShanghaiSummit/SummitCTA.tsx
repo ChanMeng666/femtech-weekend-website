@@ -7,8 +7,8 @@ import { ArrowRight } from 'lucide-react';
 const sectionText = {
   heading: { en: 'Choose Your Way In', zh: '选择您的参与方式' },
   description: {
-    en: 'Four distinct tracks to participate \u2014 whether you want to attend, apply for the full programme, pitch, or speak.',
-    zh: '四种参与方式——无论您想参会、申请完整项目、路演还是演讲。',
+    en: 'Three distinct tracks to participate \u2014 whether you want to attend, apply for the full programme, or pitch.',
+    zh: '三种参与方式——无论您想参会、申请完整项目还是路演。',
   },
   trackLabel: { en: 'Track', zh: '方式' },
 };
@@ -45,17 +45,6 @@ const tracks = [
     note: { en: 'Selected companies only | Application required', zh: '仅限入选企业 | 需提交申请' },
     cta: { en: 'Submit Pitch Application', zh: '提交路演申请' },
     href: '/shanghai-summit/pitch',
-    external: false,
-  },
-  {
-    title: { en: 'Apply to Speak', zh: '申请演讲' },
-    description: {
-      en: 'Share your expertise on stage \u2014 whether in clinical research, investment, policy, or cross-border innovation in women\'s health.',
-      zh: '在舞台上分享您的专业知识——无论是临床研究、投资、政策还是女性健康领域的跨境创新。',
-    },
-    note: { en: 'By invitation & application', zh: '受邀与申请制' },
-    cta: { en: 'Apply to Speak', zh: '申请演讲' },
-    href: '/shanghai-summit/speak',
     external: false,
   },
 ];
@@ -104,7 +93,7 @@ export function SummitCTA() {
         </div>
 
         {/* Track cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {tracks.map((track, i) => (
             <div
               key={track.title.en}
