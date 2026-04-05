@@ -7,7 +7,6 @@ import {
   SpeakersGrid,
   AgendaTimeline,
   VenueShowcase,
-  CapitalSpotlight,
   WhyDifferent,
   FABGlobeSection,
   PartnersGrid,
@@ -28,7 +27,6 @@ export default function ShanghaiSummitPage() {
         <AgendaTimeline />
         <WhoShouldAttend />
         <VenueShowcase />
-        <CapitalSpotlight />
         <WhyDifferent />
         <GlobalEcosystem />
       </main>

@@ -45,6 +45,15 @@ const translations = {
         desc: 'Invited companies can secure their participation through the Pitch Package, which includes one Day 1 conference pass.',
       },
     ],
+    whyApply: 'Why Apply',
+    whyApplyPoints: [
+      'Pitch in a private, curated setting with global investors and strategic corporate stakeholders.',
+      'Gain visibility with Bayer and other senior decision-makers actively shaping women\'s health innovation.',
+      'Access follow-on introductions and strategic conversations designed to extend beyond the event itself.',
+      'Join a highly selective group of companies chosen from an international applicant pool.',
+    ],
+    whoFor: 'Who It Is For',
+    whoForDesc: "Early and growth-stage women's health companies \u2014 across digital health, medical devices, diagnostics, biotech, and consumer health \u2014 who are seeking investment, strategic partnerships, or cross-border market access. Priority is given to companies with a clear product, initial traction, and a compelling vision for women's health globally.",
     draftRestored: 'Draft restored from your previous session.',
     // Step 1: Contact Information
     firstName: 'First Name',
@@ -185,6 +194,15 @@ const translations = {
         desc: '受邀企业可通过路演套餐确认参与，包含一张第一天峰会门票。',
       },
     ],
+    whyApply: '为什么申请',
+    whyApplyPoints: [
+      '在私密、精心策划的场景中，与全球投资人和战略企业利益相关者进行路演。',
+      '获得拜耳及其他正在积极引领女性健康创新的高层决策者的关注。',
+      '获取后续介绍对接和战略对话机会，影响力延伸至活动之外。',
+      '加入从国际申请者中严格筛选的企业群体。',
+    ],
+    whoFor: '面向对象',
+    whoForDesc: '早期和成长期女性健康企业——涵盖数字健康、医疗器械、诊断、生物技术和消费健康——正在寻求投资、战略合作或跨境市场准入。优先考虑拥有明确产品、初步市场验证和全球女性健康愿景的企业。',
     draftRestored: '已从上次会话中恢复草稿。',
     // Step 1
     firstName: '名',
@@ -1127,6 +1145,37 @@ export default function PitchApplication() {
                 alt="FemTech Across Borders"
                 className="h-7 sm:h-8 opacity-80"
               />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Why Apply & Who It Is For */}
+      <div className="bg-background border-b border-border">
+        <div className="max-w-3xl mx-auto px-4 py-14">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+            {/* Why Apply */}
+            <div>
+              <p className="text-xs tracking-[0.2em] uppercase text-[#AA7C52] mb-4 font-medium">
+                {t.whyApply}
+              </p>
+              <ul className="space-y-3">
+                {t.whyApplyPoints.map((point, i) => (
+                  <li key={i} className="flex gap-3 text-muted-foreground text-[13px] leading-relaxed">
+                    <span className="w-1.5 h-1.5 bg-[#AA7C52] rounded-full mt-1.5 flex-shrink-0" />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Who It Is For */}
+            <div>
+              <p className="text-xs tracking-[0.2em] uppercase text-[#AA7C52] mb-4 font-medium">
+                {t.whoFor}
+              </p>
+              <p className="text-muted-foreground text-[13px] leading-relaxed">
+                {t.whoForDesc}
+              </p>
             </div>
           </div>
         </div>

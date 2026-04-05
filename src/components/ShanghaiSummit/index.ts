@@ -7,7 +7,6 @@ export { VenueShowcase } from './VenueShowcase';
 export { TeamSection } from './TeamSection';
 export { SummitCTA } from './SummitCTA';
 export { FormSuccess } from './FormSuccess';
-export { CapitalSpotlight } from './CapitalSpotlight';
 export { WhyDifferent } from './WhyDifferent';
 export { FABGlobeSection } from './FABGlobeSection';
 export { PartnersGrid } from './PartnersGrid';
