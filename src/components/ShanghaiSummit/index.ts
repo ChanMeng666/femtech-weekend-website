@@ -10,3 +10,4 @@ export { SummitCTA } from './SummitCTA';
 export { FormSuccess } from './FormSuccess';
 export { CapitalSpotlight } from './CapitalSpotlight';
 export { WhyDifferent } from './WhyDifferent';
+export { FABGlobeSection } from './FABGlobeSection';

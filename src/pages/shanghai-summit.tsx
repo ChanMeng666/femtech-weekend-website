@@ -11,6 +11,7 @@ import {
   SummitCTA,
   CapitalSpotlight,
   WhyDifferent,
+  FABGlobeSection,
 } from '../components/ShanghaiSummit';
 
 export default function ShanghaiSummitPage() {
@@ -21,6 +22,7 @@ export default function ShanghaiSummitPage() {
     <Layout title={title} description={description}>
       <main style={{ marginTop: 'calc(-1 * var(--ifm-navbar-height))' }}>
         <SummitHero />
+        <FABGlobeSection />
         <WhyThisMatters />
         <SpeakersGrid />
         <VenueShowcase />

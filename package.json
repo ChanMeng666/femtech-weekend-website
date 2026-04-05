@@ -32,6 +32,7 @@
     "clsx": "^2.0.0",
     "dotenv": "^16.5.0",
     "drizzle-orm": "^0.45.1",
+    "earth-flyline": "^1.6.9",
     "framer-motion": "^12.35.0",
     "gray-matter": "^4.0.3",
     "gsap": "^3.13.0",
