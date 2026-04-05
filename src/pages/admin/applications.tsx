@@ -9,6 +9,7 @@ interface Application {
   company_name: string;
   company_type: string | null;
   headquarters: string | null;
+  admin_notes: string | null;
   status: string;
   reference_number: string | null;
   created_at: string;
@@ -95,6 +96,10 @@ export default function AdminApplications() {
     open: boolean;
     action: 'approved' | 'rejected';
   }>({ open: false, action: 'approved' });
+
+  const [expandedId, setExpandedId] = useState<number | null>(null);
+  const [editingNotes, setEditingNotes] = useState<Record<number, string>>({});
+  const [savingNotes, setSavingNotes] = useState<number | null>(null);
 
   // Restore key from sessionStorage on mount
   useEffect(() => {
@@ -234,6 +239,48 @@ export default function AdminApplications() {
     }
   };
 
+  // Toggle expanded row
+  const toggleExpand = (id: number) => {
+    if (expandedId === id) {
+      setExpandedId(null);
+    } else {
+      setExpandedId(id);
+      const app = applications.find(a => a.id === id);
+      if (app && !(id in editingNotes)) {
+        setEditingNotes(prev => ({ ...prev, [id]: app.admin_notes || '' }));
+      }
+    }
+  };
+
+  // Save admin notes
+  const handleSaveNotes = async (id: number) => {
+    setSavingNotes(id);
+    try {
+      const res = await fetch(`${API_BASE}/applications`, {
+        method: 'PATCH',
+        headers: getHeaders(),
+        body: JSON.stringify({
+          type: activeTab,
+          id,
+          adminNotes: editingNotes[id] || '',
+        }),
+      });
+      const json = await res.json();
+      if (json.success) {
+        setApplications(prev =>
+          prev.map(app => app.id === id ? { ...app, admin_notes: editingNotes[id] || null } : app)
+        );
+        setResult({ type: 'success', message: 'Notes saved.' });
+      } else {
+        setResult({ type: 'error', message: json.error || 'Failed to save notes' });
+      }
+    } catch {
+      setResult({ type: 'error', message: 'Network error' });
+    } finally {
+      setSavingNotes(null);
+    }
+  };
+
   // Login screen
   if (!isAuthenticated) {
     return (
@@ -370,43 +417,99 @@ export default function AdminApplications() {
                       <th className="px-4 py-3 text-left font-medium text-gray-600">Name</th>
                       <th className="px-4 py-3 text-left font-medium text-gray-600">Company</th>
                       <th className="px-4 py-3 text-left font-medium text-gray-600">Email</th>
+                      <th className="px-4 py-3 text-left font-medium text-gray-600">Notes</th>
                       <th className="px-4 py-3 text-left font-medium text-gray-600">Status</th>
                       <th className="px-4 py-3 text-left font-medium text-gray-600">Date</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-100">
                     {filtered.map(app => (
-                      <tr
-                        key={app.id}
-                        className={`hover:bg-gray-50 transition-colors ${selectedIds.has(app.id) ? 'bg-amber-50/50' : ''}`}
-                      >
-                        <td className="px-4 py-3">
-                          <input
-                            type="checkbox"
-                            checked={selectedIds.has(app.id)}
-                            onChange={() => toggleSelect(app.id)}
-                            className="rounded border-gray-300"
-                          />
-                        </td>
-                        <td className="px-4 py-3 font-mono text-xs text-gray-500">
-                          {app.reference_number || '-'}
-                        </td>
-                        <td className="px-4 py-3 font-medium text-gray-900">
-                          {app.first_name} {app.last_name}
-                        </td>
-                        <td className="px-4 py-3 text-gray-700">{app.company_name}</td>
-                        <td className="px-4 py-3 text-gray-500">{app.email}</td>
-                        <td className="px-4 py-3">
-                          <StatusBadge status={app.status} />
-                        </td>
-                        <td className="px-4 py-3 text-gray-500 whitespace-nowrap">
-                          {new Date(app.created_at).toLocaleDateString('en-GB', {
-                            day: '2-digit',
-                            month: 'short',
-                            year: 'numeric',
-                          })}
-                        </td>
-                      </tr>
+                      <React.Fragment key={app.id}>
+                        <tr
+                          className={`hover:bg-gray-50 transition-colors cursor-pointer ${selectedIds.has(app.id) ? 'bg-amber-50/50' : ''} ${expandedId === app.id ? 'bg-gray-50' : ''}`}
+                          onClick={() => toggleExpand(app.id)}
+                        >
+                          <td className="px-4 py-3" onClick={e => e.stopPropagation()}>
+                            <input
+                              type="checkbox"
+                              checked={selectedIds.has(app.id)}
+                              onChange={() => toggleSelect(app.id)}
+                              className="rounded border-gray-300"
+                            />
+                          </td>
+                          <td className="px-4 py-3 font-mono text-xs text-gray-500">
+                            {app.reference_number || '-'}
+                          </td>
+                          <td className="px-4 py-3 font-medium text-gray-900">
+                            {app.first_name} {app.last_name}
+                          </td>
+                          <td className="px-4 py-3 text-gray-700">{app.company_name}</td>
+                          <td className="px-4 py-3 text-gray-500">{app.email}</td>
+                          <td className="px-4 py-3">
+                            {app.admin_notes ? (
+                              <span className="inline-flex items-center gap-1 text-xs text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-3 h-3">
+                                  <path d="M2 4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4zm3 1a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2.5a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zM5 10a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5z"/>
+                                </svg>
+                                Has notes
+                              </span>
+                            ) : (
+                              <span className="text-xs text-gray-300">--</span>
+                            )}
+                          </td>
+                          <td className="px-4 py-3">
+                            <StatusBadge status={app.status} />
+                          </td>
+                          <td className="px-4 py-3 text-gray-500 whitespace-nowrap">
+                            {new Date(app.created_at).toLocaleDateString('en-GB', {
+                              day: '2-digit',
+                              month: 'short',
+                              year: 'numeric',
+                            })}
+                          </td>
+                        </tr>
+                        {expandedId === app.id && (
+                          <tr>
+                            <td colSpan={8} className="bg-gray-50/80 px-4 py-4 border-b border-gray-200">
+                              <div className="ml-8 max-w-2xl">
+                                <div className="grid grid-cols-2 gap-x-8 gap-y-2 text-sm mb-4">
+                                  <div>
+                                    <span className="text-gray-500">Company Type:</span>{' '}
+                                    <span className="text-gray-900">{app.company_type || '-'}</span>
+                                  </div>
+                                  <div>
+                                    <span className="text-gray-500">Headquarters:</span>{' '}
+                                    <span className="text-gray-900">{app.headquarters || '-'}</span>
+                                  </div>
+                                </div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                                  Admin Notes
+                                </label>
+                                <textarea
+                                  value={editingNotes[app.id] ?? app.admin_notes ?? ''}
+                                  onChange={e => setEditingNotes(prev => ({ ...prev, [app.id]: e.target.value }))}
+                                  onClick={e => e.stopPropagation()}
+                                  placeholder="Add internal notes about this applicant..."
+                                  rows={3}
+                                  className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#AA7C52] focus:border-transparent resize-y"
+                                />
+                                <div className="flex items-center gap-3 mt-2">
+                                  <button
+                                    onClick={e => { e.stopPropagation(); handleSaveNotes(app.id); }}
+                                    disabled={savingNotes === app.id}
+                                    className="px-3 py-1.5 text-xs font-medium text-white bg-[#AA7C52] rounded-lg hover:bg-[#996F49] disabled:opacity-50 transition-colors"
+                                  >
+                                    {savingNotes === app.id ? 'Saving...' : 'Save Notes'}
+                                  </button>
+                                  {(editingNotes[app.id] ?? app.admin_notes ?? '') !== (app.admin_notes ?? '') && (
+                                    <span className="text-xs text-amber-600">Unsaved changes</span>
+                                  )}
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        )}
+                      </React.Fragment>
                     ))}
                   </tbody>
                 </table>

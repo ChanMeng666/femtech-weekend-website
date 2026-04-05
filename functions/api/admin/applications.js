@@ -8,7 +8,7 @@ import { neon } from '@neondatabase/serverless';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'GET, OPTIONS',
+  'Access-Control-Allow-Methods': 'GET, PATCH, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type, X-Admin-Key',
 };
 
@@ -19,7 +19,7 @@ export async function onRequest(context) {
     return new Response(null, { headers: corsHeaders });
   }
 
-  if (request.method !== 'GET') {
+  if (request.method !== 'GET' && request.method !== 'PATCH') {
     return new Response(JSON.stringify({ success: false, error: 'Method not allowed' }), {
       status: 405,
       headers: { 'Content-Type': 'application/json', ...corsHeaders },
@@ -45,6 +45,37 @@ export async function onRequest(context) {
   }
 
   try {
+    // --- PATCH: update admin_notes ---
+    if (request.method === 'PATCH') {
+      const body = await request.json();
+      const { type, id, adminNotes } = body;
+
+      if (!type || !['pitch', 'programme'].includes(type)) {
+        return new Response(JSON.stringify({ success: false, error: 'Invalid type' }), {
+          status: 400, headers: { 'Content-Type': 'application/json', ...corsHeaders },
+        });
+      }
+      if (!id || typeof id !== 'number') {
+        return new Response(JSON.stringify({ success: false, error: 'Invalid id' }), {
+          status: 400, headers: { 'Content-Type': 'application/json', ...corsHeaders },
+        });
+      }
+
+      const sql = neon(env.DATABASE_URL);
+      const notes = adminNotes || null;
+
+      if (type === 'pitch') {
+        await sql`UPDATE pitch_applications SET admin_notes = ${notes} WHERE id = ${id}`;
+      } else {
+        await sql`UPDATE programme_applications SET admin_notes = ${notes} WHERE id = ${id}`;
+      }
+
+      return new Response(JSON.stringify({ success: true, message: 'Notes updated' }), {
+        headers: { 'Content-Type': 'application/json', ...corsHeaders },
+      });
+    }
+
+    // --- GET: list applications ---
     const url = new URL(request.url);
     const type = url.searchParams.get('type');
     const status = url.searchParams.get('status') || 'all';
@@ -76,14 +107,14 @@ export async function onRequest(context) {
       if (status === 'all') {
         rows = await sql`
           SELECT id, first_name, last_name, email, company_name, company_type,
-                 headquarters, health_focus, status, reference_number, created_at
+                 headquarters, health_focus, admin_notes, status, reference_number, created_at
           FROM pitch_applications
           ORDER BY created_at DESC
         `;
       } else {
         rows = await sql`
           SELECT id, first_name, last_name, email, company_name, company_type,
-                 headquarters, health_focus, status, reference_number, created_at
+                 headquarters, health_focus, admin_notes, status, reference_number, created_at
           FROM pitch_applications
           WHERE status = ${status}
           ORDER BY created_at DESC
@@ -93,14 +124,14 @@ export async function onRequest(context) {
       if (status === 'all') {
         rows = await sql`
           SELECT id, first_name, last_name, email, company_name, company_type,
-                 headquarters, company_stage, status, reference_number, created_at
+                 headquarters, company_stage, admin_notes, status, reference_number, created_at
           FROM programme_applications
           ORDER BY created_at DESC
         `;
       } else {
         rows = await sql`
           SELECT id, first_name, last_name, email, company_name, company_type,
-                 headquarters, company_stage, status, reference_number, created_at
+                 headquarters, company_stage, admin_notes, status, reference_number, created_at
           FROM programme_applications
           WHERE status = ${status}
           ORDER BY created_at DESC
