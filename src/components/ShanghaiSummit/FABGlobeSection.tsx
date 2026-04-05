@@ -87,10 +87,10 @@ function GlobeRenderer() {
               opacity: 0,
             },
             earth: {
-              color: '#1a1410',
+              color: '#2a2218',
             },
             mapStyle: {
-              areaColor: '#2a2420',
+              areaColor: '#3d3028',
               lineColor: '#AA7C52',
             },
             spriteStyle: {
@@ -111,7 +111,7 @@ function GlobeRenderer() {
             },
             regions: {
               China: {
-                areaColor: '#3d2e22',
+                areaColor: '#4a3a2e',
               },
             },
           },
@@ -227,7 +227,7 @@ export function FABGlobeSection() {
     <section
       ref={sectionRef}
       className="relative overflow-hidden"
-      style={{ backgroundColor: '#040D21' }}
+      style={{ backgroundColor: '#000000' }}
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8 py-20 sm:py-28 lg:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
