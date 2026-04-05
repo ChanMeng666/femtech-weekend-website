@@ -19,6 +19,8 @@ export interface AgendaDayData {
     label: { en: string; zh: string };
     href: string;
     external?: boolean;
+    variant?: 'solid' | 'outline';
+    highlight?: boolean;
   };
 }
 
@@ -218,6 +220,7 @@ export const agendaDays: AgendaDayData[] = [
     cta: {
       label: { en: 'Apply to Pitch', zh: '申请路演' },
       href: '/shanghai-summit/pitch',
+      variant: 'solid',
     },
   },
   {
@@ -237,6 +240,7 @@ export const agendaDays: AgendaDayData[] = [
     cta: {
       label: { en: 'Request', zh: '申请' },
       href: '/shanghai-summit/programme',
+      highlight: true,
     },
   },
 ];

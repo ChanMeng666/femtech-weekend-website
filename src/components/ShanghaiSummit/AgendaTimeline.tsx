@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Link from '@docusaurus/Link';
 import { AnimatedLine } from '../ui/AnimatedLine';
 import { agendaDays } from '../../data/shanghai-summit';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 const sectionText = {
@@ -103,18 +103,42 @@ function DayCard({
         {/* CTA */}
         {day.cta && (
           <div>
-            {day.cta.external ? (
-              <a
-                href={day.cta.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group/btn relative inline-flex items-center gap-2.5 bg-[#AA7C52] text-white hover:text-white px-6 py-3 text-sm font-medium overflow-hidden no-underline hover:no-underline transition-all duration-300 hover:shadow-[0_0_24px_rgba(170,124,82,0.25)]"
+            {day.cta.highlight ? (
+              /* Premium highlight button — the most important CTA */
+              <Link
+                to={day.cta.href}
+                className="group/btn relative inline-flex items-center gap-3 bg-gradient-to-r from-[#AA7C52] via-[#C9956A] to-[#AA7C52] bg-[length:200%_100%] text-white hover:text-white px-8 py-3.5 text-sm font-semibold overflow-hidden no-underline hover:no-underline transition-all duration-500 animate-pulse-glow hover:bg-right"
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                <Sparkles className="w-4 h-4 relative" />
                 <span className="relative">{day.cta.label[locale]}</span>
-                <ArrowRight className="w-4 h-4 relative transition-transform duration-300 group-hover/btn:translate-x-0.5" />
-              </a>
+                <ArrowRight className="w-4 h-4 relative transition-transform duration-300 group-hover/btn:translate-x-1" />
+              </Link>
+            ) : day.cta.external || day.cta.variant === 'solid' ? (
+              /* Solid filled button */
+              day.cta.external ? (
+                <a
+                  href={day.cta.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/btn relative inline-flex items-center gap-2.5 bg-[#AA7C52] text-white hover:text-white px-6 py-3 text-sm font-medium overflow-hidden no-underline hover:no-underline transition-all duration-300 hover:shadow-[0_0_24px_rgba(170,124,82,0.25)]"
+                >
+                  <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                  <span className="relative">{day.cta.label[locale]}</span>
+                  <ArrowRight className="w-4 h-4 relative transition-transform duration-300 group-hover/btn:translate-x-0.5" />
+                </a>
+              ) : (
+                <Link
+                  to={day.cta.href}
+                  className="group/btn relative inline-flex items-center gap-2.5 bg-[#AA7C52] text-white hover:text-white px-6 py-3 text-sm font-medium overflow-hidden no-underline hover:no-underline transition-all duration-300 hover:shadow-[0_0_24px_rgba(170,124,82,0.25)]"
+                >
+                  <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                  <span className="relative">{day.cta.label[locale]}</span>
+                  <ArrowRight className="w-4 h-4 relative transition-transform duration-300 group-hover/btn:translate-x-0.5" />
+                </Link>
+              )
             ) : (
+              /* Outline button (default) */
               <Link
                 to={day.cta.href}
                 className="group/btn relative inline-flex items-center gap-2.5 border border-[#AA7C52]/50 text-[#AA7C52] px-6 py-3 text-sm font-medium hover:bg-[#AA7C52]/5 hover:border-[#AA7C52] transition-all duration-300 no-underline hover:no-underline"
