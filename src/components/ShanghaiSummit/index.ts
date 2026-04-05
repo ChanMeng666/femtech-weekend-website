@@ -11,3 +11,4 @@ export { CapitalSpotlight } from './CapitalSpotlight';
 export { WhyDifferent } from './WhyDifferent';
 export { FABGlobeSection } from './FABGlobeSection';
 export { PartnersGrid } from './PartnersGrid';
+export { WhoShouldAttend } from './WhoShouldAttend';

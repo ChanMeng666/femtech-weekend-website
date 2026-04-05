@@ -11,6 +11,7 @@ import {
   WhyDifferent,
   FABGlobeSection,
   PartnersGrid,
+  WhoShouldAttend,
 } from '../components/ShanghaiSummit';
 
 export default function ShanghaiSummitPage() {
@@ -25,6 +26,7 @@ export default function ShanghaiSummitPage() {
         <PartnersGrid />
         <SpeakersGrid />
         <AgendaTimeline />
+        <WhoShouldAttend />
         <VenueShowcase />
         <CapitalSpotlight />
         <WhyDifferent />
