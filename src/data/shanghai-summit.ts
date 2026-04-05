@@ -51,6 +51,55 @@ export const partners: PartnerData[] = [
   { name: 'Gates Foundation', logo: '/img/summit-partners/gates-foundation.svg', url: 'https://www.gatesfoundation.org/' },
 ];
 
+export const SHANGHAI_COORDS = { lon: 121.47, lat: 31.23 };
+
+export const FAB_COUNTRY_COORDS: Record<string, { lon: number; lat: number }> = {
+  Canada: { lon: -106.35, lat: 56.13 },
+  China: { lon: 104.20, lat: 35.86 },
+  France: { lon: 2.21, lat: 46.23 },
+  Ireland: { lon: -8.24, lat: 53.41 },
+  Switzerland: { lon: 8.23, lat: 46.82 },
+  Ukraine: { lon: 31.17, lat: 48.38 },
+  Israel: { lon: 34.85, lat: 31.05 },
+  Mexico: { lon: -102.55, lat: 23.63 },
+  Denmark: { lon: 9.50, lat: 56.26 },
+  'United Kingdom': { lon: -3.44, lat: 55.38 },
+  Japan: { lon: 138.25, lat: 36.20 },
+  'United States': { lon: -95.71, lat: 37.09 },
+  Italy: { lon: 12.57, lat: 41.87 },
+  Germany: { lon: 10.45, lat: 51.17 },
+  Singapore: { lon: 103.82, lat: 1.35 },
+  Vietnam: { lon: 108.28, lat: 14.06 },
+  Philippines: { lon: 121.77, lat: 12.88 },
+  Indonesia: { lon: 106.52, lat: -6.10 },
+  Thailand: { lon: 100.99, lat: 15.87 },
+  Korea: { lon: 127.77, lat: 35.91 },
+  Bhutan: { lon: 90.43, lat: 27.51 },
+  Malaysia: { lon: 101.98, lat: 4.21 },
+  Norway: { lon: 8.47, lat: 60.47 },
+  Sweden: { lon: 18.64, lat: 60.13 },
+  Netherlands: { lon: 5.29, lat: 52.13 },
+  Finland: { lon: 25.75, lat: 61.92 },
+  Iceland: { lon: -19.02, lat: 64.96 },
+  Greenland: { lon: -42.60, lat: 71.71 },
+  Spain: { lon: -3.75, lat: 40.46 },
+  Australia: { lon: 133.78, lat: -25.27 },
+  Russia: { lon: 105.32, lat: 61.52 },
+  Uzbekistan: { lon: 64.59, lat: 41.38 },
+  Kazakhstan: { lon: 66.92, lat: 48.02 },
+  Argentina: { lon: -63.62, lat: -38.42 },
+  Brazil: { lon: -51.93, lat: -14.24 },
+  Uruguay: { lon: -55.77, lat: -32.52 },
+  UAE: { lon: 53.85, lat: 23.42 },
+  Kenya: { lon: 37.91, lat: -0.02 },
+  'South Africa': { lon: 22.94, lat: -30.56 },
+};
+
+export const FAB_FLYLINE_DATA = Object.entries(FAB_COUNTRY_COORDS).map(([name, coords]) => ({
+  from: { id: name, ...coords },
+  to: { id: 'shanghai', ...SHANGHAI_COORDS },
+}));
+
 export const SUMMIT_META = {
   dateRange: 'June 22-25, 2026',
   location: 'Shanghai, China',

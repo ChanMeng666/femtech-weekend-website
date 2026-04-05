@@ -1,14 +1,143 @@
 import React, { useEffect, useRef, useState } from 'react';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { AnimatedLine } from '../ui/AnimatedLine';
-import { SUMMIT_META } from '../../data/shanghai-summit';
+import { SUMMIT_META, FAB_FLYLINE_DATA } from '../../data/shanghai-summit';
 
 const ecosystemStats = [
-  { value: '40+', label: { en: 'Countries', zh: '国家' }, detail: { en: 'Global reach', zh: '全球覆盖' } },
-  { value: '500+', label: { en: 'Startups', zh: '初创企业' }, detail: { en: 'In the network', zh: '生态网络内' } },
-  { value: '100K+', label: { en: 'Impressions', zh: '曝光量' }, detail: { en: 'LinkedIn monthly', zh: 'LinkedIn月度' } },
-  { value: '200K+', label: { en: 'Followers', zh: '关注者' }, detail: { en: 'Community size', zh: '社区规模' } },
+  { value: 20, suffix: '+', label: { en: 'Countries', zh: '国家' }, detail: { en: 'Global reach', zh: '全球覆盖' } },
+  { value: 500, suffix: '+', label: { en: 'Startups', zh: '初创企业' }, detail: { en: 'In the network', zh: '生态网络内' } },
+  { value: 50, suffix: '+', label: { en: 'Hubs', zh: '枢纽' }, detail: { en: 'Worldwide', zh: '遍布全球' } },
 ];
+
+function useCountUp(target: number, isVisible: boolean, duration = 1800) {
+  const [count, setCount] = useState(0);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    if (!isVisible || hasAnimated.current) return;
+    hasAnimated.current = true;
+
+    const startTime = performance.now();
+    const step = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.round(eased * target));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [isVisible, target, duration]);
+
+  return count;
+}
+
+function FlatMapRenderer() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const chartRef = useRef<any>(null);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    let cancelled = false;
+    const dom = containerRef.current;
+
+    const initMap = async () => {
+      try {
+        const earthFlyLine = (await import('earth-flyline')).default;
+        const geojson = (await import('../../data/world.json')).default;
+
+        if (cancelled) return;
+
+        earthFlyLine.registerMap('world', geojson as any);
+
+        const chart = earthFlyLine.init({
+          dom,
+          map: 'world',
+          autoRotate: false,
+          mode: '2d',
+          config: {
+            R: 140,
+            enableZoom: false,
+            stopRotateByHover: false,
+            bgStyle: {
+              color: '#040D21',
+              opacity: 0,
+            },
+            earth: {
+              color: '#1a1510',
+              dragConfig: {
+                rotationSpeed: 0,
+                inertiaFactor: 0,
+                disableX: true,
+                disableY: true,
+              },
+            },
+            mapStyle: {
+              areaColor: '#3d3028',
+              lineColor: '#AA7C52',
+            },
+            spriteStyle: {
+              color: '#AA7C52',
+              show: false,
+            },
+            pathStyle: {
+              color: '#D4A574',
+              show: true,
+            },
+            flyLineStyle: {
+              color: '#AA7C52',
+            },
+            scatterStyle: {
+              color: '#AA7C52',
+            },
+            hoverRegionStyle: {
+              areaColor: '#B58960',
+              show: true,
+            },
+            regions: {
+              China: {
+                areaColor: '#4a3a2e',
+              },
+            },
+          },
+        });
+
+        if (cancelled) {
+          chart.destroy();
+          return;
+        }
+
+        chart.addData('flyLine', FAB_FLYLINE_DATA);
+        chartRef.current = chart;
+      } catch (err) {
+        console.error('Failed to initialize flat map:', err);
+      }
+    };
+
+    initMap();
+
+    return () => {
+      cancelled = true;
+      if (chartRef.current) {
+        chartRef.current.destroy();
+        chartRef.current = null;
+      }
+      while (dom.firstChild) {
+        dom.removeChild(dom.firstChild);
+      }
+    };
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      className="w-full"
+      style={{ height: '100%', minHeight: '350px' }}
+    />
+  );
+}
 
 const t = {
   label: { en: 'GLOBAL NETWORK', zh: '全球网络' },
@@ -17,10 +146,29 @@ const t = {
     en: "FemTech Weekend is the China representative of FemTech Across Borders \u2014 a global network spanning 40+ countries, connecting women's health ecosystems worldwide.",
     zh: 'FemTech Weekend 是 FemTech Across Borders 的中国代表——一个覆盖40多个国家的全球网络，连接世界各地的女性健康生态系统。',
   },
-  connecting: { en: 'Connecting', zh: '连接' },
-  countries40: { en: '40+ Countries', zh: '40+个国家' },
   partners: { en: 'Partners', zh: '合作伙伴' },
 };
+
+function CountUpCard({
+  stat,
+  locale,
+  isVisible,
+}: {
+  stat: (typeof ecosystemStats)[number];
+  locale: 'en' | 'zh';
+  isVisible: boolean;
+}) {
+  const count = useCountUp(stat.value, isVisible);
+  return (
+    <div className="group border border-white/10 bg-white/5 p-6 sm:p-8 transition-all duration-500 hover:border-[#AA7C52]/30 cursor-default">
+      <span className="font-display text-3xl sm:text-4xl lg:text-5xl text-[#AA7C52] block mb-1 tracking-tight">
+        {count}{stat.suffix}
+      </span>
+      <span className="text-white text-sm block mb-0.5">{stat.label[locale]}</span>
+      <span className="text-white/50 text-[10px] tracking-wider uppercase">{stat.detail[locale]}</span>
+    </div>
+  );
+}
 
 export function GlobalEcosystem() {
   const [isVisible, setIsVisible] = useState(false);
@@ -45,7 +193,8 @@ export function GlobalEcosystem() {
   return (
     <div
       ref={sectionRef}
-      className="relative py-20 sm:py-28 lg:py-32 overflow-hidden bg-background"
+      className="relative py-20 sm:py-28 lg:py-32 overflow-hidden"
+      style={{ backgroundColor: '#000000' }}
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         {/* Header */}
@@ -62,54 +211,38 @@ export function GlobalEcosystem() {
             className="mb-6"
           />
 
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-foreground mb-6 max-w-4xl">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-white mb-6 max-w-4xl">
             {t.heading[locale]}
           </h2>
 
-          <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mb-14 leading-relaxed">
+          <p className="text-white/60 text-base sm:text-lg max-w-2xl mb-14 leading-relaxed">
             {t.description[locale]}
           </p>
         </div>
 
-        {/* Stats + Image layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-14">
-          {/* Stats grid — 8 columns */}
-          <div className="lg:col-span-8 grid grid-cols-2 gap-6">
-            {ecosystemStats.map((stat) => (
-              <div
-                key={stat.label.en}
-                className="group border border-border bg-card p-6 sm:p-8 transition-all duration-500 hover:border-[#AA7C52]/30 cursor-default"
-              >
-                <span className="font-display text-3xl sm:text-4xl lg:text-5xl text-[#AA7C52] block mb-1 tracking-tight">
-                  {stat.value}
-                </span>
-                <span className="text-foreground text-sm block mb-0.5">{stat.label[locale]}</span>
-                <span className="text-muted-foreground text-[10px] tracking-wider uppercase">{stat.detail[locale]}</span>
-              </div>
-            ))}
-          </div>
-
-          {/* Shanghai skyline accent — 4 columns */}
-          <div className="hidden lg:block lg:col-span-4 relative group">
-            <div
-              className="relative overflow-hidden h-full min-h-[240px] summit-image-overlay"
-            >
-              <img
-                src="/img/shanghai/shanghai-skyline.jpg"
-                alt="Shanghai Pudong skyline"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              <div className="absolute bottom-0 left-0 p-5">
-                <span className="text-white/50 text-[10px] tracking-[0.2em] uppercase block mb-0.5">{t.connecting[locale]}</span>
-                <span className="text-white font-display text-base">{t.countries40[locale]}</span>
-              </div>
-            </div>
-            <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b border-r border-[#AA7C52]/40" />
-          </div>
+        {/* Stats */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-14">
+          {ecosystemStats.map((stat) => (
+            <CountUpCard key={stat.label.en} stat={stat} locale={locale} isVisible={isVisible} />
+          ))}
         </div>
+      </div>
 
+      {/* Flat World Map — full bleed */}
+      <div
+        className="w-full mb-14"
+        style={{
+          opacity: isVisible ? 1 : 0,
+          transition: 'opacity 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s',
+          height: 'clamp(400px, 50vw, 720px)',
+        }}
+      >
+        <BrowserOnly fallback={<div style={{ height: '100%' }} />}>
+          {() => <FlatMapRenderer />}
+        </BrowserOnly>
+      </div>
+
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         {/* Partner logos */}
         <div
           style={{
@@ -118,17 +251,17 @@ export function GlobalEcosystem() {
           }}
         >
           <div className="flex items-center gap-3 mb-6">
-            <span className="text-muted-foreground text-[10px] tracking-[0.2em] uppercase">{t.partners[locale]}</span>
-            <div className="h-px flex-1 bg-border" />
+            <span className="text-white/50 text-[10px] tracking-[0.2em] uppercase">{t.partners[locale]}</span>
+            <div className="h-px flex-1 bg-white/10" />
           </div>
           <div className="flex flex-wrap items-center gap-6">
             {SUMMIT_META.partnerLogos.map((logo) => (
               <div
                 key={logo.alt}
-                className={`flex items-center justify-center px-8 py-5 border border-border transition-all duration-300 hover:border-[#AA7C52]/30 ${
+                className={`flex items-center justify-center px-8 py-5 border border-white/10 transition-all duration-300 hover:border-[#AA7C52]/30 ${
                   logo.alt === 'Clincase'
                     ? 'bg-[#165e58]'
-                    : 'bg-card'
+                    : 'bg-white/5'
                 }`}
               >
                 <img
