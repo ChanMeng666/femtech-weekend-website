@@ -25,8 +25,8 @@ export default function ShanghaiSummitPage() {
         <FABGlobeSection />
         <PartnersGrid />
         <SpeakersGrid />
-        <VenueShowcase />
         <AgendaTimeline />
+        <VenueShowcase />
         <CapitalSpotlight />
         <SummitCTA />
         <WhyDifferent />
