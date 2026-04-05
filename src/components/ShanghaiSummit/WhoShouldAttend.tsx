@@ -1,13 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { AnimatedLine } from '../ui/AnimatedLine';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '../ui/collapsible';
 import {
   Rocket,
   TrendingUp,
   Building2,
   Network,
-  ChevronRight,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -63,68 +61,6 @@ const sectionText = {
   },
 };
 
-function AudienceCard({
-  item,
-  index,
-  isVisible,
-}: {
-  item: AudienceItem;
-  index: number;
-  isVisible: boolean;
-}) {
-  const Icon = item.icon;
-
-  return (
-    <Collapsible defaultOpen={index === 0}>
-      <div
-        className="group border border-[#AA7C52]/10 hover:border-[#AA7C52]/30 rounded-sm transition-all duration-500 hover:shadow-[0_0_24px_rgba(170,124,82,0.06)]"
-        style={{
-          opacity: isVisible ? 1 : 0,
-          transform: isVisible ? 'translateY(0)' : 'translateY(16px)',
-          transitionProperty: 'opacity, transform, border-color, box-shadow',
-          transitionDuration: '700ms',
-          transitionDelay: `${150 * index}ms`,
-          transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
-        }}
-      >
-        <CollapsibleTrigger className="flex w-full items-center justify-between gap-4 p-5 sm:p-6 text-left">
-          <div className="flex items-center gap-4">
-            {/* Icon container */}
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#AA7C52]/20 bg-[#AA7C52]/5 transition-colors duration-300 group-hover:bg-[#AA7C52]/10 group-hover:border-[#AA7C52]/30">
-              <Icon
-                size={20}
-                className="text-[#AA7C52] transition-transform duration-300 group-hover:scale-110"
-              />
-            </div>
-            <div>
-              <span className="font-display text-lg sm:text-xl font-semibold tracking-tight text-foreground">
-                {item.title}
-              </span>
-            </div>
-          </div>
-          <ChevronRight
-            size={18}
-            className="shrink-0 text-[#AA7C52]/50 transition-transform duration-200 [[data-state=open]_&]:rotate-90"
-          />
-        </CollapsibleTrigger>
-
-        <CollapsibleContent>
-          <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0">
-            <div className="ml-15 pl-[60px]">
-              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                <span className="text-[#AA7C52] font-semibold tracking-wide">
-                  {item.highlight}
-                </span>{' '}
-                {item.description}
-              </p>
-            </div>
-          </div>
-        </CollapsibleContent>
-      </div>
-    </Collapsible>
-  );
-}
-
 export function WhoShouldAttend() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -163,26 +99,65 @@ export function WhoShouldAttend() {
           }}
         >
           <AnimatedLine variant="label" label={sectionText.label[locale]} />
-          <div className="mt-6">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mt-6 gap-4">
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-foreground">
               {sectionText.heading[locale]}
             </h2>
-            <p className="text-muted-foreground text-base sm:text-lg mt-4 max-w-3xl leading-relaxed">
-              {sectionText.subline[locale]}
-            </p>
           </div>
+          <p className="text-muted-foreground text-base sm:text-lg mt-4 max-w-3xl leading-relaxed">
+            {sectionText.subline[locale]}
+          </p>
         </div>
 
-        {/* Audience cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {audienceItems.map((item, index) => (
-            <AudienceCard
-              key={item.id}
-              item={item}
-              index={index}
-              isVisible={isVisible}
-            />
-          ))}
+        {/* Audience list — single column */}
+        <div className="max-w-3xl space-y-0">
+          {audienceItems.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={item.id}
+                className="group relative flex gap-5 sm:gap-6 py-8 first:pt-0 last:pb-0"
+                style={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? 'translateY(0)' : 'translateY(16px)',
+                  transition: `all 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${100 * index}ms`,
+                }}
+              >
+                {/* Divider line — above each item except the first */}
+                {index > 0 && (
+                  <div
+                    className="absolute top-0 left-0 right-0 h-px"
+                    style={{
+                      background: 'linear-gradient(to right, #AA7C52, transparent)',
+                      opacity: 0.15,
+                    }}
+                  />
+                )}
+
+                {/* Icon */}
+                <div className="flex-shrink-0 mt-0.5">
+                  <Icon
+                    size={22}
+                    strokeWidth={1.5}
+                    className="text-[#AA7C52] opacity-70 transition-opacity duration-300 group-hover:opacity-100"
+                  />
+                </div>
+
+                {/* Content */}
+                <div>
+                  <h3 className="font-display text-xl sm:text-2xl font-normal tracking-tight text-foreground mb-3">
+                    {item.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                    <span className="text-[#AA7C52] font-medium tracking-wide text-xs uppercase">
+                      {item.highlight}
+                    </span>{' '}
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
