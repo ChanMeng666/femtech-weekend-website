@@ -3,7 +3,6 @@ import Layout from '@theme/Layout';
 import { getPageTitle, getPageDescription } from '../constants/shanghai-summit';
 import {
   SummitHero,
-  WhyThisMatters,
   GlobalEcosystem,
   SpeakersGrid,
   AgendaTimeline,
@@ -23,7 +22,6 @@ export default function ShanghaiSummitPage() {
       <main style={{ marginTop: 'calc(-1 * var(--ifm-navbar-height))' }}>
         <SummitHero />
         <FABGlobeSection />
-        <WhyThisMatters />
         <SpeakersGrid />
         <VenueShowcase />
         <AgendaTimeline />
