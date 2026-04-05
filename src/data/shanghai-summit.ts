@@ -20,6 +20,35 @@ export interface AgendaDayData {
   };
 }
 
+export interface PartnerData {
+  name: string;
+  logo: string;
+  url: string;
+}
+
+export const partners: PartnerData[] = [
+  { name: 'PwC', logo: '/img/summit-partners/pwc.svg', url: 'https://www.pwc.co.uk/' },
+  { name: 'Bayer', logo: '/img/summit-partners/bayer.svg', url: 'https://www.bayer.com/en/' },
+  { name: 'HeraNova', logo: '/img/summit-partners/heranova.png', url: 'https://heranova.com/' },
+  { name: 'GE Healthcare', logo: '/img/summit-partners/ge-healthcare.svg', url: 'https://www.gehealthcare.co.uk/' },
+  { name: 'Fosun Health Capital', logo: '/img/summit-partners/fosun-health-capital.svg', url: 'http://www.fosunhealthcapital.com/' },
+  { name: 'AVPN', logo: '/img/summit-partners/avpn.webp', url: 'https://avpn.asia/' },
+  { name: 'Foreground', logo: '/img/summit-partners/foreground.png', url: 'https://foreground.vc/' },
+  { name: 'Gobi Partners', logo: '/img/summit-partners/gobi.png', url: 'https://www.gobi.vc/' },
+  { name: 'BD', logo: '/img/summit-partners/bd.svg', url: 'https://www.bd.com/en-uk' },
+  { name: 'Roche', logo: '/img/summit-partners/roche.png', url: 'https://www.roche.com/' },
+  { name: 'Raffles Medical', logo: '/img/summit-partners/raffles-medical.svg', url: 'https://www.rafflesmedicalchina.com/en/site/shanghai-hospital' },
+  { name: 'Renji Hospital', logo: '/img/summit-partners/renji.png', url: 'https://www.renji.com/' },
+  { name: 'Tigermed', logo: '/img/summit-partners/tigermed.png', url: 'https://www.tigermedgrp.com/zh/homepage' },
+  { name: 'China Merchants Bank', logo: '/img/summit-partners/cmb.webp', url: 'https://www.cmbchina.com/' },
+  { name: 'HSBC', logo: '/img/summit-partners/hsbc.svg', url: 'https://www.hsbc.co.uk/' },
+  { name: 'Medtronic', logo: '/img/summit-partners/medtronic.webp', url: 'https://www.medtronic.com/uk-en/index.html' },
+  { name: 'Ministry of Foreign Affairs of Denmark', logo: '/img/summit-partners/denmark-mfa.webp', url: 'https://um.dk/en/' },
+  { name: 'British Consulate', logo: '/img/summit-partners/british-consulate.png', url: 'https://www.british-consulate.net/uk/United-Kingdom-Consular-Assistance-Shanghai' },
+  { name: 'Government of Canada', logo: '/img/summit-partners/canada.svg', url: 'https://www.international.gc.ca/country-pays/china-chine/shanghai.aspx?lang=eng' },
+  { name: 'Gates Foundation', logo: '/img/summit-partners/gates-foundation.svg', url: 'https://www.gatesfoundation.org/' },
+];
+
 export const SUMMIT_META = {
   dateRange: 'June 22-25, 2026',
   location: 'Shanghai, China',

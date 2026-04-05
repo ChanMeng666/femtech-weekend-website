@@ -10,3 +10,4 @@ export { FormSuccess } from './FormSuccess';
 export { CapitalSpotlight } from './CapitalSpotlight';
 export { WhyDifferent } from './WhyDifferent';
 export { FABGlobeSection } from './FABGlobeSection';
+export { PartnersGrid } from './PartnersGrid';
