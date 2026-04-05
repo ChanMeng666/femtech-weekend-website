@@ -1,26 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { AnimatedLine } from '../ui/AnimatedLine';
-import { SUMMIT_META } from '../../data/shanghai-summit';
-import { ArrowRight, MapPin, Calendar } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 
 const t = {
-  label: { en: 'SHANGHAI SUMMIT 2026', zh: '2026上海峰会' },
-  date: { en: 'JUNE 22-25, 2026', zh: '2026年6月22-25日' },
-  location: { en: 'SHANGHAI, CHINA', zh: '中国·上海' },
+  label: { en: 'SHANGHAI SUMMIT 2025', zh: '2025上海峰会' },
   headline: {
-    en: ['Cross-Border Capital,', 'Partnerships,', 'Market Access in'],
-    zh: ['跨境资本、', '合作伙伴', '与市场准入——'],
+    en: "Cross-Border Capital & Partnerships in Women's Health",
+    zh: '女性健康领域的跨境资本与合作',
   },
-  headlineAccent: { en: "Women's Health", zh: '女性健康' },
   description: {
-    en: 'A 4-day China programme in Shanghai connecting global and Chinese leaders through a flagship conference, a dedicated capital and pitch day, and curated ecosystem visits.',
-    zh: '为期四天的上海中国项目，通过旗舰峰会、资本与路演日及精选生态参访，连接全球与中国女性健康领袖。',
+    en: "Bringing together leaders across women's health, innovation, investment, and industry to explore where the sector is going next — and why China matters in that future.",
+    zh: '汇聚女性健康、创新、投资和产业领域的领袖，共同探索行业未来方向——以及中国在其中的重要角色。',
   },
-  ctaTickets: { en: 'Get Conference Tickets', zh: '获取峰会门票' },
-  ctaProgramme: { en: 'Request Full Programme Access', zh: '申请完整项目' },
-  ctaPitch: { en: 'Submit Pitch Application', zh: '提交路演申请' },
+  dateLocation: {
+    en: '22 - 25 June 2025 · Shanghai, China',
+    zh: '2025年6月22-25日 · 中国上海',
+  },
+  ctaProgramme: { en: 'VIEW PROGRAMME', zh: '查看日程' },
 };
 
 export function SummitHero() {
@@ -34,21 +31,19 @@ export function SummitHero() {
   }, []);
 
   return (
-    <div className="relative min-h-[70vh] flex items-center overflow-hidden">
+    <div className="relative min-h-[85vh] flex items-center overflow-hidden">
       {/* Full-bleed Shanghai image background */}
       <img
-        src="/img/shanghai/shanghai-bund.jpg"
+        src="/img/shanghai/shanghai-hero.jpg"
         alt=""
         className="absolute inset-0 w-full h-full object-cover"
       />
-      {/* Light overlay for text readability */}
-      <div className="absolute inset-0 bg-white/75" />
-      {/* Brand gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-transparent" />
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-black/55" />
 
       {/* Content on top */}
       <div
-        className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32"
+        className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32 text-center"
         style={{
           opacity: isVisible ? 1 : 0,
           transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
@@ -59,64 +54,33 @@ export function SummitHero() {
         <AnimatedLine
           variant="label"
           label={t.label[locale]}
-          className="mb-8"
+          className="mb-8 justify-center [&_span]:text-white/70"
         />
 
-        {/* Date + Location */}
-        <div className="flex flex-wrap items-center gap-4 mb-8">
-          <span className="inline-flex items-center gap-2 text-[#AA7C52] text-sm tracking-wider">
-            <Calendar className="w-3.5 h-3.5" />
-            {t.date[locale]}
-          </span>
-          <span className="h-3 w-px bg-border hidden sm:block" />
-          <span className="inline-flex items-center gap-2 text-muted-foreground text-sm tracking-wider">
-            <MapPin className="w-3.5 h-3.5" />
-            {t.location[locale]}
-          </span>
-        </div>
-
         {/* Main headline */}
-        <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-[5rem] font-normal tracking-tight text-foreground mb-8 max-w-5xl leading-[1.05]">
-          {t.headline[locale][0]}{' '}
-          {t.headline[locale][1]}{' '}
-          <span className="text-[#AA7C52]">&amp;</span>{' '}
-          {t.headline[locale][2]}{' '}
-          <span className="relative inline-block">
-            {t.headlineAccent[locale]}
-            <span className="absolute -bottom-2 left-0 w-full h-px bg-[#AA7C52]/40" />
-          </span>
+        <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-normal tracking-tight text-white mb-8 max-w-4xl mx-auto leading-[1.15]">
+          {t.headline[locale]}
         </h1>
 
         {/* Description */}
-        <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mb-14 leading-relaxed font-body">
+        <p className="text-base sm:text-lg text-white/80 max-w-2xl mx-auto mb-6 leading-relaxed font-body">
           {t.description[locale]}
         </p>
 
-        {/* CTAs */}
-        <div className="flex flex-wrap gap-4">
+        {/* Date & Location */}
+        <p className="text-sm sm:text-base text-[#D4A574] tracking-wider font-medium mb-14">
+          {t.dateLocation[locale]}
+        </p>
+
+        {/* CTA */}
+        <div className="flex justify-center">
           <a
-            href={SUMMIT_META.ticketUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative inline-flex items-center gap-2.5 bg-[#AA7C52] text-white hover:text-white px-7 py-3.5 text-sm font-medium overflow-hidden no-underline hover:no-underline transition-all duration-300 hover:shadow-[0_0_24px_rgba(170,124,82,0.25)]"
+            href="#programme"
+            className="group inline-flex items-center gap-2.5 bg-[#AA7C52] text-white hover:text-white px-8 py-4 text-sm font-semibold tracking-wider overflow-hidden no-underline hover:no-underline transition-all duration-300 hover:shadow-[0_0_24px_rgba(170,124,82,0.35)] hover:bg-[#96693f]"
           >
-            <span className="relative">{t.ctaTickets[locale]}</span>
-            <ArrowRight className="w-4 h-4 relative transition-transform duration-300 group-hover:translate-x-0.5" />
+            <span>{t.ctaProgramme[locale]}</span>
+            <ArrowDown className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-0.5" />
           </a>
-          <Link
-            to="/shanghai-summit/programme"
-            className="group inline-flex items-center gap-2.5 border border-[#AA7C52]/40 text-[#AA7C52] px-7 py-3.5 text-sm font-medium hover:bg-[#AA7C52]/5 hover:border-[#AA7C52]/70 transition-all duration-300 no-underline hover:no-underline"
-          >
-            {t.ctaProgramme[locale]}
-            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-          </Link>
-          <Link
-            to="/shanghai-summit/pitch"
-            className="group inline-flex items-center gap-2.5 border border-border text-muted-foreground px-7 py-3.5 text-sm font-medium hover:border-[#AA7C52]/30 hover:text-foreground transition-all duration-300 no-underline hover:no-underline"
-          >
-            {t.ctaPitch[locale]}
-            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-          </Link>
         </div>
       </div>
     </div>

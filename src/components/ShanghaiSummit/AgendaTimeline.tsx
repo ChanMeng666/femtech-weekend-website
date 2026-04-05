@@ -132,7 +132,7 @@ export function AgendaTimeline() {
   }, []);
 
   return (
-    <div ref={sectionRef} className="relative bg-background py-20 sm:py-28 lg:py-32 overflow-hidden">
+    <div id="programme" ref={sectionRef} className="relative bg-background py-20 sm:py-28 lg:py-32 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section header */}
         <div
