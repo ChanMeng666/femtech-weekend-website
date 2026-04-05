@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { useColorMode } from '@docusaurus/theme-common';
 import { AnimatedLine } from '../ui/AnimatedLine';
 import { SUMMIT_META, FAB_FLYLINE_DATA } from '../../data/shanghai-summit';
 
@@ -33,7 +34,30 @@ function useCountUp(target: number, isVisible: boolean, duration = 1800) {
   return count;
 }
 
-function FlatMapRenderer() {
+const mapPalettes = {
+  dark: {
+    earth: '#1a1510',
+    areaColor: '#3d3028',
+    lineColor: '#AA7C52',
+    pathColor: '#D4A574',
+    flyLineColor: '#AA7C52',
+    scatterColor: '#AA7C52',
+    hoverAreaColor: '#B58960',
+    chinaAreaColor: '#4a3a2e',
+  },
+  light: {
+    earth: '#f5f0eb',
+    areaColor: '#e8ddd0',
+    lineColor: '#c4a882',
+    pathColor: '#b8956a',
+    flyLineColor: '#c4a882',
+    scatterColor: '#c4a882',
+    hoverAreaColor: '#d4c0a8',
+    chinaAreaColor: '#ddd0c0',
+  },
+};
+
+function FlatMapRenderer({ colorMode }: { colorMode: 'light' | 'dark' }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const chartRef = useRef<any>(null);
 
@@ -42,6 +66,7 @@ function FlatMapRenderer() {
 
     let cancelled = false;
     const dom = containerRef.current;
+    const palette = mapPalettes[colorMode];
 
     const initMap = async () => {
       try {
@@ -59,6 +84,7 @@ function FlatMapRenderer() {
           mode: '2d',
           config: {
             R: 140,
+            zoom: 1.85,
             enableZoom: false,
             stopRotateByHover: false,
             bgStyle: {
@@ -66,7 +92,7 @@ function FlatMapRenderer() {
               opacity: 0,
             },
             earth: {
-              color: '#1a1510',
+              color: palette.earth,
               dragConfig: {
                 rotationSpeed: 0,
                 inertiaFactor: 0,
@@ -75,30 +101,30 @@ function FlatMapRenderer() {
               },
             },
             mapStyle: {
-              areaColor: '#3d3028',
-              lineColor: '#AA7C52',
+              areaColor: palette.areaColor,
+              lineColor: palette.lineColor,
             },
             spriteStyle: {
-              color: '#AA7C52',
+              color: palette.scatterColor,
               show: false,
             },
             pathStyle: {
-              color: '#D4A574',
+              color: palette.pathColor,
               show: true,
             },
             flyLineStyle: {
-              color: '#AA7C52',
+              color: palette.flyLineColor,
             },
             scatterStyle: {
-              color: '#AA7C52',
+              color: palette.scatterColor,
             },
             hoverRegionStyle: {
-              areaColor: '#B58960',
+              areaColor: palette.hoverAreaColor,
               show: true,
             },
             regions: {
               China: {
-                areaColor: '#4a3a2e',
+                areaColor: palette.chinaAreaColor,
               },
             },
           },
@@ -128,7 +154,7 @@ function FlatMapRenderer() {
         dom.removeChild(dom.firstChild);
       }
     };
-  }, []);
+  }, [colorMode]);
 
   return (
     <div
@@ -160,12 +186,12 @@ function CountUpCard({
 }) {
   const count = useCountUp(stat.value, isVisible);
   return (
-    <div className="group border border-white/10 bg-white/5 p-6 sm:p-8 transition-all duration-500 hover:border-[#AA7C52]/30 cursor-default">
+    <div className="group border border-gray-200 dark:border-white/10 bg-gray-100 dark:bg-white/5 p-6 sm:p-8 transition-all duration-500 hover:border-[#AA7C52]/30 cursor-default">
       <span className="font-display text-3xl sm:text-4xl lg:text-5xl text-[#AA7C52] block mb-1 tracking-tight">
         {count}{stat.suffix}
       </span>
-      <span className="text-white text-sm block mb-0.5">{stat.label[locale]}</span>
-      <span className="text-white/50 text-[10px] tracking-wider uppercase">{stat.detail[locale]}</span>
+      <span className="text-gray-900 dark:text-white text-sm block mb-0.5">{stat.label[locale]}</span>
+      <span className="text-gray-500 dark:text-white/50 text-[10px] tracking-wider uppercase">{stat.detail[locale]}</span>
     </div>
   );
 }
@@ -174,6 +200,7 @@ export function GlobalEcosystem() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const { i18n: { currentLocale } } = useDocusaurusContext();
+  const { colorMode } = useColorMode();
   const locale = currentLocale === 'zh-Hans' ? 'zh' : 'en';
 
   useEffect(() => {
@@ -193,8 +220,7 @@ export function GlobalEcosystem() {
   return (
     <div
       ref={sectionRef}
-      className="relative py-20 sm:py-28 lg:py-32 overflow-hidden"
-      style={{ backgroundColor: '#000000' }}
+      className="relative py-20 sm:py-28 lg:py-32 overflow-hidden bg-background"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         {/* Header */}
@@ -211,11 +237,11 @@ export function GlobalEcosystem() {
             className="mb-6"
           />
 
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-white mb-6 max-w-4xl">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-gray-900 dark:text-white mb-6 max-w-4xl">
             {t.heading[locale]}
           </h2>
 
-          <p className="text-white/60 text-base sm:text-lg max-w-2xl mb-14 leading-relaxed">
+          <p className="text-gray-600 dark:text-white/60 text-base sm:text-lg max-w-2xl mb-14 leading-relaxed">
             {t.description[locale]}
           </p>
         </div>
@@ -238,7 +264,7 @@ export function GlobalEcosystem() {
         }}
       >
         <BrowserOnly fallback={<div style={{ height: '100%' }} />}>
-          {() => <FlatMapRenderer />}
+          {() => <FlatMapRenderer colorMode={colorMode} />}
         </BrowserOnly>
       </div>
 
@@ -251,17 +277,17 @@ export function GlobalEcosystem() {
           }}
         >
           <div className="flex items-center gap-3 mb-6">
-            <span className="text-white/50 text-[10px] tracking-[0.2em] uppercase">{t.partners[locale]}</span>
-            <div className="h-px flex-1 bg-white/10" />
+            <span className="text-gray-500 dark:text-white/50 text-[10px] tracking-[0.2em] uppercase">{t.partners[locale]}</span>
+            <div className="h-px flex-1 bg-gray-200 dark:bg-white/10" />
           </div>
           <div className="flex flex-wrap items-center gap-6">
             {SUMMIT_META.partnerLogos.map((logo) => (
               <div
                 key={logo.alt}
-                className={`flex items-center justify-center px-8 py-5 border border-white/10 transition-all duration-300 hover:border-[#AA7C52]/30 ${
+                className={`flex items-center justify-center px-8 py-5 border border-gray-200 dark:border-white/10 transition-all duration-300 hover:border-[#AA7C52]/30 ${
                   logo.alt === 'Clincase'
                     ? 'bg-[#165e58]'
-                    : 'bg-white/5'
+                    : 'bg-gray-100 dark:bg-white/5'
                 }`}
               >
                 <img
