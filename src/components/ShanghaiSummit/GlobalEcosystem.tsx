@@ -57,9 +57,77 @@ const mapPalettes = {
   },
 };
 
+function getResponsiveZoom(width: number): number {
+  if (width >= 1280) return 1.85;
+  if (width >= 768) return 1.5;
+  return 1.15;
+}
+
 function FlatMapRenderer({ colorMode }: { colorMode: 'light' | 'dark' }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const chartRef = useRef<any>(null);
+  const modulesRef = useRef<{ earthFlyLine: any; geojson: any } | null>(null);
+
+  const buildChart = React.useCallback((dom: HTMLElement, palette: typeof mapPalettes['dark'], zoom: number) => {
+    const { earthFlyLine, geojson } = modulesRef.current!;
+    earthFlyLine.registerMap('world', geojson as any);
+
+    const chart = earthFlyLine.init({
+      dom,
+      map: 'world',
+      autoRotate: false,
+      mode: '2d',
+      config: {
+        R: 140,
+        zoom,
+        enableZoom: false,
+        stopRotateByHover: false,
+        bgStyle: {
+          color: '#040D21',
+          opacity: 0,
+        },
+        earth: {
+          color: palette.earth,
+          dragConfig: {
+            rotationSpeed: 0,
+            inertiaFactor: 0,
+            disableX: true,
+            disableY: true,
+          },
+        },
+        mapStyle: {
+          areaColor: palette.areaColor,
+          lineColor: palette.lineColor,
+        },
+        spriteStyle: {
+          color: palette.scatterColor,
+          show: false,
+        },
+        pathStyle: {
+          color: palette.pathColor,
+          show: true,
+        },
+        flyLineStyle: {
+          color: palette.flyLineColor,
+        },
+        scatterStyle: {
+          color: palette.scatterColor,
+        },
+        hoverRegionStyle: {
+          areaColor: palette.hoverAreaColor,
+          show: true,
+        },
+        regions: {
+          China: {
+            areaColor: palette.chinaAreaColor,
+          },
+        },
+      },
+    });
+
+    chart.addData('flyLine', FAB_FLYLINE_DATA);
+    return chart;
+  }, []);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -67,85 +135,9 @@ function FlatMapRenderer({ colorMode }: { colorMode: 'light' | 'dark' }) {
     let cancelled = false;
     const dom = containerRef.current;
     const palette = mapPalettes[colorMode];
+    let currentZoom = getResponsiveZoom(dom.clientWidth);
 
-    const initMap = async () => {
-      try {
-        const earthFlyLine = (await import('earth-flyline')).default;
-        const geojson = (await import('../../data/world.json')).default;
-
-        if (cancelled) return;
-
-        earthFlyLine.registerMap('world', geojson as any);
-
-        const chart = earthFlyLine.init({
-          dom,
-          map: 'world',
-          autoRotate: false,
-          mode: '2d',
-          config: {
-            R: 140,
-            zoom: 1.85,
-            enableZoom: false,
-            stopRotateByHover: false,
-            bgStyle: {
-              color: '#040D21',
-              opacity: 0,
-            },
-            earth: {
-              color: palette.earth,
-              dragConfig: {
-                rotationSpeed: 0,
-                inertiaFactor: 0,
-                disableX: true,
-                disableY: true,
-              },
-            },
-            mapStyle: {
-              areaColor: palette.areaColor,
-              lineColor: palette.lineColor,
-            },
-            spriteStyle: {
-              color: palette.scatterColor,
-              show: false,
-            },
-            pathStyle: {
-              color: palette.pathColor,
-              show: true,
-            },
-            flyLineStyle: {
-              color: palette.flyLineColor,
-            },
-            scatterStyle: {
-              color: palette.scatterColor,
-            },
-            hoverRegionStyle: {
-              areaColor: palette.hoverAreaColor,
-              show: true,
-            },
-            regions: {
-              China: {
-                areaColor: palette.chinaAreaColor,
-              },
-            },
-          },
-        });
-
-        if (cancelled) {
-          chart.destroy();
-          return;
-        }
-
-        chart.addData('flyLine', FAB_FLYLINE_DATA);
-        chartRef.current = chart;
-      } catch (err) {
-        console.error('Failed to initialize flat map:', err);
-      }
-    };
-
-    initMap();
-
-    return () => {
-      cancelled = true;
+    const destroyChart = () => {
       if (chartRef.current) {
         chartRef.current.destroy();
         chartRef.current = null;
@@ -154,7 +146,48 @@ function FlatMapRenderer({ colorMode }: { colorMode: 'light' | 'dark' }) {
         dom.removeChild(dom.firstChild);
       }
     };
-  }, [colorMode]);
+
+    const initMap = async () => {
+      try {
+        if (!modulesRef.current) {
+          const [earthFlyLineModule, geojsonModule] = await Promise.all([
+            import('earth-flyline'),
+            import('../../data/world.json'),
+          ]);
+          modulesRef.current = {
+            earthFlyLine: earthFlyLineModule.default,
+            geojson: geojsonModule.default,
+          };
+        }
+
+        if (cancelled) return;
+
+        chartRef.current = buildChart(dom, palette, currentZoom);
+      } catch (err) {
+        console.error('Failed to initialize flat map:', err);
+      }
+    };
+
+    initMap();
+
+    const onResize = () => {
+      if (cancelled || !modulesRef.current) return;
+      const newZoom = getResponsiveZoom(dom.clientWidth);
+      if (newZoom !== currentZoom) {
+        currentZoom = newZoom;
+        destroyChart();
+        chartRef.current = buildChart(dom, palette, currentZoom);
+      }
+    };
+
+    window.addEventListener('resize', onResize);
+
+    return () => {
+      cancelled = true;
+      window.removeEventListener('resize', onResize);
+      destroyChart();
+    };
+  }, [colorMode, buildChart]);
 
   return (
     <div
@@ -260,7 +293,7 @@ export function GlobalEcosystem() {
         style={{
           opacity: isVisible ? 1 : 0,
           transition: 'opacity 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s',
-          height: 'clamp(400px, 50vw, 720px)',
+          height: 'clamp(280px, 50vw, 720px)',
         }}
       >
         <BrowserOnly fallback={<div style={{ height: '100%' }} />}>
