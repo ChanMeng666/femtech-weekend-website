@@ -56,7 +56,7 @@ function DayCard({
 
       {/* Day content card */}
       <div className="flex-1 group pb-14 lg:pb-20">
-        {/* Day header row */}
+        {/* Day number & date */}
         <div className="flex items-baseline gap-4 mb-4">
           <span
             className="font-display text-5xl lg:text-7xl tracking-tight transition-colors duration-500"
@@ -64,17 +64,29 @@ function DayCard({
           >
             {dayNumber}
           </span>
-          <div>
-            <p className="text-muted-foreground text-xs tracking-[0.15em] uppercase">
-              {day.date}
-            </p>
-            <h3 className="font-display text-xl sm:text-2xl lg:text-3xl font-normal tracking-tight text-foreground mt-1">
-              {locale === 'zh'
-                ? `${sectionText.dayPrefix.zh}${dayLabel}${sectionText.daySuffix.zh}：${day.title[locale]}`
-                : `Day ${dayLabel}: ${day.title[locale]}`}
-            </h3>
-          </div>
+          <p className="text-muted-foreground text-xs tracking-[0.15em] uppercase">
+            {day.date}
+          </p>
         </div>
+
+        {/* Day image */}
+        {day.image && (
+          <div className="mb-5 overflow-hidden rounded-sm">
+            <img
+              src={day.image}
+              alt={day.title.en}
+              className="w-full h-auto object-cover max-h-[320px] sm:max-h-[400px]"
+              loading="lazy"
+            />
+          </div>
+        )}
+
+        {/* Day title */}
+        <h3 className="font-display text-xl sm:text-2xl lg:text-3xl font-normal tracking-tight text-foreground mb-4">
+          {locale === 'zh'
+            ? `${sectionText.dayPrefix.zh}${dayLabel}${sectionText.daySuffix.zh}：${day.title[locale]}`
+            : `Day ${dayLabel}: ${day.title[locale]}`}
+        </h3>
 
         {/* Description */}
         <p className={`text-muted-foreground leading-relaxed max-w-2xl text-sm sm:text-base ${day.note ? 'mb-4' : 'mb-6'}`}>

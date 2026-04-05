@@ -13,6 +13,7 @@ export interface AgendaDayData {
   title: { en: string; zh: string };
   description: { en: string; zh: string };
   highlights: { en: string[]; zh: string[] };
+  image?: string;
   note?: { en: string; zh: string };
   cta?: {
     label: { en: string; zh: string };
@@ -193,6 +194,7 @@ export const agendaDays: AgendaDayData[] = [
       zh: '核心宏观简报。高规格圆桌对话，定义西方创新与东方市场速度在女性健康领域的交汇点。',
     },
     highlights: { en: [], zh: [] },
+    image: '/img/summit-programme/day1-conference.png',
     cta: {
       label: { en: 'Register for Access', zh: '注册参加' },
       href: 'https://events.humanitix.com/cross-border-capital-and-partnerships-in-women-s-health-china/tickets',
@@ -211,6 +213,7 @@ export const agendaDays: AgendaDayData[] = [
       zh: '闭门环节。参与精心策划的1:1配对和由拜耳主导的路演挑战，与国内外医疗健康投资人深度互动。',
     },
     highlights: { en: [], zh: [] },
+    image: '/img/summit-programme/day2-pitch.jpg',
     note: { en: 'Selected companies only | Application required', zh: '仅限入选企业 | 需提交申请' },
     cta: {
       label: { en: 'Apply to Pitch', zh: '申请路演' },
@@ -229,6 +232,7 @@ export const agendaDays: AgendaDayData[] = [
       zh: '为中国洞察而来，带着全球合作而归。我们深入探讨中国的"实操指南"（合规、知识产权保护和监管框架），但目标是全球就绪。我们提供接入即服务，将企业内部推动者转化为真实的全球引荐。最适合有远见的初创企业——那些深谙中国的价值远不止市场规模的企业，还包括学习机会、合作关系和更敏锐的战略视角。',
     },
     highlights: { en: [], zh: [] },
+    image: '/img/summit-programme/day3-gateway.jpg',
     note: { en: 'Curated access | Limited places', zh: '精选准入 | 名额有限' },
     cta: {
       label: { en: 'Request', zh: '申请' },
