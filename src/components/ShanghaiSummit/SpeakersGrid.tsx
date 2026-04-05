@@ -6,7 +6,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 const sectionText = {
   label: { en: 'SPEAKERS', zh: '演讲嘉宾' },
-  heading: { en: 'Global Thought Leaders', zh: '全球思想领袖' },
+  heading: { en: 'Early Confirmed Speakers', zh: '首批确认嘉宾' },
   description: {
     en: "Pioneers in women's health science, investment, and cross-border innovation.",
     zh: '女性健康科学、投资与跨境创新领域的先行者。',
