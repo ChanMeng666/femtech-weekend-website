@@ -13,6 +13,7 @@ export interface AgendaDayData {
   title: { en: string; zh: string };
   description: { en: string; zh: string };
   highlights: { en: string[]; zh: string[] };
+  note?: { en: string; zh: string };
   cta?: {
     label: { en: string; zh: string };
     href: string;
@@ -184,16 +185,16 @@ export const agendaDays: AgendaDayData[] = [
     day: 1,
     date: 'June 22, 2026',
     title: {
-      en: 'Conference',
-      zh: '旗舰国际峰会',
+      en: 'East-West Convergence & Dialogue',
+      zh: '东西方融合与对话',
     },
     description: {
-      en: 'A flagship international conference bringing together global and Chinese leaders in women\'s health for a full day of keynotes, panels, and high-level networking.',
-      zh: '旗舰国际峰会，汇聚全球与中国女性健康领袖，全天主题演讲、圆桌对话与高端交流。',
+      en: 'The essential macro briefing. High-profile panels defining where Western innovation must meet Eastern market velocity in Women\'s Health.',
+      zh: '核心宏观简报。高规格圆桌对话，定义西方创新与东方市场速度在女性健康领域的交汇点。',
     },
     highlights: { en: [], zh: [] },
     cta: {
-      label: { en: 'GET CONFERENCE TICKETS', zh: '获取峰会门票' },
+      label: { en: 'Register for Access', zh: '注册参加' },
       href: 'https://events.humanitix.com/cross-border-capital-and-partnerships-in-women-s-health-china/tickets',
       external: true,
     },
@@ -202,16 +203,17 @@ export const agendaDays: AgendaDayData[] = [
     day: 2,
     date: 'June 23, 2026',
     title: {
-      en: 'Capital & Pitch Day',
-      zh: '资本与路演日',
+      en: 'Deal-Flow Spotlight & Strategic Matchmaking',
+      zh: '交易流聚焦与战略配对',
     },
     description: {
-      en: 'Led by Bayer, a dedicated day of closed-door pitch sessions connecting the most promising early and growth-stage women\'s health companies with global investors and corporate partners.',
-      zh: '由拜耳主导，闭门路演日汇聚最具潜力的早期及成长期女性健康企业，对接全球投资人与企业合作伙伴。',
+      en: 'Closed-Door. Engage in curated 1:1 matching and a Bayer-led pitch challenge with other domestic and international healthcare investors.',
+      zh: '闭门环节。参与精心策划的1:1配对和由拜耳主导的路演挑战，与国内外医疗健康投资人深度互动。',
     },
     highlights: { en: [], zh: [] },
+    note: { en: 'Selected companies only | Application required', zh: '仅限入选企业 | 需提交申请' },
     cta: {
-      label: { en: 'SUBMIT PITCH APPLICATION', zh: '提交路演申请' },
+      label: { en: 'Apply to Pitch', zh: '申请路演' },
       href: '/shanghai-summit/pitch',
     },
   },
@@ -219,16 +221,17 @@ export const agendaDays: AgendaDayData[] = [
     day: 3,
     date: 'June 24-25, 2026',
     title: {
-      en: 'China Ecosystem Visits',
-      zh: '中国生态参访',
+      en: 'The Global Gateway',
+      zh: '全球通道',
     },
     description: {
-      en: 'Curated visits to Shanghai\'s innovation parks, pharma and biotech companies, hospitals, e-commerce platforms, and closed-door workshops on regulation, IP, and market access.',
-      zh: '精心策划的上海创新园区、药企与生物科技公司、医院、电商平台参访，以及围绕监管、知识产权与市场准入的闭门工作坊。',
+      en: 'Come for the China insight, leave with a Global partnership. While we dive deep into the "How-To" of China (Compliance, IP Protection, and Regulatory frameworks), the goal is Global Readiness. We provide access as a service that turns an internal champion into a warm global introduction. Best suited to visionary startups that understand China has far more to offer than market size alone — from learning and partnerships to sharper strategic perspective.',
+      zh: '为中国洞察而来，带着全球合作而归。我们深入探讨中国的"实操指南"（合规、知识产权保护和监管框架），但目标是全球就绪。我们提供接入即服务，将企业内部推动者转化为真实的全球引荐。最适合有远见的初创企业——那些深谙中国的价值远不止市场规模的企业，还包括学习机会、合作关系和更敏锐的战略视角。',
     },
     highlights: { en: [], zh: [] },
+    note: { en: 'Curated access | Limited places', zh: '精选准入 | 名额有限' },
     cta: {
-      label: { en: 'REQUEST FULL PROGRAMME ACCESS', zh: '申请完整项目' },
+      label: { en: 'Request', zh: '申请' },
       href: '/shanghai-summit/programme',
     },
   },

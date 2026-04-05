@@ -77,9 +77,16 @@ function DayCard({
         </div>
 
         {/* Description */}
-        <p className="text-muted-foreground leading-relaxed mb-6 max-w-2xl text-sm sm:text-base">
+        <p className={`text-muted-foreground leading-relaxed max-w-2xl text-sm sm:text-base ${day.note ? 'mb-4' : 'mb-6'}`}>
           {day.description[locale]}
         </p>
+
+        {/* Note */}
+        {day.note && (
+          <p className="text-[#AA7C52] text-xs tracking-wide mb-6">
+            {day.note[locale]}
+          </p>
+        )}
 
         {/* CTA */}
         {day.cta && (
