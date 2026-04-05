@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Link from '@docusaurus/Link';
 import { AnimatedLine } from '../ui/AnimatedLine';
 import { agendaDays } from '../../data/shanghai-summit';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 const sectionText = {
@@ -104,15 +104,14 @@ function DayCard({
         {day.cta && (
           <div>
             {day.cta.highlight ? (
-              /* Premium highlight button — the most important CTA */
+              /* Premium highlight button — subtle emphasis, no icons */
               <Link
                 to={day.cta.href}
-                className="group/btn relative inline-flex items-center gap-3 bg-gradient-to-r from-[#AA7C52] via-[#C9956A] to-[#AA7C52] bg-[length:200%_100%] text-white hover:text-white px-8 py-3.5 text-sm font-semibold overflow-hidden no-underline hover:no-underline transition-all duration-500 animate-pulse-glow hover:bg-right"
+                className="group/btn relative inline-flex items-center gap-2.5 bg-[#AA7C52] text-white hover:text-white px-8 py-3.5 text-sm font-semibold overflow-hidden no-underline hover:no-underline transition-all duration-300 shadow-[0_0_16px_rgba(170,124,82,0.25)] hover:shadow-[0_0_24px_rgba(170,124,82,0.4)]"
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
-                <Sparkles className="w-4 h-4 relative" />
+                <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
                 <span className="relative">{day.cta.label[locale]}</span>
-                <ArrowRight className="w-4 h-4 relative transition-transform duration-300 group-hover/btn:translate-x-1" />
+                <ArrowRight className="w-4 h-4 relative transition-transform duration-300 group-hover/btn:translate-x-0.5" />
               </Link>
             ) : day.cta.external || day.cta.variant === 'solid' ? (
               /* Solid filled button */
