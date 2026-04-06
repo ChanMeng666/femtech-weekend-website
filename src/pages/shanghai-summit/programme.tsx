@@ -27,6 +27,21 @@ const translations = {
     pageDescription: 'Apply for the FemTech Weekend Shanghai Summit China Programme.',
     heading: 'Application to Programme',
     description: 'A curated programme for international companies, investors, and ecosystem leaders looking to explore, enter, or expand in the China women\'s health market. Over 4 days in Shanghai, participants gain direct access to hospitals, pharma companies, regulators, and distribution partners — guided by our local team.',
+    heroHeadline: 'Secure Your Seat in the 2026 Global Cohort.',
+    heroSubheadline: 'Join a curated group of innovators bridging the gap between Western technology and Chinese institutional scale.',
+    whoItIsForTitle: 'Who it is for',
+    whoItIsForBody: 'We are seeking a specific cohort of visionary Women\'s Health innovators. This programme is designed for founders who recognise that China is no longer a \'future\' market, but a global center for clinical speed and manufacturing excellence early on.',
+    idealCandidatesTitle: 'Ideal Candidates are:',
+    idealCandidates: [
+      { label: 'Strategic', desc: 'Looking to learn from and build with the Chinese ecosystem early.' },
+      { label: 'Growth-Oriented', desc: 'Seeking more than visibility—you are ready for institutional partnerships and clinical validation.' },
+      { label: 'Global-Minded', desc: 'Ready to take insights gained in Shanghai and apply them to your worldwide scaling strategy.' },
+    ] as { label: string; desc: string }[],
+    idealCandidatesNote: 'Early-stage and Growth-stage companies are both welcome',
+    whyApplyTitle: 'Why Apply',
+    whyApplyBody: 'Serious engagement in China requires more than interest; it requires sovereign context and institutional trust.\nThis programme is a four-day surgical entry into the ecosystem. You will move past the gatekeepers to engage directly with decision-makers from Bayer, GE HealthCare, BD Medical, Raffles Hospital and more to come!\nThe Goal: To help you identify exactly where your innovation fits within the Chinese clinical and corporate landscape, and to build the high-level rapport that translates back to your home market and global headquarters.',
+    whySelectiveTitle: 'Why is the programme selective?',
+    whySelectiveBody: 'To ensure the integrity of our closed-door sessions and the 1:1 ratio of investors to founders, this is an application-based programme. Our two-stage interview process ensures a mutual fit. We are not building a crowd; we are curating a high-performance group of leaders for whom this access will yield genuine, long-term strategic progress.',
     howItWorks: 'How It Works',
     steps: ['Basic Information', 'Company Snapshot', 'China Objective & Readiness'],
     howItWorksCards: [
@@ -158,6 +173,21 @@ const translations = {
     pageDescription: '申请参加FemTech Weekend 2026上海峰会中国项目。',
     heading: '项目申请',
     description: '面向国际企业、投资人和生态领袖的精选项目，旨在探索、进入或拓展中国女性健康市场。在上海为期4天的行程中，参与者将直接对接医院、药企、监管机构和分销合作伙伴——由我们的本地团队全程引导。',
+    heroHeadline: '锁定您在2026全球队列中的席位',
+    heroSubheadline: '加入精选创新者群体，搭建西方技术与中国机构规模之间的桥梁。',
+    whoItIsForTitle: '适合人群',
+    whoItIsForBody: '我们正在寻找一批有远见的女性健康创新者。本项目专为那些认识到中国已不再是"未来"市场、而是临床速度和制造卓越的全球中心的创始人而设计。',
+    idealCandidatesTitle: '理想候选人：',
+    idealCandidates: [
+      { label: '战略导向', desc: '希望尽早向中国生态系统学习并与之共建。' },
+      { label: '增长导向', desc: '不仅追求曝光度——您已准备好建立机构合作伙伴关系和临床验证。' },
+      { label: '全球视野', desc: '准备将在上海获得的洞察应用于全球扩展战略。' },
+    ] as { label: string; desc: string }[],
+    idealCandidatesNote: '早期和成长期企业均可申请',
+    whyApplyTitle: '为什么申请',
+    whyApplyBody: '深入参与中国市场需要的不仅是兴趣，更需要主权级别的理解和机构信任。\n本项目是为期四天的精准生态切入。您将跨越中间环节，直接与来自拜耳、GE医疗、碧迪医疗、莱佛士医院等机构的决策者对话！\n目标：帮助您精准定位创新在中国临床和企业版图中的位置，建立高层人脉关系，并将成果带回母国市场和全球总部。',
+    whySelectiveTitle: '为什么项目具有选拔性？',
+    whySelectiveBody: '为确保闭门会议的质量以及投资人与创始人1:1的比例，本项目采用申请制。我们的两阶段面试流程确保双向匹配。我们不是在组建人群，而是在甄选一批高水平领导者，让这次机会真正产生长期战略价值。',
     howItWorks: '申请流程',
     steps: ['基本信息', '公司概况', '中国目标与准备'],
     howItWorksCards: [
@@ -757,6 +787,12 @@ export default function ProgrammeApplication() {
   const [pdfFile, setPdfFile] = useState<File | null>(null);
   const [pdfUploading, setPdfUploading] = useState(false);
   const [pdfError, setPdfError] = useState('');
+  const [isHeroVisible, setIsHeroVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsHeroVisible(true), 200);
+    return () => clearTimeout(timer);
+  }, []);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const saveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -1034,16 +1070,104 @@ export default function ProgrammeApplication() {
 
   return (
     <Layout title={t.pageTitle} description={t.pageDescription}>
-      <div className="bg-background min-h-screen px-4 py-12">
-        <div className="max-w-3xl mx-auto">
-          {/* Page header */}
-          <div className="text-center mb-10">
-            <h1 className="text-3xl font-bold text-foreground mb-4">{t.heading}</h1>
-            <p className="text-muted-foreground text-sm max-w-xl mx-auto leading-relaxed">
-              {t.description}
-            </p>
+      {/* HERO: full viewport */}
+      <div className="relative h-screen bg-black overflow-hidden">
+        <img
+          src="/img/shanghai/programme-hero.jpg"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        {/* Gradient overlay – subtle bottom fade for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+
+        {/* Hero content */}
+        <div
+          className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 sm:px-10 lg:px-16 max-w-4xl mx-auto"
+          style={{
+            opacity: isHeroVisible ? 1 : 0,
+            transform: isHeroVisible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+          }}
+        >
+          {/* Label */}
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-8 h-px bg-[#AA7C52]" />
+            <span className="text-[#AA7C52] text-xs tracking-[0.2em] uppercase font-medium">
+              Programme
+            </span>
+            <div className="w-8 h-px bg-[#AA7C52]" />
           </div>
 
+          {/* Headline */}
+          <h1
+            className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-[1.1]"
+            style={{ textShadow: '0 2px 12px rgba(0,0,0,0.7), 0 0 40px rgba(0,0,0,0.4)' }}
+          >
+            {t.heroHeadline}
+          </h1>
+
+          {/* Sub-headline */}
+          <p
+            className="text-white/90 text-base sm:text-lg max-w-2xl leading-relaxed"
+            style={{ textShadow: '0 1px 8px rgba(0,0,0,0.6), 0 0 24px rgba(0,0,0,0.3)' }}
+          >
+            {t.heroSubheadline}
+          </p>
+        </div>
+      </div>
+
+      {/* Who It Is For / Why Apply / Why Selective */}
+      <div className="bg-background border-b border-border">
+        <div className="max-w-3xl mx-auto px-6 py-16 sm:py-20">
+          {/* Who It Is For */}
+          <div className="mb-14">
+            <p className="text-xs tracking-[0.2em] uppercase text-[#AA7C52] mb-4 font-medium">
+              {t.whoItIsForTitle}
+            </p>
+            <p className="text-muted-foreground text-sm leading-relaxed mb-8">
+              {t.whoItIsForBody}
+            </p>
+
+            <p className="text-foreground text-sm font-semibold mb-4">{t.idealCandidatesTitle}</p>
+            <ul className="space-y-3 mb-4">
+              {t.idealCandidates.map((item, i) => (
+                <li key={i} className="flex gap-3 text-sm leading-relaxed">
+                  <span className="text-[#AA7C52] mt-0.5 shrink-0">-</span>
+                  <span className="text-muted-foreground">
+                    <strong className="text-foreground">{item.label}:</strong> {item.desc}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-muted-foreground text-xs italic">({t.idealCandidatesNote})</p>
+          </div>
+
+          {/* Why Apply */}
+          <div className="mb-14">
+            <p className="text-xs tracking-[0.2em] uppercase text-[#AA7C52] mb-4 font-medium">
+              {t.whyApplyTitle}
+            </p>
+            {t.whyApplyBody.split('\n').map((paragraph, i) => (
+              <p key={i} className="text-muted-foreground text-sm leading-relaxed mb-3">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+
+          {/* Why Selective */}
+          <div>
+            <p className="text-xs tracking-[0.2em] uppercase text-[#AA7C52] mb-4 font-medium">
+              {t.whySelectiveTitle}
+            </p>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              {t.whySelectiveBody}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-background min-h-screen px-4 py-12">
+        <div className="max-w-3xl mx-auto">
           {/* How It Works */}
           <div className="mb-14">
             <p className="text-xs tracking-[0.2em] uppercase text-[#AA7C52] text-center mb-8 font-medium">{t.howItWorks}</p>
