@@ -45,6 +45,34 @@ function getLogoSize(name: string): { maxWidth: number; maxHeight: number } {
   return { maxWidth: Math.round(w), maxHeight: Math.round(h) };
 }
 
+/* ── Light / dark adaptive filters ────────────────────────────────────
+   invert(1) hue-rotate(180deg) flips lightness while preserving hue:
+     dark maroon → light pink, dark navy → light lavender, etc.
+   - 'dark'  logos: filter applied in dark mode only
+   - 'light' logos: filter applied in light mode only
+   - 'color' logos: visible in both modes, no filter needed              */
+type LogoTheme = 'dark' | 'light' | 'color';
+
+const LOGO_THEMES: Record<string, LogoTheme> = {
+  // Dark / black fills — invisible on dark backgrounds
+  PwC: 'dark',
+  HeraNova: 'dark',
+  HSBC: 'dark',
+  Medtronic: 'dark',
+  'Government of Canada': 'dark',
+  'Gates Foundation': 'dark',
+  // White fills — invisible on light backgrounds
+  AVPN: 'light',
+  'Raffles Medical': 'light',
+};
+
+function getFilterClass(name: string): string {
+  const theme = LOGO_THEMES[name];
+  if (theme === 'dark') return 'dark:invert dark:hue-rotate-180';
+  if (theme === 'light') return 'invert hue-rotate-180 dark:invert-0 dark:hue-rotate-0';
+  return '';
+}
+
 const sectionText = {
   label: { en: 'LEADERSHIP COHORT', zh: '领导力群体' },
   heading: {
@@ -110,6 +138,7 @@ export function PartnersGrid() {
           <ul className="inline-grid grid-cols-2 gap-x-10 gap-y-8 md:gap-x-16 md:grid-cols-4 lg:grid-cols-5">
             {partners.map((partner) => {
               const { maxWidth, maxHeight } = getLogoSize(partner.name);
+              const filterCls = getFilterClass(partner.name);
               return (
                 <li key={partner.name} className="flex items-center justify-center">
                   <a
@@ -123,7 +152,7 @@ export function PartnersGrid() {
                     <img
                       src={partner.logo}
                       alt={partner.name}
-                      className="w-full h-full object-contain brightness-0 dark:invert"
+                      className={`w-full h-full object-contain transition-[filter] duration-300 ${filterCls}`}
                       loading="lazy"
                     />
                   </a>
