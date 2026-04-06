@@ -45,33 +45,27 @@ function getLogoSize(name: string): { maxWidth: number; maxHeight: number } {
   return { maxWidth: Math.round(w), maxHeight: Math.round(h) };
 }
 
-/* ── Light / dark adaptive filters ────────────────────────────────────
-   invert(1) hue-rotate(180deg) flips lightness while preserving hue:
-     dark maroon → light pink, dark navy → light lavender, etc.
-   - 'dark'  logos: filter applied in dark mode only
-   - 'light' logos: filter applied in light mode only
-   - 'color' logos: visible in both modes, no filter needed              */
-type LogoTheme = 'dark' | 'light' | 'color';
+/* ── Fixed card backgrounds ────────────────────────────────────────────
+   Each logo sits on a card whose background never changes with the
+   theme, guaranteeing contrast regardless of light/dark mode.
+   - 'onLight' = white card  (for dark / coloured logos)
+   - 'onDark'  = dark card   (for white / very-light logos)             */
+type CardBg = 'onLight' | 'onDark';
 
-const LOGO_THEMES: Record<string, LogoTheme> = {
-  // Dark / black fills — invisible on dark backgrounds
-  PwC: 'dark',
-  HeraNova: 'dark',
-  HSBC: 'dark',
-  Medtronic: 'dark',
-  'Government of Canada': 'dark',
-  'Gates Foundation': 'dark',
-  // White fills — invisible on light backgrounds
-  AVPN: 'light',
-  'Raffles Medical': 'light',
-};
+const DARK_CARD_LOGOS = new Set([
+  'AVPN',            // pure white fills
+  'Raffles Medical', // pure white fills
+  'Gobi Partners',   // near-white (#FEFEFE) text + yellow accent
+]);
 
-function getFilterClass(name: string): string {
-  const theme = LOGO_THEMES[name];
-  if (theme === 'dark') return 'dark:invert dark:hue-rotate-180';
-  if (theme === 'light') return 'invert hue-rotate-180 dark:invert-0 dark:hue-rotate-0';
-  return '';
+function getCardBg(name: string): CardBg {
+  return DARK_CARD_LOGOS.has(name) ? 'onDark' : 'onLight';
 }
+
+const CARD_STYLES: Record<CardBg, string> = {
+  onLight: 'bg-white',
+  onDark: 'bg-slate-800',
+};
 
 const sectionText = {
   label: { en: 'LEADERSHIP COHORT', zh: '领导力群体' },
@@ -135,24 +129,27 @@ export function PartnersGrid() {
             transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
           }}
         >
-          <ul className="inline-grid grid-cols-2 gap-x-10 gap-y-8 md:gap-x-16 md:grid-cols-4 lg:grid-cols-5">
+          <ul className="inline-grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-4 lg:grid-cols-5">
             {partners.map((partner) => {
               const { maxWidth, maxHeight } = getLogoSize(partner.name);
-              const filterCls = getFilterClass(partner.name);
+              const cardBg = getCardBg(partner.name);
               return (
-                <li key={partner.name} className="flex items-center justify-center">
+                <li
+                  key={partner.name}
+                  className={`flex items-center justify-center rounded-xl px-5 py-5 ${CARD_STYLES[cardBg]}`}
+                >
                   <a
                     href={partner.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     title={partner.name}
-                    className="flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-300"
+                    className="flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity duration-300"
                     style={{ width: maxWidth, height: maxHeight }}
                   >
                     <img
                       src={partner.logo}
                       alt={partner.name}
-                      className={`w-full h-full object-contain transition-[filter] duration-300 ${filterCls}`}
+                      className="w-full h-full object-contain"
                       loading="lazy"
                     />
                   </a>
