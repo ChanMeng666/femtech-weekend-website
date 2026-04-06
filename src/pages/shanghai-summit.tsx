@@ -9,6 +9,7 @@ import {
   VenueShowcase,
   WhyDifferent,
   FABGlobeSection,
+  SponsorsSection,
   PartnersGrid,
   WhoShouldAttend,
 } from '../components/ShanghaiSummit';
@@ -22,6 +23,7 @@ export default function ShanghaiSummitPage() {
       <main style={{ marginTop: 'calc(-1 * var(--ifm-navbar-height))' }}>
         <SummitHero />
         <FABGlobeSection />
+        <SponsorsSection />
         <PartnersGrid />
         <SpeakersGrid />
         <AgendaTimeline />

@@ -10,4 +10,5 @@ export { FormSuccess } from './FormSuccess';
 export { WhyDifferent } from './WhyDifferent';
 export { FABGlobeSection } from './FABGlobeSection';
 export { PartnersGrid } from './PartnersGrid';
+export { SponsorsSection } from './SponsorsSection';
 export { WhoShouldAttend } from './WhoShouldAttend';
