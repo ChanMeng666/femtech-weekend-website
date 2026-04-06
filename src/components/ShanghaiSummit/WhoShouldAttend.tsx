@@ -7,7 +7,6 @@ import {
   TrendingUp,
   Building2,
   Network,
-  ArrowRight,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -30,7 +29,7 @@ const audienceItems: AudienceItem[] = [
     title: { en: 'Global Innovators', zh: '全球创新者' },
     highlight: { en: 'BUILDING', zh: '构建' },
     description: {
-      en: "in women's health and looking for visibility, partnerships, capital, or sharper cross-border insight that travels globally",
+      en: "the future of women's health — seeking visibility, partnerships, capital, and cross-border insight that travels globally.",
       zh: '在女性健康领域寻求曝光、合作伙伴关系、资本或更敏锐的跨境洞察',
     },
     icon: Rocket,
@@ -40,7 +39,7 @@ const audienceItems: AudienceItem[] = [
     title: { en: 'For Investors', zh: '投资者' },
     highlight: { en: 'SEEKING', zh: '寻求' },
     description: {
-      en: "stronger understanding of the category, founder exposure, and government perspectives on China's role in the future of women's health.",
+      en: "deeper category insight, founder access, and government perspectives on China's growing role in the future of women's health.",
       zh: '更深入地了解该领域、接触创始人，以及政府对中国在女性健康未来中角色的观点。',
     },
     icon: TrendingUp,
@@ -50,7 +49,7 @@ const audienceItems: AudienceItem[] = [
     title: { en: 'Industry Partners', zh: '行业合作伙伴' },
     highlight: { en: 'EXPLORING', zh: '探索' },
     description: {
-      en: "innovation, strategic collaboration, market signals, and where women's health is gaining real global momentum.",
+      en: "innovation pathways, strategic collaboration, and market signals where women's health is gaining real global momentum.",
       zh: '创新、战略合作、市场信号，以及女性健康在全球获得真正发展势头的领域。',
     },
     icon: Building2,
@@ -60,7 +59,7 @@ const audienceItems: AudienceItem[] = [
     title: { en: 'For Ecosystem Leaders', zh: '生态系统领袖' },
     highlight: { en: 'CONVENING', zh: '召集' },
     description: {
-      en: ', shaping, and supporting the field across policy, research, delivery, global exchange, and ecosystem development.',
+      en: 'stakeholders across policy, research, care delivery, and ecosystem development to shape the future of the field.',
       zh: '塑造和支持政策、研究、服务交付、全球交流和生态系统发展等领域。',
     },
     icon: Network,
@@ -74,7 +73,6 @@ const sectionText = {
     en: "Designed for stakeholders who want to engage seriously with the future of women's health across markets.",
     zh: '专为希望认真参与跨市场女性健康未来的利益相关者而设计。',
   },
-  cta: { en: 'View Programme', zh: '查看议程' },
 };
 
 // Animation variants
@@ -104,18 +102,6 @@ const iconFloatVariants = {
   },
 };
 
-const arrowVariants = {
-  hover: {
-    x: 5,
-    transition: {
-      duration: 0.3,
-      ease: 'easeInOut' as const,
-      repeat: Infinity,
-      repeatType: 'reverse' as const,
-    },
-  },
-};
-
 function AudienceCard({
   item,
   locale,
@@ -126,9 +112,8 @@ function AudienceCard({
   const Icon = item.icon;
 
   return (
-    <motion.a
-      href="#programme"
-      className="group relative flex flex-col bg-card border border-border overflow-hidden shadow-sm transition-shadow duration-300 hover:shadow-lg no-underline"
+    <motion.div
+      className="group relative flex flex-col bg-card border border-border overflow-hidden shadow-sm transition-shadow duration-300 hover:shadow-lg"
       variants={cardRevealVariants}
       whileHover={{ y: -4 }}
       transition={{ duration: 0.3, ease: easeCubic }}
@@ -166,17 +151,8 @@ function AudienceCard({
           {item.description[locale]}
         </p>
 
-        {/* CTA */}
-        <div className="flex items-center text-sm font-medium text-[#AA7C52] mt-auto">
-          <span className="tracking-wide uppercase text-xs">
-            {sectionText.cta[locale]}
-          </span>
-          <motion.div variants={arrowVariants} className="ml-2">
-            <ArrowRight className="h-4 w-4" />
-          </motion.div>
-        </div>
       </div>
-    </motion.a>
+    </motion.div>
   );
 }
 
