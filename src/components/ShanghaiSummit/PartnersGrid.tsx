@@ -3,6 +3,48 @@ import { AnimatedLine } from '../ui/AnimatedLine';
 import { partners } from '../../data/shanghai-summit';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
+/* ── Visual-area normalisation ─────────────────────────────────────────
+   Every logo is sized so its display area ≈ TARGET_AREA px².
+   Wide logos stretch horizontally; square logos grow taller —
+   the perceived "weight" stays roughly the same across the grid.        */
+const TARGET_AREA = 4200;
+const MAX_W = 150;
+const MAX_H = 56;
+const MIN_H = 24;
+
+const ASPECT_RATIOS: Record<string, number> = {
+  PwC: 2.07,
+  Bayer: 1.0,
+  HeraNova: 3.23,
+  'GE Healthcare': 4.51,
+  'Fosun Health Capital': 1.20,
+  AVPN: 2.89,
+  Foreground: 1.25,
+  'Gobi Partners': 3.37,
+  BD: 2.60,
+  Roche: 1.92,
+  'Raffles Medical': 3.42,
+  'Renji Hospital': 1.01,
+  Tigermed: 3.70,
+  'China Merchants Bank': 1.0,
+  HSBC: 4.61,
+  Medtronic: 6.10,
+  'Ministry of Foreign Affairs of Denmark': 4.43,
+  'British Consulate': 6.44,
+  'Government of Canada': 4.21,
+  'Gates Foundation': 3.91,
+};
+
+function getLogoSize(name: string): { maxWidth: number; maxHeight: number } {
+  const ratio = ASPECT_RATIOS[name] ?? 3.0;
+  let h = Math.sqrt(TARGET_AREA / ratio);
+  let w = h * ratio;
+  if (w > MAX_W) { w = MAX_W; h = w / ratio; }
+  if (h > MAX_H) { h = MAX_H; w = h * ratio; }
+  if (h < MIN_H) { h = MIN_H; w = h * ratio; }
+  return { maxWidth: Math.round(w), maxHeight: Math.round(h) };
+}
+
 const sectionText = {
   label: { en: 'LEADERSHIP COHORT', zh: '领导力群体' },
   heading: {
@@ -66,24 +108,28 @@ export function PartnersGrid() {
           }}
         >
           <ul className="inline-grid grid-cols-2 gap-x-10 gap-y-8 md:gap-x-16 md:grid-cols-4 lg:grid-cols-5">
-            {partners.map((partner) => (
-              <li key={partner.name} className="flex items-center justify-center">
-                <a
-                  href={partner.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title={partner.name}
-                  className="flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-300"
-                >
-                  <img
-                    src={partner.logo}
-                    alt={partner.name}
-                    className="h-10 sm:h-12 w-auto max-w-[140px] object-contain"
-                    loading="lazy"
-                  />
-                </a>
-              </li>
-            ))}
+            {partners.map((partner) => {
+              const { maxWidth, maxHeight } = getLogoSize(partner.name);
+              return (
+                <li key={partner.name} className="flex items-center justify-center">
+                  <a
+                    href={partner.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={partner.name}
+                    className="flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-300"
+                    style={{ width: maxWidth, height: maxHeight }}
+                  >
+                    <img
+                      src={partner.logo}
+                      alt={partner.name}
+                      className="w-full h-full object-contain brightness-0 dark:invert"
+                      loading="lazy"
+                    />
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>
