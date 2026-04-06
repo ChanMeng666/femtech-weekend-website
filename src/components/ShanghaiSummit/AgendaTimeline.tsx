@@ -59,8 +59,8 @@ function DayCard({
         {/* Day number & date */}
         <div className="flex items-baseline gap-4 mb-4">
           <span
-            className="font-display text-5xl lg:text-7xl tracking-tight transition-colors duration-500"
-            style={{ color: isHovered ? '#AA7C52' : 'rgba(170, 124, 82, 0.2)' }}
+            className="font-display text-5xl lg:text-7xl tracking-tight"
+            style={{ color: '#AA7C52' }}
           >
             {dayNumber}
           </span>

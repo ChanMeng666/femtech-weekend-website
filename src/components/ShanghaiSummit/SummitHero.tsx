@@ -38,8 +38,7 @@ export function SummitHero() {
         alt=""
         className="absolute inset-0 w-full h-full object-cover"
       />
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-black/55" />
+      {/* Dark overlay removed – testing text readability without it */}
 
       {/* Content on top */}
       <div
@@ -48,13 +47,15 @@ export function SummitHero() {
           opacity: isVisible ? 1 : 0,
           transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
           transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+          textShadow: '0 2px 8px rgba(0,0,0,0.6)',
         }}
       >
         {/* Label */}
         <AnimatedLine
           variant="label"
           label={t.label[locale]}
-          className="mb-8 justify-center [&_span]:text-white/70"
+          className="mb-8 justify-center [&_span]:text-white"
+          style={{ textShadow: '0 2px 12px rgba(0,0,0,0.8)' }}
         />
 
         {/* Main headline */}
@@ -68,7 +69,7 @@ export function SummitHero() {
         </p>
 
         {/* Date & Location */}
-        <p className="text-sm sm:text-base text-[#D4A574] tracking-wider font-medium mb-14">
+        <p className="inline-block text-sm sm:text-base text-[#D4A574] tracking-wider font-medium mb-14 bg-black/40 backdrop-blur-sm px-6 py-2 rounded-full border border-white/10">
           {t.dateLocation[locale]}
         </p>
 
