@@ -317,10 +317,10 @@ export function GlobalEcosystem() {
             {SUMMIT_META.partnerLogos.map((logo) => (
               <div
                 key={logo.alt}
-                className={`flex items-center justify-center px-8 py-5 border border-gray-200 dark:border-white/10 transition-all duration-300 hover:border-[#AA7C52]/30 ${
+                className={`flex items-center justify-center px-8 py-5 rounded-xl transition-all duration-300 ${
                   logo.alt === 'Clincase'
                     ? 'bg-[#165e58]'
-                    : 'bg-gray-100 dark:bg-white/5'
+                    : 'bg-white'
                 }`}
               >
                 <img
