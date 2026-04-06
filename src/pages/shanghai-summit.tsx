@@ -23,7 +23,6 @@ export default function ShanghaiSummitPage() {
       <main style={{ marginTop: 'calc(-1 * var(--ifm-navbar-height))' }}>
         <SummitHero />
         <FABGlobeSection />
-        <SponsorsSection />
         <PartnersGrid />
         <SpeakersGrid />
         <AgendaTimeline />
@@ -31,6 +30,7 @@ export default function ShanghaiSummitPage() {
         <VenueShowcase />
         <WhyDifferent />
         <GlobalEcosystem />
+        <SponsorsSection />
       </main>
     </Layout>
   );
