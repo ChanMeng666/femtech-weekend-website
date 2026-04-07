@@ -159,21 +159,20 @@ export const speakers: SpeakerData[] = [
     },
     image: '/img/speakers/amina-sugimoto.jpg',
   },
-  // Temporarily hidden speakers - Maaike and Lindsay
-  // {
-  //   id: 'maaike-steinebach',
-  //   name: 'Maaike Steinebach',
-  //   title: {
-  //     en: 'Founder, FemTech Future / FemTech NL',
-  //     zh: '创始人，FemTech Future / FemTech NL',
-  //   },
-  //   organization: 'FemTech Future',
-  //   bio: {
-  //     en: 'Former Visa VP for Greater China and Executive Director for Hong Kong & Macau. Leveraging extensive networks from international finance hubs, she drives cross-border innovation and strategic resource integration in women\'s health.',
-  //     zh: '前Visa大中华区副总裁兼香港及澳门执行董事，凭借广泛高端网络，全力推动女性健康领域的跨国创新合作与战略资源整合。',
-  //   },
-  //   image: '/img/speakers/maaike-steinebach.png',
-  // },
+  {
+    id: 'maaike-steinebach',
+    name: 'Maaike Steinebach',
+    title: {
+      en: 'Founder & CEO, FemTech Future',
+      zh: '创始人兼CEO，FemTech Future',
+    },
+    organization: 'FemTech Future',
+    bio: {
+      en: 'Maaike is a leading voice on Femtech in Asia, a region where Femtech and women\'s health is underserved, underfunded, under researched and at times, a taboo topic. She launched Femtech Future Limited, an advisory firm that consults to Femtech companies and MNCs from different industries. Its focus is twofold: advising on practical & pragmatic ways to integrate women\'s health into the workplace and educating leaders on the topics of Femtech and Innovation in Women\'s Health.',
+      zh: 'Maaike是亚洲女性健康科技领域的领军人物。她创立了Femtech Future Limited，一家为女性健康科技公司和跨国企业提供咨询的公司，专注于将女性健康融入职场并教育领导者关于女性健康科技与创新的议题。',
+    },
+    image: '/img/speakers/maaike-steinebach.jpg',
+  },
   // {
   //   id: 'lindsay-davis',
   //   name: 'Lindsay Davis',
