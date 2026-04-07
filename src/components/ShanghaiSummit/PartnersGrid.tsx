@@ -18,7 +18,7 @@ const ASPECT_RATIOS: Record<string, number> = {
   HeraNova: 3.23,
   'GE Healthcare': 4.51,
   'Fosun Health Capital': 1.20,
-  AVPN: 2.89,
+  AVPN: 2.04,
   Foreground: 1.25,
   'Gobi Partners': 3.37,
   BD: 2.60,
@@ -53,7 +53,6 @@ function getLogoSize(name: string): { maxWidth: number; maxHeight: number } {
 type CardBg = 'onLight' | 'onDark';
 
 const DARK_CARD_LOGOS = new Set([
-  'AVPN',            // pure white fills
   'Raffles Medical', // pure white fills
   'Gobi Partners',   // near-white (#FEFEFE) text + yellow accent
 ]);
@@ -136,7 +135,7 @@ export function PartnersGrid() {
               return (
                 <li
                   key={partner.name}
-                  className={`flex items-center justify-center rounded-xl px-5 py-5 ${CARD_STYLES[cardBg]}`}
+                  className={`flex items-center justify-center rounded-xl px-5 py-5 overflow-hidden ${CARD_STYLES[cardBg]}`}
                 >
                   <a
                     href={partner.url}
