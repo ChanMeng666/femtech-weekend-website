@@ -28,7 +28,7 @@ const translations = {
     heading: 'Application to Programme',
     description: 'A curated programme for international companies, investors, and ecosystem leaders looking to explore, enter, or expand in the China women\'s health market. Over 4 days in Shanghai, participants gain direct access to hospitals, pharma companies, regulators, and distribution partners — guided by our local team.',
     heroHeadline: 'Secure Your Seat in the 2026 Global Cohort.',
-    heroSubheadline: 'Join a curated group of innovators bridging the gap between Western technology and Chinese institutional scale.',
+    heroSubheadline: 'An intensive residency for leaders leveraging China\'s clinical velocity and institutional partnerships to pressure-test and scale the future of Women\'s Health worldwide.',
     whoItIsForTitle: 'Who it is for',
     whoItIsForBody: 'We are seeking a specific cohort of visionary Women\'s Health innovators. This programme is designed for founders who recognise that China is no longer a \'future\' market, but a global center for clinical speed and manufacturing excellence early on.',
     idealCandidatesTitle: 'Ideal Candidates are:',
