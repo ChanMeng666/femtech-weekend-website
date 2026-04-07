@@ -3,7 +3,7 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { useColorMode } from '@docusaurus/theme-common';
 import { AnimatedLine } from '../ui/AnimatedLine';
-import { SUMMIT_META, FAB_FLYLINE_DATA } from '../../data/shanghai-summit';
+import { FAB_FLYLINE_DATA } from '../../data/shanghai-summit';
 
 const ecosystemStats = [
   { value: 20, suffix: '+', label: { en: 'Countries', zh: '国家' }, detail: { en: 'Global reach', zh: '全球覆盖' } },
@@ -205,7 +205,6 @@ const t = {
     en: "FemTech Weekend is the China representative of FemTech Across Borders \u2014 a global network spanning 40+ countries, connecting women's health ecosystems worldwide.",
     zh: 'FemTech Weekend 是 FemTech Across Borders 的中国代表——一个覆盖40多个国家的全球网络，连接世界各地的女性健康生态系统。',
   },
-  partners: { en: 'Partners', zh: '合作伙伴' },
 };
 
 function CountUpCard({
@@ -253,7 +252,7 @@ export function GlobalEcosystem() {
   return (
     <div
       ref={sectionRef}
-      className="relative py-20 sm:py-28 lg:py-32 overflow-hidden bg-background"
+      className="relative pt-20 pb-0 sm:pt-28 sm:pb-0 lg:pt-32 lg:pb-0 overflow-hidden bg-background"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         {/* Header */}
@@ -289,7 +288,7 @@ export function GlobalEcosystem() {
 
       {/* Flat World Map — full bleed */}
       <div
-        className="w-full mb-14"
+        className="w-full"
         style={{
           opacity: isVisible ? 1 : 0,
           transition: 'opacity 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s',
@@ -301,39 +300,6 @@ export function GlobalEcosystem() {
         </BrowserOnly>
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-        {/* Partner logos */}
-        <div
-          style={{
-            opacity: isVisible ? 1 : 0,
-            transition: 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s',
-          }}
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-gray-500 dark:text-white/50 text-[10px] tracking-[0.2em] uppercase">{t.partners[locale]}</span>
-            <div className="h-px flex-1 bg-gray-200 dark:bg-white/10" />
-          </div>
-          <div className="flex flex-wrap items-center gap-6">
-            {SUMMIT_META.partnerLogos.map((logo) => (
-              <div
-                key={logo.alt}
-                className={`flex items-center justify-center px-8 py-5 rounded-xl transition-all duration-300 ${
-                  logo.alt === 'Clincase'
-                    ? 'bg-[#165e58]'
-                    : 'bg-white'
-                }`}
-              >
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
-                  className="h-10 sm:h-14 w-auto max-w-[200px] object-contain"
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

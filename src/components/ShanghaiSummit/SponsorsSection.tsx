@@ -76,7 +76,7 @@ export function SponsorsSection() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative">
         {/* Section header */}
         <div
-          className="max-w-3xl mx-auto text-center mb-16 transition-all duration-700"
+          className="max-w-4xl mb-16 transition-all duration-700"
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
