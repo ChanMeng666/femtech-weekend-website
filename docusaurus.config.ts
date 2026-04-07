@@ -200,11 +200,12 @@ const config: Config = {
           label: 'Opinions',
           position: 'left'
         },
-        {
-          to: '/gallery',
-          label: 'Gallery',
-          position: 'left'
-        },
+        // Gallery temporarily hidden until real images are ready
+        // {
+        //   to: '/gallery',
+        //   label: 'Gallery',
+        //   position: 'left'
+        // },
         {
           type: 'localeDropdown',
           position: 'right',
@@ -297,10 +298,11 @@ const config: Config = {
               label: 'Opinions',
               to: '/opinions',
             },
-            {
-              label: 'Gallery',
-              to: '/gallery',
-            },
+            // Gallery temporarily hidden until real images are ready
+            // {
+            //   label: 'Gallery',
+            //   to: '/gallery',
+            // },
             // Database temporarily hidden
             // {
             //   label: 'Database',
