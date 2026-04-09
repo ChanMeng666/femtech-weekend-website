@@ -229,6 +229,20 @@ export const speakers: SpeakerData[] = [
     },
     image: '/img/speakers/abraham-morse.jpg',
   },
+  {
+    id: 'stella-fu',
+    name: 'Stella Fu',
+    title: {
+      en: 'Central Markets Leader, Central China, PwC China',
+      zh: '中部市场负责人兼金融服务税务主管（华中区），普华永道中国',
+    },
+    organization: 'PwC China',
+    bio: {
+      en: 'Central Markets Leader and Financial Services Tax Leader (Central China) at PwC China. CICPA and CTAA member with over two decades of tax consulting experience in Shanghai, specialising in cross-border investment structures, M&A transactions, and pre-IPO tax advisory across healthcare and financial services industries.',
+      zh: '普华永道中国中部市场负责人及金融服务税务主管（华中区），中国注册会计师协会及中国税务代理协会会员，拥有逾二十年上海税务咨询经验，专注于跨境投资架构、并购交易及企业上市前税务规划。',
+    },
+    image: '/img/speakers/stella-fu.jpg',
+  },
 ];
 
 export const agendaDays: AgendaDayData[] = [
