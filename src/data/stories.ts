@@ -29,72 +29,10 @@ const translateTag = (tagKey: string) => {
   );
 };
 
-// Static stories data (hidden: true = not shown on Stories page, both EN & ZH)
+// Static stories data
 export const staticStoriesData: StoryItem[] = [
   {
     id: '1',
-    title: translateStoryField(
-      'stories.data.jane-chen.title',
-      "From Lab to Launch: Jane Chen's Journey Building a Fertility Tech Startup in China"
-    ),
-    description: translateStoryField(
-      'stories.data.jane-chen.description',
-      "An exclusive interview with Jane Chen, founder of FertilityAI, on her journey from biomedical research to building one of China's most promising fertility technology startups."
-    ),
-    category: getStoryCategoryFounders(),
-    date: 'January 15',
-    readTime: getStoryReadTime('8'),
-    author: 'Zhu Yihan',
-    interviewee: 'Jane Chen',
-    role: 'Founder & CEO of FertilityAI',
-    link: '/stories/interview-jane-chen-femtech-founder',
-    tags: [
-      translateTag(STORY_TAGS.FOUNDER_STORY),
-      translateTag(STORY_TAGS.INTERVIEW),
-      translateTag(STORY_TAGS.ENTREPRENEURSHIP),
-      translateTag(STORY_TAGS.INNOVATION_STORY)
-    ],
-    tagKeys: [
-      STORY_TAGS.FOUNDER_STORY,
-      STORY_TAGS.INTERVIEW,
-      STORY_TAGS.ENTREPRENEURSHIP,
-      STORY_TAGS.INNOVATION_STORY
-    ],
-    isFeatured: false,
-    hidden: true
-  },
-  {
-    id: '2',
-    title: translateStoryField(
-      'stories.data.lisa-wang.title',
-      "Why I Bet Big on Women's Health: Lisa Wang's Investment Philosophy"
-    ),
-    description: translateStoryField(
-      'stories.data.lisa-wang.description',
-      "Lisa Wang, Partner at Horizon Ventures and one of Asia's most active FemTech investors, shares her perspective on why women's health is the next frontier in healthcare investing."
-    ),
-    category: getStoryCategoryInvestors(),
-    date: 'January 10',
-    readTime: getStoryReadTime('7'),
-    author: 'Zhu Yihan',
-    interviewee: 'Lisa Wang',
-    role: 'Partner at Horizon Ventures',
-    link: '/stories/investor-spotlight-lisa-wang',
-    tags: [
-      translateTag(STORY_TAGS.INVESTOR_PERSPECTIVE),
-      translateTag(STORY_TAGS.INTERVIEW),
-      translateTag(STORY_TAGS.LEADERSHIP)
-    ],
-    tagKeys: [
-      STORY_TAGS.INVESTOR_PERSPECTIVE,
-      STORY_TAGS.INTERVIEW,
-      STORY_TAGS.LEADERSHIP
-    ],
-    isFeatured: false,
-    hidden: true
-  },
-  {
-    id: '3',
     title: translateStoryField(
       'stories.data.sylvia-kang.title',
       "From Piano Prodigy to FemTech Founder: Sylvia Kang's Journey with Mira"
@@ -127,14 +65,14 @@ export const staticStoriesData: StoryItem[] = [
   }
 ];
 
-// Function to get stories data (can be extended to fetch from API; hidden items excluded for both EN & ZH)
+// Function to get stories data (can be extended to fetch from API)
 export const getStoriesData = (): StoryItem[] => {
-  return staticStoriesData.filter(story => !story.hidden);
+  return staticStoriesData;
 };
 
 // Function to get featured story
 export const getFeaturedStory = (): StoryItem | undefined => {
-  return staticStoriesData.find(story => story.isFeatured && !story.hidden);
+  return staticStoriesData.find(story => story.isFeatured);
 };
 
 // Function to filter stories by category

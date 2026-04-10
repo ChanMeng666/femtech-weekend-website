@@ -115,15 +115,7 @@ const config: Config = {
     [
       'classic',
       {
-        docs: {
-          sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/ChanMeng666/femtech-weekend-website/blob/main/',
-          sidebarCollapsible: true,
-          sidebarCollapsed: true,
-        },
+        docs: false,
         blog: {
           showReadingTime: true,
           feedOptions: {
@@ -156,12 +148,6 @@ const config: Config = {
   themeConfig: {
     // Replace with your project's social card
     image: 'img/femtech-weekend-social-card.jpg',
-    docs: {
-      sidebar: {
-        hideable: true,
-        autoCollapseCategories: true,
-      },
-    },
     tableOfContents: {
       minHeadingLevel: 2,
       maxHeadingLevel: 6,
@@ -180,12 +166,6 @@ const config: Config = {
           label: 'About Us',
           position: 'left'
         },
-        // Ecosystem temporarily hidden
-        // {
-        //   to: '/ecosystem',
-        //   label: 'Ecosystem',
-        //   position: 'left'
-        // },
         {
           to: '/insights',
           label: 'Insights',
@@ -282,11 +262,6 @@ const config: Config = {
               label: 'About Us',
               to: '/about-us',
             },
-            // Ecosystem temporarily hidden
-            // {
-            //   label: 'Ecosystem',
-            //   to: '/ecosystem',
-            // },
             {
               label: 'Insights',
               to: '/insights',
@@ -303,11 +278,6 @@ const config: Config = {
             // {
             //   label: 'Gallery',
             //   to: '/gallery',
-            // },
-            // Database temporarily hidden
-            // {
-            //   label: 'Database',
-            //   to: '/database',
             // },
           ],
         },
