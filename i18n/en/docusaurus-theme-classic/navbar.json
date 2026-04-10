@@ -11,20 +11,16 @@
     "message": "About Us",
     "description": "Navbar item with label About Us"
   },
-  "item.label.Ecosystem": {
-    "message": "Ecosystem",
-    "description": "Navbar item with label Ecosystem"
-  },
   "item.label.Insights": {
     "message": "Insights",
     "description": "Navbar item with label Insights"
   },
-  "item.label.Insights": {
-    "message": "Insights",
-    "description": "Navbar item with label Insights"
+  "item.label.Stories": {
+    "message": "Stories",
+    "description": "Navbar item with label Stories"
   },
-  "item.label.Database": {
-    "message": "Database",
-    "description": "Navbar item with label Database"
+  "item.label.Opinions": {
+    "message": "Opinions",
+    "description": "Navbar item with label Opinions"
   }
 }

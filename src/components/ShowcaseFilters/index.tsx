@@ -6,7 +6,6 @@ import ShowcaseTagSelect from '../ShowcaseTagSelect';
 import OperatorButton from '../OperatorButton';
 import ClearAllButton from '../ClearAllButton';
 import {useFilteredCompanies, useCompanyCountPlural} from '@site/src/utils/useFilteredCompanies';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 function TagCircleIcon({color, style}: {color: string; style?: CSSProperties}) {
   return (
@@ -58,12 +57,11 @@ function ShowcaseTagList() {
 function HeadingText() {
   const filteredCompanies = useFilteredCompanies();
   const companyCountPlural = useCompanyCountPlural();
-  const {i18n: {currentLocale}} = useDocusaurusContext();
-  
+
   return (
     <div className="flex items-center">
       <Heading as="h2" className="text-2xl font-bold text-foreground mr-4 mb-0">
-        {currentLocale === 'zh-Hans' ? '筛选' : translate({
+        {translate({
           id: 'theme.showcase.filters.title',
           message: 'Filters',
         })}

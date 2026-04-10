@@ -271,15 +271,15 @@
     "description": "The title of the page for a blog author"
   },
   "theme.blog.authorsList.pageTitle": {
-    "message": "Authors",
+    "message": "作者",
     "description": "The title of the authors page"
   },
   "theme.blog.authorsList.viewAll": {
-    "message": "View All Authors",
+    "message": "查看所有作者",
     "description": "The label of the link targeting the blog authors page"
   },
   "theme.blog.author.noPosts": {
-    "message": "This author has not written any posts yet.",
+    "message": "该作者暂未发表任何文章。",
     "description": "The text for authors with 0 blog post"
   },
   "theme.contentVisibility.unlistedBanner.title": {
@@ -291,11 +291,11 @@
     "description": "The unlisted content banner message"
   },
   "theme.contentVisibility.draftBanner.title": {
-    "message": "Draft page",
+    "message": "草稿页面",
     "description": "The draft content banner title"
   },
   "theme.contentVisibility.draftBanner.message": {
-    "message": "This page is a draft. It will only be visible in dev and be excluded from the production build.",
+    "message": "此页面为草稿。仅在开发模式下可见，不会包含在生产构建中。",
     "description": "The draft content banner message"
   },
   "theme.ErrorPageContent.tryAgain": {
@@ -381,38 +381,6 @@
   "about.description": {
     "message": "了解FemTech Weekend的使命：通过创新、创业和全球合作推进女性健康。",
     "description": "The description of the About Us page"
-  },
-  "competition.title": {
-    "message": "比赛",
-    "description": "The title of the Competition page"
-  },
-  "competition.description": {
-    "message": "加入中国首屈一指的女性健康创新比赛。展示您的FemTech解决方案，与领先的投资者建立联系。",
-    "description": "The description of the Competition page"
-  },
-  "ecosystem.title": {
-    "message": "生态系统",
-    "description": "The title of the Ecosystem page"
-  },
-  "ecosystem.description": {
-    "message": "加入FemTech Weekend社区 - 连接女性健康创新领域的创始人、投资者、企业、学术界和爱好者。",
-    "description": "The description of the Ecosystem page"
-  },
-  "ecosystem.join.title": {
-    "message": "加入FemTech Weekend生态系统",
-    "description": "The title of the Join Ecosystem page"
-  },
-  "ecosystem.join.description": {
-    "message": "成为FemTech Weekend创新生态系统的一部分",
-    "description": "The description of the Join Ecosystem page"
-  },
-  "reports.title": {
-    "message": "报告",
-    "description": "The title of the Reports page"
-  },
-  "reports.description": {
-    "message": "关于女性健康科技与创新的最新洞察和研究",
-    "description": "The description of the Reports page"
   },
   "homepage.title": {
     "message": "女性健康科技周末",
@@ -642,22 +610,6 @@
     "message": "探索公司",
     "description": "Text for the explore companies button in the CTA section"
   },
-  "reports.hero.title": {
-    "message": "女性科技报告",
-    "description": "Title for the reports hero section"
-  },
-  "reports.hero.subtitle": {
-    "message": "关于女性健康技术、创新和市场趋势的最新见解和研究",
-    "description": "Subtitle for the reports hero section"
-  },
-  "reports.section.title": {
-    "message": "最新报告",
-    "description": "Title for the latest reports section"
-  },
-  "reports.section.subtitle": {
-    "message": "通过我们的综合研究和分析获取最新信息",
-    "description": "Subtitle for the latest reports section"
-  },
   "competition.hero.badge": {
     "message": "🏆 注册现已开放",
     "description": "Badge text for the competition hero section"
@@ -689,130 +641,6 @@
   "ecosystem.hero.description": {
     "message": "加入我们充满活力和包容性的社区，创始人、投资者、企业、学术界和各种背景的爱好者在这里共同推动女性健康领域的进步。",
     "description": "Description for the ecosystem hero section"
-  },
-  "reports.cta.title": {
-    "message": "获取我们的最新研究",
-    "description": "Title for the Reports CTA section"
-  },
-  "reports.cta.description": {
-    "message": "将最新报告和见解直接发送到您的收件箱。加入我们的女性健康创新者和投资者社区。",
-    "description": "Description for the Reports CTA section"
-  },
-  "reports.cta.learnMoreButton": {
-    "message": "了解更多关于我们",
-    "description": "Text for the Learn More About Us button in the Reports CTA section"
-  },
-  "reports.cta.contactButton": {
-    "message": "联系研究团队",
-    "description": "Contact research team button text in the reports CTA section"
-  },
-  "reports.featured.label": {
-    "message": "精选报告",
-    "description": "Label for featured report in the featured report component"
-  },
-  "reports.category.research": {
-    "message": "研究",
-    "description": "Research category for reports"
-  },
-  "reports.category.technology": {
-    "message": "技术",
-    "description": "Technology category for reports"
-  },
-  "reports.category.general": {
-    "message": "综合",
-    "description": "General category for reports"
-  },
-  "reports.category.investment": {
-    "message": "投资",
-    "description": "Investment category for reports"
-  },
-  "reports.filter.allReports": {
-    "message": "所有报告",
-    "description": "Filter option to show all reports"
-  },
-  "reports.tag.research": {
-    "message": "研究",
-    "description": "Research tag for reports"
-  },
-  "reports.tag.marketAnalysis": {
-    "message": "市场分析",
-    "description": "Market Analysis tag for reports"
-  },
-  "reports.tag.china": {
-    "message": "中国",
-    "description": "China tag for reports"
-  },
-  "reports.tag.hongKong": {
-    "message": "香港",
-    "description": "Hong Kong tag for reports"
-  },
-  "reports.tag.hackathon": {
-    "message": "黑客马拉松",
-    "description": "Hackathon tag for reports"
-  },
-  "reports.tag.technology": {
-    "message": "技术",
-    "description": "Technology tag for reports"
-  },
-  "reports.tag.innovation": {
-    "message": "创新",
-    "description": "Innovation tag for reports"
-  },
-  "reports.tag.competition": {
-    "message": "比赛",
-    "description": "Competition tag for reports"
-  },
-  "reports.tag.womensHealth": {
-    "message": "女性健康",
-    "description": "Women's Health tag for reports"
-  },
-  "reports.tag.startup": {
-    "message": "创业",
-    "description": "Startup tag for reports"
-  },
-  "reports.tag.investment": {
-    "message": "投资",
-    "description": "Investment tag for reports"
-  },
-  "reports.data.femtech-market-map.title": {
-    "message": "女性健康科技市场图谱2025：中国内地和香港女性健康创新综合分析",
-    "description": "Title for FemTech Market Map report"
-  },
-  "reports.data.femtech-market-map.description": {
-    "message": "大中华区的女性健康科技市场正经历前所未有的增长，在政策、经济、社会和技术方面的有利发展支持下，进入快速扩张阶段。",
-    "description": "Description for FemTech Market Map report"
-  },
-  "reports.data.femtech-hackathon.title": {
-    "message": "参加2024年女性健康科技黑客马拉松：48小时内打造女性健康科技的未来",
-    "description": "Title for FemTech Hackathon report"
-  },
-  "reports.data.femtech-hackathon.description": {
-    "message": "准备参加今年最激动人心的女性健康科技活动！女性健康科技周末很高兴宣布我们的2024年女性健康科技黑客马拉松 - 48小时创新冲刺。",
-    "description": "Description for FemTech Hackathon report"
-  },
-  "reports.data.innovation-challenge.title": {
-    "message": "宣布2024年女性健康科技创新挑战赛：通过技术革新女性健康",
-    "description": "Title for Innovation Challenge report"
-  },
-  "reports.data.innovation-challenge.description": {
-    "message": "您是否热衷于为女性健康创造创新解决方案？您是否相信技术可以打破障碍并改善女性护理？",
-    "description": "Description for Innovation Challenge report"
-  },
-  "reports.data.startup-pitch.title": {
-    "message": "女性健康科技创业路演比赛：通往全球投资者的门户",
-    "description": "Title for Startup Pitch Competition report"
-  },
-  "reports.data.startup-pitch.description": {
-    "message": "您是否正在女性健康技术领域构建创新解决方案？女性健康科技周末很高兴宣布我们首届女性健康科技创业路演比赛。",
-    "description": "Description for Startup Pitch Competition report"
-  },
-  "reports.data.research-symposium.title": {
-    "message": "2024年女性健康科技研究研讨会：连接科学与女性健康创新",
-    "description": "Title for Research Symposium report"
-  },
-  "reports.data.research-symposium.description": {
-    "message": "女性健康科技周末自豪地宣布我们的首届女性健康科技研究研讨会，这是一个汇集领先研究人员、临床医生、技术专家和企业家的里程碑活动。",
-    "description": "Description for Research Symposium report"
   },
   "competition.stats.participatingTeams": {
     "message": "参赛队伍",
@@ -1122,58 +950,6 @@
     "message": "公布获奖者并举行交流庆祝活动",
     "description": "Description for awards ceremony event"
   },
-  "reports.category.allReports": {
-    "message": "所有报告",
-    "description": "All Reports category"
-  },
-  "reports.category.technology": {
-    "message": "技术",
-    "description": "Technology category"
-  },
-  "reports.category.investment": {
-    "message": "投资",
-    "description": "Investment category"
-  },
-  "reports.category.research": {
-    "message": "研究",
-    "description": "Research category"
-  },
-  "reports.category.general": {
-    "message": "综合",
-    "description": "General category for reports"
-  },
-  "reports.noReportsFound": {
-    "message": "在此类别中没有找到报告。请稍后再查看新内容！",
-    "description": "Message shown when no reports are found in a category"
-  },
-  "reports.categoryReportsSuffix": {
-    "message": "报告",
-    "description": "Suffix for category reports title"
-  },
-  "reports.browsePrefix": {
-    "message": "浏览我们的",
-    "description": "Prefix for browsing category reports"
-  },
-  "reports.browseSuffix": {
-    "message": "报告和见解",
-    "description": "Suffix for browsing category reports"
-  },
-  "reports.filteringByTag": {
-    "message": "按标签筛选：",
-    "description": "Label shown when filtering reports by tag"
-  },
-  "reports.clearFilter": {
-    "message": "清除筛选",
-    "description": "Aria label for the clear filter button"
-  },
-  "reports.tagResultsPrefix": {
-    "message": "标签结果：",
-    "description": "Prefix for tag results title"
-  },
-  "reports.showingTagResults": {
-    "message": "显示所有包含所选标签的报告",
-    "description": "Message shown when displaying reports filtered by tag"
-  },
   "newsletter.placeholder": {
     "message": "输入您的电子邮件地址",
     "description": "Placeholder text for the newsletter email input"
@@ -1221,22 +997,6 @@
   "stories.data.sylvia-kang.description": {
     "message": "康曼曼（Sylvia Kang）创立的 Mira 已为全球 120 多个国家的 14 万多名女性提供实验室级居家激素检测。从成都到硅谷，她的故事改写了女性在科技领域的可能。",
     "description": "Sylvia Kang story description"
-  },
-  "stories.data.jane-chen.title": {
-    "message": "从实验室到创业：Jane Chen 在中国创建生育科技公司的旅程",
-    "description": "Jane Chen story title"
-  },
-  "stories.data.jane-chen.description": {
-    "message": "独家专访 FertilityAI 创始人 Jane Chen，讲述她从生物医学研究到创建中国最具前景的生育科技初创企业的历程。",
-    "description": "Jane Chen story description"
-  },
-  "stories.data.lisa-wang.title": {
-    "message": "为什么我押注女性健康：Lisa Wang 的投资哲学",
-    "description": "Lisa Wang story title"
-  },
-  "stories.data.lisa-wang.description": {
-    "message": "Lisa Wang，Horizon Ventures 合伙人，亚洲最活跃的 FemTech 投资人之一，分享她对女性健康为何是医疗投资下一个前沿领域的见解。",
-    "description": "Lisa Wang story description"
   },
   "stories.hero.title": {
     "message": "FemTech 故事",
@@ -1413,5 +1173,374 @@
   "summit.page.description": {
     "message": "跨境资本与女性健康合作——上海，2026年6月22-25日",
     "description": "Summit page meta description"
+  },
+  "showcase.filters.resultCount": {
+    "message": "{companyCount} 家公司",
+    "description": "Pluralized label for the number of companies found"
+  },
+  "theme.showcase.filters.clearAll": {
+    "message": "清除筛选"
+  },
+  "theme.showcase.filters.operator": {
+    "message": "筛选条件：{operator}"
+  },
+  "theme.showcase.filters.title": {
+    "message": "筛选"
+  },
+  "footer.developer.attribution.text": {
+    "message": "网站用心制作",
+    "description": "Developer attribution text"
+  },
+  "footer.developer.attribution.by": {
+    "message": "由",
+    "description": "Developer attribution by"
+  },
+  "footer.developer.name": {
+    "message": "Chan Meng",
+    "description": "Developer name"
+  },
+  "footer.developer.attribution.contact": {
+    "message": "需要网站？",
+    "description": "Contact for development"
+  },
+  "footer.developer.attribution.email": {
+    "message": "联系我",
+    "description": "Email contact"
+  },
+  "theme.SearchBar.seeAll": {
+    "message": "查看全部 {count} 条结果"
+  },
+  "theme.SearchBar.label": {
+    "message": "搜索"
+  },
+  "theme.SearchPage.documentsFound.plurals": {
+    "message": "找到 {count} 篇文档"
+  },
+  "theme.SearchPage.existingResultsTitle": {
+    "message": "「{query}」的搜索结果"
+  },
+  "theme.SearchPage.emptyResultsTitle": {
+    "message": "搜索文档"
+  },
+  "theme.SearchPage.inputPlaceholder": {
+    "message": "在此输入搜索内容"
+  },
+  "theme.SearchPage.inputLabel": {
+    "message": "搜索"
+  },
+  "theme.SearchPage.algoliaLabel": {
+    "message": "通过 Algolia 搜索"
+  },
+  "theme.SearchPage.noResultsText": {
+    "message": "未找到结果"
+  },
+  "theme.SearchPage.fetchingNewResults": {
+    "message": "正在获取新结果..."
+  },
+  "theme.SearchModal.searchBox.resetButtonTitle": {
+    "message": "清除查询"
+  },
+  "theme.SearchModal.searchBox.cancelButtonText": {
+    "message": "取消"
+  },
+  "theme.SearchModal.startScreen.recentSearchesTitle": {
+    "message": "最近搜索"
+  },
+  "theme.SearchModal.startScreen.noRecentSearchesText": {
+    "message": "没有最近的搜索"
+  },
+  "theme.SearchModal.startScreen.saveRecentSearchButtonTitle": {
+    "message": "保存此搜索"
+  },
+  "theme.SearchModal.startScreen.removeRecentSearchButtonTitle": {
+    "message": "从历史中删除此搜索"
+  },
+  "theme.SearchModal.startScreen.favoriteSearchesTitle": {
+    "message": "收藏"
+  },
+  "theme.SearchModal.startScreen.removeFavoriteSearchButtonTitle": {
+    "message": "从收藏中删除此搜索"
+  },
+  "theme.SearchModal.errorScreen.titleText": {
+    "message": "无法获取结果"
+  },
+  "theme.SearchModal.errorScreen.helpText": {
+    "message": "请检查您的网络连接。"
+  },
+  "theme.SearchModal.footer.selectText": {
+    "message": "选择"
+  },
+  "theme.SearchModal.footer.selectKeyAriaLabel": {
+    "message": "回车键"
+  },
+  "theme.SearchModal.footer.navigateText": {
+    "message": "导航"
+  },
+  "theme.SearchModal.footer.navigateUpKeyAriaLabel": {
+    "message": "向上箭头"
+  },
+  "theme.SearchModal.footer.navigateDownKeyAriaLabel": {
+    "message": "向下箭头"
+  },
+  "theme.SearchModal.footer.closeText": {
+    "message": "关闭"
+  },
+  "theme.SearchModal.footer.closeKeyAriaLabel": {
+    "message": "Esc 键"
+  },
+  "theme.SearchModal.footer.searchByText": {
+    "message": "搜索提供方"
+  },
+  "theme.SearchModal.noResultsScreen.noResultsText": {
+    "message": "没有找到结果"
+  },
+  "theme.SearchModal.noResultsScreen.suggestedQueryText": {
+    "message": "尝试搜索"
+  },
+  "theme.SearchModal.noResultsScreen.reportMissingResultsText": {
+    "message": "认为此查询应有结果？"
+  },
+  "theme.SearchModal.noResultsScreen.reportMissingResultsLinkText": {
+    "message": "请告诉我们。"
+  },
+  "theme.SearchModal.placeholder": {
+    "message": "搜索文档"
+  },
+  "insights.title": {
+    "message": "洞察"
+  },
+  "insights.description": {
+    "message": "关于女性健康科技与创新的最新洞察和研究"
+  },
+  "insights.hero.title": {
+    "message": "女性科技洞察"
+  },
+  "insights.hero.subtitle": {
+    "message": "关于女性健康技术、创新和市场趋势的最新见解和研究"
+  },
+  "insights.section.title": {
+    "message": "最新洞察"
+  },
+  "insights.section.subtitle": {
+    "message": "通过我们的综合研究和分析获取最新信息"
+  },
+  "insights.cta.title": {
+    "message": "获取我们的最新研究"
+  },
+  "insights.cta.description": {
+    "message": "将最新报告和见解直接发送到您的收件箱。加入我们的女性健康创新者和投资者社区。"
+  },
+  "insights.cta.learnMoreButton": {
+    "message": "了解更多关于我们"
+  },
+  "insights.cta.contactButton": {
+    "message": "联系研究团队"
+  },
+  "insights.featured.label": {
+    "message": "精选洞察"
+  },
+  "insights.category.allInsights": {
+    "message": "所有洞察"
+  },
+  "insights.category.technology": {
+    "message": "技术"
+  },
+  "insights.category.investment": {
+    "message": "投资"
+  },
+  "insights.category.research": {
+    "message": "研究"
+  },
+  "insights.category.general": {
+    "message": "综合"
+  },
+  "insights.tag.research": {
+    "message": "研究"
+  },
+  "insights.tag.marketAnalysis": {
+    "message": "市场分析"
+  },
+  "insights.tag.china": {
+    "message": "中国"
+  },
+  "insights.tag.hongKong": {
+    "message": "香港"
+  },
+  "insights.tag.hackathon": {
+    "message": "黑客马拉松"
+  },
+  "insights.tag.technology": {
+    "message": "技术"
+  },
+  "insights.tag.innovation": {
+    "message": "创新"
+  },
+  "insights.tag.womensHealth": {
+    "message": "女性健康"
+  },
+  "insights.tag.startup": {
+    "message": "创业"
+  },
+  "insights.tag.investment": {
+    "message": "投资"
+  },
+  "opinions.title": {
+    "message": "观点"
+  },
+  "opinions.description": {
+    "message": "关于女性健康科技的短篇文章和评论"
+  },
+  "opinions.hero.title": {
+    "message": "女性科技观点"
+  },
+  "opinions.hero.subtitle": {
+    "message": "关于女性健康科技、趋势和视角的短篇文章和评论"
+  },
+  "opinions.section.title": {
+    "message": "最新观点"
+  },
+  "opinions.section.subtitle": {
+    "message": "来自女性健康领域思想领袖的观点和分析"
+  },
+  "opinions.cta.title": {
+    "message": "分享您的观点"
+  },
+  "opinions.cta.description": {
+    "message": "对女性健康科技有独到见解？我们欢迎来自行业专家的深度文章和分析。"
+  },
+  "opinions.cta.learnMoreButton": {
+    "message": "了解更多关于我们"
+  },
+  "opinions.cta.submitButton": {
+    "message": "提交文章"
+  },
+  "opinions.featured.label": {
+    "message": "精选观点"
+  },
+  "opinions.category.allOpinions": {
+    "message": "所有观点"
+  },
+  "opinions.category.analysis": {
+    "message": "分析"
+  },
+  "opinions.category.trends": {
+    "message": "趋势"
+  },
+  "opinions.category.commentary": {
+    "message": "评论"
+  },
+  "opinions.category.policy": {
+    "message": "政策"
+  },
+  "opinions.tag.industryAnalysis": {
+    "message": "行业分析"
+  },
+  "opinions.tag.marketTrends": {
+    "message": "市场趋势"
+  },
+  "opinions.tag.policyPerspective": {
+    "message": "政策视角"
+  },
+  "opinions.tag.commentary": {
+    "message": "评论"
+  },
+  "opinions.tag.thoughtLeadership": {
+    "message": "思想领袖"
+  },
+  "opinions.tag.investmentInsights": {
+    "message": "投资洞察"
+  },
+  "opinions.tag.technologyTrends": {
+    "message": "科技趋势"
+  },
+  "opinions.tag.healthcareInnovation": {
+    "message": "医疗创新"
+  },
+  "gallery.hero.title": {
+    "message": "活动图库"
+  },
+  "gallery.hero.subtitle": {
+    "message": "记录我们FemTech Weekend活动和社区聚会的精彩瞬间"
+  },
+  "gallery.hero.label": {
+    "message": "图库"
+  },
+  "gallery.lightbox.close": {
+    "message": "关闭"
+  },
+  "gallery.lightbox.previous": {
+    "message": "上一张"
+  },
+  "gallery.lightbox.next": {
+    "message": "下一张"
+  },
+  "gallery.category.all": {
+    "message": "全部"
+  },
+  "gallery.category.events": {
+    "message": "活动"
+  },
+  "gallery.category.networking": {
+    "message": "社交"
+  },
+  "gallery.category.workshops": {
+    "message": "工作坊"
+  },
+  "gallery.category.hackathon": {
+    "message": "黑客马拉松"
+  },
+  "confirmation.title": {
+    "message": "确认订阅"
+  },
+  "confirmation.description": {
+    "message": "确认您的FemTech Weekend新闻通讯订阅"
+  },
+  "confirmation.success.title": {
+    "message": "订阅已确认！"
+  },
+  "confirmation.success.message": {
+    "message": "您已成功订阅FemTech Weekend新闻通讯。请查看收件箱中的欢迎邮件！"
+  },
+  "confirmation.error.title": {
+    "message": "确认失败"
+  },
+  "confirmation.error.message": {
+    "message": "确认链接无效或已过期。请重新订阅。"
+  },
+  "confirmation.loading": {
+    "message": "正在确认您的订阅..."
+  },
+  "confirmation.backToHome": {
+    "message": "返回首页"
+  },
+  "homepage.stats.title": {
+    "message": "我们的全球影响力"
+  },
+  "homepage.stats.subtitle": {
+    "message": "在全球范围内建立联系并推动女性健康技术创新"
+  },
+  "homepage.stats.countries": {
+    "message": "参与国家"
+  },
+  "homepage.stats.experts": {
+    "message": "专家合作伙伴"
+  },
+  "homepage.stats.publications": {
+    "message": "研究出版物"
+  },
+  "homepage.stats.awards": {
+    "message": "行业奖项"
+  },
+  "theme.showcase.detail.notProvided": {
+    "message": "未提供",
+    "description": "Text displayed when a company field is not available"
+  },
+  "theme.showcase.companyList.adjustFilters": {
+    "message": "请尝试调整筛选条件以找到您想要的内容。",
+    "description": "Help text when no companies match filters"
+  },
+  "theme.loading": {
+    "message": "加载中...",
+    "description": "Generic loading text"
   }
 }

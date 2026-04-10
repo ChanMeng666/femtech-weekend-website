@@ -4,13 +4,11 @@ import {sortedCompanies, type Company} from '@site/src/data/femtech-companies';
 import Heading from '@theme/Heading';
 import ShowcaseCard from '@site/src/components/ShowcaseCard';
 import {useFilteredCompanies} from '@site/src/utils/useFilteredCompanies';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 function HeadingNoResult() {
-  const {i18n: {currentLocale}} = useDocusaurusContext();
   return (
     <Heading as="h2" className="text-2xl font-bold text-foreground">
-      {currentLocale === 'zh-Hans' ? '无结果' : translate({
+      {translate({
         id: 'theme.showcase.companyList.noResult',
         message: 'No results'
       })}
@@ -19,10 +17,9 @@ function HeadingNoResult() {
 }
 
 function HeadingAllCompanies() {
-  const {i18n: {currentLocale}} = useDocusaurusContext();
   return (
     <Heading as="h2" className="text-2xl font-bold text-foreground mb-6">
-      {currentLocale === 'zh-Hans' ? '所有公司' : translate({
+      {translate({
         id: 'theme.showcase.companyList.allCompanies',
         message: 'All Companies'
       })}
@@ -49,7 +46,10 @@ function NoResultSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
         <HeadingNoResult />
         <p className="mt-4 text-muted-foreground">
-          Try adjusting your filters to find what you're looking for.
+          {translate({
+            id: 'theme.showcase.companyList.adjustFilters',
+            message: 'Try adjusting your filters to find what you are looking for.',
+          })}
         </p>
       </div>
     </section>

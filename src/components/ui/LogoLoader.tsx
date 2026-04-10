@@ -1,4 +1,5 @@
 import React from 'react';
+import {translate} from '@docusaurus/Translate';
 
 interface LogoLoaderProps {
   size?: number;
@@ -64,7 +65,7 @@ export function LogoLoader({
         />
       </svg>
       
-      <div className="loading-text">加载中...</div>
+      <div className="loading-text">{translate({ id: 'theme.loading', message: 'Loading...' })}</div>
     </div>
   );
 } 

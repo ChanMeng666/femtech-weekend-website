@@ -12,7 +12,7 @@ interface LogoWallProps {
 
 export function LogoWall({
   title = "FemTech Weekend",
-  subtitle = "品牌形象墙",
+  subtitle = "Brand Wall",
   count = 12,
   interactive = true,
   className = '',

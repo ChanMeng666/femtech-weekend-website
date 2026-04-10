@@ -19,17 +19,17 @@
     "message": "About Us",
     "description": "The label of footer link with label=About Us linking to /about-us"
   },
-  "link.item.label.Ecosystem": {
-    "message": "Ecosystem",
-    "description": "The label of footer link with label=Ecosystem linking to /ecosystem"
-  },
   "link.item.label.Insights": {
     "message": "Insights",
     "description": "The label of footer link with label=Insights linking to /insights"
   },
-  "link.item.label.Database": {
-    "message": "Database",
-    "description": "The label of footer link with label=Database linking to /database"
+  "link.item.label.Stories": {
+    "message": "Stories",
+    "description": "The label of footer link with label=Stories linking to /stories"
+  },
+  "link.item.label.Opinions": {
+    "message": "Opinions",
+    "description": "The label of footer link with label=Opinions linking to /opinions"
   },
   "link.item.label.hello@femtechweekend.com": {
     "message": "hello@femtechweekend.com",

@@ -1,6 +1,5 @@
 import React from 'react';
 import {translate} from '@docusaurus/Translate';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { type Company, TagList, useTranslatedTags } from '@site/src/data/femtech-companies';
 import { sortBy } from '@site/src/utils/jsUtils';
 import Heading from '@theme/Heading';
@@ -53,10 +52,8 @@ export default function CompanyDetailModal({
   isOpen,
   onClose,
 }: CompanyDetailModalProps): React.ReactElement | null {
-  const {i18n: {currentLocale}} = useDocusaurusContext();
-  
   if (!isOpen) return null;
-  
+
   // Close modal when clicking outside
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
@@ -65,7 +62,7 @@ export default function CompanyDetailModal({
   };
 
   return (
-    <div 
+    <div
       className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
       onClick={handleBackdropClick}
     >
@@ -75,7 +72,7 @@ export default function CompanyDetailModal({
             <Heading as="h3" className="text-2xl font-bold">
               {company.title}
             </Heading>
-            <button 
+            <button
               onClick={onClose}
               className="text-muted-foreground hover:text-foreground p-2"
             >
@@ -83,11 +80,11 @@ export default function CompanyDetailModal({
               <span className="sr-only">Close</span>
             </button>
           </div>
-          
+
           {company.location && (
             <div>
               <span className="font-medium text-foreground">
-                {currentLocale === 'zh-Hans' ? '地点: ' : translate({
+                {translate({
                   id: 'theme.showcase.detail.location',
                   message: 'Location: ',
                 })}
@@ -95,11 +92,11 @@ export default function CompanyDetailModal({
               <span className="text-muted-foreground">{company.location}</span>
             </div>
           )}
-          
+
           {company.description && (
             <div>
               <span className="font-medium text-foreground block mb-2">
-                {currentLocale === 'zh-Hans' ? '公司简介: ' : translate({
+                {translate({
                   id: 'theme.showcase.detail.description',
                   message: 'Company Description: ',
                 })}
@@ -107,11 +104,11 @@ export default function CompanyDetailModal({
               <p className="text-muted-foreground whitespace-pre-line">{company.description}</p>
             </div>
           )}
-          
+
           {company.founders && (
             <div>
               <span className="font-medium text-foreground">
-                {currentLocale === 'zh-Hans' ? '创始人: ' : translate({
+                {translate({
                   id: 'theme.showcase.detail.founder',
                   message: 'Founder: ',
                 })}
@@ -119,11 +116,11 @@ export default function CompanyDetailModal({
               <span className="text-muted-foreground">{company.founders}</span>
             </div>
           )}
-          
+
           {company.website && (
             <div>
               <span className="font-medium text-foreground">
-                {currentLocale === 'zh-Hans' ? '网站: ' : translate({
+                {translate({
                   id: 'theme.showcase.detail.website',
                   message: 'Website: ',
                 })}
@@ -133,15 +130,20 @@ export default function CompanyDetailModal({
                   {company.website}
                 </Link>
               ) : (
-                <span className="text-muted-foreground">未提供</span>
+                <span className="text-muted-foreground">
+                  {translate({
+                    id: 'theme.showcase.detail.notProvided',
+                    message: 'Not provided',
+                  })}
+                </span>
               )}
             </div>
           )}
-          
+
           {company.investors && company.investors.length > 0 && (
             <div>
               <span className="font-medium text-foreground block mb-2">
-                {currentLocale === 'zh-Hans' ? '投资方: ' : translate({
+                {translate({
                   id: 'theme.showcase.detail.investors',
                   message: 'Investors: ',
                 })}
@@ -153,11 +155,11 @@ export default function CompanyDetailModal({
               </ul>
             </div>
           )}
-          
+
           {company.fundingInfo && company.fundingInfo.length > 0 && (
             <div>
               <span className="font-medium text-foreground block mb-2">
-                {currentLocale === 'zh-Hans' ? '融资情况: ' : translate({
+                {translate({
                   id: 'theme.showcase.detail.funding',
                   message: 'Funding History: ',
                 })}
@@ -171,11 +173,11 @@ export default function CompanyDetailModal({
               </ul>
             </div>
           )}
-          
+
           {company.tags && company.tags.length > 0 && (
             <div>
               <span className="font-medium text-foreground block mb-2">
-                {currentLocale === 'zh-Hans' ? '标签: ' : translate({
+                {translate({
                   id: 'theme.showcase.detail.tags',
                   message: 'Tags: ',
                 })}
@@ -187,4 +189,4 @@ export default function CompanyDetailModal({
       </div>
     </div>
   );
-} 
+}

@@ -19,10 +19,6 @@
     "message": "关于我们",
     "description": "The label of footer link with label=About Us linking to /about-us"
   },
-  "link.item.label.Ecosystem": {
-    "message": "生态系统",
-    "description": "The label of footer link with label=Ecosystem linking to /ecosystem"
-  },
   "link.item.label.Insights": {
     "message": "洞察",
     "description": "The label of footer link with label=Insights linking to /insights"
@@ -35,17 +31,9 @@
     "message": "观点",
     "description": "The label of footer link with label=Opinions linking to /opinions"
   },
-  "link.item.label.Gallery": {
-    "message": "图库",
-    "description": "The label of footer link with label=Gallery linking to /gallery"
-  },
-  "link.item.label.Database": {
-    "message": "数据库",
-    "description": "The label of footer link with label=Database linking to /database"
-  },
-  "link.item.label.Email": {
+  "link.item.label.hello@femtechweekend.com": {
     "message": "hello@femtechweekend.com",
-    "description": "The label of footer link with label=Email"
+    "description": "The label of footer link with label=hello@femtechweekend.com linking to mailto:hello@femtechweekend.com"
   },
   "link.item.label.LinkedIn": {
     "message": "领英",
@@ -59,25 +47,13 @@
     "message": "GitHub",
     "description": "The label of footer link with label=GitHub"
   },
-  "link.item.label.Xiaohongshu": {
-    "message": "小红书",
-    "description": "The label of footer link with label=Xiaohongshu"
-  },
-  "link.item.label.WeChat": {
-    "message": "微信",
-    "description": "The label of footer link with label=WeChat"
-  },
   "copyright": {
     "message": "版权所有 © {year} FemTech Weekend 女性健康科技周末",
     "description": "The footer copyright"
   },
-  "footer.qrcode.xiaohongshu": {
-    "message": "小红书",
-    "description": "The label for Xiaohongshu QR code"
-  },
-  "footer.qrcode.wechat": {
-    "message": "微信",
-    "description": "The label for WeChat QR code"
+  "logo.alt": {
+    "message": "FemTech Weekend 女性健康科技周末 网站标志",
+    "description": "The alt text of footer logo"
   },
   "footer.developer.attribution.text": {
     "message": "网站用心制作",

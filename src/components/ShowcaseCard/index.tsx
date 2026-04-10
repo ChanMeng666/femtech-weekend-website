@@ -4,7 +4,6 @@ import Link from '@docusaurus/Link';
 import {TagList, type TagType, type Company, useTranslatedTags} from '@site/src/data/femtech-companies';
 import {sortBy} from '@site/src/utils/jsUtils';
 import Heading from '@theme/Heading';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { cn } from '../../lib/utils';
 import CompanyDetailModal from '../common/CompanyDetailModal';
 
@@ -48,11 +47,10 @@ function ShowcaseCard({company}: {company: Company}) {
   const latestFunding = company.fundingInfo.length > 0 
     ? company.fundingInfo[0] 
     : null;
-  const {i18n: {currentLocale}} = useDocusaurusContext();
-  
+
   return (
     <>
-      <li 
+      <li
         className="group relative border border-border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md hover:border-primary/50 overflow-hidden cursor-pointer dark:bg-slate-800 dark:hover:bg-slate-700"
         onClick={() => setIsModalOpen(true)}
       >
@@ -69,17 +67,17 @@ function ShowcaseCard({company}: {company: Company}) {
               </span>
             )}
           </div>
-          
+
           {/* Only show a short preview of the description */}
           <p className="text-sm text-muted-foreground mb-4 line-clamp-2 dark:text-slate-300">
             {company.description}
           </p>
-          
+
           <div className="space-y-2">
             {company.founders && (
               <div className="text-xs">
                 <span className="font-medium text-foreground dark:text-slate-100">
-                  {currentLocale === 'zh-Hans' ? '创始人: ' : translate({
+                  {translate({
                     id: 'theme.showcase.card.founder',
                     message: 'Founder: ',
                   })}
@@ -87,11 +85,11 @@ function ShowcaseCard({company}: {company: Company}) {
                 <span className="text-muted-foreground dark:text-slate-300">{company.founders}</span>
               </div>
             )}
-            
+
             {latestFunding && (
               <div className="text-xs">
                 <span className="font-medium text-foreground dark:text-slate-100">
-                  {currentLocale === 'zh-Hans' ? '融资: ' : translate({
+                  {translate({
                     id: 'theme.showcase.card.funding',
                     message: 'Funding: ',
                   })}
@@ -101,11 +99,11 @@ function ShowcaseCard({company}: {company: Company}) {
                 </span>
               </div>
             )}
-            
+
             {company.investors && company.investors.length > 0 && (
               <div className="text-xs">
                 <span className="font-medium text-foreground dark:text-slate-100">
-                  {currentLocale === 'zh-Hans' ? '投资方: ' : translate({
+                  {translate({
                     id: 'theme.showcase.card.investors',
                     message: 'Investors: ',
                   })}

@@ -245,48 +245,6 @@
   "ecosystem.stats.partnerOrganizations": {
     "message": "Partner Organizations"
   },
-  "reports.hero.title": {
-    "message": "The FemTech Reports"
-  },
-  "reports.hero.subtitle": {
-    "message": "Latest insights and research on women's health technology, innovation, and market trends"
-  },
-  "reports.section.title": {
-    "message": "Latest Reports"
-  },
-  "reports.section.subtitle": {
-    "message": "Stay updated with our comprehensive research and analysis"
-  },
-  "reports.cta.title": {
-    "message": "Stay Updated with Our Research"
-  },
-  "reports.cta.description": {
-    "message": "Get the latest reports and insights delivered directly to your inbox. Join our community of women's health innovators and investors."
-  },
-  "reports.cta.learnMoreButton": {
-    "message": "Learn More About Us"
-  },
-  "reports.cta.contactButton": {
-    "message": "Contact Research Team"
-  },
-  "reports.featured.label": {
-    "message": "Featured Report"
-  },
-  "reports.category.research": {
-    "message": "Research"
-  },
-  "reports.category.technology": {
-    "message": "Technology"
-  },
-  "reports.category.general": {
-    "message": "General"
-  },
-  "reports.category.investment": {
-    "message": "Investment"
-  },
-  "reports.category.allReports": {
-    "message": "All Reports"
-  },
   "competition.categories.reproductiveHealth.title": {
     "message": "Reproductive Health"
   },
@@ -959,5 +917,447 @@
   "theme.tags.tagsPageTitle": {
     "message": "Tags",
     "description": "The title of the tag list page"
+  },
+  "homepage.title": {
+    "message": "FemTech Weekend"
+  },
+  "homepage.description": {
+    "message": "FemTech Weekend - Rooted in China, Connecting globally. We pioneer Women's Health Innovation in China to drive worldwide impact."
+  },
+  "homepage.hero.title": {
+    "message": "FemTech Weekend"
+  },
+  "homepage.hero.cta.start": {
+    "message": "Explore Insights"
+  },
+  "homepage.hero.cta.learnMore": {
+    "message": "Learn More"
+  },
+  "homepage.features.title": {
+    "message": "Empowering Women's Health Innovation"
+  },
+  "homepage.features.subtitle": {
+    "message": "FemTech Weekend brings together entrepreneurs, investors, and healthcare professionals to advance women's health solutions."
+  },
+  "homepage.testimonials.title": {
+    "message": "What Our Community Says"
+  },
+  "homepage.testimonials.subtitle": {
+    "message": "Hear from entrepreneurs, investors, and healthcare professionals who are part of our growing ecosystem."
+  },
+  "homepage.stats.title": {
+    "message": "Our Global Impact"
+  },
+  "homepage.stats.subtitle": {
+    "message": "Building connections and driving innovation in women's health technology worldwide"
+  },
+  "homepage.stats.countries": {
+    "message": "Countries Engaged"
+  },
+  "homepage.stats.experts": {
+    "message": "Expert Partners"
+  },
+  "homepage.stats.publications": {
+    "message": "Research Publications"
+  },
+  "homepage.stats.awards": {
+    "message": "Industry Awards"
+  },
+  "about.title": {
+    "message": "About Us"
+  },
+  "about.description": {
+    "message": "Learn about FemTech Weekend's mission to advance women's health through innovation, entrepreneurship, and global collaboration."
+  },
+  "newsletter.placeholder": {
+    "message": "Enter your email address"
+  },
+  "newsletter.button": {
+    "message": "Subscribe"
+  },
+  "newsletter.loading": {
+    "message": "Subscribing..."
+  },
+  "newsletter.success": {
+    "message": "Please check your email and click the confirmation link to complete your subscription."
+  },
+  "newsletter.error": {
+    "message": "An error occurred. Please try again."
+  },
+  "newsletter.invalidEmail": {
+    "message": "Please enter a valid email address"
+  },
+  "newsletter.alreadySubscribed": {
+    "message": "This email is already subscribed."
+  },
+  "newsletter.cta.label": {
+    "message": "Stay Updated"
+  },
+  "newsletter.cta.title": {
+    "message": "Join Our Newsletter"
+  },
+  "newsletter.cta.description": {
+    "message": "Get the latest FemTech insights, research reports, and community updates delivered to your inbox."
+  },
+  "insights.title": {
+    "message": "Insights"
+  },
+  "insights.description": {
+    "message": "Latest insights and research on women's health technology and innovation"
+  },
+  "insights.hero.title": {
+    "message": "The FemTech Insights"
+  },
+  "insights.hero.subtitle": {
+    "message": "Latest insights and research on women's health technology, innovation, and market trends"
+  },
+  "insights.section.title": {
+    "message": "Latest Insights"
+  },
+  "insights.section.subtitle": {
+    "message": "Stay updated with our comprehensive research and analysis"
+  },
+  "insights.cta.title": {
+    "message": "Stay Updated with Our Research"
+  },
+  "insights.cta.description": {
+    "message": "Get the latest insights and research delivered directly to your inbox. Join our community of women's health innovators and investors."
+  },
+  "insights.cta.learnMoreButton": {
+    "message": "Learn More About Us"
+  },
+  "insights.cta.contactButton": {
+    "message": "Contact Research Team"
+  },
+  "insights.featured.label": {
+    "message": "Featured Insight"
+  },
+  "insights.category.allInsights": {
+    "message": "All Insights"
+  },
+  "insights.category.technology": {
+    "message": "Technology"
+  },
+  "insights.category.investment": {
+    "message": "Investment"
+  },
+  "insights.category.research": {
+    "message": "Research"
+  },
+  "insights.category.general": {
+    "message": "General"
+  },
+  "insights.tag.research": {
+    "message": "Research"
+  },
+  "insights.tag.marketAnalysis": {
+    "message": "Market Analysis"
+  },
+  "insights.tag.china": {
+    "message": "China"
+  },
+  "insights.tag.hongKong": {
+    "message": "Hong Kong"
+  },
+  "insights.tag.hackathon": {
+    "message": "Hackathon"
+  },
+  "insights.tag.technology": {
+    "message": "Technology"
+  },
+  "insights.tag.innovation": {
+    "message": "Innovation"
+  },
+  "insights.tag.womensHealth": {
+    "message": "Women's Health"
+  },
+  "insights.tag.startup": {
+    "message": "Startup"
+  },
+  "insights.tag.investment": {
+    "message": "Investment"
+  },
+  "opinions.title": {
+    "message": "Opinions"
+  },
+  "opinions.description": {
+    "message": "Short articles and essays on women's health technology"
+  },
+  "opinions.hero.title": {
+    "message": "The FemTech Opinions"
+  },
+  "opinions.hero.subtitle": {
+    "message": "Short articles and essays on women's health technology, trends, and perspectives"
+  },
+  "opinions.section.title": {
+    "message": "Latest Opinions"
+  },
+  "opinions.section.subtitle": {
+    "message": "Perspectives and analysis from thought leaders in women's health"
+  },
+  "opinions.cta.title": {
+    "message": "Share Your Perspective"
+  },
+  "opinions.cta.description": {
+    "message": "Have insights on women's health technology? We welcome thought-provoking essays and analysis from industry experts."
+  },
+  "opinions.cta.learnMoreButton": {
+    "message": "Learn More About Us"
+  },
+  "opinions.cta.submitButton": {
+    "message": "Submit Article"
+  },
+  "opinions.featured.label": {
+    "message": "Featured Opinion"
+  },
+  "opinions.category.allOpinions": {
+    "message": "All Opinions"
+  },
+  "opinions.category.analysis": {
+    "message": "Analysis"
+  },
+  "opinions.category.trends": {
+    "message": "Trends"
+  },
+  "opinions.category.commentary": {
+    "message": "Commentary"
+  },
+  "opinions.category.policy": {
+    "message": "Policy"
+  },
+  "opinions.tag.industryAnalysis": {
+    "message": "Industry Analysis"
+  },
+  "opinions.tag.marketTrends": {
+    "message": "Market Trends"
+  },
+  "opinions.tag.policyPerspective": {
+    "message": "Policy Perspective"
+  },
+  "opinions.tag.commentary": {
+    "message": "Commentary"
+  },
+  "opinions.tag.thoughtLeadership": {
+    "message": "Thought Leadership"
+  },
+  "opinions.tag.investmentInsights": {
+    "message": "Investment Insights"
+  },
+  "opinions.tag.technologyTrends": {
+    "message": "Technology Trends"
+  },
+  "opinions.tag.healthcareInnovation": {
+    "message": "Healthcare Innovation"
+  },
+  "stories.title": {
+    "message": "Stories"
+  },
+  "stories.description": {
+    "message": "Character interviews and inspiring stories from the FemTech community"
+  },
+  "stories.hero.title": {
+    "message": "The FemTech Stories"
+  },
+  "stories.hero.subtitle": {
+    "message": "Character interviews and inspiring stories from women's health innovators, founders, and leaders"
+  },
+  "stories.section.title": {
+    "message": "Latest Stories"
+  },
+  "stories.section.subtitle": {
+    "message": "Discover the journeys of women shaping the future of health technology"
+  },
+  "stories.cta.title": {
+    "message": "Share Your Story"
+  },
+  "stories.cta.description": {
+    "message": "Are you a founder, investor, or innovator in women's health? We'd love to feature your journey and insights."
+  },
+  "stories.cta.learnMoreButton": {
+    "message": "Learn More About Us"
+  },
+  "stories.cta.contactButton": {
+    "message": "Contact Us"
+  },
+  "stories.featured.label": {
+    "message": "Featured Story"
+  },
+  "stories.category.allStories": {
+    "message": "All Stories"
+  },
+  "stories.category.founders": {
+    "message": "Founders"
+  },
+  "stories.category.investors": {
+    "message": "Investors"
+  },
+  "stories.category.researchers": {
+    "message": "Researchers"
+  },
+  "stories.category.innovators": {
+    "message": "Innovators"
+  },
+  "stories.readTimeSuffix": {
+    "message": "min read"
+  },
+  "stories.tag.founderStory": {
+    "message": "Founder Story"
+  },
+  "stories.tag.investorPerspective": {
+    "message": "Investor Perspective"
+  },
+  "stories.tag.careerJourney": {
+    "message": "Career Journey"
+  },
+  "stories.tag.innovationStory": {
+    "message": "Innovation Story"
+  },
+  "stories.tag.interview": {
+    "message": "Interview"
+  },
+  "stories.tag.leadership": {
+    "message": "Leadership"
+  },
+  "stories.tag.entrepreneurship": {
+    "message": "Entrepreneurship"
+  },
+  "stories.tag.researchJourney": {
+    "message": "Research Journey"
+  },
+  "gallery.hero.title": {
+    "message": "Event Gallery"
+  },
+  "gallery.hero.subtitle": {
+    "message": "Moments captured from our FemTech Weekend events and community gatherings"
+  },
+  "gallery.hero.label": {
+    "message": "Gallery"
+  },
+  "gallery.lightbox.close": {
+    "message": "Close"
+  },
+  "gallery.lightbox.previous": {
+    "message": "Previous"
+  },
+  "gallery.lightbox.next": {
+    "message": "Next"
+  },
+  "gallery.category.all": {
+    "message": "All"
+  },
+  "gallery.category.events": {
+    "message": "Events"
+  },
+  "gallery.category.networking": {
+    "message": "Networking"
+  },
+  "gallery.category.workshops": {
+    "message": "Workshops"
+  },
+  "gallery.category.hackathon": {
+    "message": "Hackathon"
+  },
+  "confirmation.title": {
+    "message": "Confirm Subscription"
+  },
+  "confirmation.description": {
+    "message": "Confirm your FemTech Weekend newsletter subscription"
+  },
+  "confirmation.success.title": {
+    "message": "Subscription Confirmed!"
+  },
+  "confirmation.success.message": {
+    "message": "You have been successfully subscribed to the FemTech Weekend newsletter. Check your inbox for a welcome email!"
+  },
+  "confirmation.error.title": {
+    "message": "Confirmation Failed"
+  },
+  "confirmation.error.message": {
+    "message": "The confirmation link is invalid or has expired. Please try subscribing again."
+  },
+  "confirmation.loading": {
+    "message": "Confirming your subscription..."
+  },
+  "confirmation.backToHome": {
+    "message": "Back to Homepage"
+  },
+  "summit.banner.label": {
+    "message": "FEATURED EVENT"
+  },
+  "summit.banner.headline": {
+    "message": "Where Global Women's Health Meets China"
+  },
+  "summit.banner.description": {
+    "message": "Join a 4-day Shanghai programme that brings together global and Chinese leaders across women's health."
+  },
+  "summit.page.title": {
+    "message": "Shanghai Summit 2026"
+  },
+  "summit.page.description": {
+    "message": "Cross-Border Capital & Partnerships in Women's Health - Shanghai, June 22-25, 2026"
+  },
+  "summit.banner.date": {
+    "message": "JUNE 22-25, 2026"
+  },
+  "summit.banner.location": {
+    "message": "SHANGHAI, CHINA"
+  },
+  "summit.banner.cta": {
+    "message": "View Full Programme"
+  },
+  "theme.showcase.card.viewDetails": {
+    "message": "View Details",
+    "description": "Text for the view details button in company card"
+  },
+  "theme.showcase.detail.notProvided": {
+    "message": "Not provided",
+    "description": "Text displayed when a company field is not available"
+  },
+  "theme.showcase.companyList.adjustFilters": {
+    "message": "Try adjusting your filters to find what you are looking for.",
+    "description": "Help text when no companies match filters"
+  },
+  "theme.loading": {
+    "message": "Loading...",
+    "description": "Generic loading text"
+  },
+  "stories.data.sylvia-kang.title": {
+    "message": "From Piano Prodigy to FemTech Founder: Sylvia Kang's Journey with Mira"
+  },
+  "stories.data.sylvia-kang.description": {
+    "message": "How a concert pianist turned fertility technology innovator is making ovulation tracking accessible worldwide"
+  },
+  "stories.noStoriesFound": {
+    "message": "No stories found"
+  },
+  "stories.tagResultsPrefix": {
+    "message": "Stories tagged with"
+  },
+  "stories.filteringByTag": {
+    "message": "Filtering by tag"
+  },
+  "stories.clearFilter": {
+    "message": "Clear filter"
+  },
+  "stories.categoryStoriesSuffix": {
+    "message": "Stories"
+  },
+  "stories.showingTagResults": {
+    "message": "Showing tag results"
+  },
+  "stories.browsePrefix": {
+    "message": "Browse our"
+  },
+  "stories.browseSuffix": {
+    "message": "stories and interviews"
+  },
+  "stories.readFullStory": {
+    "message": "Read Full Story"
+  },
+  "opinions.data.hims-hers-eucalyptus.title": {
+    "message": "When I Saw This $1.15bn Acquisition, It Changed How I Think About FemTech"
+  },
+  "opinions.data.hims-hers-eucalyptus.description": {
+    "message": "How Hims & Hers' acquisition of Eucalyptus signals a new era of cross-border digital health consolidation"
   }
 }
