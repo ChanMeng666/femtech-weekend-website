@@ -47,38 +47,36 @@ npm run build         # Production build (deployed via Cloudflare Pages)
 │   ├── pages/           # Main page components (React/TypeScript)
 │   ├── components/      # Reusable UI components
 │   │   ├── AboutUs/     # About page components
-│   │   ├── Competition/ # Competition management components
-│   │   ├── Ecosystem/   # Community directory components
-│   │   ├── Reports/     # Research hub components
+│   │   ├── ShanghaiSummit/ # Shanghai Summit components
 │   │   └── ui/          # Shared UI components (shadcn-style)
 │   ├── api/             # Serverless API functions
 │   ├── constants/       # Application constants
 │   ├── data/           # Static data and configurations
 │   ├── types/          # TypeScript type definitions
 │   └── css/            # Global styles and Tailwind config
-├── api/                # API routes (production)
-├── docs/               # Docusaurus documentation
-├── blog/               # Competition blog/news
-└── static/             # Static assets (images, etc.)
+├── functions/          # Cloudflare Pages Functions (API routes)
+├── blog/               # Blog / Insights content
+├── stories/            # Stories blog plugin content
+├── opinions/           # Opinions blog plugin content
+├── static/
+│   ├── img/            # Static images
+│   ├── docs/           # Developer documentation
+│   │   ├── content-management/
+│   │   ├── styling-and-design/
+│   │   ├── integrations/
+│   │   └── infrastructure/
+│   └── data/           # Static data files
+└── i18n/               # Internationalization (en, zh-Hans)
 ```
 
-### API Endpoints
-
-The platform has three main API endpoints:
-
-1. **`/api/submit-ecosystem`** - Handles ecosystem membership applications
-2. **`/api/pdf-form-submit`** - Collects form data for PDF downloads
-3. **`/api/upload-image`** - Uploads images to Cloudinary
-
-API routes are handled by `api-server.js` in development and deployed as Cloudflare Pages functions.
-
-### Key Components
+### Key Pages
 
 - **Homepage** (`src/pages/index.tsx`): Main landing page with hero, features, testimonials
-- **Competition** (`src/pages/competition.tsx`): Competition management and registration
-- **Ecosystem** (`src/pages/ecosystem.tsx`): Member directory and community features
-- **Join Form** (`src/pages/ecosystem/join.tsx`): Multi-step membership application
-- **Reports** (`src/pages/reports.tsx`): Research reports and insights hub
+- **About Us** (`src/pages/about-us.tsx`): Organization info, team, advisors
+- **Insights** (`src/pages/insights.tsx`): Research reports and market analysis
+- **Stories** (`src/pages/stories.tsx`): Character interviews and inspiring stories
+- **Opinions** (`src/pages/opinions.tsx`): Short articles and commentary
+- **Shanghai Summit** (`src/pages/shanghai-summit.tsx`): Summit event page
 
 ### Environment Variables
 
