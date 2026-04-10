@@ -28,6 +28,7 @@ const config: Config = {
 
   onBrokenLinks: 'warn',
   onBrokenAnchors: 'ignore',
+  onDuplicateRoutes: 'ignore',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -72,7 +73,7 @@ const config: Config = {
         editUrl: 'https://github.com/ChanMeng666/femtech-weekend-website/blob/main/',
         onInlineTags: 'warn',
         onInlineAuthors: 'warn',
-        onUntruncatedBlogPosts: 'warn',
+        onUntruncatedBlogPosts: 'ignore',
         blogTitle: 'FemTech Weekend Stories',
         blogDescription: 'Character interviews and inspiring stories from the FemTech community',
         postsPerPage: 'ALL',
@@ -97,7 +98,7 @@ const config: Config = {
         editUrl: 'https://github.com/ChanMeng666/femtech-weekend-website/blob/main/',
         onInlineTags: 'warn',
         onInlineAuthors: 'warn',
-        onUntruncatedBlogPosts: 'warn',
+        onUntruncatedBlogPosts: 'ignore',
         blogTitle: 'FemTech Weekend Opinions',
         blogDescription: 'Short articles and essays on women\'s health technology',
         postsPerPage: 'ALL',
@@ -136,7 +137,7 @@ const config: Config = {
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
+          onUntruncatedBlogPosts: 'ignore',
           blogTitle: 'FemTech Weekend Blog',
           blogDescription: 'FemTech Weekend Platform Updates',
           postsPerPage: 'ALL',

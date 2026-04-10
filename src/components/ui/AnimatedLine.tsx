@@ -6,6 +6,8 @@ interface AnimatedLineProps {
   variant?: 'default' | 'label' | 'divider';
   label?: string;
   animated?: boolean;
+  style?: React.CSSProperties;
+  children?: React.ReactNode;
 }
 
 /**
@@ -17,10 +19,12 @@ export function AnimatedLine({
   variant = 'default',
   label,
   animated = true,
+  style,
+  children,
 }: AnimatedLineProps) {
-  if (variant === 'label' && label) {
+  if (variant === 'label' && (label || children)) {
     return (
-      <div className={cn('group flex items-center gap-3 md:gap-4', className)}>
+      <div className={cn('group flex items-center gap-3 md:gap-4', className)} style={style}>
         <div
           className={cn(
             'h-px bg-foreground transition-all duration-700',
@@ -31,17 +35,19 @@ export function AnimatedLine({
             transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
           }}
         />
-        <span
-          className={cn(
-            'mckinsey-label text-foreground transition-all duration-700',
-            animated && 'group-hover:tracking-[0.2em]'
-          )}
-          style={{
-            transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
-          }}
-        >
-          {label}
-        </span>
+        {children || (
+          <span
+            className={cn(
+              'mckinsey-label text-foreground transition-all duration-700',
+              animated && 'group-hover:tracking-[0.2em]'
+            )}
+            style={{
+              transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+            }}
+          >
+            {label}
+          </span>
+        )}
       </div>
     );
   }
