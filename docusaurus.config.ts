@@ -154,7 +154,7 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/femtech-weekend-social-card.png',
+    image: 'img/femtech-weekend-social-card.jpg',
     docs: {
       sidebar: {
         hideable: true,
