@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Link from '@docusaurus/Link';
 import { FeaturedInsightProps } from '../../types/insights';
-import { getFeaturedInsightLabel } from '../../constants/insights-components';
+import { getFeaturedInsightLabel, translateInsightField } from '../../constants/insights-components';
+import { translateDate } from '../../utils/translateDate';
 import { ArrowUpRight } from 'lucide-react';
 
 interface InsightTagProps {
@@ -113,7 +114,7 @@ export function FeaturedInsight({ insight, onTagClick }: FeaturedInsightProps): 
             <div className="flex items-center mckinsey-label text-muted-foreground mb-6">
               <span>{insight.author}</span>
               <span className="mx-3">—</span>
-              <span>{insight.date}</span>
+              <span>{translateDate(insight.date)}</span>
               <span className="mx-3">—</span>
               <span>{insight.readTime}</span>
             </div>
@@ -131,7 +132,7 @@ export function FeaturedInsight({ insight, onTagClick }: FeaturedInsightProps): 
 
             {/* CTA with arrow */}
             <div className="flex items-center gap-2 text-primary mckinsey-label">
-              <span>Read More</span>
+              <span>{translateInsightField('insights.readMore', 'Read More')}</span>
               <ArrowUpRight
                 className="h-4 w-4 transition-transform duration-300"
                 style={{

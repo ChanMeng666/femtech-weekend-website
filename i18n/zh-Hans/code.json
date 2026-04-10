@@ -1542,5 +1542,122 @@
   "theme.loading": {
     "message": "加载中...",
     "description": "Generic loading text"
+  },
+  "insights.data.femtech-market-map.title": {
+    "message": "女性健康科技市场图谱2025：中国内地和香港女性健康创新综合分析"
+  },
+  "insights.data.femtech-market-map.description": {
+    "message": "大中华区的女性健康科技市场正经历前所未有的增长，在政策、经济、社会和技术方面的有利发展支持下，进入快速扩张阶段。"
+  },
+  "insights.data.femmehealth-alliance.title": {
+    "message": "FemTech Weekend 携手 FemmeHealth Ventures Alliance 搭建中欧女性健康投资桥梁"
+  },
+  "insights.data.femmehealth-alliance.description": {
+    "message": "一项开创性的内容合作，为中文受众带来投资级女性健康洞察，促进女性科技创新和战略资本的跨境协同。"
+  },
+  "insights.noInsightsFound": {
+    "message": "该类别暂无洞察内容。请稍后查看新内容！"
+  },
+  "insights.tagResultsPrefix": {
+    "message": "标签结果："
+  },
+  "insights.filteringByTag": {
+    "message": "按标签筛选："
+  },
+  "insights.clearFilter": {
+    "message": "清除筛选"
+  },
+  "insights.categoryInsightsSuffix": {
+    "message": "洞察"
+  },
+  "insights.showingTagResults": {
+    "message": "显示所有包含所选标签的洞察"
+  },
+  "insights.browsePrefix": {
+    "message": "浏览我们的"
+  },
+  "insights.browseSuffix": {
+    "message": "洞察和分析"
+  },
+  "insights.tag.partnership": {
+    "message": "合作"
+  },
+  "insights.tag.europe": {
+    "message": "欧洲"
+  },
+  "insights.tag.global": {
+    "message": "全球"
+  },
+  "insights.readMore": {
+    "message": "阅读更多"
+  },
+  "insights.readTime": {
+    "message": "阅读约 {minutes} 分钟"
+  },
+  "opinions.readMore": {
+    "message": "阅读全文"
+  },
+  "opinions.readTime": {
+    "message": "阅读约 {minutes} 分钟"
+  },
+  "opinions.noOpinionsFound": {
+    "message": "该类别暂无观点内容。请稍后查看新内容！"
+  },
+  "opinions.tagResultsPrefix": {
+    "message": "标签结果："
+  },
+  "opinions.filteringByTag": {
+    "message": "按标签筛选："
+  },
+  "opinions.clearFilter": {
+    "message": "清除筛选"
+  },
+  "opinions.categoryOpinionsSuffix": {
+    "message": "观点"
+  },
+  "opinions.showingTagResults": {
+    "message": "显示所有包含所选标签的观点"
+  },
+  "opinions.browsePrefix": {
+    "message": "浏览我们的"
+  },
+  "opinions.browseSuffix": {
+    "message": "观点和视角"
+  },
+  "date.month.january": {
+    "message": "1月"
+  },
+  "date.month.february": {
+    "message": "2月"
+  },
+  "date.month.march": {
+    "message": "3月"
+  },
+  "date.month.april": {
+    "message": "4月"
+  },
+  "date.month.may": {
+    "message": "5月"
+  },
+  "date.month.june": {
+    "message": "6月"
+  },
+  "date.month.july": {
+    "message": "7月"
+  },
+  "date.month.august": {
+    "message": "8月"
+  },
+  "date.month.september": {
+    "message": "9月"
+  },
+  "date.month.october": {
+    "message": "10月"
+  },
+  "date.month.november": {
+    "message": "11月"
+  },
+  "date.month.december": {
+    "message": "12月"
   }
 }

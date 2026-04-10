@@ -1359,5 +1359,122 @@
   },
   "opinions.data.hims-hers-eucalyptus.description": {
     "message": "How Hims & Hers' acquisition of Eucalyptus signals a new era of cross-border digital health consolidation"
+  },
+  "insights.data.femtech-market-map.title": {
+    "message": "FemTech Market Map 2025: Comprehensive Analysis of Women's Health Innovation in Mainland China and Hong Kong"
+  },
+  "insights.data.femtech-market-map.description": {
+    "message": "The FemTech market in Greater China is experiencing unprecedented growth, entering a phase of rapid expansion supported by favorable developments across policy, economic, social, and technological fronts."
+  },
+  "insights.data.femmehealth-alliance.title": {
+    "message": "FemTech Weekend Partners with FemmeHealth Ventures Alliance to Bridge China-Europe Women's Health Investment"
+  },
+  "insights.data.femmehealth-alliance.description": {
+    "message": "A groundbreaking content partnership to bring investment-grade women's health insights to Chinese-speaking audiences, fostering cross-border alignment in femtech innovation and strategic capital."
+  },
+  "insights.noInsightsFound": {
+    "message": "No insights found in this category. Check back soon for new content!"
+  },
+  "insights.tagResultsPrefix": {
+    "message": "Results for tag:"
+  },
+  "insights.filteringByTag": {
+    "message": "Filtering by tag:"
+  },
+  "insights.clearFilter": {
+    "message": "Clear filter"
+  },
+  "insights.categoryInsightsSuffix": {
+    "message": "Insights"
+  },
+  "insights.showingTagResults": {
+    "message": "Showing all insights with the selected tag"
+  },
+  "insights.browsePrefix": {
+    "message": "Browse our"
+  },
+  "insights.browseSuffix": {
+    "message": "insights and analysis"
+  },
+  "insights.tag.partnership": {
+    "message": "Partnership"
+  },
+  "insights.tag.europe": {
+    "message": "Europe"
+  },
+  "insights.tag.global": {
+    "message": "Global"
+  },
+  "insights.readMore": {
+    "message": "Read More"
+  },
+  "insights.readTime": {
+    "message": "{minutes} min read"
+  },
+  "opinions.readMore": {
+    "message": "Read Full Article"
+  },
+  "opinions.readTime": {
+    "message": "{minutes} min read"
+  },
+  "opinions.noOpinionsFound": {
+    "message": "No opinions found in this category. Check back soon for new content!"
+  },
+  "opinions.tagResultsPrefix": {
+    "message": "Results for tag:"
+  },
+  "opinions.filteringByTag": {
+    "message": "Filtering by tag:"
+  },
+  "opinions.clearFilter": {
+    "message": "Clear filter"
+  },
+  "opinions.categoryOpinionsSuffix": {
+    "message": "Opinions"
+  },
+  "opinions.showingTagResults": {
+    "message": "Showing all opinions with the selected tag"
+  },
+  "opinions.browsePrefix": {
+    "message": "Browse our"
+  },
+  "opinions.browseSuffix": {
+    "message": "opinions and perspectives"
+  },
+  "date.month.january": {
+    "message": "January"
+  },
+  "date.month.february": {
+    "message": "February"
+  },
+  "date.month.march": {
+    "message": "March"
+  },
+  "date.month.april": {
+    "message": "April"
+  },
+  "date.month.may": {
+    "message": "May"
+  },
+  "date.month.june": {
+    "message": "June"
+  },
+  "date.month.july": {
+    "message": "July"
+  },
+  "date.month.august": {
+    "message": "August"
+  },
+  "date.month.september": {
+    "message": "September"
+  },
+  "date.month.october": {
+    "message": "October"
+  },
+  "date.month.november": {
+    "message": "November"
+  },
+  "date.month.december": {
+    "message": "December"
   }
 }

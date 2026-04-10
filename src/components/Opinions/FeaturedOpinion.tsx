@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Link from '@docusaurus/Link';
 import { FeaturedOpinionProps } from '../../types/opinions';
-import { getFeaturedOpinionLabel } from '../../constants/opinions-components';
+import { getFeaturedOpinionLabel, translateOpinionField } from '../../constants/opinions-components';
+import { translateDate } from '../../utils/translateDate';
 import { ArrowRight } from 'lucide-react';
 
 interface OpinionTagProps {
@@ -64,7 +65,7 @@ export function FeaturedOpinion({ opinion, onTagClick }: FeaturedOpinionProps): 
           <div className="flex flex-wrap items-center gap-4 mb-6 pb-6 border-b border-border">
             <span className="font-semibold text-foreground">{opinion.author}</span>
             <span className="text-muted-foreground">•</span>
-            <span className="text-muted-foreground">{opinion.date}</span>
+            <span className="text-muted-foreground">{translateDate(opinion.date)}</span>
             <span className="text-muted-foreground">•</span>
             <span className="text-muted-foreground">{opinion.readTime}</span>
           </div>
@@ -86,7 +87,7 @@ export function FeaturedOpinion({ opinion, onTagClick }: FeaturedOpinionProps): 
             <div
               className="flex items-center gap-2 text-foreground font-semibold group/cta"
             >
-              <span>Read Full Article</span>
+              <span>{translateOpinionField('opinions.readMore', 'Read Full Article')}</span>
               <ArrowRight
                 className="w-5 h-5 transition-transform duration-300"
                 style={{

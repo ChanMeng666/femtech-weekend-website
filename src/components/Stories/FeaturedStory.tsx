@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Link from '@docusaurus/Link';
 import { FeaturedStoryProps } from '../../types/stories';
 import { getFeaturedStoryLabel, translateStoryField } from '../../constants/stories-components';
+import { translateDate } from '../../utils/translateDate';
 import { ArrowUpRight } from 'lucide-react';
 
 export function FeaturedStory({ story }: FeaturedStoryProps): React.ReactNode {
@@ -138,7 +139,7 @@ export function FeaturedStory({ story }: FeaturedStoryProps): React.ReactNode {
             <div className="flex items-center mckinsey-label text-muted-foreground mb-6">
               <span>{story.author}</span>
               <span className="mx-3">—</span>
-              <span>{story.date}</span>
+              <span>{translateDate(story.date)}</span>
               <span className="mx-3">—</span>
               <span>{story.readTime}</span>
             </div>

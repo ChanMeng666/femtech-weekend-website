@@ -78,7 +78,10 @@ export const getInsightCategoryInvestment = () => translate({
 
 // Format read time with minutes
 export const getInsightReadTime = (minutes: string) => {
-  return `${minutes} min read`;
+  return translate(
+    { id: 'insights.readTime', message: '{minutes} min read' },
+    { minutes }
+  );
 };
 
 // Define tag translation mapping for filtering

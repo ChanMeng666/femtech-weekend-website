@@ -78,7 +78,10 @@ export const getOpinionCategoryPolicy = () => translate({
 
 // Format read time with minutes
 export const getOpinionReadTime = (minutes: string) => {
-  return `${minutes} min read`;
+  return translate(
+    { id: 'opinions.readTime', message: '{minutes} min read' },
+    { minutes }
+  );
 };
 
 // Define tag translation mapping for filtering

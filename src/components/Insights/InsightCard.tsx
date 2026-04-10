@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Link from '@docusaurus/Link';
 import { InsightCardProps } from '../../types/insights';
+import { translateDate } from '../../utils/translateDate';
 import { ArrowUpRight } from 'lucide-react';
 
 interface InsightCardTagProps {
@@ -110,7 +111,7 @@ export function InsightCard({ insight, onTagClick }: InsightCardProps): React.Re
           <div className="flex items-center mckinsey-label text-muted-foreground mb-3">
             <span>{insight.author}</span>
             <span className="mx-2">—</span>
-            <span>{insight.date}</span>
+            <span>{translateDate(insight.date)}</span>
           </div>
 
           {/* Tags */}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Link from '@docusaurus/Link';
 import { StoryCardProps } from '../../types/stories';
+import { translateDate } from '../../utils/translateDate';
 import { ArrowUpRight } from 'lucide-react';
 
 export function StoryCard({ story }: StoryCardProps): React.ReactNode {
@@ -119,7 +120,7 @@ export function StoryCard({ story }: StoryCardProps): React.ReactNode {
             <div className="flex items-center mckinsey-label text-muted-foreground mb-3">
               <span>{story.author}</span>
               <span className="mx-2">—</span>
-              <span>{story.date}</span>
+              <span>{translateDate(story.date)}</span>
             </div>
 
             {/* Read indicator */}

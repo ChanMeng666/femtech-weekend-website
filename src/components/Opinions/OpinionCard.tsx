@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Link from '@docusaurus/Link';
 import { OpinionCardProps } from '../../types/opinions';
+import { translateDate } from '../../utils/translateDate';
 import { ArrowRight } from 'lucide-react';
 
 interface OpinionCardTagProps {
@@ -67,7 +68,7 @@ export function OpinionCard({ opinion, onTagClick }: OpinionCardProps): React.Re
             <div className="flex items-center gap-2 text-xs text-muted-foreground mb-4">
               <span className="font-semibold text-foreground">{opinion.author}</span>
               <span>|</span>
-              <span>{opinion.date}</span>
+              <span>{translateDate(opinion.date)}</span>
               <span>|</span>
               <span>{opinion.readTime}</span>
             </div>
