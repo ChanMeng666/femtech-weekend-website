@@ -185,7 +185,7 @@ export const speakers: SpeakerData[] = [
   //     en: 'Founder of FemTech Association Asia. Led strategic initiatives at UNESCAP, UN Women, and other agencies. Milken Institute Women\'s Health Asia-Pacific invited speaker and columnist, driving Asian women\'s health innovation and international multilateral collaboration.',
   //     zh: 'FemTech Association Asia创始人，曾于联合国亚太经社会、妇女署等机构主导多项战略倡议，米尔肯研究所女性健康亚太区特邀演讲嘉宾。',
   //   },
-  //   image: '/img/speakers/lindsay-davis.png',
+  //   image: '/img/speakers/lindsay-davis.jpg',
   // },
   {
     id: 'vanessa-carpenter',
@@ -199,7 +199,7 @@ export const speakers: SpeakerData[] = [
       en: 'Cofounder of the Nordic Women\'s Health Hub. Founder of the Nordic Hardware Women community, member of the Danish Design Council, and FemTech expert at the Danish Engineers Association. PhD from Aalborg University.',
       zh: '北欧女性健康中心联合创始人，北欧硬件女性社区发起人、丹麦设计委员会成员、丹麦工程师协会女性健康科技专家。',
     },
-    image: '/img/speakers/vanessa-carpenter.png',
+    image: '/img/speakers/vanessa-carpenter.jpg',
   },
   {
     id: 'judy-lux',

@@ -50,7 +50,7 @@ One-click **FREE** deployment of your FemTech innovation platform.
 
 <div align="center">
   <img src="./static/img/reports/FemTech-Map-in-Greater-China-report-cover.svg" alt="Research Reports" width="400"/>
-  <img src="./static/img/reports/femmehealth-alliance-partnership.png" alt="Ecosystem Directory" width="400"/>
+  <img src="./static/img/reports/femmehealth-alliance-partnership.jpg" alt="Ecosystem Directory" width="400"/>
   <p><em>Research Reports Hub and Strategic Partnerships</em></p>
 </div>
 

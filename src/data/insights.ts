@@ -50,7 +50,7 @@ export const staticInsightsData: InsightItem[] = [
     date: 'June 12',
     readTime: getInsightReadTime('5'),
     author: 'Zhu Yihan',
-    image: '/img/reports/femmehealth-alliance-partnership.png',
+    image: '/img/reports/femmehealth-alliance-partnership.jpg',
     link: '/blog/femmehealth-ventures-alliance-partnership',
     tags: [
       translateTag(INSIGHT_TAGS.PARTNERSHIP),

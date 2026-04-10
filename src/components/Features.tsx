@@ -54,19 +54,19 @@ export function Features() {
     {
       title: feature1Title,
       description: feature1Description,
-      image: "/img/bg/webimage1.png",
+      image: "/img/bg/webimage1.jpg",
       imageAlt: "Cross-border bridge connecting China and global markets",
     },
     {
       title: feature2Title,
       description: feature2Description,
-      image: "/img/bg/webimage2.png",
+      image: "/img/bg/webimage2.jpg",
       imageAlt: "China go-to-market strategy and data analytics",
     },
     {
       title: feature3Title,
       description: feature3Description,
-      image: "/img/bg/webimage3.png",
+      image: "/img/bg/webimage3.jpg",
       imageAlt: "Capital and deals financial technology",
     },
   ];

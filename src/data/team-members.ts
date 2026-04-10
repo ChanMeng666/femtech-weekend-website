@@ -71,7 +71,7 @@ export const teamMembers: TeamMemberData[] = [
       en: "Senior AI/ML Infrastructure Engineer with expertise in architecting robust technical foundations that power AI-driven health insights. Passionate about increasing representation in STEM fields and creating inclusive AI systems for diverse populations in women's health.",
       zh: "资深AI/ML基础架构工程师，擅长构建强大的技术基础，为AI驱动的健康见解提供支持。热衷于增加STEM领域的女性代表性，并为女性健康领域的多元化人群创建包容性AI系统。",
     },
-    image: "/img/team/chan-meng-1.png",
+    image: "/img/team/chan-meng-1.jpg",
   },
 ];
 

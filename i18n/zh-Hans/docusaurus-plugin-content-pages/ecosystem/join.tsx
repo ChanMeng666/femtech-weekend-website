@@ -15,7 +15,7 @@ export default function JoinEcosystemPage() {
       <div 
         className="min-h-screen w-full"
         style={{ 
-          backgroundImage: 'url(/img/bg/abstract-flowing-lines-and-elegant-curves-represen1-0.png)', 
+          backgroundImage: 'url(/img/bg/abstract-flowing-lines-and-elegant-curves-represen1-0.jpg)', 
           backgroundSize: '100% auto',
           backgroundRepeat: 'repeat-y',
           backgroundAttachment: 'scroll',
