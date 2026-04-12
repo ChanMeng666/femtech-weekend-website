@@ -40,9 +40,9 @@ function escapeHtml(str) {
 }
 
 /**
- * Generate Shanghai Summit rejection email
+ * Generate Pitch rejection email
  */
-function getRejectionEmail(data) {
+function getPitchRejectionEmail(data) {
   const safeFirstName = escapeHtml(data.firstName);
   const safeCompanyName = escapeHtml(data.companyName);
 
@@ -143,13 +143,13 @@ https://www.femtechweekend.com
 }
 
 /**
- * Generate Shanghai Summit approval email
+ * Generate Pitch approval email
  */
-function getApprovalEmail(data) {
+function getPitchApprovalEmail(data) {
   const safeFirstName = escapeHtml(data.firstName);
   const safeCompanyName = escapeHtml(data.companyName);
 
-  const subject = `You're Invited — Women's Health Capital Spotlight, Shanghai 2026`;
+  const subject = `You're Invited — Pitch Day | FemTech Across Borders China Programme 2026`;
 
   const html = `
 <!DOCTYPE html>
@@ -179,44 +179,54 @@ function getApprovalEmail(data) {
                 Thank you for your application and for the time ${safeCompanyName} has invested in engaging with us.
               </p>
               <p style="color: ${brandStyles.textColor}; font-size: 16px; line-height: 1.6; margin: 0 0 20px;">
-                Following our review, we are pleased to invite ${safeCompanyName} to join the pitch programme within the <strong>Global Women's Health Innovation China Programme 2026</strong> in Shanghai.
+                Following our review, we are pleased to invite ${safeCompanyName} to join Pitch Day as part of the <strong>FemTech Across Borders China Programme 2026</strong> in Shanghai.
               </p>
 
               <div style="background-color: ${brandStyles.backgroundColor}; border-radius: 8px; padding: 20px; margin: 25px 0;">
-                <h3 style="color: ${brandStyles.primaryColor}; margin: 0 0 15px; font-size: 17px;">The pitch package includes:</h3>
+                <h3 style="color: ${brandStyles.primaryColor}; margin: 0 0 15px; font-size: 17px;">The Pitch Package is &pound;199 and includes:</h3>
                 <ul style="color: ${brandStyles.textColor}; font-size: 15px; line-height: 1.8; margin: 0; padding-left: 20px;">
                   <li><strong>Day 1:</strong> Access to the flagship conference</li>
-                  <li><strong>Day 2:</strong> Participation in the closed-door pitch session and curated closed-door 1:1 meetings with investors</li>
+                  <li><strong>Day 2:</strong> Participation in the closed-door pitch session, plus curated closed-door 1:1 meetings with investors</li>
                 </ul>
               </div>
 
               <p style="color: ${brandStyles.textColor}; font-size: 16px; line-height: 1.6; margin: 0 0 20px;">
-                Confirmed investor participation currently includes <strong>Bayer</strong>, <strong>Foreground Capital</strong>, and <strong>Fosun Health Capital</strong>, with more to be announced.
+                Confirmed investor participation currently includes <strong>Bayer</strong>, <strong>Foreground Capital</strong>, <strong>Fosun Health Capital</strong>, <strong>Haoyue Capital</strong>, and <strong>Gobi Partners</strong>, with more to be announced.
               </p>
               <p style="color: ${brandStyles.textColor}; font-size: 16px; line-height: 1.6; margin: 0 0 20px;">
-                This is a paid in-person opportunity and would require travel to Shanghai.
+                Please note that this is a paid, in-person opportunity and requires travel to Shanghai. Flights and accommodation are not included and would need to be arranged separately by participants.
               </p>
 
               <div style="background-color: #f0fdf4; border-left: 4px solid ${brandStyles.successColor}; padding: 15px 20px; margin: 25px 0; border-radius: 0 8px 8px 0;">
-                <p style="color: ${brandStyles.textColor}; font-size: 16px; line-height: 1.6; margin: 0;">
-                  <strong>The participation fee for this package is £199.</strong><br>
-                  This covers both Day 1 conference access &amp; Day 2 pitch participation, and the curated investor 1:1 meetings.<br>
-                  Flights and accommodation are not included and would need to be arranged separately by participants.
+                <p style="color: ${brandStyles.textColor}; font-size: 16px; line-height: 1.6; margin: 0 0 10px;">
+                  <strong>To confirm your place, please:</strong>
+                </p>
+                <ol style="color: ${brandStyles.textColor}; font-size: 15px; line-height: 1.8; margin: 0; padding-left: 20px;">
+                  <li>Complete payment for the Pitch Package here</li>
+                  <li>Register for Day 1 using the code <strong>[PITCHFTW26]</strong> for complimentary conference access</li>
+                </ol>
+                <p style="color: ${brandStyles.mutedColor}; font-size: 14px; line-height: 1.6; margin: 10px 0 0;">
+                  Please note that participation is limited to 15 startups, and places will be confirmed on a first-confirmed basis.
                 </p>
               </div>
 
-              <p style="color: ${brandStyles.textColor}; font-size: 16px; line-height: 1.6; margin: 0 0 20px;">
-                For companies that may wish to make a broader visit to China, there is also the option to explore the wider four-day programme. This is a more selective and curated experience designed to help participants access relevant decision-makers and ecosystem stakeholders, including organisations such as GE HealthCare, BD Medical, Raffles Hospital, as well as selected public hospitals in China and other strategic counterparts.
-              </p>
-              <p style="color: ${brandStyles.textColor}; font-size: 16px; line-height: 1.6; margin: 0 0 20px;">
-                This wider format is intended for companies that want to make their time in China more meaningful through deeper access, more informed dialogue, and stakeholder engagement that is often difficult to coordinate independently.
-              </p>
-              <p style="color: ${brandStyles.textColor}; font-size: 16px; line-height: 1.6; margin: 0 0 20px;">
-                Should this broader programme be of interest, we would be glad to arrange a short call to discuss whether it would be the right fit for your objectives and worth the additional time and cost.
-              </p>
-              <p style="color: ${brandStyles.textColor}; font-size: 16px; line-height: 1.6; margin: 0 0 20px;">
-                If you would like to move forward with the pitch package, we would be happy to share the next steps.
-              </p>
+              <div style="background-color: ${brandStyles.backgroundColor}; border-radius: 8px; padding: 20px; margin: 25px 0;">
+                <h3 style="color: ${brandStyles.primaryColor}; margin: 0 0 15px; font-size: 17px;">Interested in Making More of Your Trip to Shanghai?</h3>
+                <p style="color: ${brandStyles.textColor}; font-size: 15px; line-height: 1.6; margin: 0 0 15px;">
+                  You may also wish to explore the wider four-day programme. This includes:
+                </p>
+                <ul style="color: ${brandStyles.textColor}; font-size: 15px; line-height: 1.8; margin: 0 0 15px; padding-left: 20px;">
+                  <li>Everything in the Pitch Package</li>
+                  <li>Plus <strong>Day 3</strong> and <strong>Day 4</strong> curated access designed to help selected startups engage more meaningfully with China. This goes beyond visibility alone and offers direct access to decision-makers from organisations such as <strong>Bayer</strong>, <strong>GE HealthCare</strong>, <strong>BD Medical</strong>, and <strong>Raffles Hospital</strong>, with more to be announced.</li>
+                </ul>
+                <p style="color: ${brandStyles.textColor}; font-size: 15px; line-height: 1.6; margin: 0 0 15px;">
+                  Its purpose is to help you understand where your innovation could fit within the Chinese clinical and corporate landscape, while building relationships that may also prove valuable back in your home market and at global headquarters.
+                </p>
+                <p style="color: ${brandStyles.textColor}; font-size: 15px; line-height: 1.6; margin: 0;">
+                  If the wider four-day programme is of interest, we would be glad to arrange a short call to discuss whether it would be the right fit for your objectives and worth the additional time and cost.
+                </p>
+              </div>
+
               <p style="color: ${brandStyles.textColor}; font-size: 16px; line-height: 1.6; margin: 30px 0 5px;">
                 Warm regards,
               </p>
@@ -243,27 +253,241 @@ function getApprovalEmail(data) {
 
 Thank you for your application and for the time ${data.companyName} has invested in engaging with us.
 
-Following our review, we are pleased to invite ${data.companyName} to join the pitch programme within the Global Women's Health Innovation China Programme 2026 in Shanghai.
+Following our review, we are pleased to invite ${data.companyName} to join Pitch Day as part of the FemTech Across Borders China Programme 2026 in Shanghai.
 
-The pitch package includes:
+The Pitch Package is £199 and includes:
 - Day 1: Access to the flagship conference
-- Day 2: Participation in the closed-door pitch session and curated closed-door 1:1 meetings with investors
+- Day 2: Participation in the closed-door pitch session, plus curated closed-door 1:1 meetings with investors
 
-Confirmed investor participation currently includes Bayer, Foreground Capital, and Fosun Health Capital, with more to be announced.
+Confirmed investor participation currently includes Bayer, Foreground Capital, Fosun Health Capital, Haoyue Capital, and Gobi Partners, with more to be announced.
 
-This is a paid in-person opportunity and would require travel to Shanghai.
+Please note that this is a paid, in-person opportunity and requires travel to Shanghai. Flights and accommodation are not included and would need to be arranged separately by participants.
 
-The participation fee for this package is £199.
-This covers both Day 1 conference access & Day 2 pitch participation, and the curated investor 1:1 meetings.
-Flights and accommodation are not included and would need to be arranged separately by participants.
+To confirm your place, please:
+1. Complete payment for the Pitch Package here
+2. Register for Day 1 using the code [PITCHFTW26] for complimentary conference access
 
-For companies that may wish to make a broader visit to China, there is also the option to explore the wider four-day programme. This is a more selective and curated experience designed to help participants access relevant decision-makers and ecosystem stakeholders, including organisations such as GE HealthCare, BD Medical, Raffles Hospital, as well as selected public hospitals in China and other strategic counterparts.
+Please note that participation is limited to 15 startups, and places will be confirmed on a first-confirmed basis.
 
-This wider format is intended for companies that want to make their time in China more meaningful through deeper access, more informed dialogue, and stakeholder engagement that is often difficult to coordinate independently.
+Interested in Making More of Your Trip to Shanghai?
 
-Should this broader programme be of interest, we would be glad to arrange a short call to discuss whether it would be the right fit for your objectives and worth the additional time and cost.
+You may also wish to explore the wider four-day programme. This includes:
+- Everything in the Pitch Package
+- Plus Day 3 and Day 4 curated access designed to help selected startups engage more meaningfully with China. This goes beyond visibility alone and offers direct access to decision-makers from organisations such as Bayer, GE HealthCare, BD Medical, and Raffles Hospital, with more to be announced.
 
-If you would like to move forward with the pitch package, we would be happy to share the next steps.
+Its purpose is to help you understand where your innovation could fit within the Chinese clinical and corporate landscape, while building relationships that may also prove valuable back in your home market and at global headquarters.
+
+If the wider four-day programme is of interest, we would be glad to arrange a short call to discuss whether it would be the right fit for your objectives and worth the additional time and cost.
+
+Warm regards,
+FemTech Weekend
+
+---
+FemTech Weekend - China's First Women's Health Technology Innovation Organization
+https://www.femtechweekend.com
+  `.trim();
+
+  return { subject, html, text };
+}
+
+/**
+ * Generate Programme rejection email
+ */
+function getProgrammeRejectionEmail(data) {
+  const safeFirstName = escapeHtml(data.firstName);
+  const safeCompanyName = escapeHtml(data.companyName);
+
+  const subject = `Update on Your Application | FemTech Across Borders China Programme 2026`;
+
+  const html = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application Update</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: ${brandStyles.backgroundColor};">
+  <table role="presentation" style="width: 100%; border-collapse: collapse;">
+    <tr>
+      <td style="padding: 40px 20px;">
+        <table role="presentation" style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+          <tr>
+            <td style="background: linear-gradient(135deg, ${brandStyles.primaryColor} 0%, ${brandStyles.primaryDark} 100%); padding: 40px 30px; text-align: center;">
+              <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 600;">FemTech Weekend</h1>
+              <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0; font-size: 16px;">FemTech Across Borders China Programme 2026</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 40px 30px;">
+              <p style="color: ${brandStyles.textColor}; font-size: 16px; line-height: 1.6; margin: 0 0 20px;">
+                Hi ${safeFirstName},
+              </p>
+              <p style="color: ${brandStyles.textColor}; font-size: 16px; line-height: 1.6; margin: 0 0 20px;">
+                Thank you for your application to the FemTech Across Borders China Programme 2026 and for the time ${safeCompanyName} took to engage with us.
+              </p>
+              <p style="color: ${brandStyles.textColor}; font-size: 16px; line-height: 1.6; margin: 0 0 20px;">
+                Following our review process, we regret to share that ${safeCompanyName} has not been selected for the next stage of the programme.
+              </p>
+              <p style="color: ${brandStyles.textColor}; font-size: 16px; line-height: 1.6; margin: 0 0 20px;">
+                With only a limited number of places available, we were unfortunately unable to move forward with all of the companies we appreciated hearing from.
+              </p>
+              <p style="color: ${brandStyles.textColor}; font-size: 16px; line-height: 1.6; margin: 0 0 20px;">
+                Thank you again for your interest, and we wish you and ${safeCompanyName} all the best in your continued growth.
+              </p>
+              <p style="color: ${brandStyles.textColor}; font-size: 16px; line-height: 1.6; margin: 30px 0 5px;">
+                Warm regards,
+              </p>
+              <p style="color: ${brandStyles.primaryColor}; font-size: 16px; font-weight: 600; margin: 0;">
+                FemTech Weekend
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td style="background-color: ${brandStyles.backgroundColor}; padding: 30px; text-align: center; border-top: 1px solid #e5e7eb;">
+              <p style="color: ${brandStyles.mutedColor}; font-size: 12px; margin: 0 0 10px;">FemTech Weekend - China's First Women's Health Technology Innovation Organization</p>
+              <p style="color: ${brandStyles.mutedColor}; font-size: 12px; margin: 0;"><a href="https://www.femtechweekend.com" style="color: ${brandStyles.primaryColor}; text-decoration: none;">femtechweekend.com</a></p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+  `.trim();
+
+  const text = `Hi ${data.firstName},
+
+Thank you for your application to the FemTech Across Borders China Programme 2026 and for the time ${data.companyName} took to engage with us.
+
+Following our review process, we regret to share that ${data.companyName} has not been selected for the next stage of the programme.
+
+With only a limited number of places available, we were unfortunately unable to move forward with all of the companies we appreciated hearing from.
+
+Thank you again for your interest, and we wish you and ${data.companyName} all the best in your continued growth.
+
+Warm regards,
+FemTech Weekend
+
+---
+FemTech Weekend - China's First Women's Health Technology Innovation Organization
+https://www.femtechweekend.com
+  `.trim();
+
+  return { subject, html, text };
+}
+
+/**
+ * Generate Programme approval (shortlisted for interview) email
+ */
+function getProgrammeApprovalEmail(data) {
+  const safeFirstName = escapeHtml(data.firstName);
+  const safeCompanyName = escapeHtml(data.companyName);
+
+  const subject = `Shortlisted for Interview | FemTech Across Borders China Programme 2026`;
+
+  const html = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shortlisted for Interview</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: ${brandStyles.backgroundColor};">
+  <table role="presentation" style="width: 100%; border-collapse: collapse;">
+    <tr>
+      <td style="padding: 40px 20px;">
+        <table role="presentation" style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+          <tr>
+            <td style="background: linear-gradient(135deg, ${brandStyles.successColor} 0%, #059669 100%); padding: 40px 30px; text-align: center;">
+              <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 600;">FemTech Weekend</h1>
+              <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0; font-size: 16px;">FemTech Across Borders China Programme 2026</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 40px 30px;">
+              <p style="color: ${brandStyles.textColor}; font-size: 16px; line-height: 1.6; margin: 0 0 20px;">
+                Hi ${safeFirstName},
+              </p>
+              <p style="color: ${brandStyles.textColor}; font-size: 16px; line-height: 1.6; margin: 0 0 20px;">
+                Thank you for your application and for the time ${safeCompanyName} has taken to engage with us.
+              </p>
+              <p style="color: ${brandStyles.textColor}; font-size: 16px; line-height: 1.6; margin: 0 0 20px;">
+                Following our review, we are pleased to share that ${safeCompanyName} has been shortlisted for interview for the <strong>FemTech Across Borders China Programme 2026</strong> in Shanghai.
+              </p>
+              <p style="color: ${brandStyles.textColor}; font-size: 16px; line-height: 1.6; margin: 0 0 20px;">
+                The interview is a short next-step conversation designed to help us better understand your objectives in China and assess whether the wider four-day programme would be a strong fit for your team, time, and investment.
+              </p>
+              <p style="color: ${brandStyles.textColor}; font-size: 16px; line-height: 1.6; margin: 0 0 20px;">
+                Please note that this is a selective programme with only <strong>10 places</strong> available.
+              </p>
+
+              <div style="background-color: ${brandStyles.backgroundColor}; border-radius: 8px; padding: 20px; margin: 25px 0;">
+                <h3 style="color: ${brandStyles.primaryColor}; margin: 0 0 15px; font-size: 17px;">The programme includes:</h3>
+                <ul style="color: ${brandStyles.textColor}; font-size: 15px; line-height: 1.8; margin: 0; padding-left: 20px;">
+                  <li><strong>Day 1:</strong> Flagship conference access</li>
+                  <li><strong>Day 2:</strong> Pitch Day and curated investor 1:1 meetings</li>
+                  <li><strong>Day 3 and Day 4:</strong> Curated access to help selected startups engage more meaningfully with China</li>
+                </ul>
+              </div>
+
+              <p style="color: ${brandStyles.textColor}; font-size: 16px; line-height: 1.6; margin: 0 0 20px;">
+                We are shaping this cohort carefully, with a focus on companies that would benefit from deeper access to relevant stakeholders across the Chinese women's health, healthcare, and innovation ecosystem.
+              </p>
+
+              <div style="background-color: #f0fdf4; border-left: 4px solid ${brandStyles.successColor}; padding: 15px 20px; margin: 25px 0; border-radius: 0 8px 8px 0;">
+                <p style="color: ${brandStyles.textColor}; font-size: 16px; line-height: 1.6; margin: 0 0 10px;">
+                  <strong>To proceed, please book a time for your interview here.</strong>
+                </p>
+                <p style="color: ${brandStyles.mutedColor}; font-size: 14px; line-height: 1.6; margin: 0;">
+                  As places are limited, we encourage you to schedule promptly should you wish to be considered.
+                </p>
+              </div>
+
+              <p style="color: ${brandStyles.textColor}; font-size: 16px; line-height: 1.6; margin: 30px 0 5px;">
+                Warm regards,
+              </p>
+              <p style="color: ${brandStyles.primaryColor}; font-size: 16px; font-weight: 600; margin: 0;">
+                FemTech Weekend
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td style="background-color: ${brandStyles.backgroundColor}; padding: 30px; text-align: center; border-top: 1px solid #e5e7eb;">
+              <p style="color: ${brandStyles.mutedColor}; font-size: 12px; margin: 0 0 10px;">FemTech Weekend - China's First Women's Health Technology Innovation Organization</p>
+              <p style="color: ${brandStyles.mutedColor}; font-size: 12px; margin: 0;"><a href="https://www.femtechweekend.com" style="color: ${brandStyles.primaryColor}; text-decoration: none;">femtechweekend.com</a></p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+  `.trim();
+
+  const text = `Hi ${data.firstName},
+
+Thank you for your application and for the time ${data.companyName} has taken to engage with us.
+
+Following our review, we are pleased to share that ${data.companyName} has been shortlisted for interview for the FemTech Across Borders China Programme 2026 in Shanghai.
+
+The interview is a short next-step conversation designed to help us better understand your objectives in China and assess whether the wider four-day programme would be a strong fit for your team, time, and investment.
+
+Please note that this is a selective programme with only 10 places available.
+
+The programme includes:
+- Day 1: Flagship conference access
+- Day 2: Pitch Day and curated investor 1:1 meetings
+- Day 3 and Day 4: Curated access to help selected startups engage more meaningfully with China
+
+We are shaping this cohort carefully, with a focus on companies that would benefit from deeper access to relevant stakeholders across the Chinese women's health, healthcare, and innovation ecosystem.
+
+To proceed, please book a time for your interview here.
+
+As places are limited, we encourage you to schedule promptly should you wish to be considered.
 
 Warm regards,
 FemTech Weekend
@@ -424,9 +648,16 @@ export async function onRequest(context) {
         companyName: applicant.company_name || 'Your company',
       };
 
-      const emailContent = action === 'approved'
-        ? getApprovalEmail(emailData)
-        : getRejectionEmail(emailData);
+      let emailContent;
+      if (type === 'pitch') {
+        emailContent = action === 'approved'
+          ? getPitchApprovalEmail(emailData)
+          : getPitchRejectionEmail(emailData);
+      } else {
+        emailContent = action === 'approved'
+          ? getProgrammeApprovalEmail(emailData)
+          : getProgrammeRejectionEmail(emailData);
+      }
 
       const fromEmail = action === 'approved'
         ? 'team@femtechweekend.com'

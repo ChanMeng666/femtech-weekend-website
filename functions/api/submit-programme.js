@@ -353,6 +353,8 @@ export async function onRequest(context) {
         const adminEmails = [
           'chanftw2025@gmail.com',
           'zhu@femtechweekend.com',
+          'leaf@femtechweekend.com',
+          '1554782063@qq.com',
           ...(env.ADMIN_EMAILS ? env.ADMIN_EMAILS.split(',').map(e => e.trim()).filter(Boolean) : []),
         ];
 
