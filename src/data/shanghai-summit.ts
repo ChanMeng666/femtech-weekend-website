@@ -230,6 +230,20 @@ export const speakers: SpeakerData[] = [
     image: '/img/speakers/abraham-morse.jpg',
   },
   {
+    id: 'rachel-bartholomew',
+    name: 'Rachel Bartholomew',
+    title: {
+      en: 'Founder & CEO, Hyivy Health | Founder, Femtech Canada & Femtech Across Borders',
+      zh: '创始人兼CEO，Hyivy Health |创始人，Femtech Canada 及 Femtech Across Borders',
+    },
+    organization: 'Hyivy Health',
+    bio: {
+      en: 'Serial entrepreneur and founder of Hyivy Health, a pelvic rehabilitation device company created after her personal fight with cervical cancer, addressing the 1 in 3 women worldwide who experience a pelvic health complication. Founder of Femtech Canada and Femtech Across Borders, and Professor of Biotech Innovation at Toronto Metropolitan University, with over 15 years across the entrepreneurship ecosystem. University of Waterloo graduate.',
+      zh: '连续创业者，Hyivy Health创始人兼CEO——这家盆底康复设备公司源于她本人的宫颈癌抗癌经历，致力于服务全球每3位女性中就有1位面临的盆腔健康问题。同时也是Femtech Canada与Femtech Across Borders的创始人，多伦多都市大学生物技术创新方向教授，在创业生态系统深耕逾15年。滑铁卢大学毕业。',
+    },
+    image: '/img/speakers/rachel-bartholomew.jpg',
+  },
+  {
     id: 'stella-fu',
     name: 'Stella Fu',
     title: {
