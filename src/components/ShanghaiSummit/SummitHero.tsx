@@ -4,7 +4,7 @@ import { AnimatedLine } from '../ui/AnimatedLine';
 import { ArrowDown } from 'lucide-react';
 
 const t = {
-  label: { en: 'SHANGHAI SUMMIT 2025', zh: '2025上海峰会' },
+  label: { en: 'SHANGHAI SUMMIT 2026', zh: '2026上海峰会' },
   headline: {
     en: "Cross-Border Capital & Partnerships in Women's Health",
     zh: '女性健康领域的跨境资本与合作',
@@ -14,8 +14,8 @@ const t = {
     zh: '汇聚女性健康、创新、投资和产业领域的领袖，共同探索行业未来方向——以及中国在其中的重要角色。',
   },
   dateLocation: {
-    en: '22 - 25 June 2025 · Shanghai, China',
-    zh: '2025年6月22-25日 · 中国上海',
+    en: '22 - 25 June 2026 · Shanghai, China',
+    zh: '2026年6月22-25日 · 中国上海',
   },
   ctaProgramme: { en: 'VIEW PROGRAMME', zh: '查看日程' },
 };
